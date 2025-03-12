@@ -27,21 +27,31 @@ public class Master extends ApplicationAdapter {
     Bar2 bar2;
     BitmapFont font;
     BitmapFont fonts;
+    SkillBar skillBar;
+    float myhp = 100;
+    float yourhp=100;
+    Skill skill;
+    Hpbar hpbar;
 
 
     @Override
     public void create() {
+
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 840, 680);
         batch = new SpriteBatch();
         stage = new Stage();
         texturepo = new Texture("veback.png");
         textr = new Texture("beedrill.png");
+
         mypoke = new Mypoke(texturepo,stage,-7,-4);
         enepoke = new Enepoke(textr,stage,390,280);
         background = new Background(0,0,stage);
+        skillBar = new SkillBar(330,0,stage);
+        hpbar = new Hpbar(350,140,stage);
         bar2 = new Bar2(30,320,stage);
         bar1 = new Bar1(330,140,stage);
+        skill = new Skill(stage,340,60,skillBar.getWidth()/2);
         font = new BitmapFont();
         fonts = new BitmapFont();
 
@@ -61,10 +71,12 @@ public class Master extends ApplicationAdapter {
 
 
         stage.addActor(background);
+        stage.addActor(skillBar);
         stage.addActor(mypoke);
         stage.addActor(enepoke);
         stage.addActor(bar2);
         stage.addActor(bar1);
+
     }
 
     @Override
@@ -75,7 +87,6 @@ public class Master extends ApplicationAdapter {
         batch.begin();
         fonts.draw(batch,"VENUSAUR LV:MAX", bar1.getX() + 40, bar1.getY()+ 45);
         font.draw(batch,"BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY()+ 45);
-        batch.draw("skill.png",bar1.getX() + 10,bar1.getY()-40);
         batch.end();
 
 
