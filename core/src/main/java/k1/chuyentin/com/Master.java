@@ -2,9 +2,7 @@ package k1.chuyentin.com;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -15,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -73,23 +72,28 @@ public class Master extends ApplicationAdapter {
         font = fontGenerators.generateFont(fontParameters);
         fontGenerators.dispose();
 
-        TextButton startButton = new TextButton("posion",Color.PURPLE);
-        startButton.setSize(150,100);
-        startButton.setPosition(bar1.getX(),bar1.getY());
-        startButton.addListener(new ClickListener(){
+        TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
+        style.font = font;
+        style.fontColor = Color.PURPLE;
+
+        TextButton skillbutton = new TextButton("POSION",style);
+        skillbutton.setSize(150,100);
+        skillbutton.setPosition(skill.getX(),skill.getY() - skillBar.getHeight()/3+10);
+        skillbutton.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
                 myhp -=20;
             }
         });
 
-
+        stage.addActor(skillbutton);
         stage.addActor(background);
         stage.addActor(skillBar);
         stage.addActor(mypoke);
         stage.addActor(enepoke);
         stage.addActor(bar2);
         stage.addActor(bar1);
+
 
     }
 
