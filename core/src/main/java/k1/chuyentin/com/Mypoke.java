@@ -4,21 +4,20 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Mypoke extends Actor {
     Animation<TextureRegion> animation;
     float time;
-    public Mypoke(Texture texture, Stage apps,float x,float y) {
+    public Mypoke(Texture texture, Stage apps,float x,float y,int cot,int hang,int n) {
         setPosition(x, y);
         setOrigin(getWidth()/2,getHeight()/2);
-        int cot = 5;
-        int hang = 34;
         setSize(texture.getWidth()/cot*3, texture.getHeight()/hang*3);
         float speed = 5;
         TextureRegion[][] tam = TextureRegion.split(texture, texture.getWidth()/cot, texture.getHeight()/hang);// đưa tất cả vào danh một danh sách ảnh, vì 6 cột 1 hàng nên sẽ có 6 phần tử: 6 x 1
-        TextureRegion[] frames = new TextureRegion[cot*hang-3];
+        TextureRegion[] frames = new TextureRegion[cot*hang-n];
         int index = 0;
         for (int i = 0; i < hang; i++) {
             for (int j = 0; j < cot; j++) {
