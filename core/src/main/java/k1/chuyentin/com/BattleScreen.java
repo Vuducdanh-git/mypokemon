@@ -134,8 +134,6 @@ public class BattleScreen implements Screen {
             stage.addActor(textField);
 
             Gdx.input.setInputProcessor(stage);
-
-
         }
     @Override
     public void render ( float v){
