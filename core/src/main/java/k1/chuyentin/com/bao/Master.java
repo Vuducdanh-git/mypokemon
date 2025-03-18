@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -142,6 +143,7 @@ public class Master implements Screen {
     static Item22 click22;
     static Item23 click23;
     static Item24 click24;
+    int random = MathUtils.random(1, 3);
 
 
     BitmapFont font;
@@ -184,7 +186,7 @@ public class Master implements Screen {
         kinang = new Skill1(0,0,stage);
 
 
-        pet = new Pet(new Texture("fushigidane.png"), 0, 0, stage);
+        pet = new Pet(new Texture("egg.png"), 0, 0, stage);
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         egg = new Egg(0, 0, stage);
@@ -192,7 +194,12 @@ public class Master implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new BattleScreen(game));
+                if (solanclick >= 200){
+                    game.setScreen(new BattleScreen(game));
+                }
+                else{
+                    System.out.println("chưa đủ click để tiến hóa");
+                }
             }
         });
 
@@ -210,17 +217,45 @@ public class Master implements Screen {
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         time++;
-        if (solanclick == 200){
+        if (solanclick == 50){
             pet.remove();
-            pet = new Pet(new Texture("fushigibana.png"), 0, 0, stage);
+
+            if (random == 1){
+                pet = new Pet(new Texture("fushigidane.png"), 0, 0, stage);
+            }
+            if (random == 2){
+                pet = new Pet(new Texture("rua.png"), 0, 0, stage);
+            }
+            if (random == 3){
+                pet = new Pet(new Texture("rong.png"), 0, 0, stage);
+            }
+            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+
+        }
+        if (solanclick == 250){
+            pet.remove();
+            if (random == 2){
+                pet = new Pet(new Texture("rualon.png"), 0, 0, stage);
+            }
+            if (random == 3){
+                pet = new Pet(new Texture("ronglon.png"), 0, 0, stage);
+            }if(random == 1) {
+                pet = new Pet(new Texture("fushigibana.png"), 0, 0, stage);
+            }
             pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         }
         if (solanclick == 100){
             pet.remove();
-            pet = new Pet(new Texture("fushigisou.png"), 0, 0, stage);
+            if (random == 2){
+                pet = new Pet(new Texture("ruacon.png"), 0, 0, stage);
+            }
+            if (random == 3){
+                pet = new Pet(new Texture("rongcon.png"), 0, 0, stage);
+            }if(random == 1){
+                pet = new Pet(new Texture("fushigisou.png"), 0, 0, stage);
+            }
             pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-
         }
 
         if (time % 60 == 0) {
