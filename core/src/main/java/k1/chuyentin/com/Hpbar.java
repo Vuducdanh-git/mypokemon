@@ -15,17 +15,6 @@ public class Hpbar extends Actor {
         setSize(270, 25);
         stage.addActor(this);
     }
-
-    @Override
-    public void act(float delta) {
-        super.act(delta);
-        if(Master.myhp > 50){
-            setColor(Color.BLUE);
-        }else {
-            setColor(Color.RED);
-        }
-    }
-
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);

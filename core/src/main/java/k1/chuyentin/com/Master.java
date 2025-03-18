@@ -1,6 +1,5 @@
 package k1.chuyentin.com;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -11,11 +10,9 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
@@ -36,11 +33,10 @@ public class Master implements Screen {
     BitmapFont fonts;
     SkillBar skillBar;
     public static float myhp = 100;
-    float yourhp=100;
+    public static float yourhp=100;
     Skill skill;
-    Hpbar hpbar;
-    Master master;
-    Board board;
+    Hpbar hpbarm;
+    Hpbar hpbare;
     TextField textField;
     boolean isTextFieldActive = false;
     StartGame game;
@@ -102,7 +98,8 @@ public class Master implements Screen {
             enepoke = new Enepoke(textr, stage, 390, 280);
             background = new Background(0, 0, stage);
             skillBar = new SkillBar(330, 0, stage);
-            hpbar = new Hpbar(350, 140, stage);
+            hpbarm = new Hpbar(350, 140, stage);
+            hpbare = new Hpbar(30, 320, stage);
             bar2 = new Bar2(30, 320, stage);
             bar1 = new Bar1(330, 140, stage);
             skill = new Skill(stage, 340, 60, skillBar.getWidth() / 2);
@@ -141,11 +138,27 @@ public class Master implements Screen {
         }
     @Override
     public void render ( float v){
+        if(myhp > 50){
+            hpbarm.setColor(Color.GOLD);}
+        if ((Master.myhp <= 50) && (Master.myhp >24)) {
+            hpbarm.setColor(Color.PURPLE);
+        }if (Master.myhp < 25){
+            hpbarm.setColor(Color.RED);
+        }
+
+        if(Master.yourhp > 50) {
+            hpbare.setColor(Color.GOLDENROD);
+        }if ((Master.yourhp <= 50) && (Master.yourhp >24)) {
+            hpbare.setColor(Color.PURPLE);
+        }if (Master.yourhp < 25){
+            hpbare.setColor(Color.RED);
+        }
         if (truhp >0){
             truhp -= 1;
             skill.health(1);
         }
-        hpbar.setSize(270f / 100f * myhp, 25);
+        hpbarm.setSize(270f / 100f * myhp, 25);
+        hpbare.setSize(270f/100f *yourhp,25);
 
         System.out.println(myhp);
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
