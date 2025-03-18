@@ -153,6 +153,12 @@ public class BattleScreen implements Screen {
         }if (BattleScreen.yourhp < 25){
             hpbare.setColor(Color.RED);
         }
+        if (myhp < 0){
+            myhp = 100;
+        }
+        if (yourhp < 0){
+            yourhp = 100;
+        }
         if (truhp >0){
             truhp -= 1;
             skill.health(1);

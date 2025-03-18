@@ -24,6 +24,9 @@ public class Master implements Screen {
     k1.chuyentin.com.StartGame game;
     private SpriteBatch batch;
     Stage stage;
+
+    static String skillHello;
+
     static boolean autoplus1 = false;
     static boolean autoplus2 = false;
     static boolean autoplus3 = false;
@@ -85,6 +88,7 @@ public class Master implements Screen {
     Pet pet;
     Egg egg;
 
+    Skill1 kinang;
     Item item;
     Item2 item2;
     Item3 item3;
@@ -114,6 +118,7 @@ public class Master implements Screen {
     BackGround bg;
     static Shop shop;
 
+    static Skill1 skill1;
     static Item click;
     static Item2 click2;
     static Item3 click3;
@@ -178,6 +183,7 @@ public class Master implements Screen {
         item22 = new Item22(0, 0, stage, 22);
         item23 = new Item23(0, 0, stage, 23);
         item24 = new Item24(0, 0, stage, 24);
+        kinang = new Skill1(0,0,stage);
 
 
         pet = new Pet(new Texture("egg.png"), 0, 0, stage);
@@ -343,6 +349,7 @@ public class Master implements Screen {
         batch.begin();
         font.draw(batch, "coin: " + money, 0, Gdx.graphics.getHeight() - 32);
         font.draw(batch, "clicknumber: " + solanclick, 0, Gdx.graphics.getHeight() );
+        font.draw(batch, "buy skill " , 400, Gdx.graphics.getHeight()/2 );
         batch.end();
     }
 
