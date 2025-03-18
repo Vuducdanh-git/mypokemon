@@ -11,7 +11,7 @@ public class Egg extends MyActor{
     Egg(float x, float y, Stage s) {
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("more button.png"));
-        setSize(32, 32);
+        setSize(250, 250/5);
 
 //        addListener(new ClickListener(){
 //
@@ -55,8 +55,10 @@ public class Egg extends MyActor{
             Master.click22 = new Item22(450, 250, getStage(),22);
             Master.click23 = new Item23(500, 250, getStage(),23);
             Master.click24 = new Item24(550, 250, getStage(),24);
+            Master.skill1 = new Skill1(400, 150, getStage());
 
             getStage().addActor(Master.shop);
+            getStage().addActor(Master.skill1);
             getStage().addActor(Master.click24);
             getStage().addActor(Master.click23);
             getStage().addActor(Master.click22);
@@ -109,6 +111,7 @@ public class Egg extends MyActor{
         Master.click22.remove();
         Master.click23.remove();
         Master.click24.remove();
+        Master.skill1.remove();
 
         isShopShow = false;
     }

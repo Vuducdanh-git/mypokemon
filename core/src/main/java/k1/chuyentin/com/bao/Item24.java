@@ -23,12 +23,12 @@ public class Item24 extends MyActor{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 boolean isCLickShow = false;
-                if (  Master.money >= 75000 ){
+                if (  Master.money >= 1000000000 ){
                     if (!isCLickShow){
-                        Master.money-=75000;
+                        Master.money-=1000000000;
                         Master.autoplus24=true;
                         if (Master.autoplus24=true){
-                            Master.autoplusnumber24+=750;
+                            Master.autoplusnumber24+=10000000;
                         }
                         isClickShow = true;
                         if(Master.click24==null) {
