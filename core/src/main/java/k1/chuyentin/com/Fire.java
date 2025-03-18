@@ -8,14 +8,25 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import k1.chuyentin.com.bao.MyActor;
 
 public class Fire extends MyActor {
-    public Fire(float x, float y, Stage s) {
+    public Fire(float x, float y, Stage s, boolean isHeated) { // isHeated duoc dam hoac bi dam
         super(x, y, s);
-        textureRegion = new TextureRegion(new Texture("fire.png"));
 
+        textureRegion = new TextureRegion(new Texture("fire.png"));
         setPosition(MathUtils.random(0, 200), MathUtils.random(300, 600));
-        addAction(Actions.sequence(
-            Actions.moveBy(300, -300, 2),
-            Actions.removeActor()
-        ));
+        if(isHeated) {
+            addAction(Actions.sequence(
+                Actions.moveBy(400, -200, 2),
+                Actions.removeActor()
+            ));
+            setRotation(-45);
+        } else {
+            addAction(Actions.sequence(
+                Actions.moveBy(0, -300, 2),
+                Actions.removeActor()
+            ));
+            setRotation(-90);
+        }
+        setSize(16, 16);
+        toFront();
     }
 }

@@ -197,7 +197,7 @@ public class Master implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                if (solanclick >= 200){
+                if (solanclick >= 20){
                     game.setScreen(new BattleScreen(game));
                 }
                 else{
@@ -235,7 +235,7 @@ public class Master implements Screen {
             pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         }
-        if (solanclick == 250){
+        if (solanclick == 20){
             pet.remove();
             if (random == 2){
                 pet = new Pet(new Texture("rualon.png"), 0, 0, stage);

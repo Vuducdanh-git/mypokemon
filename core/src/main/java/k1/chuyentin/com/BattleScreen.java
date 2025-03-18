@@ -186,10 +186,21 @@ public class BattleScreen implements Screen {
             isTextFieldActive = false;
             skill.click = 0;
 
+            boolean isHeated = false;
             for (String s: Master.wordSkills){
                 if(s.equals(inputText)){
                     truhp = MathUtils.random(20f,30f);
+                    isHeated = true;
                     break;
+                }
+            }
+            if(isHeated){
+                for (int i = 0; i < 10; i++) {
+                    new Fire(0, 0, stage, true);
+                }
+            } else {
+                for (int i = 0; i < 10; i++) {
+                    new Fire(0, 0, stage, false);
                 }
             }
         }
