@@ -22,7 +22,7 @@ public class Skill extends Actor {
         });
     }
     public void health(float damage) {
-        Master.yourhp -= damage;
+        BattleScreen.yourhp -= damage;
     }
 
     public void draw(Batch batch, float parentAlpha){

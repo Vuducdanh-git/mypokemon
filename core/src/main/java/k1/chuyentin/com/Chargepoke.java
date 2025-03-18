@@ -39,7 +39,7 @@ public class Chargepoke implements Screen {
         returnButton.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                game.setScreen(new Master(game));
+                game.setScreen(new BattleScreen(game));
             }
         });
         batch = new SpriteBatch();
@@ -54,37 +54,37 @@ public class Chargepoke implements Screen {
         board.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 random=1;
-                game.setScreen(new Master(game));
+                game.setScreen(new BattleScreen(game));
             }
         });
         board2.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 random=2;
-                game.setScreen(new Master(game));
+                game.setScreen(new BattleScreen(game));
             }
         });
         board3.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 random=3;
-                game.setScreen(new Master(game));
+                game.setScreen(new BattleScreen(game));
             }
         });
         board4.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 random=4;
-                game.setScreen(new Master(game));
+                game.setScreen(new BattleScreen(game));
             }
         });
         board5.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 random=5;
-                game.setScreen(new Master(game));
+                game.setScreen(new BattleScreen(game));
             }
         });
         board6.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 random=6;
-                game.setScreen(new Master(game));
+                game.setScreen(new BattleScreen(game));
             }
         });
 

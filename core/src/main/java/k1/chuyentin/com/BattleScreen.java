@@ -19,7 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class Master implements Screen {
+public class BattleScreen implements Screen {
     Batch batch;
     OrthographicCamera camera;
     Background background;
@@ -46,7 +46,7 @@ public class Master implements Screen {
 
 
 
-    public Master(StartGame game) {
+    public BattleScreen(StartGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 840, 680);
@@ -140,17 +140,17 @@ public class Master implements Screen {
     public void render ( float v){
         if(myhp > 50){
             hpbarm.setColor(Color.GOLD);}
-        if ((Master.myhp <= 50) && (Master.myhp >24)) {
+        if ((BattleScreen.myhp <= 50) && (BattleScreen.myhp >24)) {
             hpbarm.setColor(Color.PURPLE);
-        }if (Master.myhp < 25){
+        }if (BattleScreen.myhp < 25){
             hpbarm.setColor(Color.RED);
         }
 
-        if(Master.yourhp > 50) {
+        if(BattleScreen.yourhp > 50) {
             hpbare.setColor(Color.GOLDENROD);
-        }if ((Master.yourhp <= 50) && (Master.yourhp >24)) {
+        }if ((BattleScreen.yourhp <= 50) && (BattleScreen.yourhp >24)) {
             hpbare.setColor(Color.PURPLE);
-        }if (Master.yourhp < 25){
+        }if (BattleScreen.yourhp < 25){
             hpbare.setColor(Color.RED);
         }
         if (truhp >0){
