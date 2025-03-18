@@ -21,21 +21,20 @@ public class Skill1 extends MyActor{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 boolean isCLickShow = false;
-                if (  Master.money >= 100000000 ){
-                    if (!isCLickShow){
-                        Master.money-=100000000;
-                        Master.skillHello= "hello";
-
-                        }else {
-                            getStage().addActor(Master.skill1);
-                        }
-                    }else {
-                        Master.skill1.remove();
+                if (Master.money >= 1) {
+                    if (!isCLickShow) {
+                        Master.money -= 1;
+                        Master.wordSkills.add("hello");
+                    } else {
+                        getStage().addActor(Master.skill1);
                     }
-
-                    ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-
+                } else {
+                    Master.skill1.remove();
                 }
+
+                ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
+            }
+
     });
     }
 }

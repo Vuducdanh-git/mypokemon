@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
+import k1.chuyentin.com.bao.Master;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
@@ -166,7 +167,6 @@ public class BattleScreen implements Screen {
         hpbarm.setSize(270f / 100f * myhp, 25);
         hpbare.setSize(270f/100f *yourhp,25);
 
-        System.out.println(myhp);
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         stage.act();
         stage.draw();
@@ -187,9 +187,13 @@ public class BattleScreen implements Screen {
             stage.unfocusAll();
             isTextFieldActive = false;
             skill.click = 0;
-            truhp = MathUtils.random(20f,30f);
 
-
+            for (String s: Master.wordSkills){
+                if(s.equals(inputText)){
+                    truhp = MathUtils.random(20f,30f);
+                    break;
+                }
+            }
         }
     }
     @Override

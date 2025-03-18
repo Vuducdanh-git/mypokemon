@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.BattleScreen;
 import k1.chuyentin.com.StartGame;
@@ -144,6 +145,8 @@ public class Master implements Screen {
     static Item23 click23;
     static Item24 click24;
     int random = MathUtils.random(1, 3);
+
+    public static Array<String> wordSkills = new Array<>();
 
 
     BitmapFont font;
