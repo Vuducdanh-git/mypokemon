@@ -22,6 +22,7 @@ public class Chargepoke implements Screen {
     Board board4;
     Board board5;
     Board board6;
+    static int random;
 
     Stage stage;
     public Chargepoke(StartGame game){
@@ -50,8 +51,42 @@ public class Chargepoke implements Screen {
         board5 = new Board(250,200,stage,5);
         board6 = new Board(250,300,stage,6);
 
-
-
+        board.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y) {
+                random=1;
+                game.setScreen(new Master(game));
+            }
+        });
+        board2.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y) {
+                random=2;
+                game.setScreen(new Master(game));
+            }
+        });
+        board3.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y) {
+                random=3;
+                game.setScreen(new Master(game));
+            }
+        });
+        board4.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y) {
+                random=4;
+                game.setScreen(new Master(game));
+            }
+        });
+        board5.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y) {
+                random=5;
+                game.setScreen(new Master(game));
+            }
+        });
+        board6.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y) {
+                random=6;
+                game.setScreen(new Master(game));
+            }
+        });
 
         stage.addActor(returnButton);
         stage.addActor(board);

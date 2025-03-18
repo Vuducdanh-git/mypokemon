@@ -13,8 +13,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 
@@ -23,7 +26,6 @@ public class Master implements Screen {
     Batch batch;
     OrthographicCamera camera;
     Background background;
-    Chargepoke chargepoke;
     Stage stage;
     Mypoke mypoke;
     Texture texturepo;
@@ -37,12 +39,16 @@ public class Master implements Screen {
     float yourhp=100;
     Skill skill;
     Hpbar hpbar;
-    int random = MathUtils.random(1,6);
     Master master;
     Board board;
     TextField textField;
     boolean isTextFieldActive = false;
     StartGame game;
+    Cyp cyp;
+    String mp;
+    float truhp = 0;
+
+
 
     public Master(StartGame game) {
         this.game = game;
@@ -50,86 +56,110 @@ public class Master implements Screen {
         camera.setToOrtho(false, 840, 680);
         batch = new SpriteBatch();
         stage = new Stage();
-        if (random ==1){
+        texturepo = new Texture("veback.png");
+        mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+        mp = new String("VENUSAUR LV:MAX");
+
+        if (Chargepoke.random == 1) {
             texturepo = new Texture("veback.png");
-            mypoke = new Mypoke(texturepo,stage,-7,-4,5,34,3);
-        }
-        if(random ==2){
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+            mp = new String("VENUSAUR LV:MAX");
+
+
+        }if (Chargepoke.random == 2) {
             texturepo = new Texture("diback.png");
-            mypoke = new Mypoke(texturepo,stage,-7,-4,5,28,3);
-        }if (random ==3){
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 28, 3);
+            mp = new String("DIALGA LV:MAX");
+
+
+        }
+        if (Chargepoke.random == 3) {
             texturepo = new Texture("genback.png");
-            mypoke = new Mypoke(texturepo,stage,-7,-4,5,36,1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
+            mp = new String("GENESECTLV:MAX");
+
         }
-        if(random ==4){
+        if (Chargepoke.random == 4) {
             texturepo = new Texture("jiback.png");
-            mypoke = new Mypoke(texturepo,stage,-7,-4,5,29,1);
-        }if (random ==5){
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 1);
+            mp = new String("JIRACHI LV:MAX");
+        }
+        if (Chargepoke.random == 5) {
             texturepo = new Texture("mback.png");
-            mypoke = new Mypoke(texturepo,stage,-7,-4,5,24,1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
+            mp = new String("MEW LV:MAX");
+
+
         }
-        if(random ==6){
+        if (Chargepoke.random == 6) {
             texturepo = new Texture("ceback.png");
-            mypoke = new Mypoke(texturepo,stage,-7,-4,5,13,1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 13, 1);
+            mp = new String("CELEBI LV:MAX");
         }
 
-        textr = new Texture("beedrill.png");
+            textr = new Texture("beedrill.png");
 
-        enepoke = new Enepoke(textr,stage,390,280);
-        background = new Background(0,0,stage);
-        skillBar = new SkillBar(330,0,stage);
-        hpbar = new Hpbar(350,140,stage);
-        bar2 = new Bar2(30,320,stage);
-        bar1 = new Bar1(330,140,stage);
-        skill = new Skill(stage,340,60,skillBar.getWidth()/2);
-
-        stage.addActor(background);
-        stage.addActor(skillBar);
-        stage.addActor(mypoke);
-        stage.addActor(enepoke);
-        stage.addActor(bar2);
-        stage.addActor(bar1);
-
-        TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
-        textFieldStyle.font = game.font;
-        textFieldStyle.fontColor = Color.RED;
-
-        textFieldStyle.background = new TextureRegionDrawable(new TextureRegion(new Texture("input.png")));
-
-        // Tạo TextField
-        textField = new TextField("", textFieldStyle);
-        textField.setSize(220, 50);
-        textField.setPosition(370, 6); // Vị trí giữa màn hình
-        textField.setVisible(false);
-
-        stage.addActor(textField);
-
-        Gdx.input.setInputProcessor(stage);
+            enepoke = new Enepoke(textr, stage, 390, 280);
+            background = new Background(0, 0, stage);
+            skillBar = new SkillBar(330, 0, stage);
+            hpbar = new Hpbar(350, 140, stage);
+            bar2 = new Bar2(30, 320, stage);
+            bar1 = new Bar1(330, 140, stage);
+            skill = new Skill(stage, 340, 60, skillBar.getWidth() / 2);
+            cyp = new Cyp(stage, 340 + skill.getWidth(), 60, skillBar.getWidth() / 2);
+            cyp.addListener(new ClickListener() {
+                public void clicked(InputEvent event, float x, float y) {
+                    game.setScreen(new Chargepoke(game));
+                }
+            });
 
 
-    }
+            stage.addActor(background);
+            stage.addActor(skillBar);
+            stage.addActor(mypoke);
+            stage.addActor(enepoke);
+            stage.addActor(bar2);
+            stage.addActor(bar1);
 
+            TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
+            textFieldStyle.font = game.font;
+            textFieldStyle.fontColor = Color.RED;
+
+            textFieldStyle.background = new TextureRegionDrawable(new TextureRegion(new Texture("input.png")));
+
+            // Tạo TextField
+            textField = new TextField("", textFieldStyle);
+            textField.setSize(220, 50);
+            textField.setPosition(370, 6); // Vị trí giữa màn hình
+            textField.setVisible(false);
+
+            stage.addActor(textField);
+
+            Gdx.input.setInputProcessor(stage);
+
+
+        }
     @Override
-    public void render(float v) {
-        if (myhp < 100){
-            hpbar.setSize(270/100*myhp,25);
-
+    public void render ( float v){
+        if (truhp >0){
+            truhp -= 1;
+            skill.health(1);
         }
+        hpbar.setSize(270f / 100f * myhp, 25);
+
         System.out.println(myhp);
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         stage.act();
         stage.draw();
         batch.begin();
-        game.fonts.draw(batch,"VENUSAUR LV:MAX", bar1.getX() + 40, bar1.getY()+ 45);
-        game.font.draw(batch,"BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY()+ 45);
+        game.fonts.draw(batch, mp, bar1.getX() + 40, bar1.getY() + 45);
+        game.font.draw(batch, "BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
         batch.end();
-
         if (skill.click == 1 && !isTextFieldActive) {
             textField.setVisible(true);
             textField.setText(""); // Xóa nội dung cũ
             stage.setKeyboardFocus(textField);
             isTextFieldActive = true;
-
         } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
             //  lấy nội dung nhập
             String inputText = textField.getText();
@@ -137,15 +167,12 @@ public class Master implements Screen {
             textField.setVisible(false);
             stage.unfocusAll();
             isTextFieldActive = false;
-            skill.click =0;
-            skill.health(MathUtils.random(20,30));
-        }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.C)){
-            game.setScreen(new Chargepoke(game));
-        }
+            skill.click = 0;
+            truhp = MathUtils.random(20f,30f);
 
+
+        }
     }
-
     @Override
     public void show() {
 

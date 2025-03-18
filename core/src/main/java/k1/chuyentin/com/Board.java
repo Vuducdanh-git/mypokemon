@@ -13,19 +13,19 @@ public class Board extends Actor {
             texture = new Texture("veboard.png");
         }
         if(type == 2) {
-            texture = new Texture("genboard.png");
-        }
-        if(type == 3) {
-            texture = new Texture("mboard.png");
-        }
-        if(type == 4) {
             texture = new Texture("diboard.png");
         }
+        if(type == 3) {
+            texture = new Texture("genboard.png");
+        }
+        if(type == 4) {
+            texture = new Texture("jiboard.png");
+        }
         if(type == 5) {
-            texture = new Texture("ceboard.png");
+            texture = new Texture("mboard.png");
         }
         if(type == 6) {
-            texture = new Texture("jiboard.png");
+            texture = new Texture("ceboard.png");
         }
         setSize(texture.getWidth()/1.5f, texture.getHeight()/1.5f);
     }
