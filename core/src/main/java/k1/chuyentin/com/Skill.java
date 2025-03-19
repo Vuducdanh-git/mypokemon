@@ -11,7 +11,7 @@ public class Skill extends Actor {
     Texture texture;
     int click =0;
     public Skill(Stage stage , float x, float y,float width) {
-        texture = new Texture("skill.png");
+        texture = new Texture("cf.png");
         setPosition(x, y);
         setSize(width, 30);
         stage.addActor(this);

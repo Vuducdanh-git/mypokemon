@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.bao.Master;
+import k1.chuyentin.com.bao.Skill2;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
@@ -35,7 +36,7 @@ public class BattleScreen implements Screen {
     SkillBar skillBar;
     public static float myhp = 100;
     public static float yourhp=100;
-    Skill skill;
+
     Hpbar hpbarm;
     Hpbar hpbare;
     TextField textField;
@@ -45,6 +46,8 @@ public class BattleScreen implements Screen {
     String mp;
     float truhp = 0;
 
+    Skill skill;
+    Skill2 skill2;
 
 
     public BattleScreen(StartGame game) {
@@ -103,7 +106,10 @@ public class BattleScreen implements Screen {
             hpbare = new Hpbar(30, 320, stage);
             bar2 = new Bar2(30, 320, stage);
             bar1 = new Bar1(330, 140, stage);
+
             skill = new Skill(stage, 340, 60, skillBar.getWidth() / 2);
+            skill2 = new Skill2(stage, 340, 60, skillBar.getWidth() / 2);
+
             cyp = new Cyp(stage, 340 + skill.getWidth(), 60, skillBar.getWidth() / 2);
             cyp.addListener(new ClickListener() {
                 public void clicked(InputEvent event, float x, float y) {

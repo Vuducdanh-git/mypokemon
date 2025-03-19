@@ -90,6 +90,8 @@ public class Master implements Screen {
     Egg egg;
 
     Skill1 kinang;
+    Skill2 skill;
+
     Item item;
     Item2 item2;
     Item3 item3;
@@ -121,6 +123,7 @@ public class Master implements Screen {
 
     static Skill1 skill1;
     static Item click;
+    static Skill2 skill2;
     static Item2 click2;
     static Item3 click3;
     static Item4 click4;
@@ -186,7 +189,7 @@ public class Master implements Screen {
         item22 = new Item22(0, 0, stage, 22);
         item23 = new Item23(0, 0, stage, 23);
         item24 = new Item24(0, 0, stage, 24);
-        kinang = new Skill1(0,0,stage);
+
 
 
         pet = new Pet(new Texture("egg.png"), 0, 0, stage);
@@ -197,7 +200,7 @@ public class Master implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                if (solanclick >= 20){
+                if (solanclick >= 250){
                     game.setScreen(new BattleScreen(game));
                 }
                 else{
@@ -235,7 +238,7 @@ public class Master implements Screen {
             pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         }
-        if (solanclick == 20){
+        if (solanclick == 250){
             pet.remove();
             if (random == 2){
                 pet = new Pet(new Texture("rualon.png"), 0, 0, stage);
