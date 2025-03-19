@@ -65,6 +65,12 @@ public class Board extends Actor {
         if(type == 18) {
             texture = new Texture("zoboard.png");
         }
+        if(type == 19) {
+            texture = new Texture("chanboard.png");
+        }
+        if(type == 20) {
+            texture = new Texture("charboard.png");
+        }
 
         setSize(texture.getWidth()/1.5f, texture.getHeight()/1.5f);
     }
