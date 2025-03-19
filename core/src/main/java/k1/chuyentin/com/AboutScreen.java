@@ -13,10 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.ScreenUtils;
-import k1.chuyentin.com.bao.BackGround;
-import k1.chuyentin.com.bao.Coin;
-import k1.chuyentin.com.bao.Master;
-import k1.chuyentin.com.bao.MyActor;
+import k1.chuyentin.com.bao.*;
 
 public class AboutScreen implements Screen {
     StartGame game;
@@ -49,6 +46,8 @@ public class AboutScreen implements Screen {
         music.setLooping(true);
         music.play();
 
+        Utils.setWordList();
+
     }
     @Override
     public void show() {
@@ -67,7 +66,7 @@ public class AboutScreen implements Screen {
         }
 
         if (time % 20 == 0) {
-            Label label = new Label("Great day!", labelStyle);
+            Label label = new Label(Utils.wordList.random(), labelStyle);
             label.setPosition(MathUtils.random(0, 640), MathUtils.random(0, 480));
             label.setOrigin(label.getWidth() / 2, label.getHeight() / 2);
             label.setRotation(MathUtils.random(0, 360));
@@ -83,7 +82,7 @@ public class AboutScreen implements Screen {
             stage.addActor(label);
         }
 
-        if(time == 60 * 30){
+        if(time == 60 * 10){
             game.setScreen(new Master(game));
         }
 
