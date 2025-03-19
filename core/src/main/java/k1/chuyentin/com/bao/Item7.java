@@ -27,6 +27,7 @@ public class Item7 extends MyActor{
                     if (!isCLickShow){
                         Master.money-=5000;
                         Master.autoplus7=true;
+                        Master.sound.play();
                         if (Master.autoplus7=true){
                             Master.autoplusnumber7+=50;
                         }

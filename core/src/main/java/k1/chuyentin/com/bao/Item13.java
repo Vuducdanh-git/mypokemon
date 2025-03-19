@@ -27,6 +27,7 @@ public class Item13 extends MyActor{
                     if (!isCLickShow){
                         Master.money-=100000;
                         Master.plus+=1000;
+                        Master.sound.play();
                         isClickShow = true;
                         if(Master.click13==null) {
                             Master.click13 = new Item13(0, 200, getStage(),13);

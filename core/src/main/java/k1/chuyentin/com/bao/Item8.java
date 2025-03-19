@@ -15,7 +15,7 @@ public class Item8 extends MyActor{
     Item8(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;
-        textureRegion = new TextureRegion(new Texture("8.jpg"));
+        textureRegion = new TextureRegion(new Texture("8.png"));
         setSize(32, 32);
 
         addListener(new ClickListener(){
@@ -26,6 +26,7 @@ public class Item8 extends MyActor{
                 if (  Master.money >= 7500 ){
                     if (!isCLickShow){
                         Master.money-=7500;
+                        Master.sound.play();
                         Master.autoplus8=true;
                         if (Master.autoplus8=true){
                             Master.autoplusnumber8+=100;

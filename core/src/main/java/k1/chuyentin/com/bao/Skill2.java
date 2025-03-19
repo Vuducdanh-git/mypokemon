@@ -25,6 +25,7 @@ public class Skill2 extends MyActor{
                     if (!isCLickShow) {
                         Master.money -= 1000;
                         Master.wordSkills.add("goodbye");
+                        Master.sound.play();
                     } else {
                         getStage().addActor(Master.skill2);
                     }

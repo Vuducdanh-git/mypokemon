@@ -47,8 +47,8 @@ public class BattleScreen implements Screen {
     String mp;
     float truhp = 0;
     Music nen;
-    Skill skill;
-
+    Skill skill;// = new Skill(stage,bar1.getX(),bar1.getY(),bar1.getWidth()/2);
+    float trumhp =0;
 
 
     public BattleScreen(StartGame game) {
@@ -60,8 +60,9 @@ public class BattleScreen implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         texturepo = new Texture("veback.png");
-        mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
         mp = new String("VENUSAUR LV:MAX");
+        mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+
 
         if (Chargepoke.random == 1) {
             texturepo = new Texture("veback.png");
@@ -182,9 +183,10 @@ public class BattleScreen implements Screen {
             hpbare = new Hpbar(30, 320, stage);
             bar2 = new Bar2(30, 320, stage);
             bar1 = new Bar1(330, 140, stage);
+            skill = new Skill(stage,bar1.getX(),bar1.getY()/2,bar1.getWidth()/2);
 
 
-            cyp = new Cyp(stage, 340 + skillBar.getWidth(), 60, skillBar.getWidth() / 2);
+            cyp = new Cyp(stage, 340+bar1.getWidth()/2, 60, skillBar.getWidth() / 2);
             cyp.addListener(new ClickListener() {
                 public void clicked(InputEvent event, float x, float y) {
                     game.setScreen(new Chargepoke(game));
@@ -225,22 +227,20 @@ public class BattleScreen implements Screen {
             hpbarm.setColor(Color.RED);
         }
 
-        if(BattleScreen.yourhp > 50) {
+        if(yourhp > 50) {
             hpbare.setColor(Color.GOLDENROD);
         }if ((BattleScreen.yourhp <= 50) && (BattleScreen.yourhp >24)) {
             hpbare.setColor(Color.PURPLE);
         }if (BattleScreen.yourhp < 25){
             hpbare.setColor(Color.RED);
         }
-        if (myhp < 0){
-            myhp = 100;
-        }
-        if (yourhp < 0){
-            yourhp = 100;
-        }
+
         if (truhp >0){
             truhp -= 1;
             skill.health(1);
+        }if(trumhp > 0){
+            trumhp -=1;
+            skill.healths(1);
         }
         hpbarm.setSize(270f / 100f * myhp, 25);
         hpbare.setSize(270f/100f *yourhp,25);
@@ -272,6 +272,8 @@ public class BattleScreen implements Screen {
                     truhp = MathUtils.random(20f,30f);
                     isHeated = true;
                     break;
+                }else {
+                    myhp -= MathUtils.random(20f,30f);
                 }
             }
             if(isHeated){
@@ -281,6 +283,7 @@ public class BattleScreen implements Screen {
             } else {
                 for (int i = 0; i < 10; i++) {
                     new Fire(0, 0, stage, false);
+
                 }
             }
         }

@@ -10,9 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class Pet extends MyActor{
+    float w;
+    float h;
     Pet(Texture texture, float x, float y, Stage s) {
         super(x, y, s);
         setSize(32, 32);
+
         textureRegion = new TextureRegion(texture);
         addListener(new ClickListener(){
             @Override
@@ -21,8 +24,12 @@ public class Pet extends MyActor{
                 Master.solanclick++;
 
                     Master.money+=Master.plus;
-
-                setSize(getWidth()*1.01f, getHeight()*1.01f);
+                if ((w < 1000)&&(h < 1000)){
+                    
+                    setSize(getWidth()*1.01f, getHeight()*1.01f);
+                    w = getWidth()*101f;
+                    h = getHeight()*101f;
+                }
                 new Coin(getX() + getWidth()/2, getY() + getHeight()/2, getStage());
                 addAction(Actions.sequence(
                     Actions.color(new Color(MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f))),

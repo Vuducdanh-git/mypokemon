@@ -44,26 +44,26 @@ public class Board extends Actor {
             texture = new Texture("grouboard.png");
         }
         if(type == 12) {
-            texture = new Texture("ceboard.png");
+            texture = new Texture("kyoboard.png");
         }
 
         if(type == 13) {
-            texture = new Texture("veboard.png");
+            texture = new Texture("lugboard.png");
         }
         if(type == 14) {
-            texture = new Texture("diboard.png");
+            texture = new Texture("luxboard.png");
         }
         if(type == 15) {
-            texture = new Texture("genboard.png");
+            texture = new Texture("rayboard.png");
         }
         if(type == 16) {
-            texture = new Texture("jiboard.png");
+            texture = new Texture("scepboard.png");
         }
         if(type == 17) {
-            texture = new Texture("mboard.png");
+            texture = new Texture("unboard.png");
         }
         if(type == 18) {
-            texture = new Texture("ceboard.png");
+            texture = new Texture("zoboard.png");
         }
 
         setSize(texture.getWidth()/1.5f, texture.getHeight()/1.5f);

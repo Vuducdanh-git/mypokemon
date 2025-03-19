@@ -24,6 +24,7 @@ public class Skill extends Actor {
     public void health(float damage) {
         BattleScreen.yourhp -= damage;
     }
+    public void healths(float damage) {BattleScreen.myhp -= damage;}
 
     public void draw(Batch batch, float parentAlpha){
         batch.draw(texture,getX(),getY(),getWidth(),getHeight());
