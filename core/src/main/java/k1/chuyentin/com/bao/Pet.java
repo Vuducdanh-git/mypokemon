@@ -23,14 +23,15 @@ public class Pet extends MyActor{
                 Master.money++;
                 Master.solanclick++;
 
-                    Master.money+=Master.plus;
+                Master.money+=Master.plus;
+
                 if ((w < 1000)&&(h < 1000)){
-                    
+
                     setSize(getWidth()*1.01f, getHeight()*1.01f);
                     w = getWidth()*101f;
                     h = getHeight()*101f;
                 }
-                new Coin(getX() + getWidth()/2, getY() + getHeight()/2, getStage());
+                new Coin(getX() + getWidth()/2, getY() + getHeight()/2, getStage(), true);
                 addAction(Actions.sequence(
                     Actions.color(new Color(MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f))),
                     Actions.delay(0.5f),

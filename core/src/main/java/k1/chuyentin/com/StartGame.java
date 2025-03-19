@@ -29,7 +29,7 @@ public class StartGame extends Game {
         fontParameters.color = Color.RED;
         font = fontGenerators.generateFont(fontParameters);
         fontGenerators.dispose();
-        setScreen(new Master(this));
+        setScreen(new AboutScreen(this));
 
     }
 
