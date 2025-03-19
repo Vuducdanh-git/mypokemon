@@ -264,7 +264,7 @@ public class BattleScreen implements Screen {
             textField.setVisible(false);
             stage.unfocusAll();
             isTextFieldActive = false;
-            skill.click = 0;
+            skill.click =0;
 
             boolean isHeated = false;
             for (String s: Master.wordSkills){

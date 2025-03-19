@@ -27,6 +27,7 @@ public class Skill1 extends MyActor{
                         Master.money -= 1000;
                         Master.wordSkills.add("hello");
                         Master.sound.play();
+                        Skill.iclick = 1;
 
                 } else {
                     Master.skill1.remove();
