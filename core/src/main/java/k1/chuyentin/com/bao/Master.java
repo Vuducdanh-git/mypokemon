@@ -150,7 +150,7 @@ public class Master implements Screen {
     static Item23 click23;
     static Item24 click24;
     static Buyskill buyskill;
-    int random = MathUtils.random(1, 3);
+    public static int random = MathUtils.random(1, 3);
 
     public static Array<String> wordSkills = new Array<>();
 
@@ -169,10 +169,7 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new BackGround(0, 0, stage);
-//        item = new Item(0, 0, stage, 1);
-//        item2 = new Item2(0, 0, stage, 2);
-//        item3 = new Item3(0, 0, stage, 3);
-//        item4 = new Item4(0, 0, stage, 4);
+//        new Item4(0, 0, stage, 4);
 //        item5 = new Item5(0, 0, stage, 5);
 //        item6 = new Item6(0, 0, stage, 6);
 //        item7 = new Item7(0, 0, stage, 7);
@@ -235,6 +232,7 @@ public class Master implements Screen {
 
             if (random == 1){
                 pet = new Pet(new Texture("fushigidane.png"), 0, 0, stage);
+
             }
             if (random == 2){
                 pet = new Pet(new Texture("rua.png"), 0, 0, stage);
@@ -245,15 +243,20 @@ public class Master implements Screen {
             pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         }
+        System.out.println(Utils.listPoke);
         if (solanclick == 250){
             pet.remove();
             if (random == 2){
                 pet = new Pet(new Texture("rualon.png"), 0, 0, stage);
+                Utils.listPoke.add(7);
             }
             if (random == 3){
                 pet = new Pet(new Texture("ronglon.png"), 0, 0, stage);
+                Utils.listPoke.add(20);
+
             }if(random == 1) {
                 pet = new Pet(new Texture("fushigibana.png"), 0, 0, stage);
+                Utils.listPoke.add(1);
             }
             pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 

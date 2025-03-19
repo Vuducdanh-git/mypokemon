@@ -59,9 +59,20 @@ public class BattleScreen implements Screen {
         camera.setToOrtho(false, 840, 680);
         batch = new SpriteBatch();
         stage = new Stage();
-        texturepo = new Texture("veback.png");
-        mp = new String("VENUSAUR LV:MAX");
-        mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+        if(Master.random == 1){
+            texturepo = new Texture("veback.png");
+            mp = new String("VENUSAUR LV:MAX");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+        }if(Master.random == 2){
+            texturepo = new Texture("blasback.png");
+            mp = new String("VENUSAUR LV:MAX");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 49, 3);
+        }if(Master.random == 3){
+            texturepo = new Texture("charback.png");
+            mp = new String("Charizard LV:MAX");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+        }
+
 
 
         if (Chargepoke.random == 1) {
@@ -175,14 +186,15 @@ public class BattleScreen implements Screen {
         if (Chargepoke.random == 19) {
             texturepo = new Texture("chanback.png");
             mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 19, 1);
-            mp = new String("CHANDERLURE LV:MAX");
+            mp = new String("CHANDELURE LV:MAX");
 
 
         }
         if (Chargepoke.random == 20) {
             texturepo = new Texture("charback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 1);
             mp = new String("CHARIZARD LV:MAX");
+
         }
 
 
@@ -284,8 +296,6 @@ public class BattleScreen implements Screen {
                     truhp = MathUtils.random(20f,30f);
                     isHeated = true;
                     break;
-                }else {
-                    myhp -= MathUtils.random(20f,30f);
                 }
             }
             if(isHeated){
@@ -297,6 +307,7 @@ public class BattleScreen implements Screen {
                     new Fire(0, 0, stage, false);
 
                 }
+                trumhp = MathUtils.random(20f,30f);
             }
         }
     }

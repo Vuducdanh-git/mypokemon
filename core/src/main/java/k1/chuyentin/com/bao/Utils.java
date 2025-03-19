@@ -12,4 +12,5 @@ public class Utils {
         wordList.add("defender");
         wordList.add("heal");
     }
+    public static Array<Integer> listPoke = new Array<>();
 }
