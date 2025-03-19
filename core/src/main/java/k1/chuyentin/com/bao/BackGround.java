@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class BackGround extends MyActor{
 
-    BackGround(float x, float y , Stage s) {
+    public BackGround(float x, float y , Stage s) {
         super(x, y, s);
         TextureRegion tRegion = new TextureRegion(new Texture("bg1.png"));
         textureRegion = tRegion;
