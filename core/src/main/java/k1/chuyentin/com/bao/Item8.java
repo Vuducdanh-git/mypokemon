@@ -43,9 +43,6 @@ public class Item8 extends MyActor{
                     }
 
                     ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-
-
-
                 }
             }
         });

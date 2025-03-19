@@ -22,6 +22,18 @@ public class Chargepoke implements Screen {
     Board board4;
     Board board5;
     Board board6;
+    Board board7;
+    Board board8;
+    Board board9;
+    Board board10;
+    Board board11;
+    Board board12;
+    Board board13;
+    Board board14;
+    Board board15;
+    Board board16;
+    Board board17;
+    Board board18;
     static int random;
 
     Stage stage;
@@ -50,6 +62,20 @@ public class Chargepoke implements Screen {
         board4 = new Board(250,100,stage,4);
         board5 = new Board(250,200,stage,5);
         board6 = new Board(250,300,stage,6);
+
+        board7 = new Board(50,100,stage,1);
+        board8 = new Board(50,200,stage,2);
+        board9 = new Board(50,300,stage,3);
+        board10 = new Board(250,100,stage,4);
+        board11 = new Board(250,200,stage,5);
+        board12 = new Board(250,300,stage,6);
+
+        board13 = new Board(50,100,stage,1);
+        board14 = new Board(50,200,stage,2);
+        board15 = new Board(50,300,stage,3);
+        board16 = new Board(250,100,stage,4);
+        board17 = new Board(250,200,stage,5);
+        board18 = new Board(250,300,stage,6);
 
         board.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {

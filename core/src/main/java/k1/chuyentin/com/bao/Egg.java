@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import k1.chuyentin.com.Skill;
 
 public class Egg extends MyActor{
     boolean isShopShow = false;
@@ -57,8 +58,10 @@ public class Egg extends MyActor{
             Master.click24 = new Item24(550, 250, getStage(),24);
             Master.skill1 = new Skill1(400, 150, getStage());
             Master.skill2 = new Skill2(450, 150, getStage());
+            Master.buyskill = new Buyskill(450,200, getStage());
 
             getStage().addActor(Master.shop);
+            getStage().addActor(Master.buyskill);
             getStage().addActor(Master.skill1);
             getStage().addActor(Master.skill2);
             getStage().addActor(Master.click24);
@@ -115,6 +118,7 @@ public class Egg extends MyActor{
         Master.click24.remove();
         Master.skill1.remove();
         Master.skill2.remove();
+        Master.buyskill.remove();
 
         isShopShow = false;
     }

@@ -3,6 +3,7 @@ package k1.chuyentin.com;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -45,12 +46,14 @@ public class BattleScreen implements Screen {
     Cyp cyp;
     String mp;
     float truhp = 0;
-
+    Music nen;
     Skill skill;
-    Skill2 skill2;
+
 
 
     public BattleScreen(StartGame game) {
+        nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
+        nen.play();
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 840, 680);
@@ -96,6 +99,79 @@ public class BattleScreen implements Screen {
             mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 13, 1);
             mp = new String("CELEBI LV:MAX");
         }
+        if (Chargepoke.random == 7) {
+            texturepo = new Texture("blasback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 49, 3);
+            mp = new String("BLASTOISE LV:MAX");
+
+
+        }if (Chargepoke.random == 8) {
+            texturepo = new Texture("dittoback.png");
+                mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 16, 3);
+            mp = new String("DITTO LV:MAX");
+
+
+        }
+        if (Chargepoke.random == 9) {
+            texturepo = new Texture("gallaback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 27, 1);
+            mp = new String("GALLADE:MAX");
+
+        }
+        if (Chargepoke.random == 10) {
+            texturepo = new Texture("garback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 18, 1);
+            mp = new String("GARCHOMP LV:MAX");
+        }
+        if (Chargepoke.random == 11) {
+            texturepo = new Texture("grouback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 21, 1);
+            mp = new String("GROUDON LV:MAX");
+
+
+        }
+        if (Chargepoke.random == 12) {
+            texturepo = new Texture("kyoback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 50, 1);
+            mp = new String("CELEBI LV:MAX");
+        }
+        if (Chargepoke.random == 13) {
+            texturepo = new Texture("lugback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
+            mp = new String("LUGIA LV:MAX");
+
+
+        }
+        if (Chargepoke.random == 14) {
+            texturepo = new Texture("luxback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 35, 1);
+            mp = new String("LUXURAY LV:MAX");
+        }
+        if (Chargepoke.random == 15) {
+            texturepo = new Texture("rayback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
+            mp = new String("RAYQUAZA LV:MAX");
+
+
+        }
+        if (Chargepoke.random == 16) {
+            texturepo = new Texture("scepback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 27, 1);
+            mp = new String("SCEPTILE LV:MAX");
+        }
+        if (Chargepoke.random == 17) {
+            texturepo = new Texture("unback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 19, 1);
+            mp = new String("UNOWN LV:MAX");
+
+
+        }
+        if (Chargepoke.random == 18) {
+            texturepo = new Texture("zoroback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
+            mp = new String("ZOROARK LV:MAX");
+        }
+
 
             textr = new Texture("beedrill.png");
 
@@ -107,10 +183,8 @@ public class BattleScreen implements Screen {
             bar2 = new Bar2(30, 320, stage);
             bar1 = new Bar1(330, 140, stage);
 
-            skill = new Skill(stage, 340, 60, skillBar.getWidth() / 2);
-            skill2 = new Skill2(stage, 340, 60, skillBar.getWidth() / 2);
 
-            cyp = new Cyp(stage, 340 + skill.getWidth(), 60, skillBar.getWidth() / 2);
+            cyp = new Cyp(stage, 340 + skillBar.getWidth(), 60, skillBar.getWidth() / 2);
             cyp.addListener(new ClickListener() {
                 public void clicked(InputEvent event, float x, float y) {
                     game.setScreen(new Chargepoke(game));

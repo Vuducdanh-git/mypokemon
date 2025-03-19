@@ -17,7 +17,8 @@ public class Skill1 extends MyActor{
         setSize(32,32);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
-        Master.skill1.remove();
+
+
         addListener(new ClickListener(){
 
             @Override

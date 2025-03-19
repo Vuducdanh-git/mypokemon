@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -147,6 +148,7 @@ public class Master implements Screen {
     static Item22 click22;
     static Item23 click23;
     static Item24 click24;
+    static Buyskill buyskill;
     int random = MathUtils.random(1, 3);
 
     public static Array<String> wordSkills = new Array<>();
@@ -165,33 +167,36 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new BackGround(0, 0, stage);
-        item = new Item(0, 0, stage, 1);
-        item2 = new Item2(0, 0, stage, 2);
-        item3 = new Item3(0, 0, stage, 3);
-        item4 = new Item4(0, 0, stage, 4);
-        item5 = new Item5(0, 0, stage, 5);
-        item6 = new Item6(0, 0, stage, 6);
-        item7 = new Item7(0, 0, stage, 7);
-        item8 = new Item8(0, 0, stage, 8);
-        item9 = new Item9(0, 0, stage, 9);
-        item10 = new Item10(0, 0, stage, 10);
-        item11 = new Item11(0, 0, stage, 11);
-        item12 = new Item12(0, 0, stage, 12);
-        item13 = new Item13(0, 0, stage, 13);
-        item14 = new Item14(0, 0, stage, 14);
-        item15 = new Item15(0, 0, stage, 15);
-        item16 = new Item16(0, 0, stage, 16);
-        item17 = new Item17(0, 0, stage, 17);
-        item18 = new Item18(0, 0, stage, 18);
-        item19 = new Item19(0, 0, stage, 19);
-        item20 = new Item20(0, 0, stage, 20);
-        item21 = new Item21(0, 0, stage, 21);
-        item22 = new Item22(0, 0, stage, 22);
-        item23 = new Item23(0, 0, stage, 23);
-        item24 = new Item24(0, 0, stage, 24);
+//        item = new Item(0, 0, stage, 1);
+//        item2 = new Item2(0, 0, stage, 2);
+//        item3 = new Item3(0, 0, stage, 3);
+//        item4 = new Item4(0, 0, stage, 4);
+//        item5 = new Item5(0, 0, stage, 5);
+//        item6 = new Item6(0, 0, stage, 6);
+//        item7 = new Item7(0, 0, stage, 7);
+//        item8 = new Item8(0, 0, stage, 8);
+//        item9 = new Item9(0, 0, stage, 9);
+//        item10 = new Item10(0, 0, stage, 10);
+//        item11 = new Item11(0, 0, stage, 11);
+//        item12 = new Item12(0, 0, stage, 12);
+//        item13 = new Item13(0, 0, stage, 13);
+//        item14 = new Item14(0, 0, stage, 14);
+//        item15 = new Item15(0, 0, stage, 15);
+//        item16 = new Item16(0, 0, stage, 16);
+//        item17 = new Item17(0, 0, stage, 17);
+//        item18 = new Item18(0, 0, stage, 18);
+//        item19 = new Item19(0, 0, stage, 19);
+//        item20 = new Item20(0, 0, stage, 20);
+//        item21 = new Item21(0, 0, stage, 21);
+//        item22 = new Item22(0, 0, stage, 22);
+//        item23 = new Item23(0, 0, stage, 23);
+//        item24 = new Item24(0, 0, stage, 24);
 
 
-
+        skill1 = new Skill1(0, Gdx.graphics.getHeight()/2, stage);
+        skill2 = new Skill2(0, Gdx.graphics.getHeight()/2, stage);
+        Master.skill1.remove();
+        Master.skill2.remove();
         pet = new Pet(new Texture("egg.png"), 0, 0, stage);
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
@@ -345,6 +350,8 @@ public class Master implements Screen {
         stage.getViewport().unproject(mouse);
         if(mouse.x > 400 && !egg.isShopShow){
             egg.showShop();
+
+
         } else if(mouse.x < 400 && egg.isShopShow) {
             egg.shopHide();
         }
@@ -355,7 +362,6 @@ public class Master implements Screen {
         batch.begin();
         font.draw(batch, "coin: " + money, 0, Gdx.graphics.getHeight() - 32);
         font.draw(batch, "clicknumber: " + solanclick, 0, Gdx.graphics.getHeight() );
-        font.draw(batch, "buy skill " , 400, Gdx.graphics.getHeight()/2 );
         batch.end();
     }
 
