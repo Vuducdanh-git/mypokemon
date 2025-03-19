@@ -26,6 +26,7 @@ public class Item19 extends MyActor{
                 if (  Master.money >= 5000000 ){
                     if (!isCLickShow){
                         Master.money-=5000000;
+                        Master.sound.play();
                         Master.autoplus19=true;
                         if (Master.autoplus19=true){
                             Master.autoplusnumber19+=750;

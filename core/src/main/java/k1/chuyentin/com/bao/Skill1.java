@@ -26,6 +26,8 @@ public class Skill1 extends MyActor{
                 if (Master.money >= 1000) {
                         Master.money -= 1000;
                         Master.wordSkills.add("hello");
+                        Master.sound.play();
+
                 } else {
                     Master.skill1.remove();
                 }

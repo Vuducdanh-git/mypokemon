@@ -26,6 +26,7 @@ public class Item extends MyActor{
                 if (  Master.money >= 25 ){
                 if (!isCLickShow){
                     Master.money-=25;
+                    Master.sound.play();
                     Master.plus++;
                     isClickShow = true;
                     if(Master.click==null) {

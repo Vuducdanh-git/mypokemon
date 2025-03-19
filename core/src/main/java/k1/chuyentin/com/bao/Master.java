@@ -2,6 +2,7 @@ package k1.chuyentin.com.bao;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -28,7 +29,7 @@ public class Master implements Screen {
     Stage stage;
 
     static String skillHello;
-
+    static Sound sound;
     static boolean autoplus1 = false;
     static boolean autoplus2 = false;
     static boolean autoplus3 = false;
@@ -158,6 +159,7 @@ public class Master implements Screen {
 
     public Master(StartGame game) {
         this.game = game;
+        sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.size = 32;
