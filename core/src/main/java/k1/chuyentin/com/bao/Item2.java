@@ -22,31 +22,18 @@ public class Item2 extends MyActor{
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                boolean isCLickShow = false;
-                if (  Master.money >= 100 ){
-                    if (!isCLickShow){
+                if (Master.money >= 100 ){
                         Master.money-=100;
                         Master.sound.play();
                         Master.autoplus2=true;
-                        if (Master.autoplus2=true){
-                            Master.autoplusnumber2+=1;
-                        }
+                        Master.autoplusnumber2+=1;
+
                         isClickShow = true;
                         if(Master.click2==null) {
                             Master.click2 = new Item2(0, 200, getStage(),2);
-
                         }else {
                             getStage().addActor(Master.click2);
                         }
-                    }else {
-                        Master.click2.remove();
-                        isClickShow = false;
-                    }
-
-                    ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-
-
-
                 }
             }
         });

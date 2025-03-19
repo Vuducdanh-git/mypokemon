@@ -9,13 +9,14 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import k1.chuyentin.com.bao.Utils;
 
 public class FloatingWords extends Actor {
     private String text;
     private BitmapFont font;
 
-    public FloatingWords(float x, float y, Stage s, String news, boolean isClicked) {
-        text = news;
+    public FloatingWords(float x, float y, Stage s) {
+        text = Utils.wordList.random();
 
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
