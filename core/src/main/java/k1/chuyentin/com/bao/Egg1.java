@@ -23,14 +23,16 @@ public class Egg1 extends MyActor{
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (Master.money >= 1000) {
-                    Master.money -= 1000;
+                if (Master.money >= 10000) {
+                    Master.money -= 10000;
                     Master.wordSkills.add(Utils.wordList.random());
                     Master.sound.play();
-                    Skill.iclick = 1;
+                    if(Master.solanclick >= 250){
+                        Master.eggs(1);
+                    }
 
                 } else {
-                    Master.skill1.remove();
+                    Master.egg1.remove();
                 }
             }
         });

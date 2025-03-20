@@ -47,6 +47,8 @@ public class Egg extends MyActor{
             Master.skill2 = new Skill2(450, 150, getStage());
             Master.buyskill = new Buyskill(450,200, getStage());
             Master.egg1 = new Egg1(500,150,getStage());
+            Master.egg2 = new Egg2(550,150,getStage());
+            Master.egg3 = new Egg3(600,150,getStage());
 
 
             getStage().addActor(Master.shop);
@@ -77,9 +79,15 @@ public class Egg extends MyActor{
             getStage().addActor(Master.click3);
             getStage().addActor(Master.click2);
             getStage().addActor(Master.click);
+            getStage().addActor(Master.egg1);
+            getStage().addActor(Master.egg2);
+            getStage().addActor(Master.egg3);
     }
 
     public void shopHide(){
+        Master.egg1.remove();
+        Master.egg2.remove();
+        Master.egg3.remove();
         Master.shop.remove();
         Master.click.remove();
         Master.click2.remove();
