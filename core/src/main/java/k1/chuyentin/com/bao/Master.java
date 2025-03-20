@@ -1,5 +1,6 @@
 package k1.chuyentin.com.bao;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
@@ -160,6 +161,7 @@ public class Master implements Screen {
 
     public static Array<String> wordSkills = new Array<>();
     public static boolean levelUp = false;
+    Sound levelUpSound;
 
     BitmapFont font;
 
@@ -197,6 +199,8 @@ public class Master implements Screen {
             }
         });
 
+        levelUpSound = Gdx.audio.newSound(Gdx.files.internal("levelup.wav"));
+
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -210,10 +214,9 @@ public class Master implements Screen {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
-
-
         time++;
         if (solanclick == 50 && !levelUp){
+            levelUpSound.play();
             levelUp = true;
             new Sparkle(new Texture("sparkle.png"), Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2, stage, 8, 8);
             if (random == 1){
@@ -232,6 +235,7 @@ public class Master implements Screen {
         }
 
         if (solanclick == 250 && !levelUp){
+            levelUpSound.play();
             levelUp = true;
             if (random == 2){
                 pet.textureRegion=new TextureRegion(new Texture("rualon.png"));
@@ -247,6 +251,7 @@ public class Master implements Screen {
 
         }
         if (solanclick == 100 && !levelUp){
+            levelUpSound.play();
             levelUp = true;
             if (random == 2){
                 pet.textureRegion=new TextureRegion(new Texture("ruacon.png"));

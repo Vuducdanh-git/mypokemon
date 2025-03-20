@@ -8,7 +8,7 @@ public class Sparkle extends MyActorAnimation{
     Sparkle(Texture texture, float x, float y, Stage s, int cols, int rows) {
         super(texture, x, y, s, cols, rows);
         animation.setPlayMode(Animation.PlayMode.NORMAL);
-        time *=2;
+        time *=3;
     }
 
     @Override

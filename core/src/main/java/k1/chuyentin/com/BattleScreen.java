@@ -301,21 +301,19 @@ public class BattleScreen implements Screen {
             boolean isHeated = false;
             for (String s: Master.wordSkills){
                 if(s.equals(inputText)){
-                    truhp = MathUtils.random(20f,30f);
                     isHeated = true;
                     break;
-                }else {
-                    myhp -= MathUtils.random(20f,30f);
                 }
             }
             if(isHeated){
+                truhp = inputText.length();
                 for (int i = 0; i < 10; i++) {
                     new Fire(0, 0, stage, true);
                 }
             } else {
+                trumhp = MathUtils.random(20f,30f);
                 for (int i = 0; i < 10; i++) {
                     new Fire(0, 0, stage, false);
-
                 }
             }
         }
