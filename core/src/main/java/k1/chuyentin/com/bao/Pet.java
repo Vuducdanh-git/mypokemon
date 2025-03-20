@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import k1.chuyentin.com.FloatingWords;
 
 public class Pet extends MyActor{
     float w=getWidth();
@@ -23,22 +24,31 @@ public class Pet extends MyActor{
                 Master.money++;
                 Master.solanclick++;
 
-                    Master.money+=Master.plus;
+                Master.money+=Master.plus;
                 if (getWidth() < 100){
                     setSize(getWidth()*1.01f, getHeight()*1.01f);
                     w = w*1.01f;
                     h = h*1.01f;
                 }
                 new Coin(getX() + getWidth()/2, getY() + getHeight()/2, getStage(), true);
+                new FloatingWords(0,0, getStage());
                 addAction(Actions.sequence(
                     Actions.color(new Color(MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f))),
                     Actions.delay(0.5f),
                     Actions.color(new Color(1,1,1,1))
                 ));
-                addAction(Actions.sequence(
-
-                ));
             }
         });
+    }
+
+    public void click(){
+        Master.solanclick++;
+        new Coin(getX() + getWidth()/2, getY() + getHeight()/2, getStage(), true);
+        new FloatingWords(0,0, getStage());
+        addAction(Actions.sequence(
+            Actions.color(new Color(MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f))),
+            Actions.delay(0.5f),
+            Actions.color(new Color(1,1,1,1))
+        ));
     }
 }

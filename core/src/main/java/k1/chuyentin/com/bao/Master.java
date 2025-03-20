@@ -13,9 +13,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.Timer;
 import k1.chuyentin.com.BattleScreen;
 import k1.chuyentin.com.StartGame;
 
@@ -154,7 +156,6 @@ public class Master implements Screen {
 
     public static Array<String> wordSkills = new Array<>();
 
-
     BitmapFont font;
 
     public Master(StartGame game) {
@@ -169,31 +170,6 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new BackGround(0, 0, stage);
-//        item = new Item(0, 0, stage, 1);
-//        item2 = new Item2(0, 0, stage, 2);
-//        item3 = new Item3(0, 0, stage, 3);
-//        item4 = new Item4(0, 0, stage, 4);
-//        item5 = new Item5(0, 0, stage, 5);
-//        item6 = new Item6(0, 0, stage, 6);
-//        item7 = new Item7(0, 0, stage, 7);
-//        item8 = new Item8(0, 0, stage, 8);
-//        item9 = new Item9(0, 0, stage, 9);
-//        item10 = new Item10(0, 0, stage, 10);
-//        item11 = new Item11(0, 0, stage, 11);
-//        item12 = new Item12(0, 0, stage, 12);
-//        item13 = new Item13(0, 0, stage, 13);
-//        item14 = new Item14(0, 0, stage, 14);
-//        item15 = new Item15(0, 0, stage, 15);
-//        item16 = new Item16(0, 0, stage, 16);
-//        item17 = new Item17(0, 0, stage, 17);
-//        item18 = new Item18(0, 0, stage, 18);
-//        item19 = new Item19(0, 0, stage, 19);
-//        item20 = new Item20(0, 0, stage, 20);
-//        item21 = new Item21(0, 0, stage, 21);
-//        item22 = new Item22(0, 0, stage, 22);
-//        item23 = new Item23(0, 0, stage, 23);
-//        item24 = new Item24(0, 0, stage, 24);
-
 
         skill1 = new Skill1(0, Gdx.graphics.getHeight()/2, stage);
         skill2 = new Skill2(0, Gdx.graphics.getHeight()/2, stage);
@@ -229,117 +205,147 @@ public class Master implements Screen {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
-        time++;
-        if (solanclick == 50){
-            pet.remove();
 
-            if (random == 1){
-                pet = new Pet(new Texture("fushigidane.png"), 0, 0, stage);
-            }
-            if (random == 2){
-                pet = new Pet(new Texture("rua.png"), 0, 0, stage);
-            }
-            if (random == 3){
-                pet = new Pet(new Texture("rong.png"), 0, 0, stage);
-            }
-            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
-        }
-        if (solanclick == 250){
-            pet.remove();
-            if (random == 2){
-                pet = new Pet(new Texture("rualon.png"), 0, 0, stage);
-            }
-            if (random == 3){
-                pet = new Pet(new Texture("ronglon.png"), 0, 0, stage);
-            }if(random == 1) {
-                pet = new Pet(new Texture("fushigibana.png"), 0, 0, stage);
-            }
-            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+            time++;
+            if (solanclick == 50){
+                pet.remove();
 
-        }
-        if (solanclick == 100){
-            pet.remove();
-            if (random == 2){
-                pet = new Pet(new Texture("ruacon.png"), 0, 0, stage);
-            }
-            if (random == 3){
-                pet = new Pet(new Texture("rongcon.png"), 0, 0, stage);
-            }if(random == 1){
-                pet = new Pet(new Texture("fushigisou.png"), 0, 0, stage);
-            }
-            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-        }
+                if (random == 1){
+                    pet = new Pet(new Texture("fushigidane.png"), 0, 0, stage);
 
+                }
+                if (random == 2){
+                    pet = new Pet(new Texture("rua.png"), 0, 0, stage);
+                }
+                if (random == 3){
+                    pet = new Pet(new Texture("rong.png"), 0, 0, stage);
+                }
+                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+
+            }
+
+            if (solanclick == 250){
+                pet.remove();
+                if (random == 2){
+                    pet = new Pet(new Texture("rualon.png"), 0, 0, stage);
+
+                }
+                if (random == 3){
+                    pet = new Pet(new Texture("ronglon.png"), 0, 0, stage);
+
+
+                }if(random == 1) {
+                    pet = new Pet(new Texture("fushigibana.png"), 0, 0, stage);
+
+                }
+                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+
+            }
+            if (solanclick == 100){
+                pet.remove();
+                if (random == 2){
+                    pet = new Pet(new Texture("ruacon.png"), 0, 0, stage);
+                }
+                if (random == 3){
+                    pet = new Pet(new Texture("rongcon.png"), 0, 0, stage);
+                }if(random == 1){
+                    pet = new Pet(new Texture("fushigisou.png"), 0, 0, stage);
+                }
+                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+            }
         if (time % 60 == 0) {
-            if (autoplus2 = true) {
+            if (autoplus2 == true) {
                 money += autoplusnumber2;
+                pet.click();
             }
-            if (autoplus3 = true) {
+            if (autoplus3 == true) {
                 money += autoplusnumber3;
+                pet.click();
             }
-            if (autoplus4 = true) {
+            if (autoplus4 == true) {
                 money += autoplusnumber4;
+                pet.click();
             }
-            if (autoplus5 = true) {
+            if (autoplus5 == true) {
                 money += autoplusnumber5;
+                pet.click();
             }
-            if (autoplus6 = true) {
+            if (autoplus6 == true) {
                 money += autoplusnumber6;
+                pet.click();
             }
-            if (autoplus7 = true) {
+            if (autoplus7 == true) {
                 money += autoplusnumber7;
+                pet.click();
             }
-            if (autoplus8 = true) {
+            if (autoplus8 == true) {
                 money += autoplusnumber8;
+                pet.click();
             }
-            if (autoplus9 = true) {
+            if (autoplus9 == true) {
                 money += autoplusnumber9;
+                pet.click();
             }
-            if (autoplus10 = true) {
+            if (autoplus10 == true) {
                 money += autoplusnumber10;
+                pet.click();
             }
-            if (autoplus11 = true) {
+            if (autoplus11 == true) {
                 money += autoplusnumber11;
+                pet.click();
             }
-            if (autoplus12 = true) {
+            if (autoplus12 == true) {
                 money += autoplusnumber12;
+                pet.click();
             }
-            if (autoplus13 = true) {
+            if (autoplus13 == true) {
                 money += autoplusnumber13;
+                pet.click();
             }
-            if (autoplus14 = true) {
+            if (autoplus14 == true) {
                 money += autoplusnumber14;
+                pet.click();
             }
-            if (autoplus15 = true) {
+            if (autoplus15 == true) {
                 money += autoplusnumber15;
+                pet.click();
             }
-            if (autoplus16 = true) {
+            if (autoplus16 == true) {
                 money += autoplusnumber16;
+                pet.click();
             }
-            if (autoplus17 = true) {
+            if (autoplus17 == true) {
                 money += autoplusnumber17;
+                pet.click();
             }
-            if (autoplus18 = true) {
+            if (autoplus18 == true) {
                 money += autoplusnumber18;
+                pet.click();
             }
-            if (autoplus19 = true) {
+            if (autoplus19 == true) {
                 money += autoplusnumber19;
+                pet.click();
             }
-            if (autoplus20 = true) {
+            if (autoplus20 == true) {
                 money += autoplusnumber20;
+                pet.click();
             }
-            if (autoplus21 = true) {
+            if (autoplus21 == true) {
                 money += autoplusnumber21;
+                pet.click();
             }
-            if (autoplus22 = true) {
+            if (autoplus22 == true) {
                 money += autoplusnumber22;
+                pet.click();
             }
-            if (autoplus23 = true) {
+            if (autoplus23 == true) {
                 money += autoplusnumber23;
+                pet.click();
             }
-            if (autoplus24 = true) {
+            if (autoplus24 == true) {
                 money += autoplusnumber24;
+                pet.click();
             }
 
         }
