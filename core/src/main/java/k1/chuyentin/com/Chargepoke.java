@@ -17,26 +17,26 @@ public class Chargepoke implements Screen {
     OrthographicCamera camera;
     Texture texture;
     SpriteBatch batch;
-    Board board;
-    Board board2;
-    Board board3;
-    Board board4;
-    Board board5;
-    Board board6;
-    Board board7;
-    Board board8;
-    Board board9;
-    Board board10;
-    Board board11;
-    Board board12;
-    Board board13;
-    Board board14;
-    Board board15;
-    Board board16;
-    Board board17;
-    Board board18;
-    Board board19;
-    Board board20;
+    public static Board board;
+    public static Board board2;
+    public static Board board3;
+    public static Board board4;
+    public static Board board5;
+    public static Board board6;
+    public static Board board7;
+    public static Board board8;
+    public static Board board9;
+    public static Board board10;
+    public static Board board11;
+    public static Board board12;
+    public static Board board13;
+    public static Board board14;
+    public static Board board15;
+    public static Board board16;
+    public static Board board17;
+    public static Board board18;
+    public static Board board19;
+    public static Board board20;
     static int random;
 
     Stage stage;
@@ -58,250 +58,26 @@ public class Chargepoke implements Screen {
             }
         });
         batch = new SpriteBatch();
+        float x = 50;
+        float y = 300;
 
+        for (int i =0;i <Utils.listPoke.size;i++) {
+            int type = (int) Utils.listPoke.get(i);
+            Board boardnew = new Board(x,y,stage,type);
+            boardnew.addListener(new ClickListener(){
+                public void clicked(InputEvent event, float x, float y) {
+                    random=type;
+                    game.setScreen(new BattleScreen(game));
+                }
+            });
+            if(i %2==0){
+                x+=(boardnew.getWidth()+20);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        board13 = new Board(50,100,stage,13);
-        board14 = new Board(50,200,stage,14);
-        board15 = new Board(50,300,stage,15);
-        board16 = new Board(250,100,stage,16);
-        board17 = new Board(250,200,stage,17);
-        board18 = new Board(250,300,stage,18);
-
-        board19 = new Board(250,200,stage,19);
-        board20 = new Board(250,300,stage,20);
-        for (int type: Utils.listPoke) {
-            if(type==1) {
-                board.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=1;
-                        game.setScreen(new BattleScreen(game));
-                        board = new Board(50,100,stage,1);
-                        stage.addActor(board);
-
-                    }
-                });
-
-            }
-            if (type==2) {
-                board2.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=2;
-                        game.setScreen(new BattleScreen(game));
-                        board2 = new Board(50,200,stage,2);
-                        stage.addActor(board2);
-                    }
-                });
-
-            }
-            if (type==3) {
-                board3.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=3;
-                        game.setScreen(new BattleScreen(game));
-                        board3 = new Board(50,300,stage,3);
-                        stage.addActor(board3);
-                    }
-                });
-            }
-            if (type==4) {
-                board4.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=4;
-                        game.setScreen(new BattleScreen(game));
-                        board4 = new Board(250,100,stage,4);
-                        stage.addActor(board4);
-                    }
-                });
-            }
-            if(type==5) {
-                board5.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=5;
-                        game.setScreen(new BattleScreen(game));
-                        board5 = new Board(250,200,stage,5);
-                        stage.addActor(board5);
-                    }
-                });
-
-            }
-            if (type ==6){
-                board6.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=6;
-                        game.setScreen(new BattleScreen(game));
-                        board6 = new Board(250,300,stage,6);
-                        stage.addActor(board6);
-                    }
-                });
+            }else {
+                x -= boardnew.getWidth()+20;
+                y-=(boardnew.getHeight()+20);
             }
 
-            if(type==7) {
-                board7.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board7 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board7);
-                    }
-                });
-
-            }
-            if(type==8) {
-                board8.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board8 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board8);
-                    }
-                });
-
-            }
-            if(type==9) {
-                board9.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board9 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board9);
-                    }
-                });
-
-            }
-            if(type==10) {
-                board10.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board10 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board10);
-                    }
-                });
-
-            }
-            if(type==11) {
-                board8.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board11 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board11);
-                    }
-                });
-
-            }
-            if(type==12) {
-                board12.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board12 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board12);
-                    }
-                });
-
-            }
-            if(type==13) {
-                board13.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board13 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board13);
-                    }
-                });
-
-            }
-            if(type==14) {
-                board14.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board14 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board14);
-                    }
-                });
-
-            }
-            if(type==15) {
-                board15.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board15 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board15);
-                    }
-                });
-
-            }
-            if(type==16) {
-                board16.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board16 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board16);
-                    }
-                });
-
-            }
-            if(type==17) {
-                board17.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board17 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board17);
-                    }
-                });
-
-            }
-            if(type==18) {
-                board18.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board18 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board18);
-                    }
-                });
-
-            }
-            if(type==19) {
-                board19.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board19 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board19);
-                    }
-                });
-
-            }
-            if(type==20) {
-                board20.addListener(new ClickListener(){
-                    public void clicked(InputEvent event, float x, float y) {
-                        random=type;
-                        board20 = new Board(05,100,stage,type);
-                        game.setScreen(new BattleScreen(game));
-                        stage.addActor(board20);
-                    }
-                });
-
-            }
         }
 
 

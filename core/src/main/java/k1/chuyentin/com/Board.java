@@ -9,6 +9,7 @@ public class Board extends Actor {
     Texture texture;
     public Board(float x, float y, Stage stage,int type) {
         setPosition(x, y);
+        stage.addActor(this);
         if(type == 1) {
             texture = new Texture("veboard.png");
         }

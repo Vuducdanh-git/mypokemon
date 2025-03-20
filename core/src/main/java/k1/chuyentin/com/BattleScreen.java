@@ -27,7 +27,7 @@ public class BattleScreen implements Screen {
     OrthographicCamera camera;
     Background background;
     Stage stage;
-    Mypoke mypoke;
+    Mypoke mypoke = new Mypoke(new Texture("veback.png"), stage, -7, -4, 5, 34, 3);
     Texture texturepo;
     Enepoke enepoke;
     Texture textr;
@@ -45,7 +45,7 @@ public class BattleScreen implements Screen {
     boolean isTextFieldActive = false;
     StartGame game;
     Cyp cyp;
-    String mp;
+    String mp = "";
     float truhp = 0;
     Music nen;
     Skill skill;// = new Skill(stage,bar1.getX(),bar1.getY(),bar1.getWidth()/2);
@@ -306,7 +306,7 @@ public class BattleScreen implements Screen {
                 }
             }
             if(isHeated){
-                truhp = inputText.length();
+                truhp = inputText.length()*2;
                 for (int i = 0; i < 10; i++) {
                     new Fire(0, 0, stage, true);
                 }
