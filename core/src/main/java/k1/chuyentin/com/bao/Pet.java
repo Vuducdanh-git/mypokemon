@@ -23,6 +23,7 @@ public class Pet extends MyActor{
             public void clicked(InputEvent event, float x, float y) {
                 Master.money++;
                 Master.solanclick++;
+                Master.levelUp = false;
 
                 Master.money+=Master.plus;
                 if (getWidth() < 100){

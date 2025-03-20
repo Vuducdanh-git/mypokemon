@@ -1,5 +1,6 @@
 package k1.chuyentin.com.bao;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Sound;
@@ -160,6 +161,8 @@ public class Master implements Screen {
     static public int random = MathUtils.random(1, 3);
 
     public static Array<String> wordSkills = new Array<>();
+    public static boolean levelUp = false;
+    Sound levelUpSound;
 
     BitmapFont font;
 
@@ -197,6 +200,7 @@ public class Master implements Screen {
             }
         });
 
+        levelUpSound = Gdx.audio.newSound(Gdx.files.internal("levelup.wav"));
 
         Gdx.input.setInputProcessor(stage);
     }
@@ -211,74 +215,72 @@ public class Master implements Screen {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
-
-
         time++;
-        if(iegg >0){
-            if (solanclick == 50){
+        if(iegg >0) {
+            if (solanclick == 50 && !levelUp) {
+                levelUpSound.play();
+                levelUp = true;
+                new Sparkle(new Texture("sparkle.png"), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, stage, 8, 8);
+                if (random == 1) {
+                    pet.textureRegion = new TextureRegion(new Texture("fushigidane.png"));
+                }
+                if (random == 2) {
+                    pet.textureRegion = new TextureRegion(new Texture("rua.png"));
 
-
-                if (random == 1){
-                    pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
 
                 }
-                if (random == 2){
-                    pet.textureRegion=new TextureRegion(new Texture("rua.png"));
-
-
-                }
-                if (random == 3){
-                    pet.textureRegion=new TextureRegion(new Texture("rong.png"));
-                }
-                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-
-            }
-
-            if (solanclick == 250){
-
-                if (random == 2){
-                    pet.textureRegion=new TextureRegion(new Texture("rualon.png"));
-
-                }
-                if (random == 3){
-                    pet.textureRegion=new TextureRegion(new Texture("ronglon.png"));
-
-
-                }if(random == 1) {
-
-                    pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
-
+                if (random == 3) {
+                    pet.textureRegion = new TextureRegion(new Texture("rong.png"));
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
             }
-            if (solanclick == 100){
 
-                if (random == 2){
-                    pet.textureRegion=new TextureRegion(new Texture("ruacon.png"));
+            if (solanclick == 250 && !levelUp) {
+                levelUpSound.play();
+                levelUp = true;
+                if (random == 2) {
+                    pet.textureRegion = new TextureRegion(new Texture("rualon.png"));
                 }
-                if (random == 3){
-                    pet.textureRegion=new TextureRegion(new Texture("rongcon.png"));
-                }if(random == 1){
-                    pet.textureRegion=new TextureRegion(new Texture("fushigisou.png"));
+                if (random == 3) {
+                    pet.textureRegion = new TextureRegion(new Texture("ronglon.png"));
+
+
+                }
+                if (random == 1) {
+                    pet.textureRegion = new TextureRegion(new Texture("fushigibana.png"));
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-        }else {
-                random = MathUtils.random(1, 20);
-                if (random == 1){
-                    pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
-                }
-                if (random == 2){
-                    pet.textureRegion=new TextureRegion(new Texture("rua.png"));
-                }
-                if (random == 3){
-                    pet.textureRegion=new TextureRegion(new Texture("rong.png"));
-                }
-                if (random == 4){
-                    pet.textureRegion=new TextureRegion(new Texture(".png"));
-                }
-            }
 
+            }
+            if (solanclick == 100 && !levelUp) {
+                levelUpSound.play();
+                levelUp = true;
+                if (random == 2) {
+                    pet.textureRegion = new TextureRegion(new Texture("ruacon.png"));
+                }
+                if (random == 3) {
+                    pet.textureRegion = new TextureRegion(new Texture("rongcon.png"));
+                }
+                if (random == 1) {
+                    pet.textureRegion = new TextureRegion(new Texture("fushigisou.png"));
+                }
+                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+            }
+        } else {
+            random = MathUtils.random(1, 20);
+            if (random == 1){
+                pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
+            }
+            if (random == 2){
+                pet.textureRegion=new TextureRegion(new Texture("rua.png"));
+            }
+            if (random == 3){
+                pet.textureRegion=new TextureRegion(new Texture("rong.png"));
+            }
+            if (random == 4){
+                pet.textureRegion=new TextureRegion(new Texture(".png"));
+            }
         }
         if (time % 60 == 0) {
             if (autoplus2 == true) {
