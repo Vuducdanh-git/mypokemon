@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -152,7 +153,10 @@ public class Master implements Screen {
     static Item23 click23;
     static Item24 click24;
     static Buyskill buyskill;
-    int random = MathUtils.random(1, 3);
+    static egg1 egg1;
+    static egg2 egg2;
+    static egg3 egg3;
+    static public int random = MathUtils.random(1, 3);
 
     public static Array<String> wordSkills = new Array<>();
 
@@ -207,53 +211,56 @@ public class Master implements Screen {
 
 
 
-            time++;
-            if (solanclick == 50){
-                pet.remove();
+        time++;
+        if (solanclick == 50){
 
-                if (random == 1){
-                    pet = new Pet(new Texture("fushigidane.png"), 0, 0, stage);
 
-                }
-                if (random == 2){
-                    pet = new Pet(new Texture("rua.png"), 0, 0, stage);
-                }
-                if (random == 3){
-                    pet = new Pet(new Texture("rong.png"), 0, 0, stage);
-                }
-                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+            if (random == 1){
+                pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
 
             }
+            if (random == 2){
+                pet.textureRegion=new TextureRegion(new Texture("rua.png"));
 
-            if (solanclick == 250){
-                pet.remove();
-                if (random == 2){
-                    pet = new Pet(new Texture("rualon.png"), 0, 0, stage);
-
-                }
-                if (random == 3){
-                    pet = new Pet(new Texture("ronglon.png"), 0, 0, stage);
-
-
-                }if(random == 1) {
-                    pet = new Pet(new Texture("fushigibana.png"), 0, 0, stage);
-
-                }
-                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
             }
-            if (solanclick == 100){
-                pet.remove();
-                if (random == 2){
-                    pet = new Pet(new Texture("ruacon.png"), 0, 0, stage);
-                }
-                if (random == 3){
-                    pet = new Pet(new Texture("rongcon.png"), 0, 0, stage);
-                }if(random == 1){
-                    pet = new Pet(new Texture("fushigisou.png"), 0, 0, stage);
-                }
-                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+            if (random == 3){
+                pet.textureRegion=new TextureRegion(new Texture("rong.png"));
             }
+            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+
+        }
+
+        if (solanclick == 250){
+
+            if (random == 2){
+                pet.textureRegion=new TextureRegion(new Texture("rualon.png"));
+
+            }
+            if (random == 3){
+                pet.textureRegion=new TextureRegion(new Texture("ronglon.png"));
+
+
+            }if(random == 1) {
+
+                pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
+
+            }
+            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+
+        }
+        if (solanclick == 100){
+
+            if (random == 2){
+                pet.textureRegion=new TextureRegion(new Texture("ruacon.png"));
+            }
+            if (random == 3){
+                pet.textureRegion=new TextureRegion(new Texture("rongcon.png"));
+            }if(random == 1){
+                pet.textureRegion=new TextureRegion(new Texture("fushigisou.png"));
+            }
+            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+        }
         if (time % 60 == 0) {
             if (autoplus2 == true) {
                 money += autoplusnumber2;

@@ -37,6 +37,7 @@ public class BattleScreen implements Screen {
     SkillBar skillBar;
     public static float myhp = 100;
     public static float yourhp=100;
+    Bth bth;
 
     Hpbar hpbarm;
     Hpbar hpbare;
@@ -59,9 +60,22 @@ public class BattleScreen implements Screen {
         camera.setToOrtho(false, 840, 680);
         batch = new SpriteBatch();
         stage = new Stage();
-        texturepo = new Texture("veback.png");
-        mp = new String("VENUSAUR LV:MAX");
-        mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+        if(Master.random == 1){
+            texturepo = new Texture("veback.png");
+            mp = new String("VENUSAUR LV:MAX");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+        }
+        if(Master.random == 2){
+            texturepo = new Texture("blasback.png");
+            mp = new String("BLASTOISE LV:MAX");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 49, 3);
+        }
+        if(Master.random == 3){
+            texturepo = new Texture("charback.png");
+            mp = new String("CHARIZARD LV:MAX");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 3);
+        }
+
 
 
         if (Chargepoke.random == 1) {
@@ -181,7 +195,7 @@ public class BattleScreen implements Screen {
         }
         if (Chargepoke.random == 20) {
             texturepo = new Texture("charback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 31, 1);
             mp = new String("CHARIZARD LV:MAX");
         }
 
@@ -205,6 +219,12 @@ public class BattleScreen implements Screen {
                 }
             });
 
+            bth = new Bth(stage, 340+bar1.getWidth()/2-30, 60-30, skillBar.getWidth() / 2);
+            bth.addListener(new ClickListener() {
+                public void clicked(InputEvent event, float x, float y) {
+                    game.setScreen(new Master(game));
+                }
+            });
 
             stage.addActor(background);
             stage.addActor(skillBar);
