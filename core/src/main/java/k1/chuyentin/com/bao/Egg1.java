@@ -10,10 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.Skill;
 
-public class Skill1 extends MyActor{
-    Skill1(float x, float y, Stage s) {
+public class Egg1 extends MyActor{
+    Egg1(float x, float y, Stage s) {
         super(x, y, s);
-        textureRegion = new TextureRegion(new Texture("skill1.png"));
+        textureRegion = new TextureRegion(new Texture("egg1.png"));
         setSize(32,32);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
@@ -24,15 +24,15 @@ public class Skill1 extends MyActor{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if (Master.money >= 1000) {
-                        Master.money -= 1000;
-                        Master.wordSkills.add(Utils.wordList.random());
-                        Master.sound.play();
-                        Skill.iclick = 1;
+                    Master.money -= 1000;
+                    Master.wordSkills.add(Utils.wordList.random());
+                    Master.sound.play();
+                    Skill.iclick = 1;
 
                 } else {
                     Master.skill1.remove();
                 }
             }
-    });
+        });
     }
 }

@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import k1.chuyentin.com.bao.Master;
 import k1.chuyentin.com.bao.Utils;
 
 public class FloatingWords extends Actor {
@@ -16,7 +17,11 @@ public class FloatingWords extends Actor {
     private BitmapFont font;
 
     public FloatingWords(float x, float y, Stage s) {
-        text = Utils.wordList.random();
+        if (!Master.wordSkills.isEmpty()){
+            text =Master.wordSkills.random();
+        }else {
+            text = "";
+        }
 
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
@@ -25,13 +30,13 @@ public class FloatingWords extends Actor {
         font = fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
 
-        setPosition(300,  300);
+        setPosition(Gdx.graphics.getWidth()/2,  Gdx.graphics.getHeight()/2);
         setColor(1, 1, 1, 1); // Đảm bảo alpha ban đầu là 1 (không trong suốt)
 
         // Hiệu ứng di chuyển lên + làm mờ dần + xóa sau 1 giây
         addAction(Actions.sequence(
-            Actions.moveBy(0, 80, 2f),  // Bay lên 30 pixel trong 1 giây
-            Actions.fadeOut(1f),        // Làm mờ trong 1 giây
+            Actions.moveBy(MathUtils.random(-300,300), MathUtils.random(-300,300), MathUtils.random(0.1f,0.4f)),  // Bay lên 30 pixel trong 1 giây
+            Actions.fadeOut(0.02f),        // Làm mờ trong 1 giây
             Actions.removeActor()       // Xóa khỏi stage
         ));
         toFront();

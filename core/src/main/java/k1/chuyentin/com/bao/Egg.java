@@ -13,19 +13,6 @@ public class Egg extends MyActor{
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("more button.png"));
         setSize(250, 250/5);
-
-//        addListener(new ClickListener(){
-//
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                if (!isShopShow) {
-//                    showShop();
-//                } else {
-//                    shopHide();
-//                }
-//            }
-//        });
-
     }
 
     public void showShop(){
@@ -59,6 +46,8 @@ public class Egg extends MyActor{
             Master.skill1 = new Skill1(400, 150, getStage());
             Master.skill2 = new Skill2(450, 150, getStage());
             Master.buyskill = new Buyskill(450,200, getStage());
+            Master.egg1 = new Egg1(500,150,getStage());
+
 
             getStage().addActor(Master.shop);
             getStage().addActor(Master.buyskill);

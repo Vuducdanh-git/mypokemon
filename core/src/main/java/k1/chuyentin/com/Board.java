@@ -63,7 +63,7 @@ public class Board extends Actor {
             texture = new Texture("unboard.png");
         }
         if(type == 18) {
-            texture = new Texture("zoboard.png");
+            texture = new Texture("zoroboard.png");
         }
         if(type == 19) {
             texture = new Texture("chanboard.png");

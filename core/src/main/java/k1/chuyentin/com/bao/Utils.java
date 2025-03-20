@@ -26,4 +26,5 @@ public class Utils {
         wordList.add("swimming pool");
         wordList.add("thank you");
     }
+    public static Array<Integer> listPoke = new Array<>();
 }
