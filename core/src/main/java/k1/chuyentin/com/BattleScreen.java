@@ -172,6 +172,18 @@ public class BattleScreen implements Screen {
             mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
             mp = new String("ZOROARK LV:MAX");
         }
+        if (Chargepoke.random == 19) {
+            texturepo = new Texture("chanback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 19, 1);
+            mp = new String("CHANDERLURE LV:MAX");
+
+
+        }
+        if (Chargepoke.random == 20) {
+            texturepo = new Texture("charback.png");
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
+            mp = new String("CHARIZARD LV:MAX");
+        }
 
 
             textr = new Texture("beedrill.png");
