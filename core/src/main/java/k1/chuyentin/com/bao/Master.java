@@ -216,55 +216,57 @@ public class Master implements Screen {
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         time++;
-        if(iegg >0){
-        if (solanclick == 50 && !levelUp){
-            levelUpSound.play();
-            levelUp = true;
-            new Sparkle(new Texture("sparkle.png"), Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2, stage, 8, 8);
-            if (random == 1){
-                pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
-            }
-            if (random == 2){
-                pet.textureRegion=new TextureRegion(new Texture("rua.png"));
+        if(iegg >0) {
+            if (solanclick == 50 && !levelUp) {
+                levelUpSound.play();
+                levelUp = true;
+                new Sparkle(new Texture("sparkle.png"), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, stage, 8, 8);
+                if (random == 1) {
+                    pet.textureRegion = new TextureRegion(new Texture("fushigidane.png"));
+                }
+                if (random == 2) {
+                    pet.textureRegion = new TextureRegion(new Texture("rua.png"));
 
 
                 }
-                if (random == 3){
-                    pet.textureRegion=new TextureRegion(new Texture("rong.png"));
+                if (random == 3) {
+                    pet.textureRegion = new TextureRegion(new Texture("rong.png"));
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
             }
 
-        if (solanclick == 250 && !levelUp){
-            levelUpSound.play();
-            levelUp = true;
-            if (random == 2){
-                pet.textureRegion=new TextureRegion(new Texture("rualon.png"));
-            }
-            if (random == 3){
-                pet.textureRegion=new TextureRegion(new Texture("ronglon.png"));
+            if (solanclick == 250 && !levelUp) {
+                levelUpSound.play();
+                levelUp = true;
+                if (random == 2) {
+                    pet.textureRegion = new TextureRegion(new Texture("rualon.png"));
+                }
+                if (random == 3) {
+                    pet.textureRegion = new TextureRegion(new Texture("ronglon.png"));
 
 
-            }if(random == 1) {
-                pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
-            }
-            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+                }
+                if (random == 1) {
+                    pet.textureRegion = new TextureRegion(new Texture("fushigibana.png"));
+                }
+                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
-        }
-        if (solanclick == 100 && !levelUp){
-            levelUpSound.play();
-            levelUp = true;
-            if (random == 2){
-                pet.textureRegion=new TextureRegion(new Texture("ruacon.png"));
             }
-            if (random == 3){
-                pet.textureRegion=new TextureRegion(new Texture("rongcon.png"));
-            }if(random == 1){
-                pet.textureRegion=new TextureRegion(new Texture("fushigisou.png"));
+            if (solanclick == 100 && !levelUp) {
+                levelUpSound.play();
+                levelUp = true;
+                if (random == 2) {
+                    pet.textureRegion = new TextureRegion(new Texture("ruacon.png"));
+                }
+                if (random == 3) {
+                    pet.textureRegion = new TextureRegion(new Texture("rongcon.png"));
+                }
+                if (random == 1) {
+                    pet.textureRegion = new TextureRegion(new Texture("fushigisou.png"));
+                }
+                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
             }
-            pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-        }
         } else {
             random = MathUtils.random(1, 20);
             if (random == 1){
