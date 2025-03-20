@@ -153,9 +153,9 @@ public class Master implements Screen {
     static Item23 click23;
     static Item24 click24;
     static Buyskill buyskill;
-    static egg1 egg1;
-    static egg2 egg2;
-    static egg3 egg3;
+    static Egg1 egg1;
+    static Egg2 egg2;
+    static Egg3 egg3;
     static public int random = MathUtils.random(1, 3);
 
     public static Array<String> wordSkills = new Array<>();
