@@ -159,6 +159,7 @@ public class Master implements Screen {
     static public int random = MathUtils.random(1, 3);
 
     public static Array<String> wordSkills = new Array<>();
+    public static boolean levelUp = false;
 
     BitmapFont font;
 
@@ -212,12 +213,11 @@ public class Master implements Screen {
 
 
         time++;
-        if (solanclick == 50){
-
-
+        if (solanclick == 50 && !levelUp){
+            levelUp = true;
+            new Sparkle(new Texture("sparkle.png"), Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2, stage, 8, 8);
             if (random == 1){
                 pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
-
             }
             if (random == 2){
                 pet.textureRegion=new TextureRegion(new Texture("rua.png"));
@@ -231,26 +231,23 @@ public class Master implements Screen {
 
         }
 
-        if (solanclick == 250){
-
+        if (solanclick == 250 && !levelUp){
+            levelUp = true;
             if (random == 2){
                 pet.textureRegion=new TextureRegion(new Texture("rualon.png"));
-
             }
             if (random == 3){
                 pet.textureRegion=new TextureRegion(new Texture("ronglon.png"));
 
 
             }if(random == 1) {
-
                 pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
-
             }
             pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         }
-        if (solanclick == 100){
-
+        if (solanclick == 100 && !levelUp){
+            levelUp = true;
             if (random == 2){
                 pet.textureRegion=new TextureRegion(new Texture("ruacon.png"));
             }
