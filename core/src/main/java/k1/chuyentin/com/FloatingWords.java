@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import k1.chuyentin.com.bao.Master;
 
 public class FloatingWords extends Actor {
     private String text;
@@ -16,7 +17,7 @@ public class FloatingWords extends Actor {
 
     public FloatingWords(float x, float y, Stage s) {
         if (!Master.wordSkills.isEmpty()){
-            text =Master.wordSkills.random();
+            text = Master.wordSkills.random();
         }else {
             text = "";
         }
