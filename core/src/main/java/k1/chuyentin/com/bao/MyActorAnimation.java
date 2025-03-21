@@ -10,7 +10,7 @@ public class MyActorAnimation extends MyActor{
 
     float time;
 
-    MyActorAnimation(Texture texture, float x, float y, Stage s, int cols, int rows) {
+    MyActorAnimation(Texture texture, float x, float y, Stage s, int cols, int rows,float width, float height) {
         super(x, y, s);
         setPosition(x, y);
         setSize(texture.getWidth(), texture.getHeight());
@@ -25,14 +25,12 @@ public class MyActorAnimation extends MyActor{
                 }
             }
         }
-
         animation = new Animation<TextureRegion>(0.05f, frames);
-
         animation.setPlayMode(Animation.PlayMode.LOOP);
-
         time = 0;
         textureRegion = animation.getKeyFrame(time);
-        setSize(textureRegion.getRegionWidth(), textureRegion.getRegionHeight());
+        setSize(width, height);
+
     }
 
     @Override
