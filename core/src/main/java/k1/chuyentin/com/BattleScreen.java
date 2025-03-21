@@ -19,7 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.bao.Master;
-import k1.chuyentin.com.bao.Skill2;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
@@ -190,7 +189,7 @@ public class BattleScreen implements Screen {
         }
         if (Chargepoke.random == 19) {
             texturepo = new Texture("chanback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 19, 1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 1);
             mp = new String("CHANDERLURE LV:MAX");
 
 

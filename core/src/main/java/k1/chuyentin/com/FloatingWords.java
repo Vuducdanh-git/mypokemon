@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import k1.chuyentin.com.bao.Master;
-import k1.chuyentin.com.bao.Utils;
 
 public class FloatingWords extends Actor {
     private String text;
@@ -18,7 +17,7 @@ public class FloatingWords extends Actor {
 
     public FloatingWords(float x, float y, Stage s) {
         if (!Master.wordSkills.isEmpty()){
-            text =Master.wordSkills.random();
+            text = Master.wordSkills.random();
         }else {
             text = "";
         }
@@ -35,8 +34,8 @@ public class FloatingWords extends Actor {
 
         // Hiệu ứng di chuyển lên + làm mờ dần + xóa sau 1 giây
         addAction(Actions.sequence(
-            Actions.moveBy(MathUtils.random(-300,300), MathUtils.random(-300,300), MathUtils.random(0.1f,0.4f)),  // Bay lên 30 pixel trong 1 giây
-            Actions.fadeOut(0.2f),        // Làm mờ trong 1 giây
+            Actions.moveBy(MathUtils.random(-300,300), MathUtils.random(-300,300), MathUtils.random(0.5f,4f)),  // Bay lên 30 pixel trong 1 giây
+            Actions.fadeOut(0.02f),        // Làm mờ trong 1 giây
             Actions.removeActor()       // Xóa khỏi stage
         ));
         toFront();

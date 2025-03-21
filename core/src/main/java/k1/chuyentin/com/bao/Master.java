@@ -20,10 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.Timer;
-import k1.chuyentin.com.BattleScreen;
-import k1.chuyentin.com.Board;
-import k1.chuyentin.com.Chargepoke;
-import k1.chuyentin.com.StartGame;
+import k1.chuyentin.com.*;
 
 import static k1.chuyentin.com.Chargepoke.board;
 
@@ -128,7 +125,7 @@ public class Master implements Screen {
     Item24 item24;
 
 
-    BackGround bg;
+    Background bg;
     static Shop shop;
     static int use = 0;
 
@@ -182,7 +179,7 @@ public class Master implements Screen {
         fontGenerator.dispose();
         batch = new SpriteBatch();
         stage = new Stage();
-        bg = new BackGround(0, 0, stage);
+        bg = new Background(0, 0, stage);
 
         skill1 = new Skill1(0, Gdx.graphics.getHeight()/2, stage);
         skill2 = new Skill2(0, Gdx.graphics.getHeight()/2, stage);
@@ -237,7 +234,7 @@ public class Master implements Screen {
                     pet.textureRegion = new TextureRegion(new Texture("rong.png"));
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-            //    new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+                //    new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
 
@@ -261,7 +258,7 @@ public class Master implements Screen {
                     Utils.listPoke.add(1);
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-               // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+                // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
             if (solanclick == 100 && !levelUp) {
@@ -279,7 +276,7 @@ public class Master implements Screen {
                 }
 
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
-               // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+                // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
         }
@@ -315,7 +312,7 @@ public class Master implements Screen {
                 if (random == 8){
                     pet.textureRegion=new TextureRegion(new Texture("scep1.png"));
                 }
-             //   new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+                //   new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
             if(solanclick == 100){
@@ -345,7 +342,7 @@ public class Master implements Screen {
                 if (random == 8){
                     pet.textureRegion=new TextureRegion(new Texture("scep2.png"));
                 }
-              //  new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+                //  new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
             if ((solanclick >=250)&&(use ==1)){
@@ -383,7 +380,7 @@ public class Master implements Screen {
                     pet.textureRegion=new TextureRegion(new Texture("scep3.png"));
                     Utils.listPoke.add(16);
                 }
-              //  new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+                //  new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
 
