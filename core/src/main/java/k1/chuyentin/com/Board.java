@@ -73,7 +73,7 @@ public class Board extends Actor {
             texture = new Texture("charboard.png");
         }
 
-        setSize(texture.getWidth()/1.5f, texture.getHeight()/1.5f);
+        setSize(200, 50);
     }
     public void draw(Batch batch, float parentAlpha){
         batch.draw(texture,getX(),getY(),getWidth(),getHeight());

@@ -36,8 +36,7 @@ public class BattleScreen implements Screen {
     BitmapFont fonts;
     SkillBar skillBar;
     public static float myhp = 100;
-    public static float yourhp=100;
-    Bth bth;
+    public static float yourhp=100;Bth bth;
 
     Hpbar hpbarm;
     Hpbar hpbare;
@@ -47,7 +46,9 @@ public class BattleScreen implements Screen {
     Cyp cyp;
     String mp = "";
     float truhp = 0;
+    Boss boss;
     Music nen;
+    Texture btr;
     Skill skill;// = new Skill(stage,bar1.getX(),bar1.getY(),bar1.getWidth()/2);
     float trumhp =0;
 
@@ -55,6 +56,7 @@ public class BattleScreen implements Screen {
     public BattleScreen(StartGame game) {
         nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
         nen.play();
+
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 840, 680);
@@ -195,12 +197,13 @@ public class BattleScreen implements Screen {
         }
         if (Chargepoke.random == 20) {
             texturepo = new Texture("charback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 31, 1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 1);
             mp = new String("CHARIZARD LV:MAX");
         }
 
 
             textr = new Texture("beedrill.png");
+            btr = new Texture("arc.png");
 
             enepoke = new Enepoke(textr, stage, 390, 280);
             background = new Background(0, 0, stage);
@@ -225,13 +228,14 @@ public class BattleScreen implements Screen {
                     game.setScreen(new Master(game));
                 }
             });
-
+            boss = new Boss(btr,stage,390,290);
             stage.addActor(background);
             stage.addActor(skillBar);
             stage.addActor(mypoke);
             stage.addActor(enepoke);
             stage.addActor(bar2);
             stage.addActor(bar1);
+            //stage.addActor(boss);
 
             TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
             textFieldStyle.font = game.font;

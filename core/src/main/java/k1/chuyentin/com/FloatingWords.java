@@ -36,7 +36,7 @@ public class FloatingWords extends Actor {
         // Hiệu ứng di chuyển lên + làm mờ dần + xóa sau 1 giây
         addAction(Actions.sequence(
             Actions.moveBy(MathUtils.random(-300,300), MathUtils.random(-300,300), MathUtils.random(0.1f,0.4f)),  // Bay lên 30 pixel trong 1 giây
-            Actions.fadeOut(0.02f),        // Làm mờ trong 1 giây
+            Actions.fadeOut(0.2f),        // Làm mờ trong 1 giây
             Actions.removeActor()       // Xóa khỏi stage
         ));
         toFront();
