@@ -20,10 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.Timer;
-import k1.chuyentin.com.BattleScreen;
-import k1.chuyentin.com.Board;
-import k1.chuyentin.com.Chargepoke;
-import k1.chuyentin.com.StartGame;
+import k1.chuyentin.com.*;
 
 import static k1.chuyentin.com.Chargepoke.board;
 
@@ -128,8 +125,9 @@ public class Master implements Screen {
     Item24 item24;
 
 
-    BackGround bg;
+    Background bg;
     static Shop shop;
+    static int use = 0;
 
     static Skill1 skill1;
     static Item click;
@@ -181,7 +179,7 @@ public class Master implements Screen {
         fontGenerator.dispose();
         batch = new SpriteBatch();
         stage = new Stage();
-        bg = new BackGround(0, 0, stage);
+        bg = new Background(0, 0, stage);
 
         skill1 = new Skill1(0, Gdx.graphics.getHeight()/2, stage);
         skill2 = new Skill2(0, Gdx.graphics.getHeight()/2, stage);
@@ -224,7 +222,6 @@ public class Master implements Screen {
             if (solanclick == 50 && !levelUp) {
                 levelUpSound.play();
                 levelUp = true;
-                new Sparkle(new Texture("sparkle.png"), Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, stage, 8, 8);
                 if (random == 1) {
                     pet.textureRegion = new TextureRegion(new Texture("fushigidane.png"));
                 }
@@ -237,12 +234,14 @@ public class Master implements Screen {
                     pet.textureRegion = new TextureRegion(new Texture("rong.png"));
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+                //    new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
 
             if (solanclick == 250 && !levelUp) {
                 levelUpSound.play();
                 levelUp = true;
+
                 if (random == 2) {
                     pet.textureRegion = new TextureRegion(new Texture("rualon.png"));
                     Utils.listPoke.add(7);
@@ -259,11 +258,13 @@ public class Master implements Screen {
                     Utils.listPoke.add(1);
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+                // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
             if (solanclick == 100 && !levelUp) {
                 levelUpSound.play();
                 levelUp = true;
+
                 if (random == 2) {
                     pet.textureRegion = new TextureRegion(new Texture("ruacon.png"));
                 }
@@ -273,14 +274,19 @@ public class Master implements Screen {
                 if (random == 1) {
                     pet.textureRegion = new TextureRegion(new Texture("fushigisou.png"));
                 }
+
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+                // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+
             }
-        } else if(iegg ==1) {
+        }
+        if(iegg ==1) {
             if (solanclick <51){
                 pet.textureRegion = new TextureRegion(new Texture("egg1.png"));
             }
             if (solanclick == 51){
                 random = MathUtils.random(1,8);
+
                 if (random == 1){
                     pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
 
@@ -306,8 +312,12 @@ public class Master implements Screen {
                 if (random == 8){
                     pet.textureRegion=new TextureRegion(new Texture("scep1.png"));
                 }
+                //   new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+
             }
             if(solanclick == 100){
+
+
                 if (random == 1){
                     pet.textureRegion=new TextureRegion(new Texture("fushigisou.png"));
                 }
@@ -332,8 +342,11 @@ public class Master implements Screen {
                 if (random == 8){
                     pet.textureRegion=new TextureRegion(new Texture("scep2.png"));
                 }
+                //  new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
+
             }
-            if (solanclick ==250){
+            if ((solanclick >=250)&&(use ==1)){
+                use =0;
                 if (random == 1){
                     Utils.listPoke.add(1);
                     pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
@@ -367,6 +380,7 @@ public class Master implements Screen {
                     pet.textureRegion=new TextureRegion(new Texture("scep3.png"));
                     Utils.listPoke.add(16);
                 }
+                //  new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
 
@@ -525,6 +539,7 @@ public class Master implements Screen {
             pet.textureRegion=new TextureRegion(new Texture("egg3.png"));
             iegg =1;
         }
+        use =1;
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
         solanclick = 0;
     }

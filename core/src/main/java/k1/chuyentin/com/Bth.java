@@ -3,10 +3,7 @@ package k1.chuyentin.com;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import k1.chuyentin.com.bao.Master;
 
 public class Bth extends Actor {
     Texture texture;

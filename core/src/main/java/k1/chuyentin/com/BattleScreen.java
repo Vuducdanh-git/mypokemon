@@ -18,8 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
-import k1.chuyentin.com.bao.Master;
-import k1.chuyentin.com.bao.Skill2;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
@@ -195,7 +193,7 @@ public class BattleScreen implements Screen {
         }
         if (Chargepoke.random == 20) {
             texturepo = new Texture("charback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 31, 1);
+            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 1);
             mp = new String("CHARIZARD LV:MAX");
         }
 
