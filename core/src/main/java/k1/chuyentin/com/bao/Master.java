@@ -99,30 +99,7 @@ public class Master implements Screen {
     Skill1 kinang;
     Skill2 skill;
 
-    Item item;
-    Item2 item2;
-    Item3 item3;
-    Item4 item4;
-    Item5 item5;
-    Item6 item6;
-    Item7 item7;
-    Item8 item8;
-    Item9 item9;
-    Item10 item10;
-    Item11 item11;
-    Item12 item12;
-    Item13 item13;
-    Item14 item14;
-    Item15 item15;
-    Item16 item16;
-    Item17 item17;
-    Item18 item18;
-    Item19 item19;
-    Item20 item20;
-    Item21 item21;
-    Item22 item22;
-    Item23 item23;
-    Item24 item24;
+
 
 
     Background bg;
@@ -219,7 +196,8 @@ public class Master implements Screen {
 
         time++;
         if(iegg ==0) {
-            if (solanclick == 50 && !levelUp) {
+            if (solanclick >= 50 && pet.lv==0 && !levelUp) {
+                pet.lv=1;
                 levelUpSound.play();
                 levelUp = true;
                 if (random == 1) {
@@ -238,9 +216,10 @@ public class Master implements Screen {
 
             }
 
-            if (solanclick == 250 && !levelUp) {
+            if (solanclick >= 250 && pet.lv==2 && !levelUp) {
                 levelUpSound.play();
                 levelUp = true;
+                pet.lv=3;
 
                 if (random == 2) {
                     pet.textureRegion = new TextureRegion(new Texture("rualon.png"));
@@ -261,9 +240,10 @@ public class Master implements Screen {
                 // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
-            if (solanclick == 100 && !levelUp) {
+            if (solanclick >= 100 && pet.lv==1&& !levelUp) {
                 levelUpSound.play();
                 levelUp = true;
+                pet.lv=2;
 
                 if (random == 2) {
                     pet.textureRegion = new TextureRegion(new Texture("ruacon.png"));
