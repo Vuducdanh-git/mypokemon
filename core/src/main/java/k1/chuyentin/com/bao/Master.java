@@ -61,7 +61,7 @@ public class Master implements Screen {
     static boolean autoplus24 = false;
 
 
-    static int money = 0;
+    static public int money = 0;
     static int time = 0;
     static int solanclick = 0;
     static int autoplusnumber1 = 0;
@@ -196,6 +196,19 @@ public class Master implements Screen {
 
         time++;
         if(iegg ==0) {
+            if(pet.lv == 3){
+                if (random == 2) {
+                    pet.textureRegion = new TextureRegion(new Texture("rualon.png"));
+                }
+                if (random == 3) {
+                    pet.textureRegion = new TextureRegion(new Texture("ronglon.png"));
+                }
+                if (random == 1) {
+                    pet.textureRegion = new TextureRegion(new Texture("fushigibana.png"));
+
+                }
+                pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+            }
             if (solanclick >= 50 && pet.lv==0 && !levelUp) {
                 pet.lv=1;
                 levelUpSound.play();
@@ -261,12 +274,46 @@ public class Master implements Screen {
             }
         }
         if(iegg ==1) {
+            if (pet.lv == 3){
+                if (random == 1){
+
+                    pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
+                }
+                if (random == 2){
+                    pet.textureRegion=new TextureRegion(new Texture("rualon.png"));
+
+                }
+                if (random == 3){
+                    pet.textureRegion=new TextureRegion(new Texture("ronglon.png"));
+
+                }
+                if (random == 4){
+                    pet.textureRegion=new TextureRegion(new Texture("chan3.png"));
+
+                }
+                if (random == 5){
+                    pet.textureRegion=new TextureRegion(new Texture("gar3.png"));
+
+                }
+                if (random == 6){
+                    pet.textureRegion=new TextureRegion(new Texture("lux3.png"));
+
+                }
+                if (random == 7){
+                    pet.textureRegion=new TextureRegion(new Texture("zo2.png"));
+                }
+                if (random == 8){
+                    pet.textureRegion=new TextureRegion(new Texture("scep3.png"));}
+            }
             if (solanclick <51){
                 pet.textureRegion = new TextureRegion(new Texture("egg1.png"));
             }
-            if (solanclick == 51){
-                random = MathUtils.random(1,8);
+            if (solanclick >= 51&& pet.lv==0 && !levelUp) {
 
+                random = MathUtils.random(1,8);
+                levelUpSound.play();
+                levelUp = true;
+                pet.lv=1;
                 if (random == 1){
                     pet.textureRegion=new TextureRegion(new Texture("fushigidane.png"));
 
@@ -295,8 +342,10 @@ public class Master implements Screen {
                 //   new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
-            if(solanclick == 100){
-
+            if(solanclick >= 100&& pet.lv==1 ){
+                levelUpSound.play();
+                levelUp = true;
+                pet.lv=2;
 
                 if (random == 1){
                     pet.textureRegion=new TextureRegion(new Texture("fushigisou.png"));
@@ -325,8 +374,11 @@ public class Master implements Screen {
                 //  new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
             }
-            if ((solanclick >=250)&&(use ==1)){
+            if ((solanclick >=250)&&(use ==1)&& pet.lv==2){
                 use =0;
+                levelUpSound.play();
+                levelUp = true;
+                pet.lv=3;
                 if (random == 1){
                     Utils.listPoke.add(1);
                     pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
@@ -725,14 +777,14 @@ public class Master implements Screen {
             use =1;
         }if (i ==2){
             pet.textureRegion=new TextureRegion(new Texture("egg2.png"));
-            iegg =2;
-            use =2;
+            iegg =1;
+            use =1;
         }if (i ==3){
             pet.textureRegion=new TextureRegion(new Texture("egg3.png"));
-            iegg =3;
-            use =3;
+            iegg =1;
+            use =1;
         }
-
+        pet.lv =0;
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
         solanclick = 0;
     }

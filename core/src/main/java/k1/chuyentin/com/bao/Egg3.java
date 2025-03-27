@@ -15,8 +15,8 @@ public class Egg3 extends MyActor{
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("egg3.png"));
         setSize(32,32);
-        setPosition(Gdx.graphics.getWidth(), y);
-        addAction(Actions.moveTo(x, y, 0.5f));
+        setPosition(100000,10000);
+     //   addAction(Actions.moveTo(x, y, 0.5f));
 
 
         addListener(new ClickListener(){

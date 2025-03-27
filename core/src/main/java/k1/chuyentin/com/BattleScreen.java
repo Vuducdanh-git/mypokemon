@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
+import k1.chuyentin.com.bao.Coin;
 import k1.chuyentin.com.bao.Master;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -50,6 +51,7 @@ public class BattleScreen implements Screen {
     Texture btr;
     Skill skill;// = new Skill(stage,bar1.getX(),bar1.getY(),bar1.getWidth()/2);
     float trumhp =0;
+    int lose =0;
 
 
     public BattleScreen(StartGame game) {
@@ -287,6 +289,19 @@ public class BattleScreen implements Screen {
         game.fonts.draw(batch, mp, bar1.getX() + 40, bar1.getY() + 45);
         game.font.draw(batch, "BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
         batch.end();
+        if (myhp <=0){
+            lose =1;
+        }
+        if (yourhp <=0){
+            lose =2;
+        }
+        if (lose ==1){
+            myhp = 100;
+        }
+        if(lose ==2){
+            Master.money +=10000;
+            yourhp =100;
+        }
         if (skill.click == 1 && !isTextFieldActive) {
             textField.setVisible(true);
             textField.setText(""); // Xóa nội dung cũ
