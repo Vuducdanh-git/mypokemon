@@ -3,11 +3,11 @@ package k1.chuyentin.com.bao;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.Skill;
 
 public class Skill1 extends MyActor{
@@ -24,8 +24,12 @@ public class Skill1 extends MyActor{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if (Master.money >= 1000) {
+
                         Master.money -= 1000;
-                        Master.wordSkills.add(Utils.wordList.random());
+                        int ngaunhien = MathUtils.random(0,Utils6.wordList.size-1);
+                        Master.wordSkills.add(Utils6.wordList.get(ngaunhien));
+                        Master.wordSkillsVN.add(Utils6.wordListVN.get(ngaunhien));
+
                         Master.sound.play();
                         Skill.iclick = 1;
 
