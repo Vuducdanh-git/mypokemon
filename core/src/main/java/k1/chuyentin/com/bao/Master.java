@@ -199,12 +199,15 @@ public class Master implements Screen {
             if(pet.lv == 3){
                 if (random == 2) {
                     pet.textureRegion = new TextureRegion(new Texture("rualon.png"));
+                    BattleScreen.mp = "BLASTOISE LV:MAX";
                 }
                 if (random == 3) {
                     pet.textureRegion = new TextureRegion(new Texture("ronglon.png"));
+                    BattleScreen.mp = "CHARIZARD LV:MAX";
                 }
                 if (random == 1) {
                     pet.textureRegion = new TextureRegion(new Texture("fushigibana.png"));
+                    BattleScreen.mp = "VENUSAUR LV:MAX";
 
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
@@ -237,17 +240,18 @@ public class Master implements Screen {
                 if (random == 2) {
                     pet.textureRegion = new TextureRegion(new Texture("rualon.png"));
                     Utils.listPoke.add(7);
+                    BattleScreen.mp = "BLASTOISE LV:MAX";
                 }
                 if (random == 3) {
                     pet.textureRegion = new TextureRegion(new Texture("ronglon.png"));
                     Utils.listPoke.add(20);
-
+                    BattleScreen.mp = "CHARIZARD LV:MAX";
 
                 }
                 if (random == 1) {
                     pet.textureRegion = new TextureRegion(new Texture("fushigibana.png"));
-
                     Utils.listPoke.add(1);
+                    BattleScreen.mp = "VENUSAUR LV:MAX";
                 }
                 pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
                 // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
@@ -278,32 +282,40 @@ public class Master implements Screen {
                 if (random == 1){
 
                     pet.textureRegion=new TextureRegion(new Texture("fushigibana.png"));
+                    BattleScreen.mp = "VENUSAUR LV:MAX";
                 }
                 if (random == 2){
                     pet.textureRegion=new TextureRegion(new Texture("rualon.png"));
+                    BattleScreen.mp = "BLASTOISE LV:MAX";
 
                 }
                 if (random == 3){
                     pet.textureRegion=new TextureRegion(new Texture("ronglon.png"));
+                    BattleScreen.mp = "CHARIZARD LV:MAX";
 
                 }
                 if (random == 4){
                     pet.textureRegion=new TextureRegion(new Texture("chan3.png"));
+                    BattleScreen.mp = "CHANDELURE LV:MAX";
 
                 }
                 if (random == 5){
                     pet.textureRegion=new TextureRegion(new Texture("gar3.png"));
+                    BattleScreen.mp = "GARCHOMP LV:MAX";
 
                 }
                 if (random == 6){
                     pet.textureRegion=new TextureRegion(new Texture("lux3.png"));
-
+                    BattleScreen.mp = "LUXRAY LV:MAX";
                 }
                 if (random == 7){
                     pet.textureRegion=new TextureRegion(new Texture("zo2.png"));
+                    BattleScreen.mp = "ZOROARK LV:MAX";
                 }
                 if (random == 8){
-                    pet.textureRegion=new TextureRegion(new Texture("scep3.png"));}
+                    pet.textureRegion=new TextureRegion(new Texture("scep3.png"));
+                    BattleScreen.mp = "SCEPTILE LV:MAX";
+                }
             }
             if (solanclick <51){
                 pet.textureRegion = new TextureRegion(new Texture("egg1.png"));
@@ -346,7 +358,6 @@ public class Master implements Screen {
                 levelUpSound.play();
                 levelUp = true;
                 pet.lv=2;
-
                 if (random == 1){
                     pet.textureRegion=new TextureRegion(new Texture("fushigisou.png"));
                 }
