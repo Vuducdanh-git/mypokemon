@@ -16,7 +16,5 @@ public class Buyskill extends MyActor{
         setSize(100,20);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
-
     }
-
 }

@@ -91,7 +91,6 @@ public class Chargepoke implements Screen {
 
     @Override
     public void render(float v) {
-
         batch.begin();
         batch.draw(texture, 0, 0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         batch.end();

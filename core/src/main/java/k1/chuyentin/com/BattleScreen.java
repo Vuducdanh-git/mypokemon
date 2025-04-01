@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
@@ -18,7 +17,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
-import k1.chuyentin.com.bao.Coin;
 import k1.chuyentin.com.bao.Master;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -33,7 +31,6 @@ public class BattleScreen implements Screen {
     Texture textr;
     Bar1 bar1;
     Bar2 bar2;
-    BitmapFont fonts;
     SkillBar skillBar;
     public static float myhp = 100;
     public static float yourhp=100;Bth bth;
@@ -44,7 +41,7 @@ public class BattleScreen implements Screen {
     boolean isTextFieldActive = false;
     StartGame game;
     Cyp cyp;
-    String mp = "";
+    public static String mp = "";
     float truhp = 0;
     Boss boss;
     Music nen;
@@ -256,6 +253,7 @@ public class BattleScreen implements Screen {
         }
     @Override
     public void render ( float v){
+
         if(myhp > 50){
             hpbarm.setColor(Color.GOLD);}
         if ((BattleScreen.myhp <= 50) && (BattleScreen.myhp >24)) {
@@ -297,10 +295,13 @@ public class BattleScreen implements Screen {
         }
         if (lose ==1){
             myhp = 100;
+            lose =0;
+            Master.money -=1000;
         }
         if(lose ==2){
             Master.money +=10000;
             yourhp =100;
+
         }
         if (skill.click == 1 && !isTextFieldActive) {
             textField.setVisible(true);
@@ -360,7 +361,6 @@ public class BattleScreen implements Screen {
     public void hide() {
 
     }
-
     @Override
     public void dispose() {
 
