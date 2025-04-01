@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import k1.chuyentin.com.bao.Master;
+import k1.chuyentin.com.bao.Utils6;
 
 public class FloatingWords extends Actor {
     private String text;
@@ -17,7 +18,8 @@ public class FloatingWords extends Actor {
 
     public FloatingWords(float x, float y, Stage s) {
         if (!Master.wordSkills.isEmpty()){
-            text = Master.wordSkills.random();
+            int ngaunhien = MathUtils.random(0, Master.wordSkills.size-1);
+            text = Master.wordSkills.get(ngaunhien) + "-" +Master.wordSkillsVN.get(ngaunhien);
         }else {
             text = "";
         }

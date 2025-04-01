@@ -1,0 +1,74 @@
+package k1.chuyentin.com.bao;
+//
+//import com.badlogic.gdx.utils.Array;
+//
+public class Utils7 {
+//    public static Array<String> wordList7 = new Array<>();
+//    public static void setWordList7(){
+//        wordList7.add("hello");
+//        wordList7.add("goodbye");
+//        wordList7.add("play");
+//        wordList7.add("attack");
+//        wordList7.add("defender");
+//        wordList7.add("heal");
+//        wordList7.add("cat");
+//        wordList7.add("boarding school");
+//        wordList7.add("school");
+//        wordList7.add("cartoon");
+//        wordList7.add("computer  games");
+//        wordList7.add("book");
+//        wordList7.add("good morning");
+//        wordList7.add("play sport");
+//        wordList7.add("favourite");
+//        wordList7.add("nice to meet you");
+//        wordList7.add("drink");
+//        wordList7.add("i play games");
+//        wordList7.add("swimming pool");
+//        wordList7.add("thank you");
+//        wordList7.add("animated film");
+//        wordList7.add("cartoon");
+//        wordList7.add("channel");
+//        wordList7.add("character");
+//        wordList7.add("clever");
+//        wordList7.add("clip");
+//        wordList7.add("comedy");
+//        wordList7.add("compete");
+//        wordList7.add("cute");
+//        wordList7.add("dolphin");
+//        wordList7.add("educate");
+//        wordList7.add("educational");
+//        wordList7.add("funny");
+//        wordList7.add("tv guide");
+//        wordList7.add("live");
+//        wordList7.add("programme");
+//        wordList7.add("talent show");
+//        wordList7.add("viewer");
+//        wordList7.add("fit");
+//        wordList7.add("goggles");
+//        wordList7.add("gym");
+//        wordList7.add("karate");
+//        wordList7.add("last");
+//        wordList7.add("marathon");
+//        wordList7.add("racket");
+//        wordList7.add("score");
+//        wordList7.add("shoot");
+//        wordList7.add("sporty");
+//        wordList7.add("take place");
+//        wordList7.add("tournament");
+//        wordList7.add("bank");
+//        wordList7.add("crowded");
+//        wordList7.add("floating market");
+//        wordList7.add("helpful");
+//        wordList7.add("helmet");
+//        wordList7.add("landmark");
+//        wordList7.add("city map");
+//        wordList7.add("palace");
+//        wordList7.add("postcard");
+//        wordList7.add("rent");
+//        wordList7.add("royal palace");
+//        wordList7.add("shell");
+//        wordList7.add("stall");
+//        wordList7.add("street food");
+//    }
+//    public static Array<Integer> listPoke = new Array<>();
+}

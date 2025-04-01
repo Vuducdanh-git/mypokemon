@@ -4,16 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.ScreenUtils;
-import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.bao.*;
 
 public class AboutScreen implements Screen {
@@ -47,7 +44,7 @@ public class AboutScreen implements Screen {
         music.setLooping(true);
         music.play();
 
-        Utils.setWordList();
+        Utils6.setWordList();
 
     }
     @Override
@@ -67,7 +64,7 @@ public class AboutScreen implements Screen {
         }
 
         if (time % 20 == 0) {
-            Label label = new Label(Utils.wordList.random(), labelStyle);
+            Label label = new Label(Utils6.wordList.random(), labelStyle);
             label.setPosition(MathUtils.random(0, 640), MathUtils.random(0, 480));
             label.setOrigin(label.getWidth() / 2, label.getHeight() / 2);
             label.setRotation(MathUtils.random(0, 360));

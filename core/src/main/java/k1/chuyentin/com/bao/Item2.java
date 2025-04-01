@@ -22,11 +22,16 @@ public class Item2 extends MyActor{
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (Master.money >= 100 ){
-                        Master.money-=100;
-                        Master.sound.play();
-                        Master.autoplus2=true;
-                        Master.autoplusnumber2+=1;
+                if (Master.money >= Master.giatienautoclick ){
+                        Master.money-=Master.giatienautoclick;
+                        Master.autoclick=true;
+                        if (Master.autoclick==true) {
+                            Master.giatienautoclick *= 1.5f;
+                            Master.sound.play();
+                            Master.sodiemtangkhiautoclick += Master.giatienautoclick / 100;
+                        }
+//                        Master.autoplus2=true;
+//                        Master.autoplusnumber2+=1;
 
                         isClickShow = true;
                         if(Master.click2==null) {
