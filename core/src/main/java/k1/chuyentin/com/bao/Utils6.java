@@ -122,85 +122,85 @@ public class Utils6 {
         wordList.add("viewer");
         wordListVN.add("người xem");
 
-//        wordList.add("fit");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("goggles");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("gym");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("karate");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("last");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("marathon");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("racket");
-//        wordList.add("tạm biệt");
-//
-//
-//        wordList.add("score");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("shoot");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("sporty");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("take place");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("tournament");
-//        wordList.add("tạm biệt");
-//
-//
-//        wordList.add("bank");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("crowded");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("floating market");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("helpful");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("helmet");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("landmark");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("city map");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("palace");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("postcard");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("rent");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("royal palace");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("shell");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("stall");
-//        wordList.add("tạm biệt");
-//
-//        wordList.add("street food");
-//        wordList.add("tạm biệt");
+        wordList.add("fit");
+        wordListVN.add("phù hợp");
+
+        wordList.add("goggles");
+        wordList.add("tạm biệt");
+
+        wordList.add("gym");
+        wordList.add("tạm biệt");
+
+        wordList.add("karate");
+        wordList.add("tạm biệt");
+
+        wordList.add("last");
+        wordList.add("tạm biệt");
+
+        wordList.add("marathon");
+        wordList.add("tạm biệt");
+
+        wordList.add("racket");
+        wordList.add("tạm biệt");
+
+
+        wordList.add("score");
+        wordList.add("tạm biệt");
+
+        wordList.add("shoot");
+        wordList.add("tạm biệt");
+
+        wordList.add("sporty");
+        wordList.add("tạm biệt");
+
+        wordList.add("take place");
+        wordList.add("tạm biệt");
+
+        wordList.add("tournament");
+        wordList.add("tạm biệt");
+
+
+        wordList.add("bank");
+        wordList.add("tạm biệt");
+
+        wordList.add("crowded");
+        wordList.add("tạm biệt");
+
+        wordList.add("floating market");
+        wordList.add("tạm biệt");
+
+        wordList.add("helpful");
+        wordList.add("tạm biệt");
+
+        wordList.add("helmet");
+        wordList.add("tạm biệt");
+
+        wordList.add("landmark");
+        wordList.add("tạm biệt");
+
+        wordList.add("city map");
+        wordList.add("tạm biệt");
+
+        wordList.add("palace");
+        wordList.add("tạm biệt");
+
+        wordList.add("postcard");
+        wordList.add("tạm biệt");
+
+        wordList.add("rent");
+        wordList.add("tạm biệt");
+
+        wordList.add("royal palace");
+        wordList.add("tạm biệt");
+
+        wordList.add("shell");
+        wordList.add("tạm biệt");
+
+        wordList.add("stall");
+        wordList.add("tạm biệt");
+
+        wordList.add("street food");
+        wordList.add("tạm biệt");
 
     }
     public static Array<Integer> listPoke = new Array<>();

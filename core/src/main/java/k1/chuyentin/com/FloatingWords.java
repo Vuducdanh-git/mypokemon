@@ -19,7 +19,7 @@ public class FloatingWords extends Actor {
     public FloatingWords(float x, float y, Stage s) {
         if (!Master.wordSkills.isEmpty()){
             int ngaunhien = MathUtils.random(0, Master.wordSkills.size-1);
-            text = Master.wordSkills.get(ngaunhien) + "_" +Master.wordSkillsVN.get(ngaunhien);
+            text = Master.wordSkills.get(ngaunhien) + "-" +Master.wordSkillsVN.get(ngaunhien);
         }else {
             text = "";
         }

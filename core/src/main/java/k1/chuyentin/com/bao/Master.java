@@ -57,6 +57,9 @@ public class Master implements Screen {
 
     static public int money = 100000;
     static int time = 0;
+    static public int giatienclick=0;
+    static public int sodiemtangkhiclick=0;
+    static public int giatienauclick=0;
     static int solanclick = 250;
     static int autoplusnumber1 = 0;
     static int autoplusnumber2 = 0;
@@ -106,23 +109,18 @@ public class Master implements Screen {
     static Item2 click2;
     static Item3 click3;
     static Item4 click4;
-    static Item5 click5;
     static Item6 click6;
     static Item7 click7;
     static Item8 click8;
-    static Item9 click9;
     static Item10 click10;
     static Item11 click11;
     static Item12 click12;
-    static Item13 click13;
     static Item14 click14;
     static Item15 click15;
     static Item16 click16;
-    static Item17 click17;
     static Item18 click18;
     static Item19 click19;
     static Item20 click20;
-    static Item21 click21;
     static Item22 click22;
     static Item23 click23;
     static Item24 click24;
