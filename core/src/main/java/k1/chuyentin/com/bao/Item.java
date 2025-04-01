@@ -23,11 +23,13 @@ public class Item extends MyActor{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 boolean isCLickShow = false;
-                if (  Master.money >= 25 ){
+                if (  Master.money >= Master.giatienclick ){
                 if (!isCLickShow){
-                    Master.money-=25;
+                    Master.money-=Master.giatienclick;
+                    Master.giatienclick*=2;
                     Master.sound.play();
-                    Master.plus++;
+                    Master.sodiemtangkhiclick=Master.giatienclick/100;
+                    Master.plus+=Master.sodiemtangkhiclick;
                     isClickShow = true;
                     if(Master.click==null) {
                         Master.click = new Item(0, 200, getStage(),1);

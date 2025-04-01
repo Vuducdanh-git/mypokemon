@@ -29,62 +29,18 @@ public class Master implements Screen {
 
     static String skillHello;
     static Sound sound;
-    static boolean autoplus1 = false;
-    static boolean autoplus2 = false;
-    static boolean autoplus3 = false;
-    static boolean autoplus4 = false;
-    static boolean autoplus5 = false;
-    static boolean autoplus6 = false;
-    static boolean autoplus7 = false;
-    static boolean autoplus8 = false;
-    static boolean autoplus9 = false;
-    static boolean autoplus10 = false;
-    static boolean autoplus11 = false;
-    static boolean autoplus12 = false;
-    static boolean autoplus13 = false;
-    static boolean autoplus14 = false;
-    static boolean autoplus15 = false;
-    static boolean autoplus16 = false;
-    static boolean autoplus17 = false;
-    static boolean autoplus18 = false;
-    static boolean autoplus19 = false;
-    static boolean autoplus20 = false;
-    static boolean autoplus21 = false;
-    static boolean autoplus22 = false;
-    static boolean autoplus23 = false;
-    static boolean autoplus24 = false;
 
 
     static public int money = 100000;
     static int time = 0;
-    static public int giatienclick=0;
+    static public int giatienclick=100;
     static public int sodiemtangkhiclick=0;
-    static public int giatienauclick=0;
+    static public int sodiemtangkhiautoclick=0;
+    static public boolean autoclick=false;
+
+    static public int giatienautoclick=250;
     static int solanclick = 250;
-    static int autoplusnumber1 = 0;
-    static int autoplusnumber2 = 0;
-    static int autoplusnumber3 = 0;
-    static int autoplusnumber4 = 0;
-    static int autoplusnumber5 = 0;
-    static int autoplusnumber6 = 0;
-    static int autoplusnumber7 = 0;
-    static int autoplusnumber8 = 0;
-    static int autoplusnumber9 = 0;
-    static int autoplusnumber10 = 0;
-    static int autoplusnumber11 = 0;
-    static int autoplusnumber12 = 0;
-    static int autoplusnumber13 = 0;
-    static int autoplusnumber14 = 0;
-    static int autoplusnumber15 = 0;
-    static int autoplusnumber16 = 0;
-    static int autoplusnumber17 = 0;
-    static int autoplusnumber18 = 0;
-    static int autoplusnumber19 = 0;
-    static int autoplusnumber20 = 0;
-    static int autoplusnumber21 = 0;
-    static int autoplusnumber22 = 0;
-    static int autoplusnumber23 = 0;
-    static int autoplusnumber24 = 0;
+
 
 
     static int plus = 0;
@@ -107,23 +63,7 @@ public class Master implements Screen {
     static Item click;
     static Skill2 skill2;
     static Item2 click2;
-    static Item3 click3;
-    static Item4 click4;
-    static Item6 click6;
-    static Item7 click7;
-    static Item8 click8;
-    static Item10 click10;
-    static Item11 click11;
-    static Item12 click12;
-    static Item14 click14;
-    static Item15 click15;
-    static Item16 click16;
-    static Item18 click18;
-    static Item19 click19;
-    static Item20 click20;
-    static Item22 click22;
-    static Item23 click23;
-    static Item24 click24;
+
     static Buyskill buyskill;
     static Egg1 egg1;
     static Egg2 egg2;
@@ -621,98 +561,12 @@ public class Master implements Screen {
 
         }
         if (time % 60 == 0) {
-            if (autoplus2 == true) {
-                money += autoplusnumber2;
+            if (autoclick == true) {
+                money += sodiemtangkhiautoclick;
                 pet.click();
             }
-            if (autoplus3 == true) {
-                money += autoplusnumber3;
-                pet.click();
-            }
-            if (autoplus4 == true) {
-                money += autoplusnumber4;
-                pet.click();
-            }
-            if (autoplus5 == true) {
-                money += autoplusnumber5;
-                pet.click();
-            }
-            if (autoplus6 == true) {
-                money += autoplusnumber6;
-                pet.click();
-            }
-            if (autoplus7 == true) {
-                money += autoplusnumber7;
-                pet.click();
-            }
-            if (autoplus8 == true) {
-                money += autoplusnumber8;
-                pet.click();
-            }
-            if (autoplus9 == true) {
-                money += autoplusnumber9;
-                pet.click();
-            }
-            if (autoplus10 == true) {
-                money += autoplusnumber10;
-                pet.click();
-            }
-            if (autoplus11 == true) {
-                money += autoplusnumber11;
-                pet.click();
-            }
-            if (autoplus12 == true) {
-                money += autoplusnumber12;
-                pet.click();
-            }
-            if (autoplus13 == true) {
-                money += autoplusnumber13;
-                pet.click();
-            }
-            if (autoplus14 == true) {
-                money += autoplusnumber14;
-                pet.click();
-            }
-            if (autoplus15 == true) {
-                money += autoplusnumber15;
-                pet.click();
-            }
-            if (autoplus16 == true) {
-                money += autoplusnumber16;
-                pet.click();
-            }
-            if (autoplus17 == true) {
-                money += autoplusnumber17;
-                pet.click();
-            }
-            if (autoplus18 == true) {
-                money += autoplusnumber18;
-                pet.click();
-            }
-            if (autoplus19 == true) {
-                money += autoplusnumber19;
-                pet.click();
-            }
-            if (autoplus20 == true) {
-                money += autoplusnumber20;
-                pet.click();
-            }
-            if (autoplus21 == true) {
-                money += autoplusnumber21;
-                pet.click();
-            }
-            if (autoplus22 == true) {
-                money += autoplusnumber22;
-                pet.click();
-            }
-            if (autoplus23 == true) {
-                money += autoplusnumber23;
-                pet.click();
-            }
-            if (autoplus24 == true) {
-                money += autoplusnumber24;
-                pet.click();
-            }
+
+
 
         }
 
