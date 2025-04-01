@@ -7,8 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.ScreenUtils;
-import k1.chuyentin.com.Skill;
 
 public class Egg1 extends MyActor{
     Egg1(float x, float y, Stage s) {
@@ -25,7 +23,7 @@ public class Egg1 extends MyActor{
             public void clicked(InputEvent event, float x, float y) {
                 if (Master.money >= 10000) {
                     Master.money -= 10000;
-                    Master.wordSkills.add(Utils.wordList.random());
+                    Master.wordSkills.add(Utils6.wordList.random());
                     Master.sound.play();
                     if(Master.solanclick >= 250){
                         Master.eggs(1);

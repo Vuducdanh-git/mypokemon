@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import k1.chuyentin.com.bao.Utils;
+import k1.chuyentin.com.bao.Utils6;
 
 public class Chargepoke implements Screen {
     StartGame game;
@@ -61,9 +61,8 @@ public class Chargepoke implements Screen {
         float x = 50;
         float y = 300;
 
-        for (int i =0;i <Utils.listPoke.size;i++) {
-
-            int type = (int) Utils.listPoke.get(i);
+        for (int i = 0; i < Utils6.listPoke.size; i++) {
+            int type = (int) Utils6.listPoke.get(i);
             Board boardnew = new Board(x,y,stage,type);
             boardnew.addListener(new ClickListener(){
                 public void clicked(InputEvent event, float x, float y) {
