@@ -50,7 +50,6 @@ public class Master implements Screen {
     Egg egg;
 
     Skill1 kinang;
-    Skill2 skill;
 
 
 
@@ -61,7 +60,6 @@ public class Master implements Screen {
 
     static Skill1 skill1;
     static Item click;
-    static Skill2 skill2;
     static Item2 click2;
 
     static Buyskill buyskill;
@@ -92,9 +90,7 @@ public class Master implements Screen {
         bg = new Background(0, 0, stage);
 
         skill1 = new Skill1(0, Gdx.graphics.getHeight()/2, stage);
-        skill2 = new Skill2(0, Gdx.graphics.getHeight()/2, stage);
         Master.skill1.remove();
-        Master.skill2.remove();
         pet = new Pet(new Texture("egg.png"), 0, 0, stage);
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 

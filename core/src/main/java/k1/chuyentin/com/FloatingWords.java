@@ -16,18 +16,32 @@ public class FloatingWords extends Actor {
     private String text;
     private BitmapFont font;
 
-    public FloatingWords(float x, float y, Stage s) {
-        if (!Master.wordSkills.isEmpty()){
-            int ngaunhien = MathUtils.random(0, Master.wordSkills.size-1);
-            text = Master.wordSkills.get(ngaunhien) + "-" +Master.wordSkillsVN.get(ngaunhien);
-        }else {
-            text = "";
-        }
+    public FloatingWords(float x, float y, Stage s, String words) {
+        text = words;
 
-        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
+        FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.size = 25;
         fontParameter.color = Color.RED;
+        fontParameter.characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            + "0123456789"
+            + "ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨƠƯỲÝ"
+            + "àáâãèéêìíòóôõùúăđĩơưỳý"
+            + "ĂÂÊÔƠƯăâêôơư"
+            + "ẠẢẤẦẨẪẬẮẰẲẴẶ"
+            + "ẸẺẾỀỂỄỆ"
+            + "ỊỈÍÌ"
+            + "ỌỎỐỒỔỖỘỚỜỞỠỢ"
+            + "ỤỦỨỪỬỮỰ"
+            + "ỲỶỸỴ"
+            + "áàảãạăắằẳẵặâấầẩẫậ"
+            + "éèẻẽẹêếềểễệ"
+            + "íìỉĩị"
+            + "óòỏõọôốồổỗộơớờởỡợ"
+            + "úùủũụưứừửữự"
+            + "ýỳỷỹỵ"
+            + "!@#$%^&*()-_=+[]{};:'\",.<>?/\\|";
+
         font = fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
 
