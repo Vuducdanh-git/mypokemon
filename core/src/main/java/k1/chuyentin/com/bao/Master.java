@@ -49,6 +49,8 @@ public class Master implements Screen {
     static Item click;
     static Item2 click2;
 
+    ChuaDuDieuKien chuaDuDieuKien;
+
     static Buyskill buyskill;
     Egg1 egg1;
 
@@ -90,7 +92,12 @@ public class Master implements Screen {
                 if (pet.solanclick >= 250) {
                     game.setScreen(new BattleScreen(game));
                 } else {
-                    System.out.println("chưa đủ click để tiến hóa");
+                    chuaDuDieuKien = new ChuaDuDieuKien(-100, 0, stage);
+                    System.out.println("chua du dieu kien");
+                }
+                if (chuaDuDieuKien.getX()==0){
+                    chuaDuDieuKien.remove();
+                    System.out.println("da xoa");
                 }
             }
         });
