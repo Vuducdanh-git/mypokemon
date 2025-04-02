@@ -44,11 +44,9 @@ public class Coin extends MyActor{
     public boolean remove() {
         if (textureRegion.getTexture() != null) {
             textureRegion.getTexture().dispose(); // Giải phóng texture
-            System.out.println("giai phong 1");
         }
         if (tap != null) {
             tap.dispose(); // Giải phóng âm thanh
-            System.out.println("giai phong 2");
         }
         return super.remove();
     }

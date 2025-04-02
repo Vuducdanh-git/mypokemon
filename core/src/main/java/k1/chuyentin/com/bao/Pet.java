@@ -36,8 +36,8 @@ public class Pet extends MyActor{
         super(x, y, s);
         setSize(32, 32);
         // Chọn tên ngẫu nhiên từ danh sách 20 tên có săn
-        //name = PetName.values()[MathUtils.random(0, PetName.values().length - 1)];
-        name = PetName.VEBACK;
+        name = PetName.values()[MathUtils.random(0, PetName.values().length - 1)];
+        //name = PetName.VEBACK;
 
         textureRegionNoAnimation = new TextureRegion(texture);
         textureRegion = textureRegionNoAnimation;

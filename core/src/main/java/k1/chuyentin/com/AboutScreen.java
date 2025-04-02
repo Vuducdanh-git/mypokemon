@@ -61,7 +61,6 @@ public class AboutScreen implements Screen {
                     Actions.moveTo(320, 240, 2),
                     Actions.removeActor())
             );
-            System.out.println(1);
         }
 
         if (time % 20 == 0) {

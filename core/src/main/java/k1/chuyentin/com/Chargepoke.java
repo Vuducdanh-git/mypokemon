@@ -46,6 +46,7 @@ public class Chargepoke implements Screen {
             Pet pet = Utils6.pets.get(i);
             pet.setPosition(x, y);
             pet.status = PetStatus.CHARGE;
+            pet.setSize(64, 64);
             pet.game = game;
             stage.addActor(pet);
 
