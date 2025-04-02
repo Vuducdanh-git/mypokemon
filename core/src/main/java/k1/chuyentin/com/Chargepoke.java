@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import k1.chuyentin.com.bao.Pet;
 import k1.chuyentin.com.bao.Utils6;
 
 public class Chargepoke implements Screen {
@@ -41,23 +42,19 @@ public class Chargepoke implements Screen {
         float x = 50;
         float y = 300;
 
-        for (int i = 0; i < Utils6.listPoke.size; i++) {
-            int type = (int) Utils6.listPoke.get(i);
-            Board boardnew = new Board(x,y,stage,type);
-            boardnew.addListener(new ClickListener(){
-                public void clicked(InputEvent event, float x, float y) {
-                    random=type;
-                    game.setScreen(new BattleScreen(game));
-                }
-            });
-            if(i %2==0){
-                x+=(boardnew.getWidth()+20);
+        for (int i = 0; i < Utils6.pets.size; i++) {
+            Pet pet = Utils6.pets.get(i);
+            pet.setPosition(x, y);
+            pet.status = PetStatus.CHARGE;
+            pet.game = game;
+            stage.addActor(pet);
 
+            if(i % 2 == 0){
+                x+=(pet.getWidth()+20);
             }else {
-                x -= boardnew.getWidth()+20;
-                y-=(boardnew.getHeight()+20);
+                x -= pet.getWidth()+20;
+                y-=(pet.getHeight()+20);
             }
-
         }
 
 
