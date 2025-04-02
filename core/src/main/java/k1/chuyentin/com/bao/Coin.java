@@ -11,7 +11,7 @@ public class Coin extends MyActor{
     float gravity = 0.5f;
     float dx = 0;
     float dy = 0;
-    static Sound tap;
+    Sound tap;
     boolean isClicked;
     public Coin(float x, float y, Stage s, boolean isClicked) {
         super(x, y, s);
@@ -40,4 +40,17 @@ public class Coin extends MyActor{
             remove();
         }
     }
+    @Override
+    public boolean remove() {
+        if (textureRegion.getTexture() != null) {
+            textureRegion.getTexture().dispose(); // Giải phóng texture
+            System.out.println("giai phong 1");
+        }
+        if (tap != null) {
+            tap.dispose(); // Giải phóng âm thanh
+            System.out.println("giai phong 2");
+        }
+        return super.remove();
+    }
+
 }

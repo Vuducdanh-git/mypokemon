@@ -12,6 +12,9 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class Item extends MyActor{
     int tybe=1;
     boolean isClickShow = false;
+
+    static public int giatienclick=100;
+    static public int sodiemtangkhiclick=0;
     Item(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;
@@ -23,13 +26,13 @@ public class Item extends MyActor{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 boolean isCLickShow = false;
-                if (  Master.money >= Master.giatienclick ){
+                if (  Master.money >= giatienclick ){
                 if (!isCLickShow){
-                    Master.money-=Master.giatienclick;
-                    Master.giatienclick*=2;
+                    Master.money-= giatienclick;
+                    giatienclick*=2;
                     Master.sound.play();
-                    Master.sodiemtangkhiclick=Master.giatienclick/100;
-                    Master.plus+=Master.sodiemtangkhiclick;
+                    sodiemtangkhiclick = giatienclick/100;
+                    Master.plus += sodiemtangkhiclick;
                     isClickShow = true;
                     if(Master.click==null) {
                         Master.click = new Item(0, 200, getStage(),1);

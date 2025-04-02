@@ -17,26 +17,6 @@ public class Chargepoke implements Screen {
     OrthographicCamera camera;
     Texture texture;
     SpriteBatch batch;
-    public static Board board;
-    public static Board board2;
-    public static Board board3;
-    public static Board board4;
-    public static Board board5;
-    public static Board board6;
-    public static Board board7;
-    public static Board board8;
-    public static Board board9;
-    public static Board board10;
-    public static Board board11;
-    public static Board board12;
-    public static Board board13;
-    public static Board board14;
-    public static Board board15;
-    public static Board board16;
-    public static Board board17;
-    public static Board board18;
-    public static Board board19;
-    public static Board board20;
     static int random;
 
     Stage stage;

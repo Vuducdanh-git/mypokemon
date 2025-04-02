@@ -13,7 +13,7 @@ import k1.chuyentin.com.FloatingWords;
 public class Pet extends MyActor{
     float w=getWidth();
     float h=getHeight();
-    public static int lv=0;
+    public int lv = 0;
     Pet(Texture texture, float x, float y, Stage s) {
         super(x, y, s);
         setSize(32, 32);

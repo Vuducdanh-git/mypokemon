@@ -31,7 +31,7 @@ public class Skill1 extends MyActor{
                         Master.wordSkillsVN.add(Utils6.wordListVN.get(ngaunhien));
 
                         Master.sound.play();
-                        Skill.iclick = 1;
+                     //   Skill.iclick = 1;
 
                 } else {
                     Master.skill1.remove();

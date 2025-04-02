@@ -27,35 +27,25 @@ public class Master implements Screen {
     private SpriteBatch batch;
     Stage stage;
 
-    static String skillHello;
     static Sound sound;
-
 
     static public int money = 100000;
     static int time = 0;
-    static public int giatienclick=100;
-    static public int sodiemtangkhiclick=0;
+
     static public int sodiemtangkhiautoclick=0;
     static public boolean autoclick=false;
 
     static public int giatienautoclick=250;
     static int solanclick = 250;
 
-
-
     static int plus = 0;
-
 
     static Pet pet;
     Egg egg;
 
-    Skill1 kinang;
-
-
-
-
     Background bg;
-    static Shop shop;
+    Shop shop;
+    boolean isShopShow = false;
     static int use = 0;
 
     static Skill1 skill1;
@@ -63,22 +53,21 @@ public class Master implements Screen {
     static Item2 click2;
 
     static Buyskill buyskill;
-    static Egg1 egg1;
+    Egg1 egg1;
     static Egg2 egg2;
     static Egg3 egg3;
     static int iegg;
-    static public int random = MathUtils.random(1, 3);
+    public static int random = MathUtils.random(1, 3);
 
     public static Array<String> wordSkills = new Array<>();
     public static Array<String> wordSkillsVN = new Array<>();
-    public static boolean levelUp = false;
+    static boolean levelUp = false;
     Sound levelUpSound;
 
     BitmapFont font;
 
     public Master(StartGame game) {
         this.game = game;
-        sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.size = 32;
@@ -583,12 +572,12 @@ public class Master implements Screen {
         Vector2 mouse = new Vector2();
         mouse.set(Gdx.input.getX(), Gdx.input.getY());
         stage.getViewport().unproject(mouse);
-        if(mouse.x > 400 && !egg.isShopShow){
-            egg.showShop();
+        if(mouse.x > 400 && !isShopShow){
+            showShop();
 
 
-        } else if(mouse.x < 400 && egg.isShopShow) {
-            egg.shopHide();
+        } else if(mouse.x < 400 && isShopShow) {
+            shopHide();
         }
 
         stage.act();
@@ -641,5 +630,32 @@ public class Master implements Screen {
         pet.lv =0;
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
         solanclick = 0;
+    }
+
+    public void showShop(){
+        isShopShow = true;
+
+        shop = new Shop(400, 0, stage);
+        Master.click = new Item(400, 450, stage,1);
+        Master.click2 = new Item2(450, 450, stage,2);
+        Master.skill1 = new Skill1(400, 150, stage);
+        Master.buyskill = new Buyskill(450,200, stage);
+        egg1 = new Egg1(500,150, stage);
+        Master.egg2 = new Egg2(550,150, stage);
+        Master.egg3 = new Egg3(600,150, stage);
+    }
+
+    public void shopHide(){
+        egg1.remove();
+        Master.egg2.remove();
+        Master.egg3.remove();
+        shop.remove();
+        click.remove();
+        click2.remove();
+
+        skill1.remove();
+        buyskill.remove();
+
+        isShopShow = false;
     }
 }

@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Bth extends Actor {
     Texture texture;
-    public static int click =0;
 
     public Bth(Stage stage , float x, float y, float width) {
         texture = new Texture("bth.png");

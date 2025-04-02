@@ -9,8 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class Skill extends Actor {
     Texture texture;
-    public static int click =0;
-    public static int iclick =0;
+    public int click =0;
+    public int iclick =0;
     public Skill(Stage stage , float x, float y,float width) {
         texture = new Texture("cf.png");
         setPosition(x, y);
@@ -18,9 +18,8 @@ public class Skill extends Actor {
         stage.addActor(this);
         addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
-                if (iclick ==1) {
+                if (iclick == 1) {
                     click =1;
-
                 }else {
                     System.out.println("u don't have this skill ");
                 }
