@@ -26,7 +26,7 @@ public class Pet extends MyActor{
 
     TextureRegion textureRegionNoAnimation;
 
-    public int solanclick = 240;
+    public static int solanclick = 0;
     boolean levelUp = false;
     static Music levelUpSound = Gdx.audio.newMusic(Gdx.files.internal("levelup.wav"));
 
@@ -111,14 +111,26 @@ public class Pet extends MyActor{
             levelUp = true;
             textureRegion = new TextureRegion(new Texture("rong.png"));
             switch (name){
+                case ZOROBACK -> {
+                    textureRegion = new TextureRegion(new Texture("zo1.png"));
+                }
+                case SCEPBACK -> {
+                    textureRegion = new TextureRegion(new Texture("scep1.png"));
+                }
+                case CHANBACK -> {
+                    textureRegion = new TextureRegion(new Texture("chan1.png"));
+                }
                 case VEBACK -> {
                     textureRegion = new TextureRegion(new Texture("fushigidane.png"));
                 }
-                case SCEPBACK -> {
+                case BLASBACK -> {
                     textureRegion = new TextureRegion(new Texture("rua.png"));
                 }
-                case MBACK -> {
+                case CHARBACK -> {
                     textureRegion = new TextureRegion(new Texture("rong.png"));
+                }
+                case GARBACK -> {
+                    textureRegion = new TextureRegion(new Texture("gar1.png"));
                 }
             }
             textureRegionNoAnimation = textureRegion;
@@ -133,14 +145,26 @@ public class Pet extends MyActor{
 
             textureRegion = new TextureRegion(new Texture("rongcon.png"));
             switch (name) {
+                case SCEPBACK -> {
+                    textureRegion = new TextureRegion(new Texture("scep2.png"));
+                }
+                case ZOROBACK -> {
+                    textureRegion = new TextureRegion(new Texture("zo1.png"));
+                }
+                case CHANBACK -> {
+                    textureRegion = new TextureRegion(new Texture("chan2.png"));
+                }
                 case VEBACK -> {
                     textureRegion = new TextureRegion(new Texture("fushigisou.png"));
                 }
-                case SCEPBACK -> {
+                case BLASBACK -> {
                     textureRegion = new TextureRegion(new Texture("ruacon.png"));
                 }
-                case MBACK -> {
+                case CHARBACK -> {
                     textureRegion = new TextureRegion(new Texture("rongcon.png"));
+                }
+                case GARBACK -> {
+                    textureRegion = new TextureRegion(new Texture("gar2.png"));
                 }
             }
             textureRegionNoAnimation = textureRegion;
@@ -156,14 +180,26 @@ public class Pet extends MyActor{
 
             textureRegion = new TextureRegion(new Texture("ronglon.png"));
             switch (name) {
+                case SCEPBACK -> {
+                    textureRegion = new TextureRegion(new Texture("scep3.png"));
+                }
+                case ZOROBACK -> {
+                    textureRegion = new TextureRegion(new Texture("zo2.png"));
+                }
+                case CHANBACK -> {
+                    textureRegion = new TextureRegion(new Texture("chan3.png"));
+                }
                 case VEBACK -> {
                     textureRegion = new TextureRegion(new Texture("fushigibana.png"));
                 }
-                case SCEPBACK -> {
+                case BLASBACK -> {
                     textureRegion = new TextureRegion(new Texture("rualon.png"));
                 }
-                case MBACK -> {
+                case CHARBACK -> {
                     textureRegion = new TextureRegion(new Texture("ronglon.png"));
+                }
+                case GARBACK -> {
+                    textureRegion = new TextureRegion(new Texture("gar3.png"));
                 }
             }
             textureRegionNoAnimation = textureRegion;
