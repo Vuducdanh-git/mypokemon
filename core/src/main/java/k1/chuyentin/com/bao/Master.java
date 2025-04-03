@@ -16,6 +16,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
 
+
 /**
  * {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms.
  */
@@ -48,6 +49,8 @@ public class Master implements Screen {
     static Skill1 skill1;
     static Item click;
     static Item2 click2;
+    Bar3 bar3;
+
 
     ChuaDuDieuKien chuaDuDieuKien;
 
@@ -72,6 +75,7 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new Background(0, 0, stage);
+        bar3 = new Bar3(0,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4,stage);
 
         if(!Utils6.pets.isEmpty()){
             pet = Utils6.pets.get(0);
@@ -112,7 +116,7 @@ public class Master implements Screen {
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         time++;
-
+        bar3.setSize(290f / 100f * Pet.solanclick, 25);
         if (time % 60 == 0) {
             if (autoclick == true) {
                 money += sodiemtangkhiautoclick;
