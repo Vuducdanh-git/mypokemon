@@ -42,6 +42,7 @@ public class AboutScreen implements Screen {
 
         music = Gdx.audio.newMusic(Gdx.files.internal("night_core.wav"));
         music.setLooping(true);
+        music.setVolume(0.1f);
         music.play();
 
         Utils6.setWordList();
