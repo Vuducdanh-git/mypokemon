@@ -13,4 +13,5 @@ public class Shop extends MyActor{
         setSize(250, 480);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
-    }}
+    }
+}

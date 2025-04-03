@@ -204,4 +204,5 @@ public class Utils6 {
 
     }
     public static Array<Integer> listPoke = new Array<>();
+    public static Array<Pet> pets = new Array<>();
 }

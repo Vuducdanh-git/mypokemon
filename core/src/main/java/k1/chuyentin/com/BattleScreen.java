@@ -18,6 +18,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.bao.Master;
+import k1.chuyentin.com.bao.Pet;
+import k1.chuyentin.com.bao.Utils6;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
@@ -25,7 +27,8 @@ public class BattleScreen implements Screen {
     OrthographicCamera camera;
     Background background;
     Stage stage;
-    Mypoke mypoke = new Mypoke(new Texture("veback.png"), stage, -7, -4, 5, 34, 3);
+    Pet pet;
+  //  Mypoke mypoke = new Mypoke(new Texture("veback.png"), stage, -7, -4, 5, 34, 3);
     Texture texturepo;
     Enepoke enepoke;
     Texture textr;
@@ -60,144 +63,147 @@ public class BattleScreen implements Screen {
         camera.setToOrtho(false, 840, 680);
         batch = new SpriteBatch();
         stage = new Stage();
-        if(Master.random == 1){
-            texturepo = new Texture("veback.png");
-            mp = new String("VENUSAUR LV:MAX");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
-        }
-        if(Master.random == 2){
-            texturepo = new Texture("blasback.png");
-            mp = new String("BLASTOISE LV:MAX");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 49, 3);
-        }
-        if(Master.random == 3){
-            texturepo = new Texture("charback.png");
-            mp = new String("CHARIZARD LV:MAX");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 3);
-        }
+        pet = Utils6.pets.get(0);
+        pet.setAnimation();
 
-
-
-        if (Chargepoke.random == 1) {
-            texturepo = new Texture("veback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
-            mp = new String("VENUSAUR LV:MAX");
-
-
-        }if (Chargepoke.random == 2) {
-            texturepo = new Texture("diback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 28, 3);
-            mp = new String("DIALGA LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 3) {
-            texturepo = new Texture("genback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
-            mp = new String("GENESECTLV:MAX");
-
-        }
-        if (Chargepoke.random == 4) {
-            texturepo = new Texture("jiback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 1);
-            mp = new String("JIRACHI LV:MAX");
-        }
-        if (Chargepoke.random == 5) {
-            texturepo = new Texture("mback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
-            mp = new String("MEW LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 6) {
-            texturepo = new Texture("ceback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 13, 1);
-            mp = new String("CELEBI LV:MAX");
-        }
-        if (Chargepoke.random == 7) {
-            texturepo = new Texture("blasback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 49, 3);
-            mp = new String("BLASTOISE LV:MAX");
-
-
-        }if (Chargepoke.random == 8) {
-            texturepo = new Texture("dittoback.png");
-                mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 16, 3);
-            mp = new String("DITTO LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 9) {
-            texturepo = new Texture("gallaback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 27, 1);
-            mp = new String("GALLADE:MAX");
-
-        }
-        if (Chargepoke.random == 10) {
-            texturepo = new Texture("garback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 18, 1);
-            mp = new String("GARCHOMP LV:MAX");
-        }
-        if (Chargepoke.random == 11) {
-            texturepo = new Texture("grouback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 21, 1);
-            mp = new String("GROUDON LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 12) {
-            texturepo = new Texture("kyoback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 50, 1);
-            mp = new String("CELEBI LV:MAX");
-        }
-        if (Chargepoke.random == 13) {
-            texturepo = new Texture("lugback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
-            mp = new String("LUGIA LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 14) {
-            texturepo = new Texture("luxback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 35, 1);
-            mp = new String("LUXURAY LV:MAX");
-        }
-        if (Chargepoke.random == 15) {
-            texturepo = new Texture("rayback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
-            mp = new String("RAYQUAZA LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 16) {
-            texturepo = new Texture("scepback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 27, 1);
-            mp = new String("SCEPTILE LV:MAX");
-        }
-        if (Chargepoke.random == 17) {
-            texturepo = new Texture("unback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 19, 1);
-            mp = new String("UNOWN LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 18) {
-            texturepo = new Texture("zoroback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
-            mp = new String("ZOROARK LV:MAX");
-        }
-        if (Chargepoke.random == 19) {
-            texturepo = new Texture("chanback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 1);
-            mp = new String("CHANDERLURE LV:MAX");
-
-
-        }
-        if (Chargepoke.random == 20) {
-            texturepo = new Texture("charback.png");
-            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 1);
-            mp = new String("CHARIZARD LV:MAX");
-        }
+//        if(pet.random == 1) {
+//            texturepo = new Texture("veback.png");
+//            mp = new String("VENUSAUR LV:MAX");
+//            pet.setAnimation(texturepo, -7, -4, 5, 34);
+//        }
+//        if(pet.random == 2){
+//            texturepo = new Texture("blasback.png");
+//            mp = new String("BLASTOISE LV:MAX");
+//            pet.setAnimation(texturepo, -7, -4, 5, 49);
+//        }
+//        if(pet.random == 3){
+//            texturepo = new Texture("charback.png");
+//            mp = new String("CHARIZARD LV:MAX");
+//            pet.setAnimation(texturepo, -7, -4, 5, 29);
+//        }
+//
+//
+//
+//        if (Chargepoke.random == 1) {
+//            texturepo = new Texture("veback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 3);
+//            mp = new String("VENUSAUR LV:MAX");
+//
+//
+//        }if (Chargepoke.random == 2) {
+//            texturepo = new Texture("diback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 28, 3);
+//            mp = new String("DIALGA LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 3) {
+//            texturepo = new Texture("genback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
+//            mp = new String("GENESECTLV:MAX");
+//
+//        }
+//        if (Chargepoke.random == 4) {
+//            texturepo = new Texture("jiback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 1);
+//            mp = new String("JIRACHI LV:MAX");
+//        }
+//        if (Chargepoke.random == 5) {
+//            texturepo = new Texture("mback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
+//            mp = new String("MEW LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 6) {
+//            texturepo = new Texture("ceback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 13, 1);
+//            mp = new String("CELEBI LV:MAX");
+//        }
+//        if (Chargepoke.random == 7) {
+//            texturepo = new Texture("blasback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 49, 3);
+//            mp = new String("BLASTOISE LV:MAX");
+//
+//
+//        }if (Chargepoke.random == 8) {
+//            texturepo = new Texture("dittoback.png");
+//                mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 16, 3);
+//            mp = new String("DITTO LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 9) {
+//            texturepo = new Texture("gallaback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 27, 1);
+//            mp = new String("GALLADE:MAX");
+//
+//        }
+//        if (Chargepoke.random == 10) {
+//            texturepo = new Texture("garback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 18, 1);
+//            mp = new String("GARCHOMP LV:MAX");
+//        }
+//        if (Chargepoke.random == 11) {
+//            texturepo = new Texture("grouback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 21, 1);
+//            mp = new String("GROUDON LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 12) {
+//            texturepo = new Texture("kyoback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 50, 1);
+//            mp = new String("CELEBI LV:MAX");
+//        }
+//        if (Chargepoke.random == 13) {
+//            texturepo = new Texture("lugback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
+//            mp = new String("LUGIA LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 14) {
+//            texturepo = new Texture("luxback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 35, 1);
+//            mp = new String("LUXURAY LV:MAX");
+//        }
+//        if (Chargepoke.random == 15) {
+//            texturepo = new Texture("rayback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 24, 1);
+//            mp = new String("RAYQUAZA LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 16) {
+//            texturepo = new Texture("scepback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 27, 1);
+//            mp = new String("SCEPTILE LV:MAX");
+//        }
+//        if (Chargepoke.random == 17) {
+//            texturepo = new Texture("unback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 19, 1);
+//            mp = new String("UNOWN LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 18) {
+//            texturepo = new Texture("zoroback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 36, 1);
+//            mp = new String("ZOROARK LV:MAX");
+//        }
+//        if (Chargepoke.random == 19) {
+//            texturepo = new Texture("chanback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 34, 1);
+//            mp = new String("CHANDERLURE LV:MAX");
+//
+//
+//        }
+//        if (Chargepoke.random == 20) {
+//            texturepo = new Texture("charback.png");
+//            mypoke = new Mypoke(texturepo, stage, -7, -4, 5, 29, 1);
+//            mp = new String("CHARIZARD LV:MAX");
+//        }
 
 
             textr = new Texture("beedrill.png");
@@ -229,7 +235,7 @@ public class BattleScreen implements Screen {
             boss = new Boss(btr,stage,390,290);
             stage.addActor(background);
             stage.addActor(skillBar);
-            stage.addActor(mypoke);
+            stage.addActor(pet);
             stage.addActor(enepoke);
             stage.addActor(bar2);
             stage.addActor(bar1);

@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import k1.chuyentin.com.bao.Pet;
 import k1.chuyentin.com.bao.Utils6;
 
 public class Chargepoke implements Screen {
@@ -17,26 +18,6 @@ public class Chargepoke implements Screen {
     OrthographicCamera camera;
     Texture texture;
     SpriteBatch batch;
-    public static Board board;
-    public static Board board2;
-    public static Board board3;
-    public static Board board4;
-    public static Board board5;
-    public static Board board6;
-    public static Board board7;
-    public static Board board8;
-    public static Board board9;
-    public static Board board10;
-    public static Board board11;
-    public static Board board12;
-    public static Board board13;
-    public static Board board14;
-    public static Board board15;
-    public static Board board16;
-    public static Board board17;
-    public static Board board18;
-    public static Board board19;
-    public static Board board20;
     static int random;
 
     Stage stage;
@@ -61,23 +42,20 @@ public class Chargepoke implements Screen {
         float x = 50;
         float y = 300;
 
-        for (int i = 0; i < Utils6.listPoke.size; i++) {
-            int type = (int) Utils6.listPoke.get(i);
-            Board boardnew = new Board(x,y,stage,type);
-            boardnew.addListener(new ClickListener(){
-                public void clicked(InputEvent event, float x, float y) {
-                    random=type;
-                    game.setScreen(new BattleScreen(game));
-                }
-            });
-            if(i %2==0){
-                x+=(boardnew.getWidth()+20);
+        for (int i = 0; i < Utils6.pets.size; i++) {
+            Pet pet = Utils6.pets.get(i);
+            pet.setPosition(x, y);
+            pet.status = PetStatus.CHARGE;
+            pet.setSize(64, 64);
+            pet.game = game;
+            stage.addActor(pet);
 
+            if(i % 2 == 0){
+                x+=(pet.getWidth()+20);
             }else {
-                x -= boardnew.getWidth()+20;
-                y-=(boardnew.getHeight()+20);
+                x -= pet.getWidth()+20;
+                y-=(pet.getHeight()+20);
             }
-
         }
 
 

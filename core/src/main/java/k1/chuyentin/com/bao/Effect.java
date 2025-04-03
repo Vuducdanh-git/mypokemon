@@ -11,8 +11,7 @@ public class Effect extends MyActor{
 
     Effect(float x, float y , Stage s) {
         super(x, y, s);
-        TextureRegion tRegion = new TextureRegion(new Texture("effect.png"));
-        textureRegion = tRegion;
+        textureRegion = new TextureRegion(new Texture("effect.png"));
         setSize(16, 16);
         setPosition(Gdx.graphics.getWidth()/2 - getWidth()/2, Gdx.graphics.getHeight()/2 - getHeight()/2);
         setOrigin(getWidth()/2, getHeight()/2);
@@ -22,5 +21,11 @@ public class Effect extends MyActor{
             Actions.moveBy(MathUtils.random(-200, 200), MathUtils.random(-200, 200), 2),
             Actions.removeActor()
         ));
+    }
+
+    @Override
+    public boolean remove() {
+        textureRegion.getTexture().dispose();
+        return super.remove();
     }
 }

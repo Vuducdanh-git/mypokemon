@@ -106,6 +106,7 @@ public class AboutScreen implements Screen {
 
     @Override
     public void hide() {
+
         stage.clear();
     }
 
