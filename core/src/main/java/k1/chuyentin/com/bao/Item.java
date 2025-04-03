@@ -16,6 +16,7 @@ public class Item extends MyActor {
 
     static public int giatienclick = 100;
     static public int sodiemtangkhiclick = 0;
+    static public int solannangcap = 0;
 
     Item(float x, float y, Stage s, int tybe) {
         super(x, y, s);
@@ -27,7 +28,39 @@ public class Item extends MyActor {
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                solannangcap += 1;
+                if (solannangcap<=10){
+
                 if (Master.money >= giatienclick) {
+
+                    if (solannangcap==1){
+                        textureRegion = new TextureRegion(new Texture("3.png"));
+                    }
+                    if (solannangcap==2){
+                        textureRegion = new TextureRegion(new Texture("17.png"));
+                    }
+                    if (solannangcap==3){
+                        textureRegion = new TextureRegion(new Texture("18.png"));
+                    }
+                    if (solannangcap==4){
+                        textureRegion = new TextureRegion(new Texture("19.png"));
+                    }
+                    if (solannangcap==5){
+                        textureRegion = new TextureRegion(new Texture("20.png"));
+                    }
+                    if (solannangcap==6){
+                        textureRegion = new TextureRegion(new Texture("21.png"));
+                    }
+                    if (solannangcap==7){
+                        textureRegion = new TextureRegion(new Texture("22.png"));
+                    }
+                    if (solannangcap==8){
+                        textureRegion = new TextureRegion(new Texture("23.png"));
+                    }
+                    if (solannangcap==9){
+                        textureRegion = new TextureRegion(new Texture("24.png"));
+                    }
+
                     Master.money -= giatienclick;
                     giatienclick *= 2;
                     Master.sound.play();
@@ -40,8 +73,9 @@ public class Item extends MyActor {
                     } else {
                         getStage().addActor(Master.click);
                     }
+
                 }
-            }
+            }}
         });
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
