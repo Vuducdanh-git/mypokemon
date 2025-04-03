@@ -95,10 +95,6 @@ public class Master implements Screen {
                     chuaDuDieuKien = new ChuaDuDieuKien(-100, 0, stage);
                     System.out.println("chua du dieu kien");
                 }
-                if (chuaDuDieuKien.getX()==0){
-                    chuaDuDieuKien.remove();
-                    System.out.println("da xoa");
-                }
             }
         });
 
