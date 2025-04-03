@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import k1.chuyentin.com.bao.Master;
 
 public class Skill extends Actor {
     Texture texture;
@@ -18,7 +19,7 @@ public class Skill extends Actor {
         stage.addActor(this);
         addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
-                if (iclick == 1) {
+                if (!Master.wordSkills.isEmpty()) {
                     click =1;
                 }else {
                     System.out.println("u don't have this skill ");

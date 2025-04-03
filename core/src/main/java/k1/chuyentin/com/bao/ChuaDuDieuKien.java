@@ -14,7 +14,10 @@ public class ChuaDuDieuKien extends MyActor{
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("rayboard.png"));
         setSize(100, 50);
-        setPosition(Gdx.graphics.getWidth(), y);
-        addAction(Actions.moveTo(x, y, 1f));
+        setPosition(Gdx.graphics.getWidth()/2 - getWidth()/2, Gdx.graphics.getHeight()/2);
+        addAction(Actions.sequence(
+            Actions.fadeOut(2),
+            Actions.removeActor()
+        ));
     }
 }
