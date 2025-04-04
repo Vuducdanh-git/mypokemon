@@ -26,7 +26,7 @@ public class Pet extends MyActor{
 
     TextureRegion textureRegionNoAnimation;
 
-    public static int solanclick = 0;
+    public static int solanclick = 249;
     boolean levelUp = false;
     static Music levelUpSound = Gdx.audio.newMusic(Gdx.files.internal("levelup.wav"));
 

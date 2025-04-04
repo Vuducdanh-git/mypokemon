@@ -29,37 +29,45 @@ public class Item extends MyActor {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 solannangcap += 1;
-                if (solannangcap<=10){
+                if (solannangcap<=11){
 
                 if (Master.money >= giatienclick) {
 
+//                    if (solannangcap==1){
+//                        textureRegion = new TextureRegion(new Texture("vatpham.png"));
+//                    }
                     if (solannangcap==1){
-                        textureRegion = new TextureRegion(new Texture("3.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham1.png"));
                     }
                     if (solannangcap==2){
-                        textureRegion = new TextureRegion(new Texture("17.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham2.png"));
                     }
                     if (solannangcap==3){
-                        textureRegion = new TextureRegion(new Texture("18.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham3.png"));
                     }
                     if (solannangcap==4){
-                        textureRegion = new TextureRegion(new Texture("19.png"));
+                        textureRegion = new TextureRegion(new Texture("3.png"));
                     }
                     if (solannangcap==5){
-                        textureRegion = new TextureRegion(new Texture("20.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham5.png"));
                     }
                     if (solannangcap==6){
-                        textureRegion = new TextureRegion(new Texture("21.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham6.png"));
                     }
                     if (solannangcap==7){
-                        textureRegion = new TextureRegion(new Texture("22.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham7.png"));
                     }
                     if (solannangcap==8){
-                        textureRegion = new TextureRegion(new Texture("23.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham8.png"));
                     }
                     if (solannangcap==9){
-                        textureRegion = new TextureRegion(new Texture("24.png"));
+                        textureRegion = new TextureRegion(new Texture("vatpham9.png"));
                     }
+                    if (solannangcap==10){
+                        textureRegion = new TextureRegion(new Texture("vatpham10.png"));
+                    }
+
+
 
                     Master.money -= giatienclick;
                     giatienclick *= 2;

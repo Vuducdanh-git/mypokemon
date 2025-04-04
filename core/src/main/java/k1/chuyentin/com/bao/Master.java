@@ -28,7 +28,7 @@ public class Master implements Screen {
 
     static Sound sound;
 
-    static public int money = 1000000;
+    static public int money = 100000000;
     static int time = 0;
 
     static public int sodiemtangkhiautoclick = 0;
