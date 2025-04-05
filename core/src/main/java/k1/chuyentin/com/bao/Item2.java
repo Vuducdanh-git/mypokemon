@@ -14,7 +14,6 @@ import static k1.chuyentin.com.bao.Master.giatienautoclick;
 
 public class Item2 extends MyActor{
     int tybe=2;
-    boolean isClickShow = false;
     static public int solannangcapautoclick=0;
     Item2(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
@@ -69,15 +68,6 @@ public class Item2 extends MyActor{
                             giatienautoclick *= 1.5f;
                             Master.sound.play();
                             Master.sodiemtangkhiautoclick += giatienautoclick / 100;
-                        }
-//                        Master.autoplus2=true;
-//                        Master.autoplusnumber2+=1;
-
-                        isClickShow = true;
-                        if(Master.click2==null) {
-                            Master.click2 = new Item2(0, 200, getStage(),2);
-                        }else {
-                            getStage().addActor(Master.click2);
                         }
                 }
             }}}
