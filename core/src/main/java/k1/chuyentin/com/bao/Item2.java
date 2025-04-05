@@ -9,9 +9,13 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import static k1.chuyentin.com.bao.Item.solannangcap;
+import static k1.chuyentin.com.bao.Master.giatienautoclick;
+
 public class Item2 extends MyActor{
     int tybe=2;
     boolean isClickShow = false;
+    static public int solannangcapautoclick=0;
     Item2(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;
@@ -22,13 +26,49 @@ public class Item2 extends MyActor{
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (Master.money >= Master.giatienautoclick ){
-                        Master.money-=Master.giatienautoclick;
+                if (Master.money >= giatienautoclick ){
+                    solannangcapautoclick+=1;
+                    if (solannangcapautoclick<11){
+                        if (Master.money >= giatienautoclick) {
+
+                            if (solannangcapautoclick==1){
+                                textureRegion = new TextureRegion(new Texture("vatpham11.png"));
+                            }
+                            if (solannangcapautoclick==2){
+                                textureRegion = new TextureRegion(new Texture("vatpham12.png"));
+                            }
+                            if (solannangcapautoclick==3){
+                                textureRegion = new TextureRegion(new Texture("vatpham13.png"));
+                            }
+                            if (solannangcapautoclick==4){
+                                textureRegion = new TextureRegion(new Texture("vatpham14.png"));
+                            }
+                            if (solannangcapautoclick==5){
+                                textureRegion = new TextureRegion(new Texture("vatpham15.png"));
+                            }
+                            if (solannangcapautoclick==6){
+                                textureRegion = new TextureRegion(new Texture("vatpham16.png"));
+                            }
+                            if (solannangcapautoclick==7){
+                                textureRegion = new TextureRegion(new Texture("vatpham17.png"));
+                            }
+                            if (solannangcapautoclick==8){
+                                textureRegion = new TextureRegion(new Texture("vatpham18.png"));
+                            }
+                            if (solannangcapautoclick==9){
+                                textureRegion = new TextureRegion(new Texture("vatpham19.png"));
+                            }
+                            if (solannangcapautoclick==10){
+                                textureRegion = new TextureRegion(new Texture("vatpham20.png"));
+                            }
+
+
+                        Master.money-= giatienautoclick;
                         Master.autoclick=true;
                         if (Master.autoclick==true) {
-                            Master.giatienautoclick *= 1.5f;
+                            giatienautoclick *= 1.5f;
                             Master.sound.play();
-                            Master.sodiemtangkhiautoclick += Master.giatienautoclick / 100;
+                            Master.sodiemtangkhiautoclick += giatienautoclick / 100;
                         }
 //                        Master.autoplus2=true;
 //                        Master.autoplusnumber2+=1;
@@ -40,7 +80,7 @@ public class Item2 extends MyActor{
                             getStage().addActor(Master.click2);
                         }
                 }
-            }
+            }}}
         });
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
