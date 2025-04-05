@@ -37,7 +37,7 @@ public class Pet extends MyActor{
         setSize(32, 32);
         // Chọn tên ngẫu nhiên từ danh sách 20 tên có săn
         name = PetName.values()[MathUtils.random(0, PetName.values().length - 1)];
-        //name = PetName.VEBACK;
+        //name = PetName.SCEPBACK;
 
         textureRegionNoAnimation = new TextureRegion(texture);
         textureRegion = textureRegionNoAnimation;
@@ -111,6 +111,9 @@ public class Pet extends MyActor{
             levelUp = true;
             textureRegion = new TextureRegion(new Texture("rong.png"));
             switch (name){
+                case LUXBACK -> {
+                    textureRegion = new TextureRegion(new Texture("lux1.png"));
+                }
                 case ZOROBACK -> {
                     textureRegion = new TextureRegion(new Texture("zo1.png"));
                 }
@@ -145,6 +148,9 @@ public class Pet extends MyActor{
 
             textureRegion = new TextureRegion(new Texture("rongcon.png"));
             switch (name) {
+                case LUXBACK -> {
+                    textureRegion = new TextureRegion(new Texture("lux2.png"));
+                }
                 case SCEPBACK -> {
                     textureRegion = new TextureRegion(new Texture("scep2.png"));
                 }
@@ -180,6 +186,9 @@ public class Pet extends MyActor{
 
             textureRegion = new TextureRegion(new Texture("ronglon.png"));
             switch (name) {
+                case LUXBACK -> {
+                    textureRegion = new TextureRegion(new Texture("lux3.png"));
+                }
                 case SCEPBACK -> {
                     textureRegion = new TextureRegion(new Texture("scep3.png"));
                 }
@@ -247,6 +256,46 @@ public class Pet extends MyActor{
                 texture =  new Texture("jiback.png");
                 cot = 5;
                 hang = 29;
+            }
+            case LUXBACK -> {
+                texture = new Texture("luxback.png");
+                cot = 5;
+                hang = 34;
+            }
+            case SCEPBACK -> {
+                texture = new Texture("scepback.png");
+                cot = 5;
+                hang = 25;
+            }
+            case GARBACK -> {
+                texture = new Texture("garback.png");
+                cot = 5;
+                hang = 36;
+            }
+            case CHARBACK -> {
+                texture = new Texture("charback.png");
+                cot = 5;
+                hang = 29;
+            }
+            case BLASBACK -> {
+                texture = new Texture("blasback.png");
+                cot = 5;
+                hang = 49;
+            }
+            case CHANBACK -> {
+                texture = new Texture("chanback.png");
+                cot = 5;
+                hang = 34;
+            }
+            case ZOROBACK -> {
+                texture = new Texture("zoroback.png");
+                cot = 5;
+                hang = 36;
+            }
+            case GALLABACK -> {
+                texture = new Texture("gallaback.png");
+                cot = 5;
+                hang = 27;
             }
         }
 
