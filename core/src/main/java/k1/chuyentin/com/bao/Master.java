@@ -76,7 +76,7 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new Background(0, 0, stage);
-        bar3 = new Bar3(0,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4,stage);
+
 
         if(!Utils6.pets.isEmpty()){
             pet = Utils6.pets.get(0);
@@ -102,8 +102,9 @@ public class Master implements Screen {
                 }
             }
         });
-
+        bar3 = new Bar3(pet.getX() + pet.getWidth()/2,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4,stage);
         Gdx.input.setInputProcessor(stage);
+
     }
 
     @Override
@@ -117,7 +118,7 @@ public class Master implements Screen {
         pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         time++;
-        bar3.setSize(290f / 100f * Pet.solanclick, 25);
+        bar3.setSize(20f / 100f * Pet.solanclick, 25);
         if (time % 60 == 0) {
             if (autoclick == true) {
                 money += sodiemtangkhiautoclick;
@@ -125,6 +126,7 @@ public class Master implements Screen {
             }
 
         }
+        bar3.setPosition(pet.getX() + pet.getWidth()/2,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4);
 
         if (time % 20 == 0) {
             new Effect(0, 0, stage); // tạo hieu ung cho vui
