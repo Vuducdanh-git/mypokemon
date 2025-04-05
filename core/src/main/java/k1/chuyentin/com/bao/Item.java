@@ -12,7 +12,6 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Item extends MyActor {
     int tybe = 1;
-    boolean isClickShow = false;
 
     static public int giatienclick = 100;
     static public int sodiemtangkhiclick = 0;
@@ -67,20 +66,11 @@ public class Item extends MyActor {
                         textureRegion = new TextureRegion(new Texture("vatpham10.png"));
                     }
 
-
-
                     Master.money -= giatienclick;
                     giatienclick *= 2;
                     Master.sound.play();
                     sodiemtangkhiclick = giatienclick / 100;
                     Master.plus += sodiemtangkhiclick;
-                    isClickShow = true;
-                    if (Master.click == null) {
-                        Master.click = new Item(0, 200, getStage(), 1);
-
-                    } else {
-                        getStage().addActor(Master.click);
-                    }
 
                 }
             }}

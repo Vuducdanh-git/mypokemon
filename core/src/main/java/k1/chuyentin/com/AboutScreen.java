@@ -45,7 +45,7 @@ public class AboutScreen implements Screen {
         music.setVolume(0f);
         music.play();
 
-        Utils6.setWordList();
+        Utils6.setWordList6();
 
     }
     @Override
@@ -82,7 +82,7 @@ public class AboutScreen implements Screen {
         }
 
         if(time == 60 * 10){
-            game.setScreen(new Master(game));
+            game.setScreen(new ChoiceScreen(game));
         }
 
 
@@ -107,7 +107,6 @@ public class AboutScreen implements Screen {
 
     @Override
     public void hide() {
-
         stage.clear();
     }
 

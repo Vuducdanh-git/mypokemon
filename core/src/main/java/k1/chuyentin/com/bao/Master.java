@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -177,8 +178,21 @@ public class Master implements Screen {
         isShopShow = true;
 
         shop = new Shop(400, 0, stage);
-        Master.click = new Item(400, 450, stage, 1);
-        Master.click2 = new Item2(450, 450, stage, 2);
+        if(Master.click == null){
+            Master.click = new Item(400, 450, stage, 1);
+        } else {
+            Master.click.setX(Gdx.graphics.getWidth());
+            Master.click.addAction(Actions.moveTo(400, 450, 0.5f));
+            stage.addActor(Master.click);
+        }
+        if(Master.click2 == null) {
+            Master.click2 = new Item2(400, 350, stage, 2);
+        } else {
+            Master.click2.setX(Gdx.graphics.getWidth());
+            Master.click2.addAction(Actions.moveTo(400, 350, 0.5f));
+            stage.addActor(Master.click2);
+        }
+
         Master.skill1 = new Skill1(400, 150, stage);
         Master.buyskill = new Buyskill(450, 200, stage);
         egg1 = new Egg1(500, 150, stage, this);
@@ -187,6 +201,7 @@ public class Master implements Screen {
     public void shopHide() {
         egg1.remove();
         shop.remove();
+
         click.remove();
         click2.remove();
 
