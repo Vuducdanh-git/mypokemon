@@ -29,7 +29,7 @@ public class Master implements Screen {
 
     static Sound sound;
 
-    static public int money = 100000000;
+    static public int money = 0;
     static int time = 0;
 
     static public int sodiemtangkhiautoclick = 0;
@@ -103,6 +103,8 @@ public class Master implements Screen {
             }
         });
         bar3 = new Bar3(pet.getX() + pet.getWidth()/2,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4,stage);
+        pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+
         Gdx.input.setInputProcessor(stage);
 
     }
@@ -115,10 +117,14 @@ public class Master implements Screen {
     @Override
     public void render(float v) {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-        pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
 
         time++;
-        bar3.setSize(20f / 100f * Pet.solanclick, 25);
+        if (Pet.solanclick < 600){
+            bar3.setSize(20f / 100f * Pet.solanclick, 25);
+        }else {
+            bar3.setSize(20f / 100f * 600, 25);
+        }
+
         if (time % 60 == 0) {
             if (autoclick == true) {
                 money += sodiemtangkhiautoclick;
@@ -126,7 +132,7 @@ public class Master implements Screen {
             }
 
         }
-        bar3.setPosition(pet.getX() + pet.getWidth()/2,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4);
+        bar3.setPosition(pet.getX() ,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4);
 
         if (time % 20 == 0) {
             new Effect(0, 0, stage); // tạo hieu ung cho vui
@@ -147,7 +153,6 @@ public class Master implements Screen {
 
         batch.begin();
         font.draw(batch, "coin: " + money, 0, Gdx.graphics.getHeight() - 32);
-        font.draw(batch, "clicknumber: " + pet.solanclick, 0, Gdx.graphics.getHeight());
         batch.end();
     }
 
@@ -181,7 +186,7 @@ public class Master implements Screen {
 
         shop = new Shop(400, 0, stage);
         if(Master.click == null){
-            Master.click = new Item(400, 450, stage, 1);
+            Master.click = new Item(Gdx.graphics.getWidth(), 450, stage, 1);
         } else {
             Master.click.setX(Gdx.graphics.getWidth());
             Master.click.addAction(Actions.moveTo(400, 450, 0.5f));

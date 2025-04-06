@@ -234,7 +234,7 @@ public class Pet extends MyActor{
         status = PetStatus.ATTACT;
         Texture texture = new Texture("charback.png");
         int cot = 5;
-        int hang = 28;
+        int hang = 29;
 
         switch (name){
             case VEBACK -> {
@@ -260,17 +260,17 @@ public class Pet extends MyActor{
             case LUXBACK -> {
                 texture = new Texture("luxback.png");
                 cot = 5;
-                hang = 34;
+                hang = 35;
             }
             case SCEPBACK -> {
                 texture = new Texture("scepback.png");
                 cot = 5;
-                hang = 25;
+                hang = 27;
             }
             case GARBACK -> {
                 texture = new Texture("garback.png");
                 cot = 5;
-                hang = 36;
+                hang = 18;
             }
             case CHARBACK -> {
                 texture = new Texture("charback.png");

@@ -11,7 +11,7 @@ public class Bth extends Actor {
     public Bth(Stage stage , float x, float y, float width) {
         texture = new Texture("bth.png");
         setPosition(x, y);
-        setSize(width, 30);
+        setSize(width-width/3, 30);
         stage.addActor(this);
 
     }

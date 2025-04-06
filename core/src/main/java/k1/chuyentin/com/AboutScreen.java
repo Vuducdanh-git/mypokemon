@@ -81,7 +81,7 @@ public class AboutScreen implements Screen {
             stage.addActor(label);
         }
 
-        if(time == 60 * 10){
+        if(time == 60 * 2){
             game.setScreen(new ChoiceScreen(game));
         }
 

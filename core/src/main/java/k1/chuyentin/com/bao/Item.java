@@ -16,54 +16,59 @@ public class Item extends MyActor {
     static public int giatienclick = 100;
     static public int sodiemtangkhiclick = 0;
     static public int solannangcap = 0;
-
+    int e =0;
     Item(float x, float y, Stage s, int tybe) {
         super(x, y, s);
         this.tybe = tybe;
-        textureRegion = new TextureRegion(new Texture("1.png"));
-        setSize(32, 32);
+        textureRegion = new TextureRegion(new Texture("m.png"));
+        setSize(200, 22);
 
         addListener(new ClickListener() {
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                solannangcap += 1;
+                if (Master.money >= giatienclick){
+                    solannangcap += 1;
+                    e =1;
+                }
+
                 if (solannangcap<=11){
 
-                if (Master.money >= giatienclick) {
+                if (e ==1) {
 
 //                    if (solannangcap==1){
 //                        textureRegion = new TextureRegion(new Texture("vatpham.png"));
 //                    }
                     if (solannangcap==1){
-                        textureRegion = new TextureRegion(new Texture("vatpham1.png"));
+                        textureRegion = new TextureRegion(new Texture("m1.png"));
+
                     }
                     if (solannangcap==2){
-                        textureRegion = new TextureRegion(new Texture("vatpham2.png"));
+                        textureRegion = new TextureRegion(new Texture("m2.png"));
                     }
                     if (solannangcap==3){
-                        textureRegion = new TextureRegion(new Texture("vatpham3.png"));
+                        textureRegion = new TextureRegion(new Texture("m3.png"));
                     }
                     if (solannangcap==4){
-                        textureRegion = new TextureRegion(new Texture("3.png"));
+                        textureRegion = new TextureRegion(new Texture("m4.png"));
                     }
                     if (solannangcap==5){
-                        textureRegion = new TextureRegion(new Texture("vatpham5.png"));
+                        textureRegion = new TextureRegion(new Texture("m5.png"));
                     }
                     if (solannangcap==6){
-                        textureRegion = new TextureRegion(new Texture("vatpham6.png"));
+                        textureRegion = new TextureRegion(new Texture("m6.png"));
                     }
                     if (solannangcap==7){
-                        textureRegion = new TextureRegion(new Texture("vatpham7.png"));
+                        textureRegion = new TextureRegion(new Texture("m7.png"));
                     }
                     if (solannangcap==8){
-                        textureRegion = new TextureRegion(new Texture("vatpham8.png"));
+                        textureRegion = new TextureRegion(new Texture("m8.png"));
                     }
                     if (solannangcap==9){
-                        textureRegion = new TextureRegion(new Texture("vatpham9.png"));
+                        textureRegion = new TextureRegion(new Texture("m9.png"));
                     }
                     if (solannangcap==10){
-                        textureRegion = new TextureRegion(new Texture("vatpham10.png"));
+                        textureRegion = new TextureRegion(new Texture("m10.png"));
                     }
 
                     Master.money -= giatienclick;
@@ -71,7 +76,7 @@ public class Item extends MyActor {
                     Master.sound.play();
                     sodiemtangkhiclick = giatienclick / 100;
                     Master.plus += sodiemtangkhiclick;
-
+                    e =9;
                 }
             }}
         });
