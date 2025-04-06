@@ -214,7 +214,7 @@ public class Pet extends MyActor{
             textureRegionNoAnimation = textureRegion;
             setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
             // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
-
+            Egg1.mone =1;
         }
     }
 
@@ -232,9 +232,9 @@ public class Pet extends MyActor{
     public void setAnimation(){
         setPosition(-7, -4);
         status = PetStatus.ATTACT;
-        Texture texture = new Texture("veback.png");
+        Texture texture = new Texture("charback.png");
         int cot = 5;
-        int hang = 34;
+        int hang = 28;
 
         switch (name){
             case VEBACK -> {
