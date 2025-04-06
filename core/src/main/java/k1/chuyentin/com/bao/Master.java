@@ -44,12 +44,15 @@ public class Master implements Screen {
 
     Background bg;
     Shop shop;
+    Balo balo;
+    BaloScreen balovatpham;
     boolean isShopShow = false;
     static int use = 0;
 
     static Skill1 skill1;
     static Item click;
     static Item2 click2;
+
     Bar3 bar3;
 
 
@@ -65,6 +68,7 @@ public class Master implements Screen {
 
     public Master(StartGame game) {
 
+
         sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
         this.game = game;
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
@@ -76,6 +80,14 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new Background(0, 0, stage);
+        balo = new Balo(stage,20,50);
+        balo.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new BaloScreen(game));
+            }
+        });
+
 
 
         if(!Utils6.pets.isEmpty()){

@@ -74,7 +74,7 @@ public class Item extends MyActor {
                     Master.money -= giatienclick;
                     giatienclick *= 2;
                     Master.sound.play();
-                    sodiemtangkhiclick = giatienclick / 100;
+                    sodiemtangkhiclick = giatienclick / 50;
                     Master.plus += sodiemtangkhiclick;
                     e =9;
                 }
