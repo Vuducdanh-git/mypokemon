@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import k1.chuyentin.com.PetName;
 
 public class Egg1 extends MyActor{
-
+    public static int mone =1;
     Egg1(float x, float y, Stage s, Master master) {
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("egg1.png"));
@@ -25,8 +25,9 @@ public class Egg1 extends MyActor{
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (Master.money >= 10000) {
+                if (Master.money >= 10000 && mone == 1) {
                     Master.money -= 10000;
+                    mone = 0;
 
                     int ngaunhien = MathUtils.random(0,Utils6.wordList.size-1);
                     Master.wordSkills.add(Utils6.wordList.get(ngaunhien));
