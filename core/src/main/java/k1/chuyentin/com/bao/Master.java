@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -63,12 +64,11 @@ public class Master implements Screen {
 
     public static Array<String> wordSkills = new Array<>();
     public static Array<String> wordSkillsVN = new Array<>();
+    ShapeRenderer shapeRenderer;
 
     BitmapFont font;
 
     public Master(StartGame game) {
-
-
         sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
         this.game = game;
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
@@ -115,16 +115,14 @@ public class Master implements Screen {
                 }
             }
         });
-        bar3 = new Bar3(pet.getX() + pet.getWidth()/2,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4,stage);
-        pet.setPosition(Gdx.graphics.getWidth() / 2 - pet.getWidth() / 2, Gdx.graphics.getHeight() / 2 - pet.getHeight() / 2);
+        bar3 = new Bar3(3,Gdx.graphics.getHeight() - 28,stage);
 
-        Gdx.input.setInputProcessor(stage);
-
+        shapeRenderer = new ShapeRenderer();
     }
 
     @Override
     public void show() {
-
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
@@ -132,10 +130,17 @@ public class Master implements Screen {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
 
         time++;
-        if (Pet.solanclick < 600){
-            bar3.setSize(20f / 100f * Pet.solanclick, 25);
-        }else {
-            bar3.setSize(20f / 100f * 600, 25);
+        if (pet.lv == 0){
+            bar3.setColor(Color.GREEN);
+            bar3.setSize((Gdx.graphics.getWidth() - 2) * pet.solanclick / 50, 25);
+        } else if (pet.lv == 1){
+            bar3.setColor(Color.BLUE);
+            bar3.setSize((Gdx.graphics.getWidth() - 2) * (pet.solanclick - 50) / 50, 25);
+        } else if (pet.lv == 2){
+            bar3.setColor(Color.RED);
+            bar3.setSize((Gdx.graphics.getWidth() - 2) * (pet.solanclick - 100) / 150, 25);
+        } else {
+            bar3.setSize(Gdx.graphics.getWidth() - 2, 25);
         }
 
         if (time % 60 == 0) {
@@ -145,7 +150,6 @@ public class Master implements Screen {
             }
 
         }
-        bar3.setPosition(pet.getX() ,Gdx.graphics.getHeight()/2+Gdx.graphics.getHeight()/4);
 
         if (time % 20 == 0) {
             new Effect(0, 0, stage); // tạo hieu ung cho vui
@@ -155,8 +159,6 @@ public class Master implements Screen {
         stage.getViewport().unproject(mouse);
         if (mouse.x > 400 && !isShopShow) {
             showShop();
-
-
         } else if (mouse.x < 400 && isShopShow) {
             shopHide();
         }
@@ -167,6 +169,18 @@ public class Master implements Screen {
         batch.begin();
         font.draw(batch, "coin: " + money, 0, Gdx.graphics.getHeight() - 32);
         batch.end();
+
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        if(pet.lv == 0){
+            shapeRenderer.setColor(Color.GREEN);
+        } else if(pet.lv == 1){
+            shapeRenderer.setColor(Color.BLUE);
+        } else {
+            shapeRenderer.setColor(Color.RED);
+        }
+
+        shapeRenderer.rect(1, Gdx.graphics.getHeight() - 30, Gdx.graphics.getWidth() - 2, 30);
+        shapeRenderer.end();
     }
 
     @Override
