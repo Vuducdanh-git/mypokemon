@@ -53,6 +53,7 @@ public class BattleScreen implements Screen {
     Skill skill;// = new Skill(stage,bar1.getX(),bar1.getY(),bar1.getWidth()/2);
     float trumhp =0;
     int lose =0;
+    int time =0;
 
 
     public BattleScreen(StartGame game) {
@@ -127,7 +128,7 @@ public class BattleScreen implements Screen {
         }
     @Override
     public void render ( float v){
-
+        float alpha = 1.0f;
         if(myhp > 50){
             hpbarm.setColor(Color.GOLD);}
         if ((BattleScreen.myhp <= 50) && (BattleScreen.myhp >24)) {
@@ -158,9 +159,7 @@ public class BattleScreen implements Screen {
         stage.act();
         stage.draw();
         batch.begin();
-        game.fonts.draw(batch, mp, bar1.getX() + 40, bar1.getY() + 45);
         game.font.draw(batch, "BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
-        batch.end();
         if (myhp <=0){
             lose =1;
         }
@@ -168,15 +167,45 @@ public class BattleScreen implements Screen {
             lose =2;
         }
         if (lose ==1){
+            time ++;
+
+            if(time <60*5){
+                alpha = 1.0f - (float)time/(60*2);
+                game.font.setColor(1,1,1,alpha);
+                game.font.draw(batch, "OH NO!You lose 10000 money", Gdx.graphics.getWidth()/2-150, Gdx.graphics.getHeight()/2);
+
+            }else {
+                time =0;
+                lose =0;
+            }
             myhp = 100;
-            lose =0;
-            Master.money -=1000;
+
+            Master.money -=10000;
+
+
+
         }
         if(lose ==2){
             Master.money +=10000;
             yourhp =100;
+            time ++;
+
+            if(time <60*5){
+                alpha = 1.0f - (float)time/(60*2);
+                game.font.setColor(1,1,1,alpha);
+                game.font.draw(batch, "congratulation!You get 10000 money", Gdx.graphics.getWidth()/2-100, Gdx.graphics.getHeight()/2);
+
+            }else {
+                time =0;
+                lose =0;
+            }
+
 
         }
+
+
+
+        batch.end();
         if (skill.click == 1 && !isTextFieldActive) {
             textField.setVisible(true);
             textField.setText(""); // Xóa nội dung cũ

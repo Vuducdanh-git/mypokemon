@@ -35,6 +35,7 @@ public class Pet extends MyActor{
     Pet(Texture texture, float x, float y, Stage s) {
         super(x, y, s);
         setSize(32, 32);
+        setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
         // Chọn tên ngẫu nhiên từ danh sách 20 tên có săn
         name = PetName.values()[MathUtils.random(0, PetName.values().length - 1)];
         //name = PetName.SCEPBACK;
@@ -135,6 +136,35 @@ public class Pet extends MyActor{
                 case GARBACK -> {
                     textureRegion = new TextureRegion(new Texture("gar1.png"));
                 }
+                case GALLABACK -> {
+                    textureRegion = new TextureRegion(new Texture("galla1.png"));
+                }
+                case DIBACK -> {
+                    textureRegion = new TextureRegion(new Texture("dial.png"));
+                }
+                case MBACK -> {
+                    textureRegion = new TextureRegion(new Texture("me.png"));
+                }case CEBACK -> {
+                    textureRegion = new TextureRegion(new Texture("celi.png"));
+                }case JIBACK -> {
+                    textureRegion = new TextureRegion(new Texture("jirc.png"));
+                }case UNBACK -> {
+                    textureRegion = new TextureRegion(new Texture("unk.png"));
+                }
+                case GENBACK -> {
+                    textureRegion = new TextureRegion(new Texture("ges.png"));
+                }case GROUBACK -> {
+                    textureRegion = new TextureRegion(new Texture("grod.png"));
+                }case LUGBACK -> {
+                    textureRegion = new TextureRegion(new Texture("lugs.png"));
+                }case KYOBACK -> {
+                    textureRegion = new TextureRegion(new Texture("kyg.png"));
+                }
+                case RAYBACK -> {
+                    textureRegion = new TextureRegion(new Texture("rayq.png"));
+                }case DITTOBACK -> {
+                    textureRegion = new TextureRegion(new Texture("ditt.png"));
+                }
             }
             textureRegionNoAnimation = textureRegion;
             setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
@@ -148,6 +178,9 @@ public class Pet extends MyActor{
 
             textureRegion = new TextureRegion(new Texture("rongcon.png"));
             switch (name) {
+                case DIBACK -> {
+                    textureRegion = new TextureRegion(new Texture("dial.png"));
+                }
                 case LUXBACK -> {
                     textureRegion = new TextureRegion(new Texture("lux2.png"));
                 }
@@ -172,6 +205,32 @@ public class Pet extends MyActor{
                 case GARBACK -> {
                     textureRegion = new TextureRegion(new Texture("gar2.png"));
                 }
+                case GALLABACK -> {
+                    textureRegion = new TextureRegion(new Texture("galla2.png"));
+                }
+                case MBACK -> {
+                    textureRegion = new TextureRegion(new Texture("me.png"));
+                }case CEBACK -> {
+                    textureRegion = new TextureRegion(new Texture("celi.png"));
+                }case JIBACK -> {
+                    textureRegion = new TextureRegion(new Texture("jirc.png"));
+                }case UNBACK -> {
+                    textureRegion = new TextureRegion(new Texture("unk.png"));
+                }
+                case GENBACK -> {
+                    textureRegion = new TextureRegion(new Texture("ges.png"));
+                }case GROUBACK -> {
+                    textureRegion = new TextureRegion(new Texture("grod.png"));
+                }case LUGBACK -> {
+                    textureRegion = new TextureRegion(new Texture("lugs.png"));
+                }case KYOBACK -> {
+                    textureRegion = new TextureRegion(new Texture("kyg.png"));
+                }
+                case RAYBACK -> {
+                    textureRegion = new TextureRegion(new Texture("rayq.png"));
+                }case DITTOBACK -> {
+                    textureRegion = new TextureRegion(new Texture("ditt.png"));
+                }
             }
             textureRegionNoAnimation = textureRegion;
             setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
@@ -186,6 +245,9 @@ public class Pet extends MyActor{
 
             textureRegion = new TextureRegion(new Texture("ronglon.png"));
             switch (name) {
+                case DIBACK -> {
+                    textureRegion = new TextureRegion(new Texture("dial.png"));
+                }
                 case LUXBACK -> {
                     textureRegion = new TextureRegion(new Texture("lux3.png"));
                 }
@@ -209,6 +271,32 @@ public class Pet extends MyActor{
                 }
                 case GARBACK -> {
                     textureRegion = new TextureRegion(new Texture("gar3.png"));
+                }
+                case GALLABACK -> {
+                    textureRegion = new TextureRegion(new Texture("galla3.png"));
+                }
+                case MBACK -> {
+                    textureRegion = new TextureRegion(new Texture("me.png"));
+                }case CEBACK -> {
+                    textureRegion = new TextureRegion(new Texture("celi.png"));
+                }case JIBACK -> {
+                    textureRegion = new TextureRegion(new Texture("jirc.png"));
+                }case UNBACK -> {
+                    textureRegion = new TextureRegion(new Texture("unk.png"));
+                }
+                case GENBACK -> {
+                    textureRegion = new TextureRegion(new Texture("ges.png"));
+                }case GROUBACK -> {
+                    textureRegion = new TextureRegion(new Texture("grod.png"));
+                }case LUGBACK -> {
+                    textureRegion = new TextureRegion(new Texture("lugs.png"));
+                }case KYOBACK -> {
+                    textureRegion = new TextureRegion(new Texture("kyg.png"));
+                }
+                case RAYBACK -> {
+                    textureRegion = new TextureRegion(new Texture("rayq.png"));
+                }case DITTOBACK -> {
+                    textureRegion = new TextureRegion(new Texture("ditt.png"));
                 }
             }
             textureRegionNoAnimation = textureRegion;
@@ -296,6 +384,41 @@ public class Pet extends MyActor{
                 texture = new Texture("gallaback.png");
                 cot = 5;
                 hang = 27;
+            }
+            case MBACK -> {
+                texture = new Texture("mback.png");
+                cot = 5;
+                hang = 24;//
+            }case CEBACK -> {
+                texture = new Texture("ceback.png");
+                cot = 5;
+                hang = 13;//
+            }case UNBACK -> {
+                texture = new Texture("unback.png");
+                cot = 5;
+                hang = 19;//
+            }
+            case GROUBACK -> {
+                texture = new Texture("grouback.png");
+                cot = 5;
+                hang = 21;//
+            }case LUGBACK -> {
+                texture = new Texture("lugback.png");
+                cot = 5;
+                hang = 24;
+            }case KYOBACK -> {
+                texture = new Texture("kyoback.png");
+                cot = 5;
+                hang = 49;
+            }
+            case RAYBACK -> {
+                texture = new Texture("rayback.png");
+                cot = 5;
+                hang = 24;//
+            }case DITTOBACK -> {
+                texture = new Texture("dittoback.png");
+                cot = 5;
+                hang = 16;//
             }
         }
 
