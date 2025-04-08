@@ -29,7 +29,7 @@ public class Master implements Screen {
 
     static Sound sound;
 
-    static public int money = 0;
+    static public int money = 10000000;
     static int time = 0;
 
     static public int sodiemtangkhiautoclick = 0;
@@ -85,6 +85,7 @@ public class Master implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new BaloScreen(game));
+
             }
         });
 

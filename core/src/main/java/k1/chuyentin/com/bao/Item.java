@@ -74,14 +74,14 @@ public class Item extends MyActor {
                     Master.money -= giatienclick;
                     giatienclick *= 2;
                     Master.sound.play();
-                    sodiemtangkhiclick = giatienclick / 50;
+                    sodiemtangkhiclick = giatienclick / 25;
                     Master.plus += sodiemtangkhiclick;
                     e =9;
                 }
             }}
         });
         setPosition(Gdx.graphics.getWidth(), y);
-        addAction(Actions.moveTo(x, y, 0.5f));
+        addAction(Actions.moveTo(x, y, 0.8f));
     }
 
 }
