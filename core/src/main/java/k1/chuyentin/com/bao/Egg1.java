@@ -41,7 +41,7 @@ public class Egg1 extends MyActor{
                     master.pet = pet;
 
                     Master.sound.play();
-                    Pet.solanclick =0;
+                    master.pet.solanclick =0;
 
                 } else {
                     remove();

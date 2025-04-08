@@ -26,7 +26,7 @@ public class Pet extends MyActor{
 
     TextureRegion textureRegionNoAnimation;
 
-    public static int solanclick = 249;
+    public int solanclick = 249;
     boolean levelUp = false;
     static Music levelUpSound = Gdx.audio.newMusic(Gdx.files.internal("levelup.wav"));
 
@@ -175,7 +175,6 @@ public class Pet extends MyActor{
             levelUpSound.play();
             levelUp = true;
             lv = 2;
-
             textureRegion = new TextureRegion(new Texture("rongcon.png"));
             switch (name) {
                 case DIBACK -> {
@@ -242,7 +241,6 @@ public class Pet extends MyActor{
             levelUpSound.play();
             levelUp = true;
             lv = 3;
-
             textureRegion = new TextureRegion(new Texture("ronglon.png"));
             switch (name) {
                 case DIBACK -> {
