@@ -5,15 +5,24 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.utils.Array;
 
 public class StartGame extends Game {
     BitmapFont font;
     BitmapFont fonts;
+
+    public Array<Diamond> diamonds;
+    public Array<SB> sbs;
+    public Array<Ender> enders;
     @Override
 
     public void create() {
         font = new BitmapFont();
         fonts = new BitmapFont();
+
+        diamonds = new Array<>();
+        sbs = new Array<>();
+        enders = new Array<>();
 
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();

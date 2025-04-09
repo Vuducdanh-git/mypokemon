@@ -1,15 +1,14 @@
 package k1.chuyentin.com;
 
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-public class Dyamon extends Actor {
+public class Diamond extends Actor {
     Texture texture;
-    public Dyamon(float x, float y, Stage stage) {
+    public Diamond(float x, float y, Stage stage) {
         texture = new Texture("dia.png");
         setPosition(x, y);
         setSize(32, 32);
