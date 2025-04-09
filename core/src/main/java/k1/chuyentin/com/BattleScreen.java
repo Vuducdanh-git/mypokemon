@@ -186,7 +186,6 @@ public class BattleScreen implements Screen {
 
         }
         if(lose ==2){
-            Master.money +=10000;
             yourhp =100;
             time ++;
 
@@ -196,6 +195,8 @@ public class BattleScreen implements Screen {
                 game.font.draw(batch, "congratulation!You get 10000 money", Gdx.graphics.getWidth()/2-100, Gdx.graphics.getHeight()/2);
 
             }else {
+                Master.money +=10000;
+                game.diamonds.add(new Diamond(390,280,stage));
                 time =0;
                 lose =0;
             }

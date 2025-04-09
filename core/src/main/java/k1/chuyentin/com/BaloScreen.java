@@ -9,32 +9,23 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
-import k1.chuyentin.com.bao.Item;
 import k1.chuyentin.com.bao.Master;
-
-import static k1.chuyentin.com.bao.Master.money;
 
 public class BaloScreen implements Screen {
     Stage stage;
     StartGame game;
     Bth bth;
-    Dyamon dia;
+    Diamond dia;
     SB slimeball;
     Ender ender;
     SpriteBatch batch;
-    public Array<Dyamon> items;
-    public Array<SB> items2;
-    public Array<Ender> items3;
     public BaloScreen(StartGame game){
         this.game = game;
         stage = new Stage();
-        items = new Array<>();
-        items2 = new Array<>();
-        items3 = new Array<>();
         batch=new SpriteBatch();
         bth = new Bth(stage, 340, 60-30, 200);
         slimeball = new SB(100,400,stage);
-        dia = new Dyamon(50,400,stage);
+        dia = new Diamond(50,400,stage);
         ender=new Ender(150,400,stage);
         bth.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
@@ -55,9 +46,9 @@ public class BaloScreen implements Screen {
 
         stage.draw();
         batch.begin();
-        game.font.draw(batch, "" + items.size, 64, Gdx.graphics.getHeight() - 64);
-        game.font.draw(batch, "" + items2.size, 120, Gdx.graphics.getHeight() - 64);
-        game.font.draw(batch, "" + items3.size, 170, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.diamonds.size, 64, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.sbs.size, 120, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.enders.size, 170, Gdx.graphics.getHeight() - 64);
         batch.end();
     }
 
