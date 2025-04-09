@@ -199,8 +199,6 @@ public class BattleScreen implements Screen {
                 time =0;
                 lose =0;
             }
-
-
         }
 
 
