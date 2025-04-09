@@ -10,7 +10,7 @@ public class Utils6 {
     public static void setWordList6(){//thêm danh sách từ tiếng anh và tiếng việt cho từ vựng lớp 6
 
 
-        wordList.add("hellohellohellohellohellohellohellohellohello");
+        wordList.add("hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello");
         wordListVN.add("xin chào");
 
 //        wordList.add("goodbye");

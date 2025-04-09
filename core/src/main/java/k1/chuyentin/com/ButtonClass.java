@@ -10,9 +10,13 @@ import k1.chuyentin.com.bao.MyActor;
 import k1.chuyentin.com.bao.Utils6;
 
 public class ButtonClass extends MyActor {
-    public ButtonClass(float x, float y, Stage s) {
+    public ButtonClass(float x, float y, Stage s,int tybe) {
         super(x, y, s);
-        textureRegion = new TextureRegion(new Texture("19.png"));
+        if (tybe==6) {
+            textureRegion = new TextureRegion(new Texture("l6.png"));
+        }else if (tybe==7){
+            textureRegion = new TextureRegion(new Texture("l7.png"));
+        }
         setSize(64, 64);
 
     }
