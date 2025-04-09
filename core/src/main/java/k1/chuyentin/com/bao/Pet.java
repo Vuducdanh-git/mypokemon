@@ -86,6 +86,7 @@ public class Pet extends MyActor{
 
     public void click(){
         solanclick++;
+        levelUp = false;
         new Coin(getX() + getWidth()/2, getY() + getHeight()/2, getStage(), true);
         if (!Master.wordSkills.isEmpty()){
             int ngaunhien = MathUtils.random(0, Master.wordSkills.size-1);
