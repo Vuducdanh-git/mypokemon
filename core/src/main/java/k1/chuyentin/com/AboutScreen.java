@@ -82,7 +82,7 @@ public class AboutScreen implements Screen {
         }
 
         if(time == 60 * 2){
-            game.setScreen(new ChoiceScreen(game));
+            game.setScreen(new MenuScreen(game));
         }
 
 
