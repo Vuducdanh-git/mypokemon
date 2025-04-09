@@ -1,5 +1,6 @@
 package k1.chuyentin.com;
 
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -21,7 +22,7 @@ import k1.chuyentin.com.bao.Master;
 import k1.chuyentin.com.bao.Pet;
 import k1.chuyentin.com.bao.Utils6;
 
-/** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
+/** {@link ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
     Batch batch;
     OrthographicCamera camera;
@@ -186,17 +187,30 @@ public class BattleScreen implements Screen {
 
         }
         if(lose ==2){
+
             yourhp =100;
             time ++;
-
             if(time <60*5){
-                alpha = 1.0f - (float)time/(60*2);
+                alpha = 1.0f - (float)time/(60*5);
                 game.font.setColor(1,1,1,alpha);
-                game.font.draw(batch, "congratulation!You get 10000 money", Gdx.graphics.getWidth()/2-100, Gdx.graphics.getHeight()/2);
+                game.font.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth()/2-400, Gdx.graphics.getHeight()/2);
+
 
             }else {
                 Master.money +=10000;
-                game.diamonds.add(new Diamond(390,280,stage));
+                int random = MathUtils.random(1,3);
+                if (random ==1){
+                    game.diamonds.add(new Diamond(-230,-1232,stage));
+
+                }
+                if(random ==2){
+                    game.enders.add(new Ender(-230,-1232,stage));
+                }
+                if (random ==3){
+                    game.sbs.add(new SB(-230,-1232,stage));
+                }
+
+
                 time =0;
                 lose =0;
             }

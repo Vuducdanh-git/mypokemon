@@ -33,7 +33,7 @@ public class StartGame extends Game {
 
         FreeTypeFontGenerator fontGenerators = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameters = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameters.size = 25;
+        fontParameters.size = 20;
         fontParameters.color = Color.RED;
         font = fontGenerators.generateFont(fontParameters);
         fontGenerators.dispose();
