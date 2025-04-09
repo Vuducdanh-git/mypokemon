@@ -11,9 +11,9 @@ public class Balo extends Actor {
     Bth bth;
 
     public Balo(Stage stage , float x, float y) {
-        texture = new Texture("23.png");
+        texture = new Texture("bag.png");
         setPosition(x, y);
-        setSize(32, 32);
+        setSize(50, 40);
         stage.addActor(this);
     }
 
