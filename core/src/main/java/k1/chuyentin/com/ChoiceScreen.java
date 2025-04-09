@@ -19,7 +19,7 @@ public class ChoiceScreen implements Screen {
         this.game = game;
         stage = new Stage();
 
-        lop6 = new ButtonClass(200, Gdx.graphics.getHeight()/2 - 32, stage);
+        lop6 = new ButtonClass(200, Gdx.graphics.getHeight()/2 - 32, stage,6);
         lop6.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -27,7 +27,7 @@ public class ChoiceScreen implements Screen {
                 game.setScreen(new Master(game));
             }
         });
-        lop7 = new ButtonClass(400, Gdx.graphics.getHeight()/2 - 32, stage);
+        lop7 = new ButtonClass(400, Gdx.graphics.getHeight()/2 - 32, stage,7);
         lop7.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
