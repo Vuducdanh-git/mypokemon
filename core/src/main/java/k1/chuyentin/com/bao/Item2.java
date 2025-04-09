@@ -14,7 +14,7 @@ import static k1.chuyentin.com.bao.Master.giatienautoclick;
 
 public class Item2 extends MyActor{
     int tybe=2;
-    static public int solannangcapautoclick=0;
+    public int solannangcapautoclick=0;
     Item2(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;
@@ -26,8 +26,9 @@ public class Item2 extends MyActor{
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 if (Master.money >= giatienautoclick ){
-                    solannangcapautoclick+=1;
-                    if (solannangcapautoclick<11){
+
+                    if (solannangcapautoclick < 10){
+                        solannangcapautoclick++;
                         if (Master.money >= giatienautoclick) {
 
                             if (solannangcapautoclick==1){

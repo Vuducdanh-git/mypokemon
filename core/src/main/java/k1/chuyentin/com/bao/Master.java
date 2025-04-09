@@ -140,16 +140,17 @@ public class Master implements Screen {
             bar3.setColor(Color.RED);
             bar3.setSize((Gdx.graphics.getWidth() - 2) * (pet.solanclick - 100) / 150, 25);
         } else {
+            bar3.setColor(Color.RED);
             bar3.setSize(Gdx.graphics.getWidth() - 2, 25);
         }
 
-        if (time % 60 == 0) {
-            if (autoclick == true) {
-                money += sodiemtangkhiautoclick;
-                pet.click();
+            if (autoclick) {
+                if (time % (60 - click2.solannangcapautoclick*5) == 0) {
+                    money += sodiemtangkhiautoclick;
+                    pet.click();
+                }
             }
 
-        }
 
         if (time % 20 == 0) {
             new Effect(0, 0, stage); // tạo hieu ung cho vui
