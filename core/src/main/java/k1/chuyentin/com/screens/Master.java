@@ -19,6 +19,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
+import k1.chuyentin.com.actors.buttons.NutMenu;
+import k1.chuyentin.com.enums.ButtonType;
 import k1.chuyentin.com.enums.PetStatus;
 
 
@@ -58,6 +60,7 @@ public class Master implements Screen {
     static Item2 click2;
 
     Bar3 bar3;
+    NutMenu exit;
 
 
     ChuaDuDieuKien chuaDuDieuKien;
@@ -88,6 +91,14 @@ public class Master implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new BaloScreen(game));
+
+            }
+        });
+        exit = new NutMenu(0, 150 ,stage, ButtonType.EXIT);
+        exit.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.app.exit();
 
             }
         });
