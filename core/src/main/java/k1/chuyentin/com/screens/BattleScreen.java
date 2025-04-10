@@ -22,7 +22,6 @@ import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
 
-import static k1.chuyentin.com.Chargepoke.random;
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
