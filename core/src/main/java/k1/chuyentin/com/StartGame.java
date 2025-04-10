@@ -6,10 +6,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.utils.Array;
+import k1.chuyentin.com.actors.Diamond;
+import k1.chuyentin.com.actors.Ender;
+import k1.chuyentin.com.actors.SB;
+import k1.chuyentin.com.screens.AboutScreen;
 
 public class StartGame extends Game {
-    BitmapFont font;
-    BitmapFont fonts;
+    public BitmapFont font;
+    public BitmapFont fonts;
 
     public Array<Diamond> diamonds;
     public Array<SB> sbs;
