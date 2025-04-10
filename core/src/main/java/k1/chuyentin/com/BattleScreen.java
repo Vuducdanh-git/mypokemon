@@ -22,6 +22,8 @@ import k1.chuyentin.com.bao.Master;
 import k1.chuyentin.com.bao.Pet;
 import k1.chuyentin.com.bao.Utils6;
 
+import static k1.chuyentin.com.Chargepoke.random;
+
 /** {@link ApplicationListener} implementation shared by all platforms. */
 public class BattleScreen implements Screen {
     Batch batch;
@@ -55,6 +57,8 @@ public class BattleScreen implements Screen {
     float trumhp =0;
     int lose =0;
     int time =0;
+    boolean test=false;
+    int random =0;
 
 
     public BattleScreen(StartGame game) {
@@ -187,28 +191,34 @@ public class BattleScreen implements Screen {
 
         }
         if(lose ==2){
-
-            yourhp =100;
-            time ++;
-            if(time <60*5){
-                alpha = 1.0f - (float)time/(60*5);
-                game.font.setColor(1,1,1,alpha);
-                game.font.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth()/2-400, Gdx.graphics.getHeight()/2);
-
-
-            }else {
-                Master.money +=10000;
-                int random = MathUtils.random(1,3);
+            if (test == false){
+                random = MathUtils.random(1,3);
+                test = true;
                 if (random ==1){
-                    game.diamonds.add(new Diamond(-230,-1232,stage));
+                    game.diamonds.add(new Diamond(Gdx.graphics.getWidth()/2-32/2,Gdx.graphics.getHeight()/2 -32/2,stage));
 
                 }
                 if(random ==2){
-                    game.enders.add(new Ender(-230,-1232,stage));
+                    game.enders.add(new Ender(Gdx.graphics.getWidth()/2-32/2,Gdx.graphics.getHeight()/2 -32/2,stage));
                 }
                 if (random ==3){
-                    game.sbs.add(new SB(-230,-1232,stage));
+                    game.sbs.add(new SB(Gdx.graphics.getWidth()/2-32/2,Gdx.graphics.getHeight()/2 -32/2,stage));
                 }
+            }
+            yourhp =100;
+            time ++;
+            if(time <60*2){
+                alpha = 1.0f - (float)time/(60*2);
+                game.font.setColor(1,1,1,alpha);
+                game.font.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth()/2-300, Gdx.graphics.getHeight()-30);
+
+
+            }else {
+
+                Master.money +=10000;
+
+
+
 
 
                 time =0;
