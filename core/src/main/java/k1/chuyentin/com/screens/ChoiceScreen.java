@@ -3,6 +3,7 @@ package k1.chuyentin.com.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -16,10 +17,11 @@ public class ChoiceScreen implements Screen {
     Stage stage;
     ButtonClass lop6;
     ButtonClass lop7;
+    SpriteBatch batch;
     ChoiceScreen(StartGame game){
         this.game = game;
         stage = new Stage();
-
+        batch = new SpriteBatch();
         lop6 = new ButtonClass(200, Gdx.graphics.getHeight()/2 - 32, stage,6);
         lop6.addListener(new ClickListener(){
             @Override
@@ -44,10 +46,14 @@ public class ChoiceScreen implements Screen {
 
     @Override
     public void render(float v) {
-        ScreenUtils.clear(Color.WHITE);
+        ScreenUtils.clear(Color.BLACK);
 
         stage.act();
         stage.draw();
+        batch.begin();
+        game.font.draw(batch, "Do you want to raise Pokémon and battle with ", 100, 400);
+        game.font.draw(batch, "             grade 6 or 7 vocabulary?        ", 100, 370);
+        batch.end();
     }
 
     @Override
