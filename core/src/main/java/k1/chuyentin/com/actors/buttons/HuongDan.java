@@ -8,11 +8,9 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import k1.chuyentin.com.actors.MyActor;
 
 public class HuongDan extends MyActor {
-    HuongDan(float x, float y, Stage s) {
+    public HuongDan(float x, float y, Stage s) {
         super(x, y, s);
-        textureRegion = new TextureRegion(new Texture("shop.png"));
-        setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        setPosition(Gdx.graphics.getWidth(), y);
-        addAction(Actions.moveTo(x, y, 0.5f));
+        textureRegion = new TextureRegion(new Texture("hd.png"));
+        setSize(Gdx.graphics.getWidth()/1, Gdx.graphics.getHeight()-8);
     }
 }

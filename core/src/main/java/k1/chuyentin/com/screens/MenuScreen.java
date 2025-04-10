@@ -22,15 +22,43 @@ public class MenuScreen implements Screen {
     MenuScreen(StartGame game){
      this.game=game;
      stage = new Stage();
-     play = new NutMenu(200, 380, stage, ButtonType.PLAY);
-     play.setX(Gdx.graphics.getWidth()/2 - play.getWidth()/2);
+     guide = new NutMenu(200, 380, stage, ButtonType.GUIDE);
+     guide.setX(Gdx.graphics.getWidth()/2 - guide.getWidth()/2);
 
-     play.addListener(new ClickListener(){
+     guide.addListener(new ClickListener(){
          @Override
          public void clicked(InputEvent event, float x, float y) {
-             game.setScreen(new ChoiceScreen(game));
+             game.setScreen(new GuideScreen(game));
          }
      });
+        play = new NutMenu(200, 250, stage, ButtonType.PLAY);
+        play.setX(Gdx.graphics.getWidth()/2 - guide.getWidth()/2);
+
+        play.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new ChoiceScreen(game));
+            }
+        });
+        continute = new NutMenu(200, 130, stage, ButtonType.CONTINUE);
+        continute.setX(Gdx.graphics.getWidth()/2 - guide.getWidth()/2);
+
+        continute.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new Master(game));
+            }
+        });
+        exit = new NutMenu(200, 20 ,stage, ButtonType.EXIT);
+        exit.setX(Gdx.graphics.getWidth()/2 - guide.getWidth()/2);
+
+        exit.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.app.exit();
+
+            }
+        });
     }
 
     @Override
