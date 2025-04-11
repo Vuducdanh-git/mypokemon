@@ -208,120 +208,120 @@ public class Utils {
     public static void setWordList7(){//thêm danh sách từ tiếng anh và tiếng việt cho từ vựng lớp 6
 
 
-        wordList.add("hello");
-        wordListVN.add("xin chào");
+        wordList.add("a piece of cake");
+        wordListVN.add("dễ ợt");
 
-        wordList.add("goodbye");
-        wordListVN.add("tạm biệt");
+        wordList.add("a piece of cake");
+        wordListVN.add("cắm hoa");
 
-        wordList.add("play");
-        wordListVN.add("chơi");
+        wordList.add("bird-watching");
+        wordListVN.add("quan sát chim chóc");
 
-        wordList.add("attack");
-        wordListVN.add("tấn công");
+        wordList.add("board game");
+        wordListVN.add("trò chơi trên bàn cờ ");
 
-        wordList.add("defender");
-        wordListVN.add("...");
+        wordList.add("carve");
+        wordListVN.add("chạm, khắc");
 
-        wordList.add("heal");
-        wordListVN.add("...");
+        wordList.add("carved ");
+        wordListVN.add("được chạm, khắc");
 
-        wordList.add("cat");
-        wordListVN.add("mèo");
+        wordList.add("collage");
+        wordListVN.add("một bức tranh tạo thành từ nhiều tranh, ảnh nhỏ");
 
-        wordList.add("boarding school");
-        wordListVN.add("trường nội trú");
+        wordList.add("eggshell");
+        wordListVN.add("vỏ trứng");
 
-        wordList.add("school");
-        wordListVN.add("trường học");
+        wordList.add("fragile");
+        wordListVN.add("dễ vỡ");
 
-        wordList.add("cartoon");
-        wordListVN.add("phim hoạt hình");
+        wordList.add("gardening");
+        wordListVN.add("làm vườn");
 
-        wordList.add("computer games");
-        wordListVN.add(".,.");
+        wordList.add("horse-riding ");
+        wordListVN.add("cưỡi ngựa");
 
-        wordList.add("book");
-        wordListVN.add("sách");
+        wordList.add("ice-skating ");
+        wordListVN.add("trượt băng");
 
-        wordList.add("good morning");
-        wordListVN.add("chào buổi sáng");
+        wordList.add("making model");
+        wordListVN.add("làm mô hình");
 
         wordList.add("play sport");
         wordListVN.add("chơi thể thao ");
 
 
-        wordList.add("nice to meet you");
-        wordListVN.add("rất vui được gặp bạn");
+        wordList.add("making pottery ");
+        wordListVN.add("nặn đồ gốm");
 
-        wordList.add("drink");
-        wordListVN.add("uống");
+        wordList.add("melody");
+        wordListVN.add("giai điệu");
 
 //        wordList.add("i play games");
 //        wordList.add("tôi chơi games");
 
-        wordList.add("swimming pool");
-        wordListVN.add("bể bơi");
+        wordList.add(" monopoly ");
+        wordListVN.add("cờ tỉ phú");
 
-        wordList.add("thank you");
-        wordListVN.add("cảm ơn");
+        wordList.add("mountain climbing ");
+        wordListVN.add("leo núi");
 
-        wordList.add("animated film");
-        wordListVN.add("phim hoạt hình");
+        wordList.add("share");
+        wordListVN.add("chia sẻ");
 
-        wordList.add("cartoon");
-        wordListVN.add("phim hoạt hình");
+        wordList.add("skating");
+        wordListVN.add("trượt pa tanh");
 
-        wordList.add("channel");
-        wordListVN.add("kênh truyền hình");
+        wordList.add("strange");
+        wordListVN.add("la");
 
-        wordList.add("character");
-        wordListVN.add("nhân vật");
+        wordList.add("surfing");
+        wordListVN.add("lướt sóng");
 
-        wordList.add("clever");
-        wordListVN.add("khôn ngoan, thông minh");
+        wordList.add("unique");
+        wordListVN.add("độc đáo");
 
-        wordList.add("clip");
-        wordListVN.add("đoạn phim ngắn");
+        wordList.add("unusual");
+        wordListVN.add("khác thường");
 
-        wordList.add("comedy");
-        wordListVN.add("phim hài");
-
-        wordList.add("compete");
-        wordListVN.add("thi đấu");
-
-        wordList.add("cute");
-        wordListVN.add("xinh xắn");
-
-        wordList.add("dolphin");
-        wordListVN.add("cá heo");
-
-        wordList.add("educate");
-        wordListVN.add("giáo dục");
-
-        wordList.add("educational");
-        wordListVN.add("mang tính giáo dục");
-
-        wordList.add("funny");
-        wordListVN.add("buồn cười ngộ nghĩnh ");
-
-        wordList.add("tv guide");
-        wordListVN.add("giới thiệu chương trình tv");
-
-        wordList.add("live");
-        wordListVN.add("trực tiếp ");
-
-        wordList.add("programme");
-        wordListVN.add("chương trình");
-
-        wordList.add("talent show");
-        wordListVN.add("cuộc thi tài năng trên truyền hình ");
-
-        wordList.add("viewer");
-        wordListVN.add("người xem");
-
-        wordList.add("fit");
-        wordListVN.add("phù hợp");
+//        wordList.add("comedy");
+//        wordListVN.add("phim hài");
+//
+//        wordList.add("compete");
+//        wordListVN.add("thi đấu");
+//
+//        wordList.add("cute");
+//        wordListVN.add("xinh xắn");
+//
+//        wordList.add("dolphin");
+//        wordListVN.add("cá heo");
+//
+//        wordList.add("educate");
+//        wordListVN.add("giáo dục");
+//
+//        wordList.add("educational");
+//        wordListVN.add("mang tính giáo dục");
+//
+//        wordList.add("funny");
+//        wordListVN.add("buồn cười ngộ nghĩnh ");
+//
+//        wordList.add("tv guide");
+//        wordListVN.add("giới thiệu chương trình tv");
+//
+//        wordList.add("live");
+//        wordListVN.add("trực tiếp ");
+//
+//        wordList.add("programme");
+//        wordListVN.add("chương trình");
+//
+//        wordList.add("talent show");
+//        wordListVN.add("cuộc thi tài năng trên truyền hình ");
+//
+//        wordList.add("viewer");
+//        wordListVN.add("người xem");
+//
+//        wordList.add("fit");
+//        wordListVN.add("phù hợp");
 
 //        wordList.add("goggles");
 //        wordList.add("tạm biệt");
