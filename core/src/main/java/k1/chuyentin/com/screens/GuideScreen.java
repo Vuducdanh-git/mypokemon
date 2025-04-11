@@ -21,13 +21,20 @@ public class GuideScreen implements Screen {
         this.game = game;
         stage = new Stage();
         huongDan = new HuongDan(0,0,stage);
-//        exit = new NutMenu(500, 400 ,stage, ButtonType.EXIT);
-//        exit.addListener(new ClickListener(){
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
+        exit = new NutMenu(500, 400 ,stage, ButtonType.EXIT);
+
+        exit.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
 //                game.setScreen(new MenuScreen(game));
-//            }
-//        });
+
+                Gdx.app.exit();
+
+                System.out.println("mnnb");
+            }
+        });
+
+
 
 
     }
@@ -38,7 +45,10 @@ public class GuideScreen implements Screen {
 
     @Override
     public void render(float v) {
-        ScreenUtils.clear(Color.BLACK);
+
+        ScreenUtils.clear(Color.WHITE);
+
+
 
 
         stage.act();
