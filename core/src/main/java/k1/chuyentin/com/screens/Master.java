@@ -64,8 +64,8 @@ public class Master implements Screen {
 
 
     ChuaDuDieuKien chuaDuDieuKien;
-
-    static Buyskill buyskill;
+//
+//    static Buyskill buyskill;
     Egg1 egg1;
 
     public static Array<String> wordSkills = new Array<>();
@@ -243,7 +243,7 @@ public class Master implements Screen {
         }
 
         Master.skill1 = new Skill1(400, 150, stage);
-        Master.buyskill = new Buyskill(450, 200, stage);
+//        Master.buyskill = new Buyskill(450, 200, stage);
         egg1 = new Egg1(500, 150, stage, this);
     }
 
@@ -255,7 +255,7 @@ public class Master implements Screen {
         click2.remove();
 
         skill1.remove();
-        buyskill.remove();
+//        buyskill.remove();
 
         isShopShow = false;
     }
