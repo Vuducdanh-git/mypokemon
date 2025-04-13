@@ -20,7 +20,7 @@ public class GuideScreen implements Screen {
     GuideScreen(StartGame game){
         this.game = game;
         stage = new Stage();
-        huongDan = new HuongDan(0,0,stage);
+        huongDan = new HuongDan(0,20,stage);
         exit = new NutMenu(500, 400 ,stage, ButtonType.EXIT);
 
         exit.addListener(new ClickListener(){
@@ -46,7 +46,7 @@ public class GuideScreen implements Screen {
     @Override
     public void render(float v) {
 
-        ScreenUtils.clear(Color.WHITE);
+        ScreenUtils.clear(Color.BLACK);
 
 
 
