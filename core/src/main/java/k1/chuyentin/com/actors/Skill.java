@@ -50,7 +50,13 @@ public class Skill extends Actor {
         });
     }
     public void health(float damage) {
-        BattleScreen.yourhp -= damage;
+
+        if (BattleScreen.quest ==1){
+            BattleScreen.yourhp -= damage*2;
+        }
+        if (BattleScreen.quest >1){
+            BattleScreen.yourhp -= damage;
+        }
     }
     public void healths(float damage) {BattleScreen.myhp -= damage;}
 

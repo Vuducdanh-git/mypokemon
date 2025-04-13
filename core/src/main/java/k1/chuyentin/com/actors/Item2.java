@@ -17,7 +17,7 @@ public class Item2 extends MyActor{
     public Item2(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;
-        textureRegion = new TextureRegion(new Texture("2.png"));
+        textureRegion = new TextureRegion(new Texture("v2.png"));
         setSize(32, 32);
 
         addListener(new ClickListener(){
@@ -45,9 +45,6 @@ public class Item2 extends MyActor{
                             if (solannangcapautoclick==5){
                                 textureRegion = new TextureRegion(new Texture("v5.png"));
                             }
-//                            if (solannangcapautoclick==6){
-//                                textureRegion = new TextureRegion(new Texture("vatpham16.png"));
-//                            }
                             if (solannangcapautoclick==7){
                                 textureRegion = new TextureRegion(new Texture("v7.png"));
                             }
