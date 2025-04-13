@@ -11,6 +11,6 @@ public class HuongDan extends MyActor {
     public HuongDan(float x, float y, Stage s) {
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("hd.png"));
-        setSize(Gdx.graphics.getWidth()/1, Gdx.graphics.getHeight()-128);
+        setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()-80);
     }
 }

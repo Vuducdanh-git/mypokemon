@@ -401,6 +401,7 @@ public class Utils {
 //        wordList.add("tạm biệt");
 
     }
-    public static Array<Integer> listPoke = new Array<>();
+
+    public static Array<String> specialq = new Array<>();
     public static Array<Pet> pets = new Array<>();
 }

@@ -58,6 +58,7 @@ public class BattleScreen implements Screen {
     int time =0;
     boolean test=false;
     int random =0;
+    public static int quest = 2;
 
 
     public BattleScreen(StartGame game) {
@@ -115,6 +116,7 @@ public class BattleScreen implements Screen {
             textFieldStyle.font = game.font;
             textFieldStyle.fontColor = Color.RED;
 
+
             textFieldStyle.background = new TextureRegionDrawable(new TextureRegion(new Texture("input.png")));
 
             // Tạo TextField
@@ -128,134 +130,211 @@ public class BattleScreen implements Screen {
             Gdx.input.setInputProcessor(stage);
         }
     @Override
-    public void render ( float v){
+    public void render ( float v) {
         float alpha = 1.0f;
-        if(myhp > 50){
-            hpbarm.setColor(Color.GOLD);}
-        if ((BattleScreen.myhp <= 50) && (BattleScreen.myhp >24)) {
+        if (myhp > 50) {
+            hpbarm.setColor(Color.GOLD);
+        }
+        if ((BattleScreen.myhp <= 50) && (BattleScreen.myhp > 24)) {
             hpbarm.setColor(Color.PURPLE);
-        }if (BattleScreen.myhp < 25){
+        }
+        if (BattleScreen.myhp < 25) {
             hpbarm.setColor(Color.RED);
         }
 
-        if(yourhp > 50) {
+        if (yourhp > 50) {
             hpbare.setColor(Color.GOLDENROD);
-        }if ((BattleScreen.yourhp <= 50) && (BattleScreen.yourhp >24)) {
+        }
+        if ((BattleScreen.yourhp <= 50) && (BattleScreen.yourhp > 24)) {
             hpbare.setColor(Color.PURPLE);
-        }if (BattleScreen.yourhp < 25){
+        }
+        if (BattleScreen.yourhp < 25) {
             hpbare.setColor(Color.RED);
         }
 
-        if (truhp >0){
+        if (truhp > 0) {
             truhp -= 1;
             skill.health(1);
-        }if(trumhp > 0){
-            trumhp -=1;
+        }
+        if (trumhp > 0) {
+            trumhp -= 1;
             skill.healths(1);
         }
         hpbarm.setSize(270f / 100f * myhp, 25);
-        hpbare.setSize(270f/100f *yourhp,25);
+        hpbare.setSize(270f / 100f * yourhp, 25);
 
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         stage.act();
         stage.draw();
         batch.begin();
-        game.font.draw(batch, "BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
-        if (myhp <=0){
-            lose =1;
+        game.fonts.draw(batch, "BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+        if (myhp <= 0) {
+            lose = 1;
         }
-        if (yourhp <=0){
-            lose =2;
+        if (yourhp <= 0) {
+            lose = 2;
         }
-        if (lose ==1){
-            time ++;
+        if (lose == 1) {
+            time++;
 
-            if(time <60*5){
-                alpha = 1.0f - (float)time/(60*2);
-                game.font.setColor(1,1,1,alpha);
-                game.font.draw(batch, "OH NO!You lose 10000 money", Gdx.graphics.getWidth()/2-150, Gdx.graphics.getHeight()/2);
+            if (time < 60 * 5) {
+                alpha = 1.0f - (float) time / (60 * 2);
+                game.font.setColor(1, 1, 1, alpha);
+                game.font.draw(batch, "OH NO!You lose 10000 money", Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
 
-            }else {
-                time =0;
-                lose =0;
+            } else {
+                time = 0;
+                lose = 0;
             }
             myhp = 100;
 
-            Master.money -=10000;
-
+            Master.money -= 10000;
 
 
         }
-        if(lose ==2){
-            if (test == false){
-                random = MathUtils.random(1,3);
+        if (lose == 2) {
+            if (test == false) {
+                random = MathUtils.random(1, 3);
                 test = true;
-                if (random ==1){
-                    game.diamonds.add(new Diamond(Gdx.graphics.getWidth()/2-32/2,Gdx.graphics.getHeight()/2 -32/2,stage));
+                if (random == 1) {
+                    game.diamonds.add(new Diamond(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage));
 
                 }
-                if(random ==2){
-                    game.enders.add(new Ender(Gdx.graphics.getWidth()/2-32/2,Gdx.graphics.getHeight()/2 -32/2,stage));
+                if (random == 2) {
+                    game.enders.add(new Ender(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage));
                 }
-                if (random ==3){
-                    game.sbs.add(new SB(Gdx.graphics.getWidth()/2-32/2,Gdx.graphics.getHeight()/2 -32/2,stage));
+                if (random == 3) {
+                    game.sbs.add(new SB(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage));
                 }
             }
-            yourhp =100;
-            time ++;
-            if(time <60*2){
-                alpha = 1.0f - (float)time/(60*2);
-                game.font.setColor(1,1,1,alpha);
-                game.font.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth()/2-300, Gdx.graphics.getHeight()-30);
+            yourhp = 100;
+            time++;
+            if (time < 60 * 2) {
+                alpha = 1.0f - (float) time / (60 * 2);
+                game.font.setColor(1, 1, 1, alpha);
+                game.font.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
 
 
-            }else {
+            } else {
 
-                Master.money +=10000;
-
-
-
-
-
-                time =0;
-                lose =0;
+                Master.money += 10000;
+                time = 0;
+                lose = 0;
+                test = false;
             }
         }
+        if (quest == 1) {
+            time++;
+            if (time < 60 * 5) {
+                alpha = 1.0f - (float) time / (60 * 5);
+                game.font.setColor(1, 1, 1, alpha);
+                if (Skill.r == 1) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", hpbarm.getX(), hpbare.getY());
+                }
+                if (Skill.r == 2) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:tối thượng", hpbarm.getX(), hpbare.getY());
+                }
+                if (Skill.r == 3) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:bạn", hpbarm.getX(), hpbare.getY());
 
+                }
+                if (Skill.r == 4) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:ống nước", hpbarm.getX(), hpbare.getY());
 
+                }
+                if (Skill.r == 5) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:kết nối", hpbarm.getX(), hpbare.getY());
+                }
+                if (Skill.r == 6) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:mất kết nối", hpbarm.getX(), hpbare.getY());
+
+                }
+                if (Skill.r == 7) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:con rồng", hpbarm.getX(), hpbare.getY());
+                }
+                if (Skill.r == 8) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:chim phượng hoàng", hpbarm.getX(), hpbare.getY());
+
+                }
+                if (Skill.r == 9) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:con sư tử", hpbarm.getX(), hpbare.getY());
+                }
+                if (Skill.r == 10) {
+                    game.font.draw(batch, "nghĩa tiếng anh của từ : vua", hpbarm.getX(), hpbare.getY());
+                }
+            }
+        }
 
         batch.end();
-        if (skill.click == 1 && !isTextFieldActive) {
-            textField.setVisible(true);
-            textField.setText(""); // Xóa nội dung cũ
-            stage.setKeyboardFocus(textField);
-            isTextFieldActive = true;
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
-            //  lấy nội dung nhập
-            String inputText = textField.getText();
-            System.out.println(inputText);
-            textField.setVisible(false);
-            stage.unfocusAll();
-            isTextFieldActive = false;
-            skill.click =0;
+        if (quest > 1) {
+            if (skill.click == 1 && !isTextFieldActive) {
+                textField.setVisible(true);
+                textField.setText(""); // Xóa nội dung cũ
+                stage.setKeyboardFocus(textField);
+                isTextFieldActive = true;
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+                //  lấy nội dung nhập
+                String inputText = textField.getText();
+                System.out.println(inputText);
+                textField.setVisible(false);
+                stage.unfocusAll();
+                isTextFieldActive = false;
+                skill.click = 0;
 
-            boolean isHeated = false;
-            for (String s: Master.wordSkills){
-                if(s.equals(inputText)){
-                    isHeated = true;
-                    break;
+                boolean isHeated = false;
+                for (String s : Master.wordSkills) {
+                    if (s.equals(inputText)) {
+                        isHeated = true;
+                        break;
+                    }
+                }
+                if (isHeated) {
+                    truhp = inputText.length() * 2;
+                    for (int i = 0; i < 10; i++) {
+                        new Fire(0, 0, stage, true);
+                    }
+                } else {
+                    trumhp = MathUtils.random(20f, 30f);
+                    for (int i = 0; i < 10; i++) {
+                        new Fire(0, 0, stage, false);
+                    }
                 }
             }
-            if(isHeated){
-                truhp = inputText.length()*2;
-                for (int i = 0; i < 10; i++) {
-                    new Fire(0, 0, stage, true);
+        } if(quest == 1) {
+
+            if (skill.click == 1 && !isTextFieldActive) {
+                textField.setVisible(true);
+                textField.setText(""); // Xóa nội dung cũ
+                stage.setKeyboardFocus(textField);
+                isTextFieldActive = true;
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+                //  lấy nội dung nhập
+                String inputText = textField.getText();
+                System.out.println(inputText);
+                textField.setVisible(false);
+                stage.unfocusAll();
+                isTextFieldActive = false;
+                skill.click = 0;
+
+                boolean isHeated = false;
+                for (String s : Utils.specialq) {
+                    if (s.equals(Utils.specialq)) {
+                        isHeated = true;
+                        break;
+                    }
                 }
-            } else {
-                trumhp = MathUtils.random(20f,30f);
-                for (int i = 0; i < 10; i++) {
-                    new Fire(0, 0, stage, false);
+                if (isHeated == false) {
+                    truhp = inputText.length() * 2;
+                    for (int i = 0; i < 10; i++) {
+                        new Fire(0, 0, stage, true);
+                    }
+                } else {
+                    trumhp = MathUtils.random(20f, 30f);
+                    for (int i = 0; i < 10; i++) {
+                        new Fire(0, 0, stage, false);
+                    }
                 }
+                Utils.specialq.removeIndex(0);
             }
         }
     }
