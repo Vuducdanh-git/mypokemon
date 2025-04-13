@@ -17,7 +17,7 @@ public class Item2 extends MyActor{
     public Item2(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;
-        textureRegion = new TextureRegion(new Texture("2.png"));
+        textureRegion = new TextureRegion(new Texture("v2.png"));
         setSize(32, 32);
 
         addListener(new ClickListener(){
