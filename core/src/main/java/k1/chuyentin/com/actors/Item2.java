@@ -45,9 +45,6 @@ public class Item2 extends MyActor{
                             if (solannangcapautoclick==5){
                                 textureRegion = new TextureRegion(new Texture("v5.png"));
                             }
-//                            if (solannangcapautoclick==6){
-//                                textureRegion = new TextureRegion(new Texture("vatpham16.png"));
-//                            }
                             if (solannangcapautoclick==7){
                                 textureRegion = new TextureRegion(new Texture("v7.png"));
                             }
