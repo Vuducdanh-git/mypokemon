@@ -9,8 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 public class ChuaDuDieuKien extends MyActor {
     public ChuaDuDieuKien(float x, float y, Stage s) {
         super(x, y, s);
-        textureRegion = new TextureRegion(new Texture("rayboard.png"));
-        setSize(100, 50);
+        textureRegion = new TextureRegion(new Texture("cddk.png"));
+        setSize(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
         setPosition(Gdx.graphics.getWidth()/2 - getWidth()/2, Gdx.graphics.getHeight()/2);
         addAction(Actions.sequence(
             Actions.fadeOut(2),
