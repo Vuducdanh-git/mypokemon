@@ -35,7 +35,7 @@ public class Master implements Screen {
 
     public static Sound sound;
 
-    static public int money = 10000000;
+    static public int money = 2099999999;
     static int time = 0;
 
     static public int sodiemtangkhiautoclick = 0;
@@ -64,8 +64,8 @@ public class Master implements Screen {
 
 
     ChuaDuDieuKien chuaDuDieuKien;
-
-    static Buyskill buyskill;
+//
+//    static Buyskill buyskill;
     Egg1 egg1;
 
     public static Array<String> wordSkills = new Array<>();
@@ -124,7 +124,7 @@ public class Master implements Screen {
                 if (pet.solanclick >= 250) {
                     game.setScreen(new BattleScreen(game));
                 } else {
-                    chuaDuDieuKien = new ChuaDuDieuKien(-100, 0, stage);
+                    chuaDuDieuKien = new ChuaDuDieuKien(-200, 0, stage);
                     System.out.println("chua du dieu kien");
                 }
             }
@@ -159,7 +159,7 @@ public class Master implements Screen {
         }
 
             if (autoclick) {
-                if (time % (60 - click2.solannangcapautoclick*5) == 0) {
+                if (time % (90 - click2.solannangcapautoclick*5) == 0) {
                     money += sodiemtangkhiautoclick;
                     pet.click();
                 }
@@ -243,7 +243,7 @@ public class Master implements Screen {
         }
 
         Master.skill1 = new Skill1(400, 150, stage);
-        Master.buyskill = new Buyskill(450, 200, stage);
+//        Master.buyskill = new Buyskill(450, 200, stage);
         egg1 = new Egg1(500, 150, stage, this);
     }
 
@@ -255,7 +255,7 @@ public class Master implements Screen {
         click2.remove();
 
         skill1.remove();
-        buyskill.remove();
+//        buyskill.remove();
 
         isShopShow = false;
     }

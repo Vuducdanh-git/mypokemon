@@ -14,8 +14,8 @@ import k1.chuyentin.com.Utils;
 public class Skill1 extends MyActor{
     public Skill1(float x, float y, Stage s) {
         super(x, y, s);
-        textureRegion = new TextureRegion(new Texture("skill1.png"));
-        setSize(32,32);
+        textureRegion = new TextureRegion(new Texture("buy sk.png"));
+        setSize(Gdx.graphics.getWidth()/16,Gdx.graphics.getHeight()/16);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
 
