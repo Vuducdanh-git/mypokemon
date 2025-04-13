@@ -15,7 +15,7 @@ public class Egg1 extends MyActor{
     public static int mone =1;
     public Egg1(float x, float y, Stage s, Master master) {
         super(x, y, s);
-        textureRegion = new TextureRegion(new Texture("egg1.png"));
+        textureRegion = new TextureRegion(new Texture("egg2.png"));
         setSize(32,32);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
@@ -28,15 +28,15 @@ public class Egg1 extends MyActor{
                 if (Master.money >= 10000 && mone == 1) {
                     Master.money -= 10000;
                     mone = 0;
-
-                    int ngaunhien = MathUtils.random(0, Utils.wordList.size-1);
-                    Master.wordSkills.add(Utils.wordList.get(ngaunhien));
-                    Master.wordSkillsVN.add(Utils.wordListVN.get(ngaunhien));
+//
+//                    int ngaunhien = MathUtils.random(0, Utils.wordList.size-1);
+//                    Master.wordSkills.add(Utils.wordList.get(ngaunhien));
+//                    Master.wordSkillsVN.add(Utils.wordListVN.get(ngaunhien));
 
 
                     master.pet.remove();// xoa con hien tai khoi san khau
                     // Mua 1 qua trung, cho vao dau danh sach
-                    Pet pet = new Pet(new Texture("egg.png"), 0, 0, getStage());
+                    Pet pet = new Pet(new Texture("egg2.png"), 0, 0, getStage());
                     Utils.pets.insert(0, pet);
                     master.pet = pet;
 

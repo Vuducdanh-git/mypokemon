@@ -26,46 +26,66 @@ public class Item2 extends MyActor{
             public void clicked(InputEvent event, float x, float y) {
                 if (Master.money >= giatienautoclick ){
 
-                    if (solannangcapautoclick < 10){
+                    if (solannangcapautoclick < 17){
                         solannangcapautoclick++;
                         if (Master.money >= giatienautoclick) {
 
                             if (solannangcapautoclick==1){
-                                textureRegion = new TextureRegion(new Texture("vatpham11.png"));
+                                textureRegion = new TextureRegion(new Texture("v1.png"));
                             }
                             if (solannangcapautoclick==2){
-                                textureRegion = new TextureRegion(new Texture("vatpham12.png"));
+                                textureRegion = new TextureRegion(new Texture("v2.png"));
                             }
                             if (solannangcapautoclick==3){
-                                textureRegion = new TextureRegion(new Texture("vatpham13.png"));
+                                textureRegion = new TextureRegion(new Texture("v3.png"));
                             }
                             if (solannangcapautoclick==4){
-                                textureRegion = new TextureRegion(new Texture("vatpham14.png"));
+                                textureRegion = new TextureRegion(new Texture("v4.png"));
                             }
                             if (solannangcapautoclick==5){
-                                textureRegion = new TextureRegion(new Texture("vatpham15.png"));
+                                textureRegion = new TextureRegion(new Texture("v5.png"));
                             }
-                            if (solannangcapautoclick==6){
-                                textureRegion = new TextureRegion(new Texture("vatpham16.png"));
-                            }
+//                            if (solannangcapautoclick==6){
+//                                textureRegion = new TextureRegion(new Texture("vatpham16.png"));
+//                            }
                             if (solannangcapautoclick==7){
-                                textureRegion = new TextureRegion(new Texture("vatpham17.png"));
+                                textureRegion = new TextureRegion(new Texture("v7.png"));
                             }
                             if (solannangcapautoclick==8){
-                                textureRegion = new TextureRegion(new Texture("vatpham18.png"));
+                                textureRegion = new TextureRegion(new Texture("v8.png"));
                             }
                             if (solannangcapautoclick==9){
-                                textureRegion = new TextureRegion(new Texture("vatpham19.png"));
+                                textureRegion = new TextureRegion(new Texture("v9.png"));
                             }
                             if (solannangcapautoclick==10){
-                                textureRegion = new TextureRegion(new Texture("vatpham20.png"));
+                                textureRegion = new TextureRegion(new Texture("v10.png"));
                             }
+                            if (solannangcapautoclick==11){
+                                textureRegion = new TextureRegion(new Texture("v11.png"));
+                            }
+                            if (solannangcapautoclick==12){
+                                textureRegion = new TextureRegion(new Texture("v12.png"));
+                            }
+                            if (solannangcapautoclick==13){
+                                textureRegion = new TextureRegion(new Texture("v13.png"));
+                            }
+                            if (solannangcapautoclick==14){
+                                textureRegion = new TextureRegion(new Texture("v14.png"));
+                            }
+                            if (solannangcapautoclick==15){
+                                textureRegion = new TextureRegion(new Texture("v15.png"));
+                            }
+                            if (solannangcapautoclick==16){
+                                textureRegion = new TextureRegion(new Texture("v16.png"));
+                            }
+
+
 
 
                         Master.money-= giatienautoclick;
                         Master.autoclick=true;
                         if (Master.autoclick==true) {
-                            giatienautoclick *= 1.5f;
+                            giatienautoclick *= 4;
                             Master.sound.play();
                             Master.sodiemtangkhiautoclick += giatienautoclick / 100;
                         }
