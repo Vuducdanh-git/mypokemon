@@ -74,6 +74,12 @@ public class Master implements Screen {
 
     BitmapFont font;
 
+    Array<Item> itemPlus;
+    Array<Item2> itemAutoClicks;
+
+    Item i1;
+    Item i2;
+
     public Master(StartGame game) {
         sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
         this.game = game;
@@ -132,6 +138,9 @@ public class Master implements Screen {
         bar3 = new Bar3(3,Gdx.graphics.getHeight() - 28,stage);
 
         shapeRenderer = new ShapeRenderer();
+
+        itemPlus = new Array<>();
+        itemAutoClicks = new Array<>();
     }
 
     @Override
@@ -227,13 +236,10 @@ public class Master implements Screen {
         isShopShow = true;
 
         shop = new Shop(400, 0, stage);
-        if(Master.click == null){
-            Master.click = new Item(Gdx.graphics.getWidth(), 450, stage, 1);
-        } else {
-            Master.click.setX(Gdx.graphics.getWidth());
-            Master.click.addAction(Actions.moveTo(400, 450, 0.5f));
-            stage.addActor(Master.click);
-        }
+
+        i1 = new Item(400, 450, stage, 1);
+        i2 = new Item(450, 450, stage, 2);
+
         if(Master.click2 == null) {
             Master.click2 = new Item2(400, 350, stage, 2);
         } else {
@@ -251,7 +257,9 @@ public class Master implements Screen {
         egg1.remove();
         shop.remove();
 
-        click.remove();
+        i1.remove();
+        i2.remove();
+
         click2.remove();
 
         skill1.remove();
