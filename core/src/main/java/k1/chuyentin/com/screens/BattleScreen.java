@@ -317,23 +317,45 @@ public class BattleScreen implements Screen {
                 skill.click = 0;
 
                 boolean isHeated = false;
-                for (String s : Utils.specialq) {
-                    if (s.equals(Utils.specialq)) {
-                        isHeated = true;
-                        break;
+                if(inputText.isEmpty()){
+                    for (String s : Utils.specialq) {
+                        if (s.equals(Utils.specialq)) {
+                            isHeated = true;
+                            break;
+                        }
+                    }
+                    if (isHeated == true) {
+                        truhp = inputText.length() * 2;
+                        for (int i = 0; i < 10; i++) {
+                            new Fire(0, 0, stage, true);
+                        }
+                    } else {
+                        trumhp = MathUtils.random(20f, 30f);
+                        for (int i = 0; i < 10; i++) {
+                            new Fire(0, 0, stage, false);
+                        }
+                    }
+                }else{
+                    for (String s : Utils.specialq) {
+                        if (s.equals(Utils.specialq)) {
+                            isHeated = true;
+                            break;
+                        }
+                    }
+                    if (isHeated == false) {
+                        truhp = inputText.length() * 2;
+                        for (int i = 0; i < 10; i++) {
+                            new Fire(0, 0, stage, true);
+                        }
+                    } else {
+                        trumhp = MathUtils.random(20f, 30f);
+                        for (int i = 0; i < 10; i++) {
+                            new Fire(0, 0, stage, false);
+                        }
                     }
                 }
-                if (isHeated == false) {
-                    truhp = inputText.length() * 2;
-                    for (int i = 0; i < 10; i++) {
-                        new Fire(0, 0, stage, true);
-                    }
-                } else {
-                    trumhp = MathUtils.random(20f, 30f);
-                    for (int i = 0; i < 10; i++) {
-                        new Fire(0, 0, stage, false);
-                    }
-                }
+
+
                 Utils.specialq.removeIndex(0);
             }
         }

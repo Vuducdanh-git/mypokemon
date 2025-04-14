@@ -14,33 +14,31 @@ import k1.chuyentin.com.enums.ButtonType;
 
 public class GuideScreen implements Screen {
     StartGame game;
-    Stage stage;
+    Stage stages;
     HuongDan huongDan;
     NutMenu exit;
     GuideScreen(StartGame game){
         this.game = game;
-        stage = new Stage();
-        huongDan = new HuongDan(0,20,stage);
-        exit = new NutMenu(500, 400 ,stage, ButtonType.EXIT);
+        stages = new Stage();
+        exit = new NutMenu(500, 400 ,stages, ButtonType.EXIT);
 
+        huongDan = new HuongDan(0,22,stages);
+        huongDan.setSize(640, 480-80);
         exit.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-//                game.setScreen(new MenuScreen(game));
-
-                Gdx.app.exit();
-
-                System.out.println("mnnb");
+                game.setScreen(new MenuScreen(game));
             }
         });
 
-
+        stages.addActor(exit);
+        stages.addActor(huongDan);
 
 
     }
     @Override
     public void show() {
-
+        Gdx.input.setInputProcessor(stages);
     }
 
     @Override
@@ -51,8 +49,8 @@ public class GuideScreen implements Screen {
 
 
 
-        stage.act();
-        stage.draw();
+        stages.act();
+        stages.draw();
 
     }
 
