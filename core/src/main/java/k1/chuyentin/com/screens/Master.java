@@ -53,14 +53,13 @@ public class Master implements Screen {
     Balo balo;
     BaloScreen balovatpham;
     boolean isShopShow = false;
-    static int use = 0;
+    float shopShowTime = 0;
 
     public static Skill1 skill1;
     static Item click;
     static Item2 click2;
 
     Bar3 bar3;
-    NutMenu exit;
 
 
     ChuaDuDieuKien chuaDuDieuKien;
@@ -95,14 +94,14 @@ public class Master implements Screen {
         this.game = game;
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParameter.size = 32;
+        fontParameter.size = 20;
         fontParameter.color = Color.WHITE;
         font = fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new Background(0, 0, stage);
-        balo = new Balo(stage,20,50);
+        balo = new Balo(stage,5,380);
         balo.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -110,16 +109,6 @@ public class Master implements Screen {
 
             }
         });
-        exit = new NutMenu(0, 150 ,stage, ButtonType.EXIT);
-        exit.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.exit();
-
-            }
-        });
-
-
 
         if(!Utils.pets.isEmpty()){
             pet = Utils.pets.get(0);
@@ -178,7 +167,7 @@ public class Master implements Screen {
         }
 
             if (autoclick) {
-                if (time % (90 - click2.solannangcapautoclick*5) == 0) {
+                if (time % (60 - click2.solannangcapautoclick*10) == 0) {
                     money += sodiemtangkhiautoclick;
                     pet.click();
                 }
@@ -196,12 +185,25 @@ public class Master implements Screen {
         } else if (mouse.x < 400 && isShopShow) {
             shopHide();
         }
+        if (isShopShow) {
+            shopShowTime += v;
+        } else {
+            shopShowTime = 0f; // reset nếu shop tắt
+        }
+
 
         stage.act();
         stage.draw();
 
         batch.begin();
-        font.draw(batch, "coin: " + money, 0, Gdx.graphics.getHeight() - 32);
+        font.draw(batch, "$" + money, 0, Gdx.graphics.getHeight() - 32);
+
+        if(isShopShow && shopShowTime > 0.5f){
+            font.draw(batch, "" + giatienautoclick + "$  \nFor faster", 490, 230);
+            font.draw(batch, "$10K" , 490, 140);
+            font.draw(batch, "$1K" , 490, 60);
+        }
+
         batch.end();
 
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
@@ -247,30 +249,32 @@ public class Master implements Screen {
 
         shop = new Shop(400, 0, stage);
 
-        i1 = new Item(400, 400, stage, 1);
-        i2 = new Item(460, 400, stage, 2);
-        i3 = new Item(520, 400, stage, 3);
-        i4 = new Item(580, 400, stage, 4);
-        i5 = new Item(400, 340, stage, 5);
-        i6 = new Item(460, 340, stage, 6);
-        i7 = new Item(520, 340, stage, 7);
-        i8 = new Item(580, 340, stage, 8);
-        i9 = new Item(460, 280, stage, 9);
-        i10 = new Item(520, 280, stage, 10);
+        i1 = new Item(405, 400, stage, 1);
+        i2 = new Item(485, 400, stage, 2);
+        i3 = new Item(565, 400, stage, 3);
+
+        i4 = new Item(405, 330, stage, 4);
+        i5 = new Item(485, 330, stage, 5);
+        i6 = new Item(565, 330, stage, 6);
+
+        i7 = new Item(405, 260, stage, 7);
+        i8 = new Item(485, 260, stage, 8);
+       // i9 = new Item(460, 280, stage, 9);
+        i10 = new Item(565, 260, stage, 10);
 
 
 
         if(Master.click2 == null) {
-            Master.click2 = new Item2(400, 200, stage, 1);
+            Master.click2 = new Item2(405, 180, stage, 1);
         } else {
             Master.click2.setX(Gdx.graphics.getWidth());
-            Master.click2.addAction(Actions.moveTo(400, 200, 0.5f));
+            Master.click2.addAction(Actions.moveTo(405, 180, 0.5f));
             stage.addActor(Master.click2);
         }
 
-        Master.skill1 = new Skill1(400, 20, stage);
+        Master.skill1 = new Skill1(405, 20, stage);
 //        Master.buyskill = new Buyskill(450, 200, stage);
-        egg1 = new Egg1(400, 100, stage, this);
+        egg1 = new Egg1(405, 100, stage, this);
     }
 
     public void shopHide() {
@@ -285,7 +289,7 @@ public class Master implements Screen {
         i6.remove();
         i7.remove();
         i8.remove();
-        i9.remove();
+        //i9.remove();
         i10.remove();
 
         click2.remove();

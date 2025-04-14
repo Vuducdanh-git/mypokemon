@@ -96,7 +96,7 @@ public class BattleScreen implements Screen {
                 }
             });
 
-            bth = new Bth(stage, 340+bar1.getWidth()/2-30, 60-30, skillBar.getWidth() / 2);
+            bth = new Bth(stage, 340+bar1.getWidth()/2-30, 60-30, skillBar.getWidth() / 2, 30);
             bth.addListener(new ClickListener() {
                 public void clicked(InputEvent event, float x, float y) {
                     game.setScreen(new Master(game));

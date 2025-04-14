@@ -26,7 +26,7 @@ public class BaloScreen implements Screen {
         this.game = game;
         stage = new Stage();
         batch=new SpriteBatch();
-        bth = new Bth(stage, 340, 60-30, 200);
+        bth = new Bth(stage, 340, 60-30, 294, 156);
         slimeball = new SB(100,400,stage);
         dia = new Diamond(50,400,stage);
         ender=new Ender(150,400,stage);
