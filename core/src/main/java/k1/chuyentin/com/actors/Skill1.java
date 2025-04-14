@@ -15,7 +15,7 @@ public class Skill1 extends MyActor{
     public Skill1(float x, float y, Stage s) {
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("buy sk.png"));
-        setSize(Gdx.graphics.getWidth()/16,Gdx.graphics.getHeight()/16);
+        setSize(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
 

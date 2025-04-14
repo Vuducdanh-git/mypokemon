@@ -16,7 +16,7 @@ public class Egg1 extends MyActor{
     public Egg1(float x, float y, Stage s, Master master) {
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("egg2.png"));
-        setSize(32,32);
+        setSize(64,64);
         setPosition(Gdx.graphics.getWidth(), y);
         addAction(Actions.moveTo(x, y, 0.5f));
 

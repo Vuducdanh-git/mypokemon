@@ -35,7 +35,7 @@ public class Master implements Screen {
 
     public static Sound sound;
 
-    static public int money = 2099999999;
+    static public int money = 2000000000;
     static int time = 0;
 
     static public int sodiemtangkhiautoclick = 0;
@@ -79,6 +79,16 @@ public class Master implements Screen {
 
     Item i1;
     Item i2;
+    Item i3;
+    Item i4;
+    Item i5;
+    Item i6;
+    Item i7;
+    Item i8;
+    Item i9;
+    Item i10;
+
+
 
     public Master(StartGame game) {
         sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
@@ -237,20 +247,30 @@ public class Master implements Screen {
 
         shop = new Shop(400, 0, stage);
 
-        i1 = new Item(400, 450, stage, 1);
-        i2 = new Item(450, 450, stage, 2);
+        i1 = new Item(400, 400, stage, 1);
+        i2 = new Item(460, 400, stage, 2);
+        i3 = new Item(520, 400, stage, 3);
+        i4 = new Item(580, 400, stage, 4);
+        i5 = new Item(400, 340, stage, 5);
+        i6 = new Item(460, 340, stage, 6);
+        i7 = new Item(520, 340, stage, 7);
+        i8 = new Item(580, 340, stage, 8);
+        i9 = new Item(460, 280, stage, 9);
+        i10 = new Item(520, 280, stage, 10);
+
+
 
         if(Master.click2 == null) {
-            Master.click2 = new Item2(400, 350, stage, 2);
+            Master.click2 = new Item2(400, 200, stage, 1);
         } else {
             Master.click2.setX(Gdx.graphics.getWidth());
-            Master.click2.addAction(Actions.moveTo(400, 350, 0.5f));
+            Master.click2.addAction(Actions.moveTo(400, 200, 0.5f));
             stage.addActor(Master.click2);
         }
 
-        Master.skill1 = new Skill1(400, 150, stage);
+        Master.skill1 = new Skill1(400, 20, stage);
 //        Master.buyskill = new Buyskill(450, 200, stage);
-        egg1 = new Egg1(500, 150, stage, this);
+        egg1 = new Egg1(400, 100, stage, this);
     }
 
     public void shopHide() {
@@ -259,6 +279,14 @@ public class Master implements Screen {
 
         i1.remove();
         i2.remove();
+        i3.remove();
+        i4.remove();
+        i5.remove();
+        i6.remove();
+        i7.remove();
+        i8.remove();
+        i9.remove();
+        i10.remove();
 
         click2.remove();
 

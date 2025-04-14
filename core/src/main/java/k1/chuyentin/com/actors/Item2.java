@@ -18,8 +18,9 @@ public class Item2 extends MyActor{
         super(x, y, s);
         this.tybe=tybe;
         textureRegion = new TextureRegion(new Texture("v2.png"));
-        setSize(32, 32);
-
+        setPosition(Gdx.graphics.getWidth(), y);
+        setSize(64, 64);
+        addAction(Actions.moveTo(x, y, 0.5f));
         addListener(new ClickListener(){
 
             @Override
@@ -90,7 +91,7 @@ public class Item2 extends MyActor{
             }}}
         });
         setPosition(Gdx.graphics.getWidth(), y);
-        addAction(Actions.moveTo(x, y, 0.5f));
+//        addAction(Actions.moveTo(x, y, 0.5f));
     }
 
 }
