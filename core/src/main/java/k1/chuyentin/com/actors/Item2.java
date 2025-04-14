@@ -17,7 +17,7 @@ public class Item2 extends MyActor{
     public Item2(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;
-        textureRegion = new TextureRegion(new Texture("v2.png"));
+        textureRegion = new TextureRegion(new Texture("v3.png"));
         setPosition(Gdx.graphics.getWidth(), y);
         setSize(64, 64);
         addAction(Actions.moveTo(x, y, 0.5f));
@@ -27,57 +27,55 @@ public class Item2 extends MyActor{
             public void clicked(InputEvent event, float x, float y) {
                 if (Master.money >= giatienautoclick ){
 
-                    if (solannangcapautoclick < 17){
+                    if (solannangcapautoclick < 5){
                         solannangcapautoclick++;
                         if (Master.money >= giatienautoclick) {
 
                             if (solannangcapautoclick==1){
-                                textureRegion = new TextureRegion(new Texture("v1.png"));
-                            }
-                            if (solannangcapautoclick==2){
-                                textureRegion = new TextureRegion(new Texture("v2.png"));
-                            }
-                            if (solannangcapautoclick==3){
                                 textureRegion = new TextureRegion(new Texture("v3.png"));
                             }
-                            if (solannangcapautoclick==4){
-                                textureRegion = new TextureRegion(new Texture("v4.png"));
-                            }
-                            if (solannangcapautoclick==5){
-                                textureRegion = new TextureRegion(new Texture("v5.png"));
-                            }
-                            if (solannangcapautoclick==7){
+                            if (solannangcapautoclick==2){
                                 textureRegion = new TextureRegion(new Texture("v7.png"));
                             }
-                            if (solannangcapautoclick==8){
+                            if (solannangcapautoclick==3){
                                 textureRegion = new TextureRegion(new Texture("v8.png"));
                             }
-                            if (solannangcapautoclick==9){
-                                textureRegion = new TextureRegion(new Texture("v9.png"));
-                            }
-                            if (solannangcapautoclick==10){
-                                textureRegion = new TextureRegion(new Texture("v10.png"));
-                            }
-                            if (solannangcapautoclick==11){
-                                textureRegion = new TextureRegion(new Texture("v11.png"));
-                            }
-                            if (solannangcapautoclick==12){
+                            if (solannangcapautoclick==4){
                                 textureRegion = new TextureRegion(new Texture("v12.png"));
                             }
-                            if (solannangcapautoclick==13){
-                                textureRegion = new TextureRegion(new Texture("v13.png"));
-                            }
-                            if (solannangcapautoclick==14){
-                                textureRegion = new TextureRegion(new Texture("v14.png"));
-                            }
-                            if (solannangcapautoclick==15){
-                                textureRegion = new TextureRegion(new Texture("v15.png"));
-                            }
-                            if (solannangcapautoclick==16){
-                                textureRegion = new TextureRegion(new Texture("v16.png"));
-                            }
-
-
+//                            if (solannangcapautoclick==5){
+//                                textureRegion = new TextureRegion(new Texture("v5.png"));
+//                            }
+//                            if (solannangcapautoclick==7){
+//                                textureRegion = new TextureRegion(new Texture("v7.png"));
+//                            }
+//                            if (solannangcapautoclick==8){
+//                                textureRegion = new TextureRegion(new Texture("v8.png"));
+//                            }
+//                            if (solannangcapautoclick==9){
+//                                textureRegion = new TextureRegion(new Texture("v9.png"));
+//                            }
+//                            if (solannangcapautoclick==10){
+//                                textureRegion = new TextureRegion(new Texture("v10.png"));
+//                            }
+//                            if (solannangcapautoclick==11){
+//                                textureRegion = new TextureRegion(new Texture("v11.png"));
+//                            }
+//                            if (solannangcapautoclick==12){
+//                                textureRegion = new TextureRegion(new Texture("v12.png"));
+//                            }
+//                            if (solannangcapautoclick==13){
+//                                textureRegion = new TextureRegion(new Texture("v13.png"));
+//                            }
+//                            if (solannangcapautoclick==14){
+//                                textureRegion = new TextureRegion(new Texture("v14.png"));
+//                            }
+//                            if (solannangcapautoclick==15){
+//                                textureRegion = new TextureRegion(new Texture("v15.png"));
+//                            }
+//                            if (solannangcapautoclick==16){
+//                                textureRegion = new TextureRegion(new Texture("v16.png"));
+//                            }
 
 
                         Master.money-= giatienautoclick;

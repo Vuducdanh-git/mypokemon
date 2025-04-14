@@ -8,10 +8,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Bth extends Actor {
     Texture texture;
 
-    public Bth(Stage stage , float x, float y, float width) {
+    public Bth(Stage stage , float x, float y, float width, float height) {
         texture = new Texture("bth.png");
         setPosition(x, y);
-        setSize(width, 30);
+        setSize(width, height);
         stage.addActor(this);
 
     }

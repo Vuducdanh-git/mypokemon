@@ -32,7 +32,7 @@ public class Chargepoke implements Screen {
         style.fontColor = Color.ROYAL;
 
         TextButton returnButton = new TextButton("Return", style);
-        returnButton.setSize(200,350);
+        returnButton.setSize(200,100);
         returnButton.setPosition(640 - 200,10);
         returnButton.addListener(new ClickListener(){
             @Override
@@ -52,11 +52,11 @@ public class Chargepoke implements Screen {
             pet.game = game;
             stage.addActor(pet);
 
-            if(i % 2 == 0){
-                x+=(pet.getWidth()+20);
+            if(i % 4 != 0){
+                x += (pet.getWidth() + 20);
             }else {
-                x -= pet.getWidth()+20;
-                y-=(pet.getHeight()+20);
+                x = 50;
+                y -= (pet.getHeight()+20);
             }
         }
 
