@@ -14,8 +14,8 @@ public class NutMenu extends MyActor {
         super(x, y, s);
 
         switch (type){
-            case PLAY -> textureRegion = new TextureRegion(new Texture("st.png"));
-            case CONTINUE -> textureRegion = new TextureRegion(new Texture("ctn.png"));
+            case PLAY -> textureRegion = new TextureRegion(new Texture("start.png"));
+            case CONTINUE -> textureRegion = new TextureRegion(new Texture("continue.png"));
             case GUIDE -> textureRegion = new TextureRegion(new Texture("guide.png"));
             case EXIT -> textureRegion = new TextureRegion(new Texture("exit.png"));
         }

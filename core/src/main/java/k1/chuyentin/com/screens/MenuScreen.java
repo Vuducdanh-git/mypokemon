@@ -3,6 +3,8 @@ package k1.chuyentin.com.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -17,11 +19,15 @@ public class MenuScreen implements Screen {
     NutMenu play;
     NutMenu continute;
     NutMenu guide;
+    Texture image;
+    SpriteBatch batch;
     NutMenu exit;
 
     MenuScreen(StartGame game){
      this.game=game;
+     image=new Texture("nen.jpg");
      stage = new Stage();
+     batch = new SpriteBatch();
      guide = new NutMenu(200, 380, stage, ButtonType.GUIDE);
      guide.setX(Gdx.graphics.getWidth()/2 - guide.getWidth()/2);
 
@@ -69,7 +75,9 @@ public class MenuScreen implements Screen {
     @Override
     public void render(float v) {
         ScreenUtils.clear(Color.BLACK);
-
+        batch.begin();
+        batch.draw(image,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        batch.end();
         stage.act();
         stage.draw();
     }

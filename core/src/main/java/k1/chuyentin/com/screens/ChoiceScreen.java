@@ -48,6 +48,7 @@ public class ChoiceScreen implements Screen {
     public void render(float v) {
         ScreenUtils.clear(Color.BLACK);
 
+
         stage.act();
         stage.draw();
         batch.begin();
