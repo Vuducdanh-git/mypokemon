@@ -183,6 +183,7 @@ public class BattleScreen implements Screen {
                 game.font.draw(batch, "OH NO!You lose 10000 money", Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
 
             } else {
+
                 time = 0;
                 lose = 0;
             }

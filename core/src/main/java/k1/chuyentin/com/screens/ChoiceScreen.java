@@ -48,8 +48,7 @@ public class ChoiceScreen implements Screen {
     public void render(float v) {
         ScreenUtils.clear(Color.BLACK);
 
-        stage.act();
-        stage.draw();
+
         batch.begin();
         game.font.draw(batch, "Do you want to raise Pokémon and battle with ", 100, 400);
         game.font.draw(batch, "             grade 6 or 7 vocabulary?        ", 100, 370);
