@@ -197,14 +197,14 @@ public class BattleScreen implements Screen {
                 random = MathUtils.random(1, 3);
                 test = true;
                 if (random == 1) {
-                    game.diamonds.add(new Diamond(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage));
+                    game.diamonds.add(new Diamond(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage,true));
 
                 }
                 if (random == 2) {
-                    game.enders.add(new Ender(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage));
+                    game.enders.add(new Ender(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage,true));
                 }
                 if (random == 3) {
-                    game.sbs.add(new SB(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage));
+                    game.sbs.add(new SB(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage,true));
                 }
             }
             yourhp = 100;
@@ -354,7 +354,6 @@ public class BattleScreen implements Screen {
                         }
                     }
                 }
-
 
                 Utils.specialq.removeIndex(0);
             }

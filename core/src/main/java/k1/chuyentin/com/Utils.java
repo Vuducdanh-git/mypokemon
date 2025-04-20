@@ -14,6 +14,8 @@ public class Utils {
 //        wordList.add("hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello");
 //        wordListVN.add("xin chào");
 
+        wordList.add("hello");
+        wordListVN.add("xin chào");
         wordList.add("goodbye");
         wordListVN.add("tạm biệt");
 

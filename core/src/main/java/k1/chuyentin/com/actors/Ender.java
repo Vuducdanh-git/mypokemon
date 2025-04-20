@@ -9,15 +9,17 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 
 public class Ender extends Actor {
     Texture texture;
-    public Ender(float x, float y, Stage stage) {
+    public Ender(float x, float y, Stage stage,boolean isbt) {
         texture = new Texture("pear.png");
         setPosition(x, y);
         setSize(32, 32);
         stage.addActor(this);
-        addAction(Actions.sequence(
-            Actions.delay(2),
-            Actions.removeActor()
-        ));
+        if (isbt==true) {
+            addAction(Actions.sequence(
+                Actions.delay(2),
+                Actions.removeActor()
+            ));
+        }
     }
     public void draw(Batch batch, float parentAlpha){
         batch.draw(texture,getX(),getY(),getWidth(),getHeight());
