@@ -20,6 +20,7 @@ import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.buttons.NutMenu;
+import k1.chuyentin.com.actors.buttons.SaveGame;
 import k1.chuyentin.com.enums.ButtonType;
 import k1.chuyentin.com.enums.PetStatus;
 
@@ -47,6 +48,7 @@ public class Master implements Screen {
 
     public Pet pet;
     Egg egg;
+    SaveGame saveGame;
 
     Background bg;
     Shop shop;
@@ -102,6 +104,7 @@ public class Master implements Screen {
         stage = new Stage();
         bg = new Background(0, 0, stage);
         balo = new Balo(stage,5,380);
+        saveGame = new SaveGame(0,70,stage);
         balo.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -167,7 +170,7 @@ public class Master implements Screen {
         }
 
             if (autoclick) {
-                if (time % (60 - click2.solannangcapautoclick*10) == 0) {
+                if (time % (53 - click2.solannangcapautoclick*10) == 0) {
                     money += sodiemtangkhiautoclick;
                     pet.click();
                 }
@@ -198,10 +201,10 @@ public class Master implements Screen {
         batch.begin();
         font.draw(batch, "$" + money, 0, Gdx.graphics.getHeight() - 32);
 
-        if(isShopShow && shopShowTime > 0.5f){
+        if(isShopShow && shopShowTime > 1f){
             font.draw(batch, "" + giatienautoclick + "$  \nFor faster", 490, 230);
-            font.draw(batch, "$10K" , 490, 140);
-            font.draw(batch, "$1K" , 490, 60);
+            font.draw(batch, "$25K" , 490, 140);
+            font.draw(batch, "$5K" , 490, 60);
         }
 
         batch.end();

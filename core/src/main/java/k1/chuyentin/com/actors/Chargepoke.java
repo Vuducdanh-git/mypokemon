@@ -15,7 +15,7 @@ import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.enums.PetStatus;
 import k1.chuyentin.com.screens.BattleScreen;
 
-public class Chargepoke implements Screen {
+public class    Chargepoke implements Screen {
     StartGame game;
     OrthographicCamera camera;
     Texture texture;

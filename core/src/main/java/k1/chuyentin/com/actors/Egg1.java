@@ -25,8 +25,8 @@ public class Egg1 extends MyActor{
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (Master.money >= 10000 && mone == 1) {
-                    Master.money -= 10000;
+                if (Master.money >= 25000 && mone == 1) {
+                    Master.money -= 25000;
                     mone = 0;
 //
 //                    int ngaunhien = MathUtils.random(0, Utils.wordList.size-1);
