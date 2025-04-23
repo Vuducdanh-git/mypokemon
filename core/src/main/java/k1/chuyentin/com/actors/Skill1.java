@@ -24,9 +24,9 @@ public class Skill1 extends MyActor{
 
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (Master.money >= 1000) {
+                if (Master.money >= 5000) {
 
-                        Master.money -= 1000;
+                        Master.money -= 5000;
                         int ngaunhien = MathUtils.random(0, Utils.wordList.size-1);
                         Master.wordSkills.add(Utils.wordList.get(ngaunhien));
                         Master.wordSkillsVN.add(Utils.wordListVN.get(ngaunhien));
