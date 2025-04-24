@@ -31,7 +31,7 @@ public class BattleScreen implements Screen {
     Stage stage;
     Pet pet;
   //  Mypoke mypoke = new Mypoke(new Texture("veback.png"), stage, -7, -4, 5, 34, 3);
-    Texture texturepo;
+
     Enepoke enepoke;
     Texture textr;
     Bar1 bar1;
@@ -47,7 +47,7 @@ public class BattleScreen implements Screen {
     boolean isTextFieldActive = false;
     StartGame game;
     Cyp cyp;
-    public static String mp = "";
+
     float truhp = 0;
     Boss boss;
     Music nen;
@@ -59,6 +59,7 @@ public class BattleScreen implements Screen {
     boolean test=false;
     int random =0;
     public static int quest = 2;
+    int times;
 
 
     public BattleScreen(StartGame game) {
@@ -180,7 +181,7 @@ public class BattleScreen implements Screen {
             if (time < 60 * 5) {
                 alpha = 1.0f - (float) time / (60 * 2);
                 game.font.setColor(1, 1, 1, alpha);
-                game.font.draw(batch, "OH NO!You lose 10000 money", Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
+                game.font.draw(batch, "OH NO!You lose 10000 money",Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
 
             } else {
 
@@ -194,7 +195,7 @@ public class BattleScreen implements Screen {
 
         }
         if (lose == 2) {
-            if (test == false) {
+            if (!test) {
                 random = MathUtils.random(1, 3);
                 test = true;
                 if (random == 1) {
@@ -225,9 +226,9 @@ public class BattleScreen implements Screen {
             }
         }
         if (quest == 1) {
-            time++;
-            if (time < 60 * 5) {
-                alpha = 1.0f - (float) time / (60 * 5);
+            times++;
+            if (times < 60 * 5) {
+                alpha = 1.0f - (float) times / (60 * 5);
                 game.font.setColor(1, 1, 1, alpha);
                 if (Skill.r == 1) {
                     game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", hpbarm.getX(), hpbare.getY());
@@ -264,6 +265,9 @@ public class BattleScreen implements Screen {
                     game.font.draw(batch, "nghĩa tiếng anh của từ : vua", hpbarm.getX(), hpbare.getY());
                 }
             }
+            else{
+                times =0;
+            }
         }
 
         batch.end();
@@ -274,6 +278,7 @@ public class BattleScreen implements Screen {
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+                Skill.qa =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
                 System.out.println(inputText);
@@ -309,6 +314,7 @@ public class BattleScreen implements Screen {
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+                Skill.qa =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
                 System.out.println(inputText);
@@ -325,7 +331,7 @@ public class BattleScreen implements Screen {
                             break;
                         }
                     }
-                    if (isHeated == true) {
+                    if (isHeated) {
                         truhp = inputText.length() * 2;
                         for (int i = 0; i < 10; i++) {
                             new Fire(0, 0, stage, true);
@@ -343,7 +349,7 @@ public class BattleScreen implements Screen {
                             break;
                         }
                     }
-                    if (isHeated == false) {
+                    if (!isHeated) {
                         truhp = inputText.length() * 2;
                         for (int i = 0; i < 10; i++) {
                             new Fire(0, 0, stage, true);
@@ -357,6 +363,7 @@ public class BattleScreen implements Screen {
                 }
 
                 Utils.specialq.removeIndex(0);
+
             }
         }
     }
