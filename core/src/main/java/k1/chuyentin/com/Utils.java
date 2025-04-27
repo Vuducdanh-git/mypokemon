@@ -44,7 +44,7 @@ public class Utils {
         wordListVN.add("phim hoạt hình");
 
         wordList.add("computer games");
-        wordListVN.add(".,.");
+        wordListVN.add("trò chơi điện tử");
 
         wordList.add("book");
         wordListVN.add("sách");

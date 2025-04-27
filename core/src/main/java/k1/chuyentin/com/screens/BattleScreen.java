@@ -60,6 +60,7 @@ public class BattleScreen implements Screen {
     int random =0;
     public static int quest = 2;
     int times;
+    public static int waitss;
 
 
     public BattleScreen(StartGame game) {
@@ -97,7 +98,7 @@ public class BattleScreen implements Screen {
                 }
             });
 
-            bth = new Bth(stage, 340+bar1.getWidth()/2-30, 60-30, skillBar.getWidth() / 2, 30);
+            bth = new Bth(stage, 340+bar1.getWidth()/2, 60-30, skillBar.getWidth() / 2-30, 30);
             bth.addListener(new ClickListener() {
                 public void clicked(InputEvent event, float x, float y) {
                     game.setScreen(new Master(game));
@@ -133,26 +134,27 @@ public class BattleScreen implements Screen {
     @Override
     public void render ( float v) {
         float alpha = 1.0f;
+        float alphas =1.0f;
         if (myhp > 50) {
-            hpbarm.setColor(Color.GOLD);
+            hpbarm.setColor(Color.RED);
         }
         if ((BattleScreen.myhp <= 50) && (BattleScreen.myhp > 24)) {
-            hpbarm.setColor(Color.PURPLE);
+            hpbarm.setColor(Color.LIGHT_GRAY);
         }
         if (BattleScreen.myhp < 25) {
             hpbarm.setColor(Color.RED);
         }
 
         if (yourhp > 50) {
-            hpbare.setColor(Color.GOLDENROD);
+            hpbare.setColor(Color.RED);
         }
         if ((BattleScreen.yourhp <= 50) && (BattleScreen.yourhp > 24)) {
-            hpbare.setColor(Color.PURPLE);
+            hpbare.setColor(Color.LIGHT_GRAY);
+
         }
         if (BattleScreen.yourhp < 25) {
             hpbare.setColor(Color.RED);
         }
-
         if (truhp > 0) {
             truhp -= 1;
             skill.health(1);
@@ -163,7 +165,6 @@ public class BattleScreen implements Screen {
         }
         hpbarm.setSize(270f / 100f * myhp, 25);
         hpbare.setSize(270f / 100f * yourhp, 25);
-
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         stage.act();
         stage.draw();
@@ -176,23 +177,19 @@ public class BattleScreen implements Screen {
             lose = 2;
         }
         if (lose == 1) {
+            waitss =5;
             time++;
-
-            if (time < 60 * 5) {
+            if (time < 60 * 2) {
                 alpha = 1.0f - (float) time / (60 * 2);
                 game.font.setColor(1, 1, 1, alpha);
                 game.font.draw(batch, "OH NO!You lose 10000 money",Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
-
             } else {
-
+                waitss =0;
                 time = 0;
                 lose = 0;
+                myhp = 100;
             }
-            myhp = 100;
-
             Master.money -= 10000;
-
-
         }
         if (lose == 2) {
             if (!test) {
@@ -215,21 +212,20 @@ public class BattleScreen implements Screen {
                 alpha = 1.0f - (float) time / (60 * 2);
                 game.font.setColor(1, 1, 1, alpha);
                 game.font.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
-
-
+                waitss =2;
             } else {
-
                 Master.money += 10000;
                 time = 0;
                 lose = 0;
                 test = false;
+                waitss =0;
             }
         }
         if (quest == 1) {
             times++;
             if (times < 60 * 5) {
-                alpha = 1.0f - (float) times / (60 * 5);
-                game.font.setColor(1, 1, 1, alpha);
+                alphas = 1.0f - (float) times / (60 * 5);
+                game.font.setColor(1, 1, 1, alphas);
                 if (Skill.r == 1) {
                     game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", hpbarm.getX(), hpbare.getY());
                 }
@@ -271,12 +267,15 @@ public class BattleScreen implements Screen {
         }
 
         batch.end();
+
         if (quest > 1) {
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
+                waitss = 2;
+
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
                 Skill.qa =0;
                 //  lấy nội dung nhập
@@ -286,7 +285,7 @@ public class BattleScreen implements Screen {
                 stage.unfocusAll();
                 isTextFieldActive = false;
                 skill.click = 0;
-
+                waitss =0;
                 boolean isHeated = false;
                 for (String s : Master.wordSkills) {
                     if (s.equals(inputText)) {
@@ -305,14 +304,15 @@ public class BattleScreen implements Screen {
                         new Fire(0, 0, stage, false);
                     }
                 }
+                Skill.qa =0;
             }
         } if(quest == 1) {
-
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
+                waitss = 2;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
                 Skill.qa =0;
                 //  lấy nội dung nhập
@@ -322,48 +322,36 @@ public class BattleScreen implements Screen {
                 stage.unfocusAll();
                 isTextFieldActive = false;
                 skill.click = 0;
-
+                waitss =0;
                 boolean isHeated = false;
                 if(inputText.isEmpty()){
-                    for (String s : Utils.specialq) {
-                        if (s.equals(Utils.specialq)) {
-                            isHeated = true;
-                            break;
-                        }
+
+                    trumhp = inputText.length() * 2;
+                    for (int i = 0; i < 10; i++) {
+                        new Fire(0, 0, stage, false);
                     }
-                    if (isHeated) {
-                        truhp = inputText.length() * 2;
-                        for (int i = 0; i < 10; i++) {
-                            new Fire(0, 0, stage, true);
-                        }
-                    } else {
-                        trumhp = MathUtils.random(20f, 30f);
-                        for (int i = 0; i < 10; i++) {
-                            new Fire(0, 0, stage, false);
-                        }
-                    }
+
                 }else{
                     for (String s : Utils.specialq) {
-                        if (s.equals(Utils.specialq)) {
+                        if (s.equals(inputText)) {
                             isHeated = true;
                             break;
                         }
+
                     }
                     if (!isHeated) {
-                        truhp = inputText.length() * 2;
-                        for (int i = 0; i < 10; i++) {
-                            new Fire(0, 0, stage, true);
-                        }
-                    } else {
-                        trumhp = MathUtils.random(20f, 30f);
+                        trumhp = inputText.length() * 2;
                         for (int i = 0; i < 10; i++) {
                             new Fire(0, 0, stage, false);
+                        }
+                    } else {
+                        truhp = MathUtils.random(20f, 30f);
+                        for (int i = 0; i < 10; i++) {
+                            new Fire(0, 0, stage, true);
                         }
                     }
                 }
-
                 Utils.specialq.removeIndex(0);
-
             }
         }
     }
