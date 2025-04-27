@@ -16,6 +16,7 @@ public class Bth extends Actor {
 
     }
 
+
     public void draw(Batch batch, float parentAlpha){
         batch.draw(texture,getX(),getY(),getWidth(),getHeight());
     }
