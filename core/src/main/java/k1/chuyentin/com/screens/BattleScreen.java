@@ -181,8 +181,8 @@ public class BattleScreen implements Screen {
             time++;
             if (time < 60 * 2) {
                 alpha = 1.0f - (float) time / (60 * 2);
-                game.font.setColor(1, 1, 1, alpha);
-                game.font.draw(batch, "OH NO!You lose 10000 money",Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
+                game.fonts.setColor(1, 1, 1, alpha);
+                game.fonts.draw(batch, "OH NO!You lose 10000 money",Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
             } else {
                 waitss =0;
                 time = 0;
@@ -210,8 +210,8 @@ public class BattleScreen implements Screen {
             time++;
             if (time < 60 * 2) {
                 alpha = 1.0f - (float) time / (60 * 2);
-                game.font.setColor(1, 1, 1, alpha);
-                game.font.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
+                game.fonts.setColor(1, 1, 1, alpha);
+                game.fonts.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
                 waitss =2;
             } else {
                 Master.money += 10000;
@@ -221,6 +221,7 @@ public class BattleScreen implements Screen {
                 waitss =0;
             }
         }
+        System.out.println(times);
         if (quest == 1) {
             times++;
             if (times < 60 * 5) {
@@ -323,6 +324,8 @@ public class BattleScreen implements Screen {
                 isTextFieldActive = false;
                 skill.click = 0;
                 waitss =0;
+                times =0;
+                quest =5;
                 boolean isHeated = false;
                 if(inputText.isEmpty()){
 

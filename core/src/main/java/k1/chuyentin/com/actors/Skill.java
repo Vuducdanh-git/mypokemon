@@ -33,7 +33,7 @@ public class Skill extends Actor {
                             qa =2;
                             BattleScreen.quest = MathUtils.random(1,3);
                             if (BattleScreen.quest ==1){
-                                r = MathUtils.random(1,1);
+                                r = MathUtils.random(1,10);
                                 if (r==1){Utils.specialq.add("special");}
                                 if (r==2){Utils.specialq.add("ultimate");}
                                 if (r==3){Utils.specialq.add("you");}
