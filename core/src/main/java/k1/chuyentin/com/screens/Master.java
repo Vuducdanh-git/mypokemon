@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
@@ -19,10 +20,12 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
+import k1.chuyentin.com.actors.buttons.AmThanh;
 import k1.chuyentin.com.actors.buttons.NutMenu;
 import k1.chuyentin.com.actors.buttons.SaveGame;
 import k1.chuyentin.com.enums.ButtonType;
 import k1.chuyentin.com.enums.PetStatus;
+
 
 
 /**
@@ -36,7 +39,8 @@ public class Master implements Screen {
 
     public static Sound sound;
 
-    static public int money = 2000000000;
+    static public  float money = 2000000000;
+    static public  float moneygia = 0;
     static int time = 0;
 
     static public int sodiemtangkhiautoclick = 0;
@@ -54,6 +58,7 @@ public class Master implements Screen {
     Shop shop;
     Balo balo;
     BaloScreen balovatpham;
+    AmThanh amthanh;
     boolean isShopShow = false;
     float shopShowTime = 0;
 
@@ -105,6 +110,7 @@ public class Master implements Screen {
         bg = new Background(0, 0, stage);
         balo = new Balo(stage,5,380);
         saveGame = new SaveGame(0,70,stage);
+        amthanh = new AmThanh(0,150,stage,game.music);
         balo.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -137,6 +143,7 @@ public class Master implements Screen {
                 }
             }
         });
+
         bar3 = new Bar3(3,Gdx.graphics.getHeight() - 28,stage);
 
         shapeRenderer = new ShapeRenderer();
@@ -175,6 +182,16 @@ public class Master implements Screen {
                     pet.click();
                 }
             }
+//            if (money >= 1000&& money<1000000){
+//                money = money/1000;
+//                System.out.println("   k");
+//            }else if (money >= 1000000&& money<1000000000){
+//            money = money/1000000;
+//                System.out.println("   M");
+//        }else if (money >= 1000000000){
+//                money = money/1000000000;
+//                System.out.println("   B");
+//            }
 
 
         if (time % 20 == 0) {
@@ -199,7 +216,29 @@ public class Master implements Screen {
         stage.draw();
 
         batch.begin();
-        font.draw(batch, "$" + money, 0, Gdx.graphics.getHeight() - 32);
+        if (money<0) {
+            font.draw(batch, "$" + moneygia + "          loi roi", 0, Gdx.graphics.getHeight() - 32);
+        }else
+        if (money<=1000) {
+            font.draw(batch, "$" + money + "", 0, Gdx.graphics.getHeight() - 32);
+        }else
+        if (money>=1000&&money<=999999) {
+            moneygia = money/1000;
+            font.draw(batch, "$" + moneygia + "k", 0, Gdx.graphics.getHeight() - 32);
+        }else
+        if (money>=999999&&money<=99999999) {
+            moneygia=money/10000000;
+            font.draw(batch, "$" + moneygia + "M", 0, Gdx.graphics.getHeight() - 32);
+        }else
+        if (money>=99999999) {
+            moneygia=money/1000000000;
+            font.draw(batch, "$" + moneygia + "B", 0, Gdx.graphics.getHeight() - 32);
+        }
+
+
+        if (money>2139999999){
+            System.out.println("gffhtfkkkkkkkkkkkkkkkkkk");
+        }
 
         if(isShopShow && shopShowTime > 1f){
             font.draw(batch, "" + giatienautoclick + "$  \nFor faster", 490, 230);

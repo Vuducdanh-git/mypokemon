@@ -2,6 +2,7 @@ package k1.chuyentin.com;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -18,6 +19,7 @@ public class StartGame extends Game {
     public Array<Diamond> diamonds;
     public Array<SB> sbs;
     public Array<Ender> enders;
+    public Music music;
     @Override
 
     public void create() {

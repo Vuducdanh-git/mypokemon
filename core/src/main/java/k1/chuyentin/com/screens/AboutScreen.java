@@ -24,7 +24,7 @@ public class AboutScreen implements Screen {
     Label.LabelStyle labelStyle = new Label.LabelStyle();
     int time = 0;
 
-    Music music;
+
 
     MyActor bg;
 
@@ -44,10 +44,10 @@ public class AboutScreen implements Screen {
         // Tạo LabelStyle với font tùy chỉnh
         labelStyle.font = font;
 
-        music = Gdx.audio.newMusic(Gdx.files.internal("night_core.wav"));
-        music.setLooping(true);
-        music.setVolume(0f);
-        music.play();
+        game.music = Gdx.audio.newMusic(Gdx.files.internal("night_core.wav"));
+        game.music.setLooping(true);
+
+        game.music.play();
 
         Utils.setWordList6();
 
