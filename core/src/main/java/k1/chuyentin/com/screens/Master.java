@@ -49,11 +49,11 @@ public class Master implements Screen {
     public Pet pet;
     Egg egg;
     SaveGame saveGame;
+    Yvs yvs;
 
     Background bg;
     Shop shop;
     Balo balo;
-    BaloScreen balovatpham;
     boolean isShopShow = false;
     float shopShowTime = 0;
 
@@ -109,6 +109,14 @@ public class Master implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new BaloScreen(game));
+
+            }
+        });
+        yvs = new Yvs(0,Gdx.graphics.getHeight()/2-50,stage);
+        yvs.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new WordListScreen(game));
 
             }
         });
