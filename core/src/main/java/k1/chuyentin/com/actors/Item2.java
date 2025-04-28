@@ -83,7 +83,7 @@ public class Item2 extends MyActor{
                         if (Master.autoclick==true) {
                             giatienautoclick *= 100;
                             Master.sound.play();
-                            Master.sodiemtangkhiautoclick += giatienautoclick / 1000;
+                            Master.sodiemtangkhiautoclick += giatienautoclick / 100;
                         }
                 }
             }}}
