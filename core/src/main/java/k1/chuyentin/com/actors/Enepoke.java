@@ -6,16 +6,17 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import k1.chuyentin.com.enums.PetName;
 
 public class Enepoke extends Actor {
     Animation<TextureRegion> animation;
     float time;
-
-    public Enepoke(Texture texture, Stage apps, float x, float y) {
+    PetName name = PetName.VEBACK;
+    public Enepoke(Texture texture, Stage apps, float x, float y,int hang) {
         setPosition(x, y);
         setOrigin(getWidth() / 2, getHeight() / 2);
         int cot = 5;
-        int hang = 12;
+
         setSize(texture.getWidth() / cot * 2, texture.getHeight() / hang * 2);
         float speed = 5;
         TextureRegion[][] tam = TextureRegion.split(texture, texture.getWidth() / cot, texture.getHeight() / hang);// đưa tất cả vào danh một danh sách ảnh, vì 6 cột 1 hàng nên sẽ có 6 phần tử: 6 x 1
@@ -30,6 +31,8 @@ public class Enepoke extends Actor {
         animation.setPlayMode(Animation.PlayMode.LOOP);
         time = 0;
         setOrigin(getWidth() / 2, getHeight() / 2);
+
+
     }
 
     public void draw(Batch batch, float parentAlpha) {

@@ -64,14 +64,14 @@ public class Pet extends MyActor{
                     }
                     new Coin(getX() + getWidth() / 2, getY() + getHeight() / 2, getStage(), true);
 
-                    if (!Master.wordSkills.isEmpty()) {
-                        int ngaunhien = MathUtils.random(0, Master.wordSkills.size - 1);
-                        String words = Master.wordSkills.get(ngaunhien);
-                        new FloatingWords(0, 0, getStage(), words);
-
-                        String wordsVN = Master.wordSkillsVN.get(ngaunhien);
-                        new FloatingWords(0, 0, getStage(), wordsVN);
-                    }
+//                    if (!Master.wordSkills.isEmpty()) {
+//                        int ngaunhien = MathUtils.random(0, Master.wordSkills.size - 1);
+//                        String words = Master.wordSkills.get(ngaunhien);
+//                        new FloatingWords(0, 0, getStage(), words);
+//
+//                        String wordsVN = Master.wordSkillsVN.get(ngaunhien);
+//                        new FloatingWords(0, 0, getStage(), wordsVN);
+//                    }
 
                     addAction(Actions.sequence(
                         Actions.color(new Color(MathUtils.random(0f, 1f), MathUtils.random(0f, 1f), MathUtils.random(0f, 1f), MathUtils.random(0f, 1f))),
@@ -93,14 +93,14 @@ public class Pet extends MyActor{
         solanclick++;
         levelUp = false;
         new Coin(getX() + getWidth()/2, getY() + getHeight()/2, getStage(), true);
-        if (!Master.wordSkills.isEmpty()){
-            int ngaunhien = MathUtils.random(0, Master.wordSkills.size-1);
-            String words = Master.wordSkills.get(ngaunhien);
-            new FloatingWords(0,0, getStage(), words);
-
-            String wordsVN = Master.wordSkillsVN.get(ngaunhien);
-            new FloatingWords(0,0, getStage(), wordsVN);
-        }
+//        if (!Master.wordSkills.isEmpty()){
+//            int ngaunhien = MathUtils.random(0, Master.wordSkills.size-1);
+//            String words = Master.wordSkills.get(ngaunhien);
+//            new FloatingWords(0,0, getStage(), words);
+//
+//            String wordsVN = Master.wordSkillsVN.get(ngaunhien);
+//            new FloatingWords(0,0, getStage(), wordsVN);
+//        }
         addAction(Actions.sequence(
             Actions.color(new Color(MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f),MathUtils.random(0f, 1f))),
             Actions.delay(0.5f),

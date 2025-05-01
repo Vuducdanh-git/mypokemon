@@ -20,5 +20,6 @@ public enum PetName {
     UNBACK,
     ZOROBACK,
     CHANBACK,
-    CHARBACK
+    CHARBACK,
+    Beedrill
 }

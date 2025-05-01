@@ -24,6 +24,7 @@ public class WordListScreen implements Screen {
     int repet =0;
     int y =25;
     int x =0;
+    long time=0;
 
     public WordListScreen(StartGame game){
         stage = new Stage();
@@ -55,15 +56,18 @@ public class WordListScreen implements Screen {
         ScreenUtils.clear(Color.BLACK);
         stage.act();
         stage.draw();
-        if (!Master.wordSkills.isEmpty()) {
-            String words = Master.wordSkills.get(repet);
-            new FloatingWords(x, Gdx.graphics.getHeight()-y, stage, words);
+        time++;
+        if (time % 30 == 0) {
+            if (Master.wordSkills.size >repet) {
+                String words = Master.wordSkills.get(repet);
+                String wordsVN = Master.wordSkillsVN.get(repet);
+                new Wlsword(x, Gdx.graphics.getHeight()-y, stage, words+" : "+wordsVN);
+                y +=25;
+                repet++;
 
-            String wordsVN = Master.wordSkillsVN.get(repet);
-            new FloatingWords(x+Master.wordSkills.get(repet).length()*5, Gdx.graphics.getHeight()-y, stage, wordsVN);
-            repet++;
-            x +=Master.wordSkillsVN.get(repet).length()*5;
+            }
         }
+
 
 
     }

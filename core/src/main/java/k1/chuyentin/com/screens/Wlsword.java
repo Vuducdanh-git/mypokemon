@@ -42,7 +42,7 @@ public class Wlsword extends Actor {
 
         font = fontGenerator.generateFont(fontParameter);
         fontGenerator.dispose();
-        setPosition(Gdx.graphics.getWidth()/2,  Gdx.graphics.getHeight()/2);
+        setPosition(x, y);
         toFront();
         s.addActor(this);
     }

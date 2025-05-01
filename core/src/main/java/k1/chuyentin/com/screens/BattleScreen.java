@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
+import k1.chuyentin.com.enums.PetName;
 
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
@@ -40,7 +41,7 @@ public class BattleScreen implements Screen {
     public static float myhp = 100;
     public static float yourhp=100;
     Bth bth;
-
+    PetName name = PetName.VEBACK;
     Hpbar hpbarm;
     Hpbar hpbare;
     TextField textField;
@@ -77,34 +78,32 @@ public class BattleScreen implements Screen {
 
 
 
+        btr = new Texture("arc.png");
 
-            textr = new Texture("beedrill.png");
-            btr = new Texture("arc.png");
-
-            enepoke = new Enepoke(textr, stage, 390, 280);
-            background = new Background(0, 0, stage);
-            skillBar = new SkillBar(330, 0, stage);
-            hpbarm = new Hpbar(350, 140, stage);
-            hpbare = new Hpbar(30, 320, stage);
-            bar2 = new Bar2(30, 320, stage);
-            bar1 = new Bar1(330, 140, stage);
-            skill = new Skill(stage,bar1.getX(),bar1.getY()/2,bar1.getWidth()/2);
+        background = new Background(0, 0, stage,1);
+        skillBar = new SkillBar(330, 0, stage);
+        hpbarm = new Hpbar(350, 140, stage);
+        hpbare = new Hpbar(30, 320, stage);
+        bar2 = new Bar2(30, 320, stage);
+        bar1 = new Bar1(330, 140, stage);
+        skill = new Skill(stage,bar1.getX(),bar1.getY()/2,bar1.getWidth()/2);
 
 
-            cyp = new Cyp(stage, 340+bar1.getWidth()/2, 60, skillBar.getWidth() / 2);
-            cyp.addListener(new ClickListener() {
-                public void clicked(InputEvent event, float x, float y) {
-                    game.setScreen(new Chargepoke(game));
-                }
-            });
+        cyp = new Cyp(stage, 340+bar1.getWidth()/2, 60, skillBar.getWidth() / 2);
+        cyp.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new Chargepoke(game));
+            }
+        });
 
-            bth = new Bth(stage, 340+bar1.getWidth()/2, 60-30, skillBar.getWidth() / 2-30, 30);
-            bth.addListener(new ClickListener() {
-                public void clicked(InputEvent event, float x, float y) {
-                    game.setScreen(new Master(game));
-                }
-            });
-
+        bth = new Bth(stage, 340+bar1.getWidth()/2, 60-30, skillBar.getWidth() / 2-30, 30);
+        bth.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new Master(game));
+            }
+        });
+        textr = new Texture("beedrill.png");
+        enepoke = new Enepoke(textr, stage, 390, 280,12);
             boss = new Boss(btr,stage,390,290);
             stage.addActor(background);
             stage.addActor(skillBar);
@@ -133,6 +132,18 @@ public class BattleScreen implements Screen {
         }
     @Override
     public void render ( float v) {
+        switch (name){
+            case Beedrill -> {
+                textr = new Texture("beedrill.png");
+                enepoke = new Enepoke(textr, stage, 390, 280,12);
+                enepoke.toFront();
+            }
+            case CHARBACK -> {
+                textr = new Texture("char.png");
+                enepoke = new Enepoke(textr,stage,390,280,29);
+                enepoke.toFront();
+            }
+        }
         float alpha = 1.0f;
         float alphas =1.0f;
         if (myhp > 50) {
@@ -179,6 +190,7 @@ public class BattleScreen implements Screen {
         if (lose == 1) {
             waitss =5;
             time++;
+            myhp = 100;
             if (time < 60 * 2) {
                 alpha = 1.0f - (float) time / (60 * 2);
                 game.fonts.setColor(1, 1, 1, alpha);
@@ -187,9 +199,9 @@ public class BattleScreen implements Screen {
                 waitss =0;
                 time = 0;
                 lose = 0;
-                myhp = 100;
+                Master.money -= 10000;
+
             }
-            Master.money -= 10000;
         }
         if (lose == 2) {
             if (!test) {
@@ -219,7 +231,14 @@ public class BattleScreen implements Screen {
                 lose = 0;
                 test = false;
                 waitss =0;
+                background.remove();
+                background = new Background(0, 0, stage,2);
+                background.toBack();
+
             }
+
+
+
         }
         System.out.println(times);
         if (quest == 1) {
