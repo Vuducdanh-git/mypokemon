@@ -8,8 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Background extends Actor {
     Texture texture;
-
-    public Background(float x, float y, Stage stage,int biome) {
+    public int biome;
+    public Background(float x, float y, Stage stage) {
         if (biome ==1){
             texture = new Texture("battle.jpg");
         }

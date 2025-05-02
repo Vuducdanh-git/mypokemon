@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import k1.chuyentin.com.enums.PetName;
@@ -32,6 +33,12 @@ public class Enepoke extends Actor {
         time = 0;
         setOrigin(getWidth() / 2, getHeight() / 2);
 
+
+    }
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
 
     }
 

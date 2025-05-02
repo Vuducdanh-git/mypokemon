@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
-import k1.chuyentin.com.enums.PetName;
+
 
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
@@ -41,7 +41,6 @@ public class BattleScreen implements Screen {
     public static float myhp = 100;
     public static float yourhp=100;
     Bth bth;
-    PetName name = PetName.VEBACK;
     Hpbar hpbarm;
     Hpbar hpbare;
     TextField textField;
@@ -80,7 +79,7 @@ public class BattleScreen implements Screen {
 
         btr = new Texture("arc.png");
 
-        background = new Background(0, 0, stage,1);
+        background = new Background(0, 0, stage);
         skillBar = new SkillBar(330, 0, stage);
         hpbarm = new Hpbar(350, 140, stage);
         hpbare = new Hpbar(30, 320, stage);
@@ -103,6 +102,7 @@ public class BattleScreen implements Screen {
             }
         });
         textr = new Texture("beedrill.png");
+
         enepoke = new Enepoke(textr, stage, 390, 280,12);
             boss = new Boss(btr,stage,390,290);
             stage.addActor(background);
@@ -132,17 +132,15 @@ public class BattleScreen implements Screen {
         }
     @Override
     public void render ( float v) {
-        switch (name){
-            case Beedrill -> {
-                textr = new Texture("beedrill.png");
-                enepoke = new Enepoke(textr, stage, 390, 280,12);
-                enepoke.toFront();
-            }
-            case CHARBACK -> {
-                textr = new Texture("char.png");
-                enepoke = new Enepoke(textr,stage,390,280,29);
-                enepoke.toFront();
-            }
+        if(background.biome == 1){
+            enepoke.remove();
+            textr = new Texture("beedrill.png");
+            enepoke = new Enepoke(textr, stage, 390, 280,12);
+        }
+        if(background.biome ==2){
+            enepoke.remove();
+            textr = new Texture("char.png");
+            enepoke = new Enepoke(textr, stage, 390, 280,29);
         }
         float alpha = 1.0f;
         float alphas =1.0f;
@@ -232,7 +230,7 @@ public class BattleScreen implements Screen {
                 test = false;
                 waitss =0;
                 background.remove();
-                background = new Background(0, 0, stage,2);
+                background = new Background(0, 0, stage);
                 background.toBack();
 
             }
