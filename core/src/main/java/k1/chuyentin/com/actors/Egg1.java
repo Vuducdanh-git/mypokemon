@@ -36,7 +36,7 @@ public class Egg1 extends MyActor{
 
                     master.pet.remove();// xoa con hien tai khoi san khau
                     // Mua 1 qua trung, cho vao dau danh sach
-                    Pet pet = new Pet(new Texture("egg2.png"), 0, 0, getStage());
+                    Pet pet = new Pet(new Texture("egg2.png"), 0, 0, getStage(), null);
                     Utils.pets.insert(0, pet);
                     master.pet = pet;
 

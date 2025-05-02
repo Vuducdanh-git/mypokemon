@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.actors.buttons.NutMenu;
+import k1.chuyentin.com.common.GameState;
 import k1.chuyentin.com.enums.ButtonType;
 
 public class MenuScreen implements Screen {
@@ -52,6 +53,8 @@ public class MenuScreen implements Screen {
         continute.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                GameState gameState = new GameState();
+                gameState.loadGame();
                 game.setScreen(new Master(game));
             }
         });
