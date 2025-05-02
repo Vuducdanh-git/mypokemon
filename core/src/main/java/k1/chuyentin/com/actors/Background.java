@@ -8,8 +8,15 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Background extends Actor {
     Texture texture;
+    public int biome;
     public Background(float x, float y, Stage stage) {
-        texture = new Texture("battle.jpg");
+        if (biome ==1){
+            texture = new Texture("battle.jpg");
+        }
+        if(biome ==2){
+            texture = new Texture("biomemagma.jpg");
+        }
+        toBack();
         setPosition(x, y);
         setSize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         stage.addActor(this);
