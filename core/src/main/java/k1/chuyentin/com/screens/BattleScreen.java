@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
+import k1.chuyentin.com.actors.buttons.AmThanh;
 
 
 
@@ -38,6 +39,7 @@ public class BattleScreen implements Screen {
     Bar1 bar1;
     Bar2 bar2;
     SkillBar skillBar;
+    AmThanh amThanh;
     public static float myhp = 100;
     public static float yourhp=100;
     Bth bth;
@@ -50,7 +52,7 @@ public class BattleScreen implements Screen {
 
     float truhp = 0;
     Boss boss;
-    Music nen;
+
     Texture btr;
     Skill skill;// = new Skill(stage,bar1.getX(),bar1.getY(),bar1.getWidth()/2);
     float trumhp =0;
@@ -64,8 +66,8 @@ public class BattleScreen implements Screen {
 
 
     public BattleScreen(StartGame game) {
-        nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
-        nen.play();
+        game.nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
+        game.nen.play();
 
         this.game = game;
         camera = new OrthographicCamera();
@@ -112,6 +114,7 @@ public class BattleScreen implements Screen {
             stage.addActor(bar2);
             stage.addActor(bar1);
             //stage.addActor(boss);
+        amThanh = new AmThanh(500,400,stage, game.nen);
 
             TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
             textFieldStyle.font = game.font;
