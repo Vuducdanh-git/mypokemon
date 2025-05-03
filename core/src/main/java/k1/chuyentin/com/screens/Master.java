@@ -217,7 +217,7 @@ public class Master implements Screen {
         }
 
             if (autoclick) {
-                if (time % (53 - click2.solannangcapautoclick*10) == 0) {
+                if (time % (60 - click2.solannangcapautoclick*10) == 0) {
                     money += sodiemtangkhiautoclick;
                     pet.click();
                 }
@@ -257,9 +257,9 @@ public class Master implements Screen {
 
         batch.begin();
         if (money<0) {
-            font.draw(batch, "$" + moneygia + "          loi roi", 0, Gdx.graphics.getHeight() - 32);
+            font.draw(batch, "$" + moneygia + "      loi roi", 0, Gdx.graphics.getHeight() - 32);
         }else
-        if (money<=1000) {
+        if (money<=1000&& money>=0) {
             font.draw(batch, "$" + money + "", 0, Gdx.graphics.getHeight() - 32);
         }else
         if (money>=1000&&money<=999999) {
