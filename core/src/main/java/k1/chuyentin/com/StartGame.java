@@ -40,7 +40,7 @@ public class StartGame extends Game {
         FreeTypeFontGenerator fontGenerators = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameters = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameters.size = 20;
-        fontParameters.color = Color.RED;
+        fontParameters.color = Color.WHITE;
         fontParameters.characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
             + "0123456789"
             + "ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨƠƯỲÝ"

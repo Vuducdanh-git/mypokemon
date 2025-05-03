@@ -6,12 +6,11 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import k1.chuyentin.com.enums.PetName;
+
 
 public class Enepoke extends Actor {
     Animation<TextureRegion> animation;
     float time;
-    PetName name = PetName.VEBACK;
     public Enepoke(Texture texture, Stage apps, float x, float y,int hang) {
         setPosition(x, y);
         setOrigin(getWidth() / 2, getHeight() / 2);
