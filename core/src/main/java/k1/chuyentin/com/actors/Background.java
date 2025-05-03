@@ -9,15 +9,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Background extends Actor {
     public TextureRegion textureRegion;
-    public Background(float x, float y, Stage stage,int biome) {
+    public Background(float x, float y, Stage stage) {
 
-        if (biome ==1){
-            textureRegion = new TextureRegion(new Texture("battle.jpg"));
-        }
-        if(biome ==2){
-            textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
+        textureRegion = new TextureRegion(new Texture("battle.jpg"));
 
-        }
         toBack();
         setPosition(x, y);
         setSize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
