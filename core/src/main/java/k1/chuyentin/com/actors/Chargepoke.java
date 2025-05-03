@@ -53,10 +53,10 @@ public class    Chargepoke implements Screen {
             stage.addActor(pet);
 
             if(i % 4 != 0){
-                x += (64 + 20);
+                x += (pet.getWidth() + 20);
             }else {
                 x = 50;
-                y -= (64 + 20);
+                y -= (pet.getHeight() + 20);
             }
         }
 
