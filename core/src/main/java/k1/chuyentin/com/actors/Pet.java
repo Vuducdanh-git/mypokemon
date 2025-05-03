@@ -36,6 +36,7 @@ public class Pet extends MyActor{
     static Music levelUpSound = Gdx.audio.newMusic(Gdx.files.internal("levelup.wav"));
 
     public StartGame game;
+    public boolean isBeaten = false;
 
     public Pet(Texture texture, float x, float y, Stage s, PetName name) {
         super(x, y, s);
@@ -321,7 +322,7 @@ public class Pet extends MyActor{
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-        if(status.equals(PetStatus.ATTACT)){
+        if(status.equals(PetStatus.ATTACT) && !isBeaten){
             time += parentAlpha;
             textureRegion = animation.getKeyFrame(time);
         } else if (status.equals(PetStatus.TRANING)) {

@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
 import k1.chuyentin.com.actors.*;
@@ -64,6 +65,8 @@ public class BattleScreen implements Screen {
     int times;
     public static int waitss;
 
+    public Array<Fire> fireOfEnemy = new Array<>();
+
 
     public BattleScreen(StartGame game) {
         game.nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
@@ -76,8 +79,6 @@ public class BattleScreen implements Screen {
         stage = new Stage();
         pet = Utils.pets.get(0);
         pet.setAnimation();
-
-
 
         btr = new Texture("arc.png");
 
@@ -314,8 +315,9 @@ public class BattleScreen implements Screen {
                     }
                 } else {
                     trumhp = MathUtils.random(20f, 30f);
+                    fireOfEnemy.clear();
                     for (int i = 0; i < 10; i++) {
-                        new Fire(0, 0, stage, false);
+                        fireOfEnemy.add(new Fire(0, 0, stage, false));
                     }
                 }
                 Skill.qa =0;
@@ -357,8 +359,9 @@ public class BattleScreen implements Screen {
                     }
                     if (!isHeated) {
                         trumhp = inputText.length() * 2;
+                        fireOfEnemy.clear();
                         for (int i = 0; i < 10; i++) {
-                            new Fire(0, 0, stage, false);
+                            fireOfEnemy.add(new Fire(0, 0, stage, false));
                         }
                     } else {
                         truhp = MathUtils.random(20f, 30f);
@@ -368,6 +371,12 @@ public class BattleScreen implements Screen {
                     }
                 }
                 Utils.specialq.removeIndex(0);
+            }
+        }
+        pet.isBeaten = false;
+        for (Fire f: fireOfEnemy) {
+            if(pet.getBound().overlaps(f.getBound())){
+                pet.isBeaten = true;
             }
         }
     }
