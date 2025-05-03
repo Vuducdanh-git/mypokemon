@@ -104,7 +104,6 @@ public class BattleScreen implements Screen {
             }
         });
         textr = new Texture("beedrill.png");
-
         enepoke = new Enepoke(textr, stage, 390, 280,12);
             boss = new Boss(btr,stage,390,290);
             stage.addActor(background);
@@ -139,11 +138,14 @@ public class BattleScreen implements Screen {
             enepoke.remove();
             textr = new Texture("beedrill.png");
             enepoke = new Enepoke(textr, stage, 390, 280,12);
+            stage.addActor(enepoke);
         }
         if(background.biome ==2){
             enepoke.remove();
             textr = new Texture("char.png");
             enepoke = new Enepoke(textr, stage, 390, 280,29);
+            stage.addActor(enepoke);
+
         }
         float alpha = 1.0f;
         float alphas =1.0f;
