@@ -20,8 +20,9 @@ import k1.chuyentin.com.screens.Master;
 public class SaveGame extends MyActor {
     public SaveGame(float x, float y, Stage s) {
         super(x,y,s);
-        textureRegion = new TextureRegion(new Texture("savegame.png"));
-        setSize(textureRegion.getRegionWidth()/2,textureRegion.getRegionHeight()/2);
+//        textureRegion = new TextureRegion(new Texture("savegame.png"));
+        textureRegion = new TextureRegion(new Texture("thoat.png"));
+        setSize(textureRegion.getRegionWidth()/4,textureRegion.getRegionHeight()/4);
         setPosition(x, y);
 
         addListener(new ClickListener(){
@@ -34,6 +35,7 @@ public class SaveGame extends MyActor {
                 GameState gameState = new GameState(Master.money, petforSaves, Master.plus, Master.wordSkills, Master.wordSkillsVN, Master.giatienautoclick, Master.sodiemtangkhiautoclick);
                 gameState.save();
                 System.out.println("save success!!");
+                Gdx.app.exit();
             }
         });
     }
