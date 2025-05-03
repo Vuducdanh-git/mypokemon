@@ -108,7 +108,7 @@ public class Master implements Screen {
         fontGenerator.dispose();
         batch = new SpriteBatch();
         stage = new Stage();
-        bg = new Background(0, 0, stage);
+        bg = new Background(0, 0, stage,1);
         balo = new Balo(stage,5,380);
         saveGame = new SaveGame(0,70,stage);
         amthanh = new AmThanh(0,150,stage,game.music);

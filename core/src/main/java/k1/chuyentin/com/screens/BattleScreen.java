@@ -80,7 +80,7 @@ public class BattleScreen implements Screen {
 
         btr = new Texture("arc.png");
 
-        background = new Background(0, 0, stage);
+        background = new Background(0, 0, stage,1);
         skillBar = new SkillBar(330, 0, stage);
         hpbarm = new Hpbar(350, 140, stage);
         hpbare = new Hpbar(30, 320, stage);
@@ -132,16 +132,6 @@ public class BattleScreen implements Screen {
         }
     @Override
     public void render ( float v) {
-        if(Background.biome ==1){
-            textr = new Texture("beedrill.png");
-            enepoke = new Enepoke(textr,stage,390,280,12);
-            enepoke.toFront();
-        }
-        if(Background.biome ==2){
-            textr = new Texture("char.png");
-            enepoke = new Enepoke(textr,stage,390,280,29);
-            enepoke.toFront();
-        }
 
         float alpha = 1.0f;
         float alphas =1.0f;
@@ -231,14 +221,11 @@ public class BattleScreen implements Screen {
                 test = false;
                 waitss =0;
                 if(charge ==0){
-                    Background.biome =2;
-                    background.remove();
-                    background = new Background(0,0,stage);
-                    stage.addActor(background);
-                    background.toBack();
+                    background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
+                    textr = new Texture("char.png");
+                    enepoke = new Enepoke(textr, stage, 390, 280,29);
                     charge =1;
                 }
-
             }
 
 
