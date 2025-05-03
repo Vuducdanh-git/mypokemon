@@ -113,7 +113,7 @@ public class BattleScreen implements Screen {
         textr = new Texture("beedrill.png");
         enepoke = new Enepoke(textr, stage, 390, 280,12);
             //stage.addActor(boss);
-        amThanh = new AmThanh(500,400,stage, game.nen);
+        amThanh = new AmThanh(5,400,stage, game.nen);
 
             TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
             textFieldStyle.font = game.font;

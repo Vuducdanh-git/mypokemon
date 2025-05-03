@@ -14,12 +14,16 @@ import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.actors.Bth;
 import k1.chuyentin.com.actors.FloatingWords;
 import k1.chuyentin.com.actors.Wlsword;
+import k1.chuyentin.com.actors.buttons.MLen;
+import k1.chuyentin.com.actors.buttons.MXuong;
 import k1.chuyentin.com.actors.buttons.NutMenu;
 import k1.chuyentin.com.enums.ButtonType;
 
 public class WordListScreen implements Screen {
     Stage stage;
     Bth exit;
+    MLen len;
+    MXuong xuong;
     Wlsword wlsword;
     int repet =0;
     int y =25;
@@ -42,6 +46,8 @@ public class WordListScreen implements Screen {
             String wordsVN = Master.wordSkillsVN.get(repet);
             new FloatingWords(0, 0, stage, wordsVN);
         }
+        len = new MLen(stage,Gdx.graphics.getWidth()-100 ,240,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
+        xuong = new MXuong(stage,Gdx.graphics.getWidth()-100 ,150,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
         stage.addActor(exit);
 
     }
