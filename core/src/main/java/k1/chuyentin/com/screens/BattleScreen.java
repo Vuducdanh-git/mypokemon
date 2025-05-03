@@ -39,6 +39,8 @@ public class BattleScreen implements Screen {
     Bar1 bar1;
     Bar2 bar2;
     SkillBar skillBar;
+    int dodgechanceenemy;
+    int dodgechancemy;
     AmThanh amThanh;
     public static float myhp = 100;
     public static float yourhp=100;
@@ -47,6 +49,7 @@ public class BattleScreen implements Screen {
     Hpbar hpbare;
     TextField textField;
     boolean isTextFieldActive = false;
+    int dodge =0;
     StartGame game;
     Cyp cyp;
     int charge =0;
@@ -62,8 +65,10 @@ public class BattleScreen implements Screen {
     int random =0;
     public static int quest = 2;
     int times;
+    int inmap=1;
     public static int waitss;
-
+    int kill=0;
+    int enrandom =1;
 
     public BattleScreen(StartGame game) {
         game.nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
@@ -113,7 +118,7 @@ public class BattleScreen implements Screen {
         textr = new Texture("beedrill.png");
         enepoke = new Enepoke(textr, stage, 390, 280,12);
             //stage.addActor(boss);
-        amThanh = new AmThanh(500,400,stage, game.nen);
+        amThanh = new AmThanh(0,400,stage, game.nen);
 
             TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
             textFieldStyle.font = game.font;
@@ -134,9 +139,10 @@ public class BattleScreen implements Screen {
         }
     @Override
     public void render ( float v) {
-
+        float alphase = 1.0f;
         float alpha = 1.0f;
         float alphas =1.0f;
+
         if (myhp > 50) {
             hpbarm.setColor(Color.RED);
         }
@@ -171,7 +177,52 @@ public class BattleScreen implements Screen {
         stage.act();
         stage.draw();
         batch.begin();
-        game.fonts.draw(batch, "BEEDRILL LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+        if(inmap ==1){
+            if (enrandom ==1){
+                game.name.setColor(Color.CHARTREUSE);
+                game.name.draw(batch, "BEEDRILL LV:MAX", bar2.getX()+40, bar2.getY() + 45);
+            }
+            if(enrandom ==2){
+                game.name.setColor(Color.GREEN);
+                game.name.draw(batch, "CELEBI LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+            if(enrandom ==3){
+                game.name.setColor(Color.LIGHT_GRAY);
+                game.name.draw(batch, "DITTO LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+            if(enrandom ==4){
+                game.name.setColor(Color.GREEN);
+                game.name.draw(batch, "GALLADE LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+            if(enrandom ==5){
+                game.name.setColor(Color.LIGHT_GRAY);
+                game.name.draw(batch, "UNKNOW LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+        }
+        if(inmap ==2){
+            if (enrandom ==1){
+                game.name.setColor(Color.RED);
+                game.name.draw(batch, "CHARIZARD LV:MAX", bar2.getX()+40, bar2.getY() + 45);
+            }
+            if(enrandom ==2){
+                game.name.setColor(Color.PURPLE);
+                game.name.draw(batch, "CHANDELURE LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+            if(enrandom ==3){
+                game.name.setColor(Color.FIREBRICK);
+                game.name.draw(batch, "GROUDON LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+            if(enrandom ==4){
+                game.name.setColor(Color.BROWN);
+                game.name.draw(batch, "GARCHOMP LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+            if(enrandom ==5){
+                game.name.setColor(Color.LIGHT_GRAY);
+                game.name.draw(batch, "UNKNOW LV:MAX", bar2.getX() + 40, bar2.getY() + 45);
+            }
+        }
+
+
         if (myhp <= 0) {
             lose = 1;
         }
@@ -217,24 +268,91 @@ public class BattleScreen implements Screen {
                 game.fonts.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
                 waitss =2;
             } else {
-                Master.money += 10000;
                 time = 0;
-                lose = 0;
-                test = false;
                 waitss =0;
-                if(charge ==0){
+                test = false;
+                Master.money += 10000;
+                lose = 0;
+                kill ++;
+                if((charge ==0)&&(kill == 50)){
                     background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
-                    enepoke.remove();
-                    textr = new Texture("char.png");
-                    enepoke = new Enepoke(textr, stage, 390, 280,29);
                     charge =1;
+                    inmap = 2;
+                }
+                if(inmap ==1){
+                    enrandom = MathUtils.random(1, 5);
+                    if (enrandom ==1){
+                        enepoke.remove();
+                        textr = new Texture("beedrill.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280,12);
+                    }
+                    if(enrandom ==2){
+                        enepoke.remove();
+                        textr = new Texture("celebi.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280,13);
+
+                    }
+                    if(enrandom ==3){
+                        enepoke.remove();
+                        textr = new Texture("ditto.png");
+                        enepoke = new Enepoke(textr, stage, 390, 260,16);
+                    }
+                    if(enrandom ==4){
+                        enepoke.remove();
+                        textr = new Texture("galla.png");
+                        enepoke = new Enepoke(textr, stage, 390, 250,27);
+                    }
+                    if(enrandom ==5){
+                        enepoke.remove();
+                        textr = new Texture("un.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280,19);
+
+                    }
+                }
+                if(inmap ==2){
+                    enrandom = MathUtils.random(1, 5);
+                    if (enrandom ==1){
+                        enepoke.remove();
+                        textr = new Texture("char.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280,29);
+
+
+
+                    }
+                    if(enrandom ==2){
+                        enepoke.remove();
+                        textr = new Texture("chan.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280,34);
+
+
+
+                    }
+                    if(enrandom ==3){
+                        enepoke.remove();
+                        textr = new Texture("grou.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280,20);
+
+
+
+                    }
+                    if(enrandom ==4){
+                        enepoke.remove();
+                        textr = new Texture("gar.png");
+
+
+                        enepoke = new Enepoke(textr, stage, 390, 280,18);
+
+                    }
+                    if(enrandom ==5){
+                        enepoke.remove();
+                        textr = new Texture("un.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280,19);
+
+
+                    }
                 }
             }
-
-
-
         }
-        System.out.println(times);
         if (quest == 1) {
             times++;
             if (times < 60 * 5) {
@@ -280,8 +398,34 @@ public class BattleScreen implements Screen {
             }
         }
 
-        batch.end();
 
+        if(dodge ==1){
+            time++;
+            if (time < 60 * 2) {
+                alphase = 1.0f - (float) time / (60 * 2);
+                game.fonts2.setColor(1, 1, 1, alphase);
+                game.fonts2.draw(batch, "Miss!", enepoke.getX(),enepoke.getY()-25);
+                waitss =2;
+            } else {
+                time = 0;
+                waitss = 0;
+                dodge = 0;
+            }
+        }
+        if(dodge ==2){
+            time++;
+            if (time < 60 * 2) {
+                alphase = 1.0f - (float) time / (60 * 2);
+                game.fonts2.setColor(1, 1, 1, alphase);
+                game.fonts2.draw(batch, "you dodged the attack!",0,300);
+                waitss =2;
+            } else {
+                time = 0;
+                waitss = 0;
+                dodge = 0;
+            }
+        }
+        batch.end();
         if (quest > 1) {
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
@@ -308,14 +452,32 @@ public class BattleScreen implements Screen {
                     }
                 }
                 if (isHeated) {
-                    truhp = inputText.length() * 2;
                     for (int i = 0; i < 10; i++) {
                         new Fire(0, 0, stage, true);
                     }
+                    dodgechanceenemy = MathUtils.random(1,100);
+                    if(dodgechanceenemy <= Pet.acc){
+                        truhp = inputText.length() * 2;
+                        Pet.acc -= 2;
+
+                    }else {
+                        truhp =0;
+                        Pet.acc += 5;
+                        dodge =1;
+                    }
                 } else {
-                    trumhp = MathUtils.random(20f, 30f);
                     for (int i = 0; i < 10; i++) {
                         new Fire(0, 0, stage, false);
+                    }
+                    dodgechancemy = MathUtils.random(1,100);
+                    if(dodgechancemy > Pet.avoid){
+                        trumhp = MathUtils.random(20f, 30f);
+                        Pet.avoid += 5;
+
+                    }else {
+                        trumhp =0;
+                        Pet.avoid -= 5;
+                        dodge =2;
                     }
                 }
                 Skill.qa =0;
@@ -341,12 +503,19 @@ public class BattleScreen implements Screen {
                 quest =5;
                 boolean isHeated = false;
                 if(inputText.isEmpty()){
-
-                    trumhp = inputText.length() * 2;
                     for (int i = 0; i < 10; i++) {
                         new Fire(0, 0, stage, false);
                     }
+                    dodgechancemy = MathUtils.random(1,100);
+                    if(dodgechancemy > Pet.avoid){
+                        trumhp = MathUtils.random(20f, 30f);
+                        Pet.avoid += 5;
 
+                    }else {
+                        trumhp =0;
+                        Pet.avoid -= 5;
+                        dodge =2;
+                    }
                 }else{
                     for (String s : Utils.specialq) {
                         if (s.equals(inputText)) {
@@ -356,14 +525,32 @@ public class BattleScreen implements Screen {
 
                     }
                     if (!isHeated) {
-                        trumhp = inputText.length() * 2;
                         for (int i = 0; i < 10; i++) {
                             new Fire(0, 0, stage, false);
                         }
+                        dodgechancemy = MathUtils.random(1,100);
+                        if(dodgechancemy > Pet.avoid){
+                            trumhp = MathUtils.random(20f, 30f);
+                            Pet.avoid += 5;
+
+                        }else {
+                            trumhp =0;
+                            Pet.avoid -= 5;
+                            dodge =2;
+                        }
                     } else {
-                        truhp = MathUtils.random(20f, 30f);
                         for (int i = 0; i < 10; i++) {
                             new Fire(0, 0, stage, true);
+                        }
+                        dodgechanceenemy = MathUtils.random(1,100);
+                        if(dodgechanceenemy <= Pet.acc){
+                            truhp = inputText.length() * 2;
+                            Pet.acc -= 2;
+
+                        }else {
+                            truhp =0;
+                            Pet.acc += 5;
+                            dodge =1;
                         }
                     }
                 }

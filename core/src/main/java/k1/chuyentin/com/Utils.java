@@ -26,10 +26,10 @@ public class Utils {
         wordListVN.add("tấn công");
 
         wordList.add("defender");
-        wordListVN.add("...");
+        wordListVN.add("hậu vệ");
 
         wordList.add("heal");
-        wordListVN.add("...");
+        wordListVN.add("chữa lành");
 
         wordList.add("cat");
         wordListVN.add("mèo");
