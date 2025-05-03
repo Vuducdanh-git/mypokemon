@@ -11,7 +11,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -108,10 +110,10 @@ public class Master implements Screen {
         fontGenerator.dispose();
         batch = new SpriteBatch();
         stage = new Stage();
-        bg = new Background(0, 0, stage,1);
+        bg = new Background(0, 0, stage);
         balo = new Balo(stage,5,380);
-        saveGame = new SaveGame(0,70,stage);
-        amthanh = new AmThanh(0,150,stage,game.music);
+        saveGame = new SaveGame(70,380,stage);
+        amthanh = new AmThanh(5,300,stage,game.music);
         balo.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -133,7 +135,7 @@ public class Master implements Screen {
             pet.setSize(32, 32);
             stage.addActor(pet);
         } else {
-            pet = new Pet(new Texture("egg.png"), 0, 0, stage);
+            pet = new Pet(new Texture("egg.png"), 0, 0, stage, null);
             Utils.pets.add(pet);
         }
         pet.status = PetStatus.TRANING;
@@ -163,6 +165,35 @@ public class Master implements Screen {
 
     @Override
     public void show() {
+        stage.addListener(new InputListener() {
+            private Actor lastActor = null;
+
+            @Override
+            public boolean mouseMoved(InputEvent event, float x, float y) {
+                Actor actor = stage.hit(x, y, true);
+
+                if (lastActor != null && lastActor instanceof SaveGame && lastActor != actor) {
+                    lastActor.setColor(1, 1, 1, 1); // Trả về màu gốc
+                }
+
+                if (actor instanceof SaveGame) {
+                    actor.setColor(0, 1, 1, 1); // Làm đậm hơn khi chạm vào
+                }
+
+                lastActor = actor;
+                return super.mouseMoved(event, x, y);
+            }
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Actor actor = stage.hit(x, y, true);
+                if (actor instanceof SaveGame) {
+                    actor.setColor(1, 0, 0, 1); // Đổi thành màu đỏ khi nhấn vào
+                }
+                return super.touchDown(event, x, y, pointer, button);
+            }
+        });
+
         Gdx.input.setInputProcessor(stage);
     }
 

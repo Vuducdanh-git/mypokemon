@@ -20,6 +20,7 @@ public class StartGame extends Game {
     public Array<SB> sbs;
     public Array<Ender> enders;
     public Music music;
+    public Music nen;
     @Override
 
     public void create() {

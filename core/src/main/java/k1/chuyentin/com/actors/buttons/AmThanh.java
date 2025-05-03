@@ -14,7 +14,7 @@ public class AmThanh extends MyActor {
         super(x, y, s);
         textureRegion = new TextureRegion(new Texture("am thanh = 100.png"));
 
-        setSize(textureRegion.getRegionWidth(),textureRegion.getRegionHeight());
+        setSize(textureRegion.getRegionWidth()/2+16,textureRegion.getRegionHeight()/2+16);
         setPosition(x, y);
 
         addListener(new ClickListener() {
@@ -24,6 +24,7 @@ public class AmThanh extends MyActor {
                 if (amthanh == 1) {
                     textureRegion = new TextureRegion(new Texture("am thanh = 100.png"));
                     music.setVolume(1f );
+
                     amthanh += 1;
                 }else
                 if (amthanh == 2) {

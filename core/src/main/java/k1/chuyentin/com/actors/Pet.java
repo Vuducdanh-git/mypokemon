@@ -27,7 +27,7 @@ public class Pet extends MyActor{
     Animation<TextureRegion> animation;
     float time;
     public PetStatus status = PetStatus.TRANING;
-    PetName name = PetName.VEBACK;
+    public PetName name = PetName.VEBACK;
 
     TextureRegion textureRegionNoAnimation;
 
@@ -37,13 +37,15 @@ public class Pet extends MyActor{
 
     public StartGame game;
 
-    public Pet(Texture texture, float x, float y, Stage s) {
+    public Pet(Texture texture, float x, float y, Stage s, PetName name) {
         super(x, y, s);
         setSize(32, 32);
         setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-        // Chọn tên ngẫu nhiên từ danh sách 20 tên có săn
-        name = PetName.values()[MathUtils.random(0, PetName.values().length - 1)];
-        //name = PetName.SCEPBACK;
+        this.name = name;
+        if(this.name == null) {
+            // Chọn tên ngẫu nhiên từ danh sách 20 tên có săn
+            this.name = PetName.values()[MathUtils.random(0, PetName.values().length - 1)];
+        }
 
         textureRegionNoAnimation = new TextureRegion(texture);
         textureRegion = textureRegionNoAnimation;
@@ -173,7 +175,9 @@ public class Pet extends MyActor{
                 }
             }
             textureRegionNoAnimation = textureRegion;
-            setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
+            if(!status.equals(PetStatus.CHARGE)){
+                setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
+            }
             //    new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
         }
 
@@ -238,7 +242,9 @@ public class Pet extends MyActor{
                 }
             }
             textureRegionNoAnimation = textureRegion;
-            setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
+            if(!status.equals(PetStatus.CHARGE)){
+                setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
+            }
             // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
 
         }
@@ -304,7 +310,9 @@ public class Pet extends MyActor{
                 }
             }
             textureRegionNoAnimation = textureRegion;
-            setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
+            if(!status.equals(PetStatus.CHARGE)){
+                setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
+            }
             // new Sparkle(pet.getX() - pet.getHeight()+10, pet.getY()-pet.getHeight()+10, stage, 8, 8,pet.textureRegion.getRegionWidth(),pet.getHeight());
             Egg1.mone =1;
         }

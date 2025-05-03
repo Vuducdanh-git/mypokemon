@@ -23,3 +23,4 @@ public class Balo extends Actor {
         batch.draw(texture,getX(),getY(),getWidth(),getHeight());
     }
 }
+
