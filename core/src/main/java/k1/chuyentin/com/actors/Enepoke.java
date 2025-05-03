@@ -30,7 +30,7 @@ public class Enepoke extends Actor {
         animation.setPlayMode(Animation.PlayMode.LOOP);
         time = 0;
         setOrigin(getWidth() / 2, getHeight() / 2);
-
+        apps.addActor(this);
 
     }
 

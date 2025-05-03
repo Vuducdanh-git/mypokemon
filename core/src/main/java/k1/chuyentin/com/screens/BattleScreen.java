@@ -102,15 +102,15 @@ public class BattleScreen implements Screen {
                 game.setScreen(new Master(game));
             }
         });
-        textr = new Texture("beedrill.png");
-        enepoke = new Enepoke(textr, stage, 390, 280,12);
+
             boss = new Boss(btr,stage,390,290);
             stage.addActor(background);
             stage.addActor(skillBar);
             stage.addActor(pet);
-            stage.addActor(enepoke);
             stage.addActor(bar2);
             stage.addActor(bar1);
+        textr = new Texture("beedrill.png");
+        enepoke = new Enepoke(textr, stage, 390, 280,12);
             //stage.addActor(boss);
 
             TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
@@ -222,6 +222,7 @@ public class BattleScreen implements Screen {
                 waitss =0;
                 if(charge ==0){
                     background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
+                    enepoke.remove();
                     textr = new Texture("char.png");
                     enepoke = new Enepoke(textr, stage, 390, 280,29);
                     charge =1;
