@@ -45,7 +45,7 @@ public class    Chargepoke implements Screen {
         float y = 300;
 
         for (int i = 0; i < Utils.pets.size; i++) {
-            Pet pet = Utils.pets.get(i);
+             Pet pet = Utils.pets.get(i);
             pet.setPosition(x, y);
             pet.status = PetStatus.CHARGE;
             pet.setSize(64, 64);
@@ -56,7 +56,7 @@ public class    Chargepoke implements Screen {
                 x += (pet.getWidth() + 20);
             }else {
                 x = 50;
-                y -= (pet.getHeight()+20);
+                y -= (pet.getHeight() + 20);
             }
         }
 
