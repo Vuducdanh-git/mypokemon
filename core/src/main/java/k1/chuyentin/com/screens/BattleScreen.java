@@ -49,7 +49,7 @@ public class BattleScreen implements Screen {
     boolean isTextFieldActive = false;
     StartGame game;
     Cyp cyp;
-
+    int charge =0;
     float truhp = 0;
     Boss boss;
 
@@ -103,21 +103,21 @@ public class BattleScreen implements Screen {
                 game.setScreen(new Master(game));
             }
         });
-        textr = new Texture("beedrill.png");
-        enepoke = new Enepoke(textr, stage, 390, 280,12);
+
             boss = new Boss(btr,stage,390,290);
             stage.addActor(background);
             stage.addActor(skillBar);
             stage.addActor(pet);
-            stage.addActor(enepoke);
             stage.addActor(bar2);
             stage.addActor(bar1);
+        textr = new Texture("beedrill.png");
+        enepoke = new Enepoke(textr, stage, 390, 280,12);
             //stage.addActor(boss);
         amThanh = new AmThanh(500,400,stage, game.nen);
 
             TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
             textFieldStyle.font = game.font;
-            textFieldStyle.fontColor = Color.RED;
+            textFieldStyle.fontColor = Color.BLACK;
 
 
             textFieldStyle.background = new TextureRegionDrawable(new TextureRegion(new Texture("input.png")));
@@ -134,19 +134,7 @@ public class BattleScreen implements Screen {
         }
     @Override
     public void render ( float v) {
-        if(background.biome == 1){
-            enepoke.remove();
-            textr = new Texture("beedrill.png");
-            enepoke = new Enepoke(textr, stage, 390, 280,12);
-            stage.addActor(enepoke);
-        }
-        if(background.biome ==2){
-            enepoke.remove();
-            textr = new Texture("char.png");
-            enepoke = new Enepoke(textr, stage, 390, 280,29);
-            stage.addActor(enepoke);
 
-        }
         float alpha = 1.0f;
         float alphas =1.0f;
         if (myhp > 50) {
@@ -234,10 +222,13 @@ public class BattleScreen implements Screen {
                 lose = 0;
                 test = false;
                 waitss =0;
-                background.remove();
-                background = new Background(0, 0, stage);
-                background.toBack();
-
+                if(charge ==0){
+                    background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
+                    enepoke.remove();
+                    textr = new Texture("char.png");
+                    enepoke = new Enepoke(textr, stage, 390, 280,29);
+                    charge =1;
+                }
             }
 
 
@@ -250,38 +241,38 @@ public class BattleScreen implements Screen {
                 alphas = 1.0f - (float) times / (60 * 5);
                 game.font.setColor(1, 1, 1, alphas);
                 if (Skill.r == 1) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", hpbarm.getX()-200, hpbare.getY());
                 }
                 if (Skill.r == 2) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:tối thượng", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:tối thượng", hpbarm.getX()-200, hpbare.getY());
                 }
                 if (Skill.r == 3) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:bạn", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:bạn", hpbarm.getX()-200, hpbare.getY());
 
                 }
                 if (Skill.r == 4) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:ống nước", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:ống nước", hpbarm.getX()-200, hpbare.getY());
 
                 }
                 if (Skill.r == 5) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:kết nối", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:kết nối", hpbarm.getX()-200, hpbare.getY());
                 }
                 if (Skill.r == 6) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:mất kết nối", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:mất kết nối", hpbarm.getX()-200, hpbare.getY());
 
                 }
                 if (Skill.r == 7) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:con rồng", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:con rồng", hpbarm.getX()-200, hpbare.getY());
                 }
                 if (Skill.r == 8) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:chim phượng hoàng", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:chim phượng hoàng", hpbarm.getX()-200, hpbare.getY());
 
                 }
                 if (Skill.r == 9) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:con sư tử", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:con sư tử", hpbarm.getX()-200, hpbare.getY());
                 }
                 if (Skill.r == 10) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ : vua", hpbarm.getX(), hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ : vua", hpbarm.getX()-200, hpbare.getY());
                 }
             }
             else{

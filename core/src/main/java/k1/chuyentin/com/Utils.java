@@ -211,10 +211,7 @@ public class Utils {
 
 
         wordList.add("a piece of cake");
-        wordListVN.add("dễ ợt");
-
-        wordList.add("a piece of cake");
-        wordListVN.add("cắm hoa");
+        wordListVN.add("miếng bánh");
 
         wordList.add("bird-watching");
         wordListVN.add("quan sát chim chóc");
