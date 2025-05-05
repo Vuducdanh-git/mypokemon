@@ -28,8 +28,8 @@ public class Pet extends MyActor{
     float time;
     public PetStatus status = PetStatus.TRANING;
     public PetName name = PetName.VEBACK;
-    public static int acc=50;
-    public static int avoid = 10;
+    public int acc=50;
+    public int avoid = 10;
     TextureRegion textureRegionNoAnimation;
 
     public int solanclick = 249;
@@ -54,7 +54,12 @@ public class Pet extends MyActor{
         addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (status.equals(PetStatus.TRANING)) {
+                if(status.equals(PetStatus.STAT)){
+                    int i = Utils.pets.indexOf(Pet.this, true);
+                    Utils.pets.swap(i, 0);
+//                    if(game != null){
+//                    }
+                }else if (status.equals(PetStatus.TRANING)) {
                     Master.money++;
                     solanclick++;
                     levelUp = false;
@@ -66,16 +71,6 @@ public class Pet extends MyActor{
                         h = h * 1.01f;
                     }
                     new Coin(getX() + getWidth() / 2, getY() + getHeight() / 2, getStage(), true);
-
-//                    if (!Master.wordSkills.isEmpty()) {
-//                        int ngaunhien = MathUtils.random(0, Master.wordSkills.size - 1);
-//                        String words = Master.wordSkills.get(ngaunhien);
-//                        new FloatingWords(0, 0, getStage(), words);
-//
-//                        String wordsVN = Master.wordSkillsVN.get(ngaunhien);
-//                        new FloatingWords(0, 0, getStage(), wordsVN);
-//                    }
-
                     addAction(Actions.sequence(
                         Actions.color(new Color(MathUtils.random(0f, 1f), MathUtils.random(0f, 1f), MathUtils.random(0f, 1f), MathUtils.random(0f, 1f))),
                         Actions.delay(0.5f),

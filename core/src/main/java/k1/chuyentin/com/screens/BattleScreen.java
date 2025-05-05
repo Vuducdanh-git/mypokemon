@@ -70,6 +70,7 @@ public class BattleScreen implements Screen {
     int kill=0;
     int enrandom =1;
 
+
     public BattleScreen(StartGame game) {
         game.nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
         game.nen.play();
@@ -93,7 +94,6 @@ public class BattleScreen implements Screen {
         bar2 = new Bar2(30, 320, stage);
         bar1 = new Bar1(330, 140, stage);
         skill = new Skill(stage,bar1.getX(),bar1.getY()/2,bar1.getWidth()/2);
-
 
         cyp = new Cyp(stage, 340+bar1.getWidth()/2, 60, skillBar.getWidth() / 2);
         cyp.addListener(new ClickListener() {
@@ -278,6 +278,8 @@ public class BattleScreen implements Screen {
                     background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
                     charge =1;
                     inmap = 2;
+                    yourhp = 100;
+                    myhp = 100;
                 }
                 if(inmap ==1){
                     enrandom = MathUtils.random(1, 5);
@@ -456,13 +458,13 @@ public class BattleScreen implements Screen {
                         new Fire(0, 0, stage, true);
                     }
                     dodgechanceenemy = MathUtils.random(1,100);
-                    if(dodgechanceenemy <= Pet.acc){
+                    if(dodgechanceenemy <= pet.acc){
                         truhp = inputText.length() * 2;
-                        Pet.acc -= 2;
+                        pet.acc -= 2;
 
                     }else {
                         truhp =0;
-                        Pet.acc += 5;
+                        pet.acc += 5;
                         dodge =1;
                     }
                 } else {
@@ -470,13 +472,13 @@ public class BattleScreen implements Screen {
                         new Fire(0, 0, stage, false);
                     }
                     dodgechancemy = MathUtils.random(1,100);
-                    if(dodgechancemy > Pet.avoid){
+                    if(dodgechancemy > pet.avoid){
                         trumhp = MathUtils.random(20f, 30f);
-                        Pet.avoid += 5;
+                        pet.avoid += 5;
 
                     }else {
                         trumhp =0;
-                        Pet.avoid -= 5;
+                        pet.avoid -= 5;
                         dodge =2;
                     }
                 }
@@ -507,13 +509,13 @@ public class BattleScreen implements Screen {
                         new Fire(0, 0, stage, false);
                     }
                     dodgechancemy = MathUtils.random(1,100);
-                    if(dodgechancemy > Pet.avoid){
+                    if(dodgechancemy > pet.avoid){
                         trumhp = MathUtils.random(20f, 30f);
-                        Pet.avoid += 5;
+                        pet.avoid += 5;
 
                     }else {
                         trumhp =0;
-                        Pet.avoid -= 5;
+                        pet.avoid -= 5;
                         dodge =2;
                     }
                 }else{
@@ -529,13 +531,13 @@ public class BattleScreen implements Screen {
                             new Fire(0, 0, stage, false);
                         }
                         dodgechancemy = MathUtils.random(1,100);
-                        if(dodgechancemy > Pet.avoid){
+                        if(dodgechancemy > pet.avoid){
                             trumhp = MathUtils.random(20f, 30f);
-                            Pet.avoid += 5;
+                            pet.avoid += 5;
 
                         }else {
                             trumhp =0;
-                            Pet.avoid -= 5;
+                            pet.avoid -= 5;
                             dodge =2;
                         }
                     } else {
@@ -543,13 +545,13 @@ public class BattleScreen implements Screen {
                             new Fire(0, 0, stage, true);
                         }
                         dodgechanceenemy = MathUtils.random(1,100);
-                        if(dodgechanceenemy <= Pet.acc){
+                        if(dodgechanceenemy <= pet.acc){
                             truhp = inputText.length() * 2;
-                            Pet.acc -= 2;
+                            pet.acc -= 2;
 
                         }else {
                             truhp =0;
-                            Pet.acc += 5;
+                            pet.acc += 5;
                             dodge =1;
                         }
                     }
