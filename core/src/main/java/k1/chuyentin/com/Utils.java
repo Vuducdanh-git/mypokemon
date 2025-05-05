@@ -14,8 +14,8 @@ public class Utils {
 //        wordList.add("hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello");
 //        wordListVN.add("xin chào");
 
-        wordList.add("hello");
-        wordListVN.add("xin chào");
+
+
         wordList.add("goodbye");
         wordListVN.add("tạm biệt");
 
@@ -24,6 +24,9 @@ public class Utils {
 
         wordList.add("attack");
         wordListVN.add("tấn công");
+
+        wordList.add("hello");
+        wordListVN.add("xin chào");
 
         wordList.add("defender");
         wordListVN.add("hậu vệ");
