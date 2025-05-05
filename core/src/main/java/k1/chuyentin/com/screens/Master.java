@@ -111,7 +111,7 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new Background(0, 0, stage);
-        balo = new Balo(stage,5,300);
+        balo = new Balo(stage,5,380);
         saveGame = new SaveGame(5,130,stage);
         amthanh = new AmThanh(5,200,stage,game.music);
         npc = new Npc(5,50,stage);
@@ -127,7 +127,7 @@ public class Master implements Screen {
 
             }
         });
-        yvs = new Yvs(5,380,stage);
+        yvs = new Yvs(5,300,stage);
         yvs.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
