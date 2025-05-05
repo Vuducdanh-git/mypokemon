@@ -13,7 +13,7 @@ import static k1.chuyentin.com.screens.Master.giatienautoclick;
 
 public class Item2 extends MyActor{
     int tybe=2;
-    public int solannangcapautoclick=0;
+    public static int solannangcapautoclick=0;
     public Item2(float x, float y, Stage  s,int tybe) {
         super(x, y, s);
         this.tybe=tybe;

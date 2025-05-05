@@ -40,7 +40,6 @@ public class Master implements Screen {
     Stage stage;
 
     public static Sound sound;
-
     static public  float money = 2000000000;
     static public  float moneygia = 0;
     static int time = 0;
@@ -257,7 +256,8 @@ public class Master implements Screen {
 
         batch.begin();
         if (money<0) {
-            font.draw(batch, "$" + moneygia + "      loi roi", 0, Gdx.graphics.getHeight() - 32);
+            System.out.println("loi roi loi roi");
+            font.draw(batch, "$" + moneygia + "   ,hhooli.,uihlulusssdfguuuiuigxzcbgh   loi roi", 0, Gdx.graphics.getHeight() - 32);
         }else
         if (money<=1000&& money>=0) {
             font.draw(batch, "$" + money + "", 0, Gdx.graphics.getHeight() - 32);
