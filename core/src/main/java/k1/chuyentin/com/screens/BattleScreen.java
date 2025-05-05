@@ -277,7 +277,7 @@ public class BattleScreen implements Screen {
                 Master.money += 10000;
                 lose = 0;
                 kill ++;
-                if((charge ==0)&&(kill == 50)){
+                if((charge ==0)&&(kill == 5)){
                     background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
                     charge =1;
                     inmap = 2;
@@ -315,6 +315,7 @@ public class BattleScreen implements Screen {
                     }
                 }
                 if(inmap ==2){
+                    
                     enrandom = MathUtils.random(1, 5);
                     if (enrandom ==1){
                         enepoke.remove();
