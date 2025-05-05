@@ -30,6 +30,8 @@ public class Skill1 extends MyActor{
                         int ngaunhien = MathUtils.random(0, Utils.wordList.size-1);
                         Master.wordSkills.add(Utils.wordList.get(ngaunhien));
                         Master.wordSkillsVN.add(Utils.wordListVN.get(ngaunhien));
+                        Utils.wordList.removeIndex(ngaunhien);
+                        Utils.wordListVN.removeIndex(ngaunhien);
 
                         Master.sound.play();
                      //   Skill.iclick = 1;

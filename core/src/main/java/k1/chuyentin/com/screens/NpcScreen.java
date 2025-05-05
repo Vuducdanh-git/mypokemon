@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -15,12 +15,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.Utils;
-import k1.chuyentin.com.actors.FloatingWords;
+
 import k1.chuyentin.com.actors.Notification;
 import k1.chuyentin.com.actors.Npc;
 import k1.chuyentin.com.actors.buttons.No;
 import k1.chuyentin.com.actors.buttons.Yes;
-import k1.chuyentin.com.common.GameState;
 
 public class NpcScreen implements Screen {
     Stage stage;
@@ -28,8 +27,11 @@ public class NpcScreen implements Screen {
     Yes yes;
     int say =0;
     No no;
-    StartGame game = new StartGame();
-    SpriteBatch batch = new SpriteBatch();
+
+    int a = MathUtils.random(0,Master.wordSkills.size-1);
+    int wrongansr;
+    int wrongansr1;
+    int wrongansr2;
 
 
 
@@ -37,8 +39,13 @@ public class NpcScreen implements Screen {
         stage = new Stage();
 
         npc = new Npc(Gdx.graphics.getWidth()/2-50,Gdx.graphics.getHeight()/2-50,stage);
-        yes = new Yes(stage,200,50,100,100);
-        no = new No(stage,400,50,100,100);
+        new Notification(Gdx.graphics.getWidth()/2-50,400,stage,"Yes or No").addAction(Actions.sequence(
+            Actions.fadeOut(3f),
+            Actions.removeActor()
+        ));
+
+        yes = new Yes(stage,100,50,150,100);
+        no = new No(stage,400,50,150,100);
         no.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new Master(game));
@@ -49,13 +56,23 @@ public class NpcScreen implements Screen {
         style.font = game.font;
         style.up = new TextureRegionDrawable(new Texture("but.png"));
         style.fontColor = Color.YELLOW;
-        TextButton wrongans2 = new TextButton(Utils.wordList.get(MathUtils.random(1,Utils.wordList.size-1)),style);
-        TextButton wrongans = new TextButton(Utils.wordList.get(MathUtils.random(1,Utils.wordList.size-1)),style);
-        TextButton wrongans1 = new TextButton(Utils.wordList.get(MathUtils.random(1,Utils.wordList.size-1)),style);
-        TextButton rightans = new TextButton(Utils.wordList.get(0),style);
+        if(a >3){
+            wrongansr = MathUtils.random(0,a-1);
+            wrongansr1 =MathUtils.random(0,a-1);
+            wrongansr2 = MathUtils.random(0,a-1);
+        }else {
+            wrongansr = MathUtils.random(a,Master.wordSkills.size-1);
+            wrongansr1 =MathUtils.random(a,Master.wordSkills.size-1);
+            wrongansr2 = MathUtils.random(a,Master.wordSkills.size-1);
+        }
+
+        TextButton wrongans = new TextButton(Master.wordSkills.get(wrongansr),style);
+        TextButton wrongans1 = new TextButton(Master.wordSkills.get(wrongansr1),style);
+        TextButton wrongans2 = new TextButton(Master.wordSkills.get(wrongansr2),style);
+        TextButton rightans = new TextButton(Master.wordSkills.get(a),style);
 
         rightans.setSize(150,100);
-        rightans.setPosition(400,300); //Gdx.graphics.getHeight()/2-rightans.getHeight()/2);
+        rightans.setPosition(100,200); //Gdx.graphics.getHeight()/2-rightans.getHeight()/2);
         rightans.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -64,7 +81,7 @@ public class NpcScreen implements Screen {
                 wrongans.remove();
                 wrongans2.remove();
                 wrongans1.remove();
-                new Notification(200,400,stage,"You choose a right answer").addAction(Actions.sequence(
+                new Notification(200,200,stage,"You choose a right answer").addAction(Actions.sequence(
                     Actions.fadeOut(3f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
@@ -79,15 +96,17 @@ public class NpcScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 no.remove();
                 yes.remove();
+                new Notification(150,400,stage,"nghĩa tiếng ảnh của từ:"+Master.wordSkillsVN.get(a));
                 stage.addActor(rightans);
                 stage.addActor(wrongans);
                 stage.addActor(wrongans1);
                 stage.addActor(wrongans2);
+                npc.remove();
             }
         });
 
         wrongans.setSize(150,100);
-        wrongans.setPosition(400, 100);//Gdx.graphics.getHeight()/2 - wrongans.getHeight()/2);
+        wrongans.setPosition(100, 100);//Gdx.graphics.getHeight()/2 - wrongans.getHeight()/2);
         wrongans.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -97,7 +116,7 @@ public class NpcScreen implements Screen {
                 wrongans2.remove();
                 wrongans1.remove();
 
-                new Notification(200,400,stage,"You choose a wrong answer").addAction(Actions.sequence(
+                new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
                     Actions.fadeOut(3f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
@@ -109,7 +128,7 @@ public class NpcScreen implements Screen {
         });
 
         wrongans1.setSize(150,100);
-        wrongans1.setPosition(200,300);// Gdx.graphics.getHeight()/2 - 2* wrongans1.getHeight()/2);
+        wrongans1.setPosition(400,200);// Gdx.graphics.getHeight()/2 - 2* wrongans1.getHeight()/2);
         wrongans1.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -118,7 +137,7 @@ public class NpcScreen implements Screen {
                 wrongans.remove();
                 wrongans2.remove();
                 wrongans1.remove();
-                new Notification(200,400,stage,"You choose a wrong answer").addAction(Actions.sequence(
+                new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
                     Actions.fadeOut(3f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
@@ -130,7 +149,7 @@ public class NpcScreen implements Screen {
 
         wrongans2.setSize(150,100);
 
-        wrongans2.setPosition(200, 100);//Gdx.graphics.getHeight()/2 -  wrongans2.getHeight()/2);
+        wrongans2.setPosition(400, 100);//Gdx.graphics.getHeight()/2 -  wrongans2.getHeight()/2);
         wrongans2.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
@@ -139,7 +158,7 @@ public class NpcScreen implements Screen {
                 wrongans.remove();
                 wrongans2.remove();
                 wrongans1.remove();
-                new Notification(200,400,stage,"You choose a wrong answer").addAction(Actions.sequence(
+                new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
                     Actions.fadeOut(3f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
