@@ -47,7 +47,7 @@ public class GameState {
         }
     }
     private void loadData(GameState gameState){
-        Master.money = gameState.money;
+            Master.money = gameState.money;
         Master.plus = gameState.plus;
         Master.wordSkills = gameState.wordSkills;
         Master.wordSkillsVN = gameState.wordSkillsVN;

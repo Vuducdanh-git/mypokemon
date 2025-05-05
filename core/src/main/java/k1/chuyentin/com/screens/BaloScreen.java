@@ -28,11 +28,11 @@ public class BaloScreen implements Screen {
     public BaloScreen(StartGame game) {
         this.game = game;
         stage = new Stage();
-        batch = new SpriteBatch();
-        bth = new Bth(stage, 340, 60 - 30, 294, 156);
-        slimeball = new SB(100, 400, stage, false);
-        dia = new Diamond(50, 400, stage, false);
-        ender = new Ender(150, 400, stage, false);
+        batch=new SpriteBatch();
+        bth = new Bth(stage, 340, 60-30, 294, 156);
+        slimeball = new SB(200,400,stage,false);
+        dia = new Diamond(100,400,stage,false);
+        ender=new Ender(300,400,stage,false);
         bth.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new Master(game));
@@ -71,9 +71,9 @@ public class BaloScreen implements Screen {
         stage.draw();
         batch.begin();
         game.font.setColor(1,1,1,1);
-        game.font.draw(batch, "" + game.diamonds.size, 64, Gdx.graphics.getHeight() - 64);
-        game.font.draw(batch, "" + game.sbs.size, 120, Gdx.graphics.getHeight() - 64);
-        game.font.draw(batch, "" + game.enders.size, 170, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.diamonds.size, 100, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.sbs.size, 200, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.enders.size, 300, Gdx.graphics.getHeight() - 64);
         batch.end();
     }
 

@@ -12,7 +12,7 @@ public class Diamond extends Actor {
     public Diamond(float x, float y, Stage stage,boolean isbt) {
         texture = new Texture("dia.png");
         setPosition(x, y);
-        setSize(32, 32);
+        setSize(64, 64);
         stage.addActor(this);
         if (isbt==true) {
             addAction(Actions.sequence(

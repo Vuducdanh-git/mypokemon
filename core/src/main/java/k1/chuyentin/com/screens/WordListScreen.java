@@ -14,12 +14,17 @@ import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.actors.Bth;
 import k1.chuyentin.com.actors.FloatingWords;
 import k1.chuyentin.com.actors.Wlsword;
+import k1.chuyentin.com.actors.buttons.MLen;
+import k1.chuyentin.com.actors.buttons.MXuong;
 import k1.chuyentin.com.actors.buttons.NutMenu;
 import k1.chuyentin.com.enums.ButtonType;
 
 public class WordListScreen implements Screen {
     Stage stage;
+    Stage noMoveStage;
     Bth exit;
+    MLen len;
+    MXuong xuong;
     Wlsword wlsword;
     int repet =0;
     int y =25;
@@ -28,8 +33,9 @@ public class WordListScreen implements Screen {
 
     public WordListScreen(StartGame game){
         stage = new Stage();
+        noMoveStage = new Stage();
 
-        exit = new Bth(stage, Gdx.graphics.getWidth()-100 ,50,100,50);
+        exit = new Bth(noMoveStage, Gdx.graphics.getWidth()-100 ,50,100,50);
         exit.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new Master(game));
@@ -42,13 +48,32 @@ public class WordListScreen implements Screen {
             String wordsVN = Master.wordSkillsVN.get(repet);
             new Wlsword(0, 0, stage, wordsVN);
         }
-        stage.addActor(exit);
+        len = new MLen(noMoveStage,Gdx.graphics.getWidth()-100 ,240,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
+        xuong = new MXuong(noMoveStage,Gdx.graphics.getWidth()-100 ,150,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
+        noMoveStage.addActor(exit);
+
+        len.addListener(new ClickListener(){
+            @Override
+
+            public void clicked(InputEvent event, float x, float y) {
+
+                stage.getViewport().getCamera().position.y += 20;
+            }
+        });
+
+
+        xuong.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                stage.getViewport().getCamera().position.y -= 20;
+            }
+        });
 
     }
 
     @Override
     public void show() {
-        Gdx.input.setInputProcessor(stage);
+        Gdx.input.setInputProcessor(noMoveStage);
     }
 
     @Override
@@ -68,7 +93,8 @@ public class WordListScreen implements Screen {
             }
         }
 
-
+        noMoveStage.act();
+        noMoveStage.draw();
 
     }
 

@@ -40,7 +40,6 @@ public class Master implements Screen {
     Stage stage;
 
     public static Sound sound;
-
     static public  float money = 2000000000;
     static public  float moneygia = 0;
     static int time = 0;
@@ -112,10 +111,10 @@ public class Master implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         bg = new Background(0, 0, stage);
-        balo = new Balo(stage,5,380);
-        saveGame = new SaveGame(70,380,stage);
-        amthanh = new AmThanh(5,300,stage,game.music);
-        npc = new Npc(100,200,stage);
+        balo = new Balo(stage,5,300);
+        saveGame = new SaveGame(5,130,stage);
+        amthanh = new AmThanh(5,200,stage,game.music);
+        npc = new Npc(5,50,stage);
         npc.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new NpcScreen(game));
@@ -128,7 +127,7 @@ public class Master implements Screen {
 
             }
         });
-        yvs = new Yvs(0,Gdx.graphics.getHeight()/2-50,stage);
+        yvs = new Yvs(5,380,stage);
         yvs.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -264,7 +263,8 @@ public class Master implements Screen {
 
         batch.begin();
         if (money<0) {
-            font.draw(batch, "$" + moneygia + "      loi roi", 0, Gdx.graphics.getHeight() - 32);
+            System.out.println("loi roi loi roi");
+            font.draw(batch, "$" + moneygia + "   ,hhooli.,uihlulusssdfguuuiuigxzcbgh   loi roi", 0, Gdx.graphics.getHeight() - 32);
         }else
         if (money<=1000&& money>=0) {
             font.draw(batch, "$" + money + "", 0, Gdx.graphics.getHeight() - 32);

@@ -23,6 +23,7 @@ public class StartGame extends Game {
     public Array<Ender> enders;
     public Music music;
     public Music nen;
+    public static boolean amthanh=true;
     @Override
 
     public void create() {
