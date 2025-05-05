@@ -16,7 +16,7 @@ public class NutMenu extends MyActor {
         switch (type){
             case PLAY -> textureRegion = new TextureRegion(new Texture("start.png"));
             case CONTINUE -> textureRegion = new TextureRegion(new Texture("continue.png"));
-            case GUIDE -> textureRegion = new TextureRegion(new Texture("guide.png"));
+            case GUIDE -> textureRegion = new TextureRegion(new Texture("GUIDE.png"));
             case EXIT -> textureRegion = new TextureRegion(new Texture("exit.png"));
         }
         setSize(Gdx.graphics.getWidth()/5, Gdx.graphics.getHeight()/5);

@@ -55,6 +55,7 @@ public class BaloScreen implements Screen {
                 x = 50;
                 y -= (pet.getHeight() + 20);
             }
+
         }
     }
 
