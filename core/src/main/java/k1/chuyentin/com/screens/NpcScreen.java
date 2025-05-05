@@ -38,10 +38,12 @@ public class NpcScreen implements Screen {
     public NpcScreen(StartGame game) {
         stage = new Stage();
 
-        npc = new Npc(Gdx.graphics.getWidth()/2-npc.getWidth()/2,Gdx.graphics.getHeight()/2-npc.getHeight()/2,stage);
+        npc = new Npc(Gdx.graphics.getWidth()/2-50,Gdx.graphics.getHeight()/2-50,stage);
         new Notification(Gdx.graphics.getWidth()/2-50,400,stage,"Yes or No").addAction(Actions.sequence(
             Actions.fadeOut(3f),
-            Actions.removeActor();
+            Actions.removeActor()
+        ));
+
         yes = new Yes(stage,100,50,150,100);
         no = new No(stage,400,50,150,100);
         no.addListener(new ClickListener() {
