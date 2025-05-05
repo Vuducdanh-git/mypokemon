@@ -22,7 +22,7 @@ public class SaveGame extends MyActor {
         super(x,y,s);
 //        textureRegion = new TextureRegion(new Texture("savegame.png"));
         textureRegion = new TextureRegion(new Texture("thoat.png"));
-        setSize(textureRegion.getRegionWidth()/4,textureRegion.getRegionHeight()/4);
+        setSize(32,32);
         setPosition(x, y);
 
         addListener(new ClickListener(){
