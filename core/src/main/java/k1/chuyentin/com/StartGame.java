@@ -98,11 +98,11 @@ public class StartGame extends Game {
 
 
 
-        FreeTypeFontGenerator fontGeneratorsef = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
-        FreeTypeFontGenerator.FreeTypeFontParameter fontParametersef = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        fontParametersef.size = 20;
-        fontParametersef.color = Color.TAN;
-        fontParametersef.characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+        FreeTypeFontGenerator fontGeneratorseft = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameterseft = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameterseft.size = 20;
+        fontParameterseft.color = Color.TAN;
+        fontParameterseft.characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
             + "0123456789"
             + "ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨƠƯỲÝ"
             + "àáâãèéêìíòóôõùúăđĩơưỳý"
@@ -120,9 +120,9 @@ public class StartGame extends Game {
             + "úùủũụưứừửữự"
             + "ýỳỷỹỵ"
             + "!@#$%^&*()-_=+[]{};:'\",.<>?/\\|";
-        name = fontGeneratorsef.generateFont(fontParametersef);
+        name = fontGeneratorseft.generateFont(fontParameterseft);
 
-        fontGeneratorsef.dispose();
+        fontGeneratorseft.dispose();
 
         setScreen(new AboutScreen(this));
 
