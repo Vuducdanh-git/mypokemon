@@ -360,7 +360,7 @@ public class BattleScreen implements Screen {
         }
         if (quest == 1) {
             times++;
-            if (times < 60 * 5) {
+            if (times < 60 * 9) {
                 alphas = 1.0f - (float) times / (60 * 5);
                 game.font.setColor(1, 1, 1, alphas);
                 if (Skill.r == 1) {
@@ -399,8 +399,11 @@ public class BattleScreen implements Screen {
                     game.font.draw(batch, "nghĩa tiếng anh của từ : vua", 150, 320);
                 }
             }
-            else{
-                times =0;
+            else {
+                for (int i = 0; i < 10; i++) {
+                    new Fire(0, 0, stage, true);
+                }
+                trumhp -= 20;
             }
         }
 
