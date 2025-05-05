@@ -25,6 +25,7 @@ import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.buttons.AmThanh;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.addAction;
+import static k1.chuyentin.com.StartGame.amthanh;
 
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
@@ -376,7 +377,11 @@ public class BattleScreen implements Screen {
     }
     @Override
     public void show() {
-
+        if (game.amthanh){
+            game.nen.setVolume(1f );
+        }else {
+            game.nen.setVolume(0f );
+        }
     }
 
     @Override
