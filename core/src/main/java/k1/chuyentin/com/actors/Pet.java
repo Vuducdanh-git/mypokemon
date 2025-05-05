@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -13,11 +14,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import k1.chuyentin.com.*;
+import k1.chuyentin.com.screens.BaloScreen;
 import k1.chuyentin.com.screens.Master;
 import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.enums.PetName;
 import k1.chuyentin.com.enums.PetStatus;
 import k1.chuyentin.com.screens.BattleScreen;
+import k1.chuyentin.com.screens.Wlsword;
 
 public class Pet extends MyActor{
     float w=getWidth();
@@ -30,6 +33,8 @@ public class Pet extends MyActor{
     public PetName name = PetName.VEBACK;
     public int acc=50;
     public int avoid = 10;
+    SpriteBatch batch = new SpriteBatch();
+    Stage stage;
     TextureRegion textureRegionNoAnimation;
 
     public int solanclick = 249;
@@ -38,8 +43,8 @@ public class Pet extends MyActor{
 
     public StartGame game;
 
-    public Pet(Texture texture, float x, float y, Stage s, PetName name) {
-        super(x, y, s);
+    public Pet(Texture texture, float x, float y, Stage stage, PetName name) {
+        super(x, y, stage);
         setSize(32, 32);
         setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
         this.name = name;
@@ -54,12 +59,7 @@ public class Pet extends MyActor{
         addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(status.equals(PetStatus.STAT)){
-                    int i = Utils.pets.indexOf(Pet.this, true);
-                    Utils.pets.swap(i, 0);
-//                    if(game != null){
-//                    }
-                }else if (status.equals(PetStatus.TRANING)) {
+                if (status.equals(PetStatus.TRANING)) {
                     Master.money++;
                     solanclick++;
                     levelUp = false;
@@ -83,10 +83,17 @@ public class Pet extends MyActor{
                         game.setScreen(new BattleScreen(game));
                     }
                 }
+                else if(status.equals(PetStatus.STAT)){
+//                    int i = Utils.pets.indexOf(Pet.this, true);
+//                    Utils.pets.swap(i, 0);
+                    new Wlsword(200,400,stage,"accuracy:"+acc+" reflectivity:"+avoid);
+                }
             }
         });
     }
-
+    public void show() {
+        Gdx.input.setInputProcessor(stage);
+    }
     public void click(){
         solanclick++;
         levelUp = false;

@@ -398,8 +398,10 @@ public class BattleScreen implements Screen {
                 if (Skill.r == 10) {
                     game.font.draw(batch, "nghĩa tiếng anh của từ : vua", 150, 320);
                 }
-            }
-            else {
+            } else {
+                textField.setVisible(false);
+                stage.unfocusAll();
+                isTextFieldActive = false;
                 for (int i = 0; i < 10; i++) {
                     new Fire(0, 0, stage, true);
                 }
