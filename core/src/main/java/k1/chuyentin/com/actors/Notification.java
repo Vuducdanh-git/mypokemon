@@ -1,4 +1,4 @@
-package k1.chuyentin.com.screens;
+package k1.chuyentin.com.actors;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -10,11 +10,11 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 
-public class Wlsword extends Actor {
+public class Notification extends Actor {
     private String text;
     private BitmapFont font;
 
-    public Wlsword(float x, float y, Stage s, String words) {
+    public Notification(float x, float y, Stage s, String words) {
         text = words;
 
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
@@ -45,6 +45,7 @@ public class Wlsword extends Actor {
         setPosition(x, y);
         toFront();
         s.addActor(this);
+
     }
 
     @Override
