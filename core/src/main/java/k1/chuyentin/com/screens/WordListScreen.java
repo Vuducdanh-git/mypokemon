@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.actors.Bth;
 import k1.chuyentin.com.actors.FloatingWords;
-import k1.chuyentin.com.actors.Wlsword;
+import k1.chuyentin.com.screens.Wlsword;
 import k1.chuyentin.com.actors.buttons.MLen;
 import k1.chuyentin.com.actors.buttons.MXuong;
 import k1.chuyentin.com.actors.buttons.NutMenu;
