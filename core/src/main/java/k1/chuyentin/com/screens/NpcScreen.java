@@ -123,7 +123,7 @@ public class NpcScreen implements Screen {
         ScreenUtils.clear(Color.BLACK);
         stage.act();
         stage.draw();
-        batch.begin();
+//        batch.begin();
 
 //        if(say ==1){
 //            game.font.draw(batch,"You choose the right answer,I'll give you 20k money for reward",Gdx.graphics.getWidth()/2-50,Gdx.graphics.getHeight()-50);
