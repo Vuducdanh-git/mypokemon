@@ -43,10 +43,10 @@ public class WordListScreen implements Screen {
         });
         if (!Master.wordSkills.isEmpty()) {
             String words = Master.wordSkills.get(repet);
-            new FloatingWords(0, 0, stage, words);
+            new Wlsword(0, 0, stage, words);
 
             String wordsVN = Master.wordSkillsVN.get(repet);
-            new FloatingWords(0, 0, stage, wordsVN);
+            new Wlsword(0, 0, stage, wordsVN);
         }
         len = new MLen(noMoveStage,Gdx.graphics.getWidth()-100 ,240,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
         xuong = new MXuong(noMoveStage,Gdx.graphics.getWidth()-100 ,150,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);

@@ -13,8 +13,10 @@ import k1.chuyentin.com.actors.SB;
 import k1.chuyentin.com.screens.AboutScreen;
 
 public class StartGame extends Game {
-    public BitmapFont font;
+    public static BitmapFont font;
     public BitmapFont fonts;
+    public BitmapFont fonts2;
+    public BitmapFont name;
 
     public Array<Diamond> diamonds;
     public Array<SB> sbs;
@@ -64,6 +66,64 @@ public class StartGame extends Game {
         font = fontGenerators.generateFont(fontParameters);
 
         fontGenerators.dispose();
+
+
+
+
+
+        FreeTypeFontGenerator fontGeneratorse = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameterse = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameterse.size = 30;
+        fontParameterse.color = Color.WHITE;
+        fontParameterse.characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            + "0123456789"
+            + "ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨƠƯỲÝ"
+            + "àáâãèéêìíòóôõùúăđĩơưỳý"
+            + "ĂÂÊÔƠƯăâêôơư"
+            + "ẠẢẤẦẨẪẬẮẰẲẴẶ"
+            + "ẸẺẾỀỂỄỆ"
+            + "ỊỈÍÌ"
+            + "ỌỎỐỒỔỖỘỚỜỞỠỢ"
+            + "ỤỦỨỪỬỮỰ"
+            + "ỲỶỸỴ"
+            + "áàảãạăắằẳẵặâấầẩẫậ"
+            + "éèẻẽẹêếềểễệ"
+            + "íìỉĩị"
+            + "óòỏõọôốồổỗộơớờởỡợ"
+            + "úùủũụưứừửữự"
+            + "ýỳỷỹỵ"
+            + "!@#$%^&*()-_=+[]{};:'\",.<>?/\\|";
+        fonts2 = fontGeneratorse.generateFont(fontParameterse);
+
+        fontGeneratorse.dispose();
+
+
+
+        FreeTypeFontGenerator fontGeneratorseft = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameterseft = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameterseft.size = 20;
+        fontParameterseft.color = Color.TAN;
+        fontParameterseft.characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            + "0123456789"
+            + "ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨƠƯỲÝ"
+            + "àáâãèéêìíòóôõùúăđĩơưỳý"
+            + "ĂÂÊÔƠƯăâêôơư"
+            + "ẠẢẤẦẨẪẬẮẰẲẴẶ"
+            + "ẸẺẾỀỂỄỆ"
+            + "ỊỈÍÌ"
+            + "ỌỎỐỒỔỖỘỚỜỞỠỢ"
+            + "ỤỦỨỪỬỮỰ"
+            + "ỲỶỸỴ"
+            + "áàảãạăắằẳẵặâấầẩẫậ"
+            + "éèẻẽẹêếềểễệ"
+            + "íìỉĩị"
+            + "óòỏõọôốồổỗộơớờởỡợ"
+            + "úùủũụưứừửữự"
+            + "ýỳỷỹỵ"
+            + "!@#$%^&*()-_=+[]{};:'\",.<>?/\\|";
+        name = fontGeneratorseft.generateFont(fontParameterseft);
+
+        fontGeneratorseft.dispose();
 
         setScreen(new AboutScreen(this));
 

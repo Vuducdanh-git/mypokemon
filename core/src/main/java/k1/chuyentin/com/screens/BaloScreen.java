@@ -4,15 +4,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import k1.chuyentin.com.*;
-import k1.chuyentin.com.actors.Bth;
-import k1.chuyentin.com.actors.Diamond;
-import k1.chuyentin.com.actors.Ender;
-import k1.chuyentin.com.actors.SB;
+import k1.chuyentin.com.actors.*;
+import k1.chuyentin.com.enums.PetStatus;
+
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.addAction;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.addListener;
 
 public class BaloScreen implements Screen {
     Stage stage;
@@ -22,7 +25,7 @@ public class BaloScreen implements Screen {
     SB slimeball;
     Ender ender;
     SpriteBatch batch;
-    public BaloScreen(StartGame game){
+    public BaloScreen(StartGame game) {
         this.game = game;
         stage = new Stage();
         batch=new SpriteBatch();
@@ -35,6 +38,24 @@ public class BaloScreen implements Screen {
                 game.setScreen(new Master(game));
             }
         });
+        float x = 50;
+        float y = 300;
+
+        for (int i = 0; i < Utils.pets.size; i++) {
+            Pet pet = Utils.pets.get(i);
+            pet.setPosition(x, y);
+            pet.status = PetStatus.STAT;
+            pet.setSize(64, 64);
+            pet.game = game;
+            stage.addActor(pet);
+
+            if (i % 4 != 0) {
+                x += (pet.getWidth() + 20);
+            } else {
+                x = 50;
+                y -= (pet.getHeight() + 20);
+            }
+        }
     }
 
     @Override

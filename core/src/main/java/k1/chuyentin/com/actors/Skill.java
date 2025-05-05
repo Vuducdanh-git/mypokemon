@@ -31,7 +31,7 @@ public class Skill extends Actor {
                         if (!Master.wordSkills.isEmpty()) {
                             click =1;
                             qa =2;
-                            BattleScreen.quest = MathUtils.random(1,3);
+                            BattleScreen.quest = MathUtils.random(1,10);
                             if (BattleScreen.quest ==1){
                                 r = MathUtils.random(1,10);
                                 if (r==1){Utils.specialq.add("special");}

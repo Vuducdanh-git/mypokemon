@@ -14,23 +14,24 @@ public class Enepoke extends Actor {
     float time;
     public Enepoke(Texture texture, Stage apps, float x, float y,int hang) {
         setPosition(x, y);
-        setOrigin(getWidth() / 2, getHeight() / 2);
+        setOrigin(getWidth() / 10, getHeight() / 10);
         int cot = 5;
 
-        setSize(texture.getWidth() / cot * 2, texture.getHeight() / hang * 2);
+        setSize(texture.getWidth()/cot*2, texture.getHeight()/(hang-1)*2);
         float speed = 5;
-        TextureRegion[][] tam = TextureRegion.split(texture, texture.getWidth() / cot, texture.getHeight() / hang);// đưa tất cả vào danh một danh sách ảnh, vì 6 cột 1 hàng nên sẽ có 6 phần tử: 6 x 1
-        TextureRegion[] frames = new TextureRegion[cot * hang];
+        TextureRegion[][] tam = TextureRegion.split(texture, texture.getWidth()/cot, texture.getHeight()/hang);// đưa tất cả vào danh một danh sách ảnh, vì 6 cột 1 hàng nên sẽ có 6 phần tử: 6 x 1
+        TextureRegion[] frames = new TextureRegion[cot*hang-cot];
         int index = 0;
-        for (int i = 0; i < hang; i++) {
+        for (int i = 0; i < hang-1; i++) {
             for (int j = 0; j < cot; j++) {
                 frames[index++] = tam[i][j];
             }
         }
         animation = new com.badlogic.gdx.graphics.g2d.Animation<TextureRegion>(speed, frames);
         animation.setPlayMode(Animation.PlayMode.LOOP);
-        time = 0;
-        setOrigin(getWidth() / 2, getHeight() / 2);
+        time =0;
+
+
         apps.addActor(this);
 
     }

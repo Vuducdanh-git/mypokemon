@@ -28,7 +28,8 @@ public class Pet extends MyActor{
     float time;
     public PetStatus status = PetStatus.TRANING;
     public PetName name = PetName.VEBACK;
-
+    public int acc=50;
+    public int avoid = 10;
     TextureRegion textureRegionNoAnimation;
 
     public int solanclick = 249;
@@ -53,7 +54,12 @@ public class Pet extends MyActor{
         addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (status.equals(PetStatus.TRANING)) {
+                if(status.equals(PetStatus.STAT)){
+                    int i = Utils.pets.indexOf(Pet.this, true);
+                    Utils.pets.swap(i, 0);
+//                    if(game != null){
+//                    }
+                }else if (status.equals(PetStatus.TRANING)) {
                     Master.money++;
                     solanclick++;
                     levelUp = false;
@@ -65,16 +71,6 @@ public class Pet extends MyActor{
                         h = h * 1.01f;
                     }
                     new Coin(getX() + getWidth() / 2, getY() + getHeight() / 2, getStage(), true);
-
-//                    if (!Master.wordSkills.isEmpty()) {
-//                        int ngaunhien = MathUtils.random(0, Master.wordSkills.size - 1);
-//                        String words = Master.wordSkills.get(ngaunhien);
-//                        new FloatingWords(0, 0, getStage(), words);
-//
-//                        String wordsVN = Master.wordSkillsVN.get(ngaunhien);
-//                        new FloatingWords(0, 0, getStage(), wordsVN);
-//                    }
-
                     addAction(Actions.sequence(
                         Actions.color(new Color(MathUtils.random(0f, 1f), MathUtils.random(0f, 1f), MathUtils.random(0f, 1f), MathUtils.random(0f, 1f))),
                         Actions.delay(0.5f),
@@ -335,17 +331,18 @@ public class Pet extends MyActor{
         Texture texture = new Texture("charback.png");
         int cot = 5;
         int hang = 29;
-
         switch (name){
             case VEBACK -> {
                 texture = new Texture("veback.png");
-                    cot = 5;
-                    hang = 34;
+                cot = 5;
+                hang = 34;
+
             }
             case DIBACK -> {
                 texture =  new Texture("diback.png");
                 cot = 5;
                 hang = 28;
+
             }
             case GENBACK -> {
                 texture =  new Texture("genback.png");
@@ -366,6 +363,7 @@ public class Pet extends MyActor{
                 texture = new Texture("scepback.png");
                 cot = 5;
                 hang = 27;
+
             }
             case GARBACK -> {
                 texture = new Texture("garback.png");
@@ -376,65 +374,74 @@ public class Pet extends MyActor{
                 texture = new Texture("charback.png");
                 cot = 5;
                 hang = 29;
+
             }
             case BLASBACK -> {
                 texture = new Texture("blasback.png");
                 cot = 5;
                 hang = 49;
+
             }
             case CHANBACK -> {
                 texture = new Texture("chanback.png");
                 cot = 5;
                 hang = 34;
+
             }
             case ZOROBACK -> {
                 texture = new Texture("zoroback.png");
                 cot = 5;
                 hang = 36;
+
             }
             case GALLABACK -> {
                 texture = new Texture("gallaback.png");
                 cot = 5;
                 hang = 27;
+
             }
             case MBACK -> {
                 texture = new Texture("mback.png");
                 cot = 5;
-                hang = 24;//
+                hang = 24;
             }case CEBACK -> {
                 texture = new Texture("ceback.png");
                 cot = 5;
-                hang = 13;//
+                hang = 13;
             }case UNBACK -> {
                 texture = new Texture("unback.png");
                 cot = 5;
-                hang = 19;//
+                hang = 19;
             }
             case GROUBACK -> {
                 texture = new Texture("grouback.png");
                 cot = 5;
-                hang = 21;//
+                hang = 21;
+                  ;//
             }case LUGBACK -> {
                 texture = new Texture("lugback.png");
                 cot = 5;
                 hang = 24;
+
             }case KYOBACK -> {
                 texture = new Texture("kyoback.png");
                 cot = 5;
                 hang = 49;
+
             }
             case RAYBACK -> {
                 texture = new Texture("rayback.png");
                 cot = 5;
-                hang = 24;//
+                hang = 24;
+
             }case DITTOBACK -> {
                 texture = new Texture("dittoback.png");
                 cot = 5;
-                hang = 16;//
+                hang = 16;
             }
         }
 
-        setSize(texture.getWidth()/cot*3, texture.getHeight()/(hang-1)*3);
+        setSize(texture.getWidth()/cot*3, texture.getHeight()/(hang-1)*2);
         float speed = 5;
         TextureRegion[][] tam = TextureRegion.split(texture, texture.getWidth()/cot, texture.getHeight()/hang);// đưa tất cả vào danh một danh sách ảnh, vì 6 cột 1 hàng nên sẽ có 6 phần tử: 6 x 1
         TextureRegion[] frames = new TextureRegion[cot*hang-cot];

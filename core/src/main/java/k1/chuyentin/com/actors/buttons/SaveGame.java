@@ -30,7 +30,7 @@ public class SaveGame extends MyActor {
             public void clicked(InputEvent event, float x, float y) {
                 Array<PetforSave> petforSaves = new Array<>();
                 for(Pet p: Utils.pets){
-                    petforSaves.add(new PetforSave(p.name, p.solanclick));
+                    petforSaves.add(new PetforSave(p.name, p.solanclick,p.acc,p.avoid));
                 }
                 GameState gameState = new GameState(Master.money, petforSaves, Master.plus, Master.wordSkills, Master.wordSkillsVN, Master.giatienautoclick, Master.sodiemtangkhiautoclick);
                 gameState.save();

@@ -66,6 +66,7 @@ public class Master implements Screen {
 
     public static Skill1 skill1;
     static Item click;
+    Npc npc;
     static Item2 click2;
 
     Bar3 bar3;
@@ -113,6 +114,12 @@ public class Master implements Screen {
         balo = new Balo(stage,5,300);
         saveGame = new SaveGame(5,130,stage);
         amthanh = new AmThanh(5,200,stage,game.music);
+        npc = new Npc(5,50,stage);
+        npc.addListener(new ClickListener(){
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new NpcScreen(game));
+            }
+        });
         balo.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
