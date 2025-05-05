@@ -84,9 +84,10 @@ public class Pet extends MyActor{
                     }
                 }
                 else if(status.equals(PetStatus.STAT)){
-//                    int i = Utils.pets.indexOf(Pet.this, true);
-//                    Utils.pets.swap(i, 0);
-                    new Wlsword(200,400,stage,"accuracy:"+acc+" reflectivity:"+avoid);
+                    new Wlsword(200,400,getStage(),"accuracy:"+acc+" reflectivity:"+avoid).addAction(Actions.sequence(
+                        Actions.fadeOut(3f),
+                        Actions.removeActor()
+                    ));
                 }
             }
         });
