@@ -51,13 +51,17 @@ public class WordListScreen implements Screen {
         len = new MLen(noMoveStage,Gdx.graphics.getWidth()-100 ,240,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
         xuong = new MXuong(noMoveStage,Gdx.graphics.getWidth()-100 ,150,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
         noMoveStage.addActor(exit);
-        if (y<Gdx.graphics.getHeight()){
+
         len.addListener(new ClickListener(){
             @Override
+
             public void clicked(InputEvent event, float x, float y) {
+
                 stage.getViewport().getCamera().position.y += 20;
             }
-        });}
+        });
+
+
         xuong.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {

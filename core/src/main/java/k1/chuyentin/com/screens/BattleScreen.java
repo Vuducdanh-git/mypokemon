@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
@@ -23,6 +24,7 @@ import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.buttons.AmThanh;
 
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.addAction;
 
 
 /** {@link ApplicationListener} implementation shared by all platforms. */
@@ -199,14 +201,14 @@ public class BattleScreen implements Screen {
                 random = MathUtils.random(1, 3);
                 test = true;
                 if (random == 1) {
-                    game.diamonds.add(new Diamond(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage,true));
+                    game.diamonds.add(new Diamond(Gdx.graphics.getWidth() / 2 - 64 / 2, Gdx.graphics.getHeight() / 2 - 64 / 2, stage,true));
 
                 }
                 if (random == 2) {
-                    game.enders.add(new Ender(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage,true));
+                    game.enders.add(new Ender(Gdx.graphics.getWidth() / 2 - 64 / 2, Gdx.graphics.getHeight() / 2 - 64 / 2, stage,true));
                 }
                 if (random == 3) {
-                    game.sbs.add(new SB(Gdx.graphics.getWidth() / 2 - 32 / 2, Gdx.graphics.getHeight() / 2 - 32 / 2, stage,true));
+                    game.sbs.add(new SB(Gdx.graphics.getWidth() / 2 - 64 / 2, Gdx.graphics.getHeight() / 2 - 64 / 2, stage,true));
                 }
             }
             yourhp = 100;
@@ -241,38 +243,39 @@ public class BattleScreen implements Screen {
                 alphas = 1.0f - (float) times / (60 * 5);
                 game.font.setColor(1, 1, 1, alphas);
                 if (Skill.r == 1) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", 150, 320);
+
                 }
                 if (Skill.r == 2) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:tối thượng", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:tối thượng", 150, 320);
                 }
                 if (Skill.r == 3) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:bạn", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:bạn", 150, 320);
 
                 }
                 if (Skill.r == 4) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:ống nước", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:ống nước", 150, 320);
 
                 }
                 if (Skill.r == 5) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:kết nối", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:kết nối", 150, 320);
                 }
                 if (Skill.r == 6) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:mất kết nối", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:mất kết nối", 150, 320);
 
                 }
                 if (Skill.r == 7) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:con rồng", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:con rồng", 150, 320);
                 }
                 if (Skill.r == 8) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:chim phượng hoàng", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:chim phượng hoàng", 150, 320);
 
                 }
                 if (Skill.r == 9) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ:con sư tử", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ:con sư tử", 150, 320);
                 }
                 if (Skill.r == 10) {
-                    game.font.draw(batch, "nghĩa tiếng anh của từ : vua", hpbarm.getX()-200, hpbare.getY());
+                    game.font.draw(batch, "nghĩa tiếng anh của từ : vua", 150, 320);
                 }
             }
             else{
