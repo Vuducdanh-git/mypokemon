@@ -282,6 +282,7 @@ public class BattleScreen implements Screen {
                     charge =1;
                     inmap = 2;
                     yourhp = 100;
+                    Utils.setWordList7();
                     myhp = 100;
                 }
                 if(inmap ==1){
@@ -315,7 +316,7 @@ public class BattleScreen implements Screen {
                     }
                 }
                 if(inmap ==2){
-                    
+
                     enrandom = MathUtils.random(1, 5);
                     if (enrandom ==1){
                         enepoke.remove();
