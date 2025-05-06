@@ -32,6 +32,7 @@ public class NpcScreen implements Screen {
     int wrongansr;
     int wrongansr1;
     int wrongansr2;
+    int s=0;
 
 
 
@@ -48,112 +49,9 @@ public class NpcScreen implements Screen {
         style.up = new TextureRegionDrawable(new Texture("but.png"));
         style.fontColor = Color.RED;
 
-        a= MathUtils.random(0,Master.wordSkills.size-1);
-        if(a >3){
-            wrongansr = MathUtils.random(0,a-2);
-            wrongansr1 =MathUtils.random(0,a-3);
-            wrongansr2 = MathUtils.random(0,a-4);
-        }else {
-            wrongansr = MathUtils.random(a,Master.wordSkills.size-1);
-            int b = wrongansr;
-          //  for (int i,i < Master.wordSkills.size -5,)
-
-            wrongansr1 =MathUtils.random(b,Master.wordSkills.size-1);
-            int c = wrongansr1;
-            wrongansr2 = MathUtils.random(c,Master.wordSkills.size-1);
-        }
-
-        TextButton wrongans = new TextButton(Master.wordSkills.get(wrongansr),style);
-        TextButton wrongans1 = new TextButton(Master.wordSkills.get(wrongansr1),style);
-        TextButton wrongans2 = new TextButton(Master.wordSkills.get(wrongansr2),style);
-        TextButton rightans = new TextButton(Master.wordSkills.get(a),style);
-
-        rightans.setSize(150,100);
-        rightans.setPosition(100,200); //Gdx.graphics.getHeight()/2-rightans.getHeight()/2);
-        rightans.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                say =1;
-                rightans.remove();
-                wrongans.remove();
-                wrongans2.remove();
-                wrongans1.remove();
-                new Notification(200,200,stage,"You choose a right answer").addAction(Actions.sequence(
-                    Actions.fadeOut(2f),
-                    Actions.run( () ->{
-                        game.setScreen(new Master(game));
-                    }),
-                    Actions.removeActor()
-                ));
 
 
-            }
-        });
 
-
-        wrongans.setSize(150,100);
-        wrongans.setPosition(100, 100);//Gdx.graphics.getHeight()/2 - wrongans.getHeight()/2);
-        wrongans.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                say =2;
-                rightans.remove();
-                wrongans.remove();
-                wrongans2.remove();
-                wrongans1.remove();
-
-                new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
-                    Actions.fadeOut(2f),
-                    Actions.run( () ->{
-                        game.setScreen(new Master(game));
-                    }),
-                    Actions.removeActor()
-                ));
-
-            }
-        });
-
-        wrongans1.setSize(150,100);
-        wrongans1.setPosition(400,200);// Gdx.graphics.getHeight()/2 - 2* wrongans1.getHeight()/2);
-        wrongans1.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                say =2;
-                rightans.remove();
-                wrongans.remove();
-                wrongans2.remove();
-                wrongans1.remove();
-                new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
-                    Actions.fadeOut(2f),
-                    Actions.run( () ->{
-                        game.setScreen(new Master(game));
-                    }),
-                    Actions.removeActor()
-                ));
-            }
-        });
-
-        wrongans2.setSize(150,100);
-
-        wrongans2.setPosition(400, 100);//Gdx.graphics.getHeight()/2 -  wrongans2.getHeight()/2);
-        wrongans2.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y){
-                say =2;
-                rightans.remove();
-                wrongans.remove();
-                wrongans2.remove();
-                wrongans1.remove();
-                new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
-                    Actions.fadeOut(2f),
-                    Actions.run( () ->{
-                        game.setScreen(new Master(game));
-                    }),
-                    Actions.removeActor()
-                ));
-
-            }
-        });
         new Notification(Gdx.graphics.getWidth()/2-50,400,stage,"Yes or No").addAction(Actions.sequence(
             Actions.fadeOut(2f),
             Actions.run( () ->{
@@ -166,21 +64,143 @@ public class NpcScreen implements Screen {
                 });
                 yes.addListener(new ClickListener() {
                     public void clicked(InputEvent event, float x, float y) {
-                        no.remove();
-                        yes.remove();
-                        new Notification(150,400,stage,"nghĩa tiếng ảnh của từ:"+Master.wordSkillsVN.get(a));
-                        stage.addActor(rightans);
-                        stage.addActor(wrongans);
-                        stage.addActor(wrongans1);
-                        stage.addActor(wrongans2);
-                        npc.remove();
+                        if((Master.wordSkills.isEmpty()) || (Master.wordSkills.size ==1) || (Master.wordSkills.size ==2) || (Master.wordSkills.size ==3)) {
+                            yes.remove();
+                            no.remove();
+                            new Notification(180,400,stage,"Nad,You don't have enough skill").addAction(Actions.sequence(
+                                Actions.fadeOut(2f),
+                                Actions.run( () ->{
+                                    game.setScreen(new Master(game));
+                                }),
+                                Actions.removeActor()
+                            ));
+                        }else {
+                            no.remove();
+                            yes.remove();
+
+                            npc.remove();
+                            s=1;
+                            a= MathUtils.random(0,Master.wordSkills.size-1);
+                            if(a == Master.wordSkills.size-1){
+                                a = (Master.wordSkills.size-1)-4;
+                            }
+                            wrongansr = MathUtils.random(a+1,Master.wordSkills.size-1);
+                            int b = wrongansr;
+                            if (b == Master.wordSkills.size - 1) {
+                                b = Master.wordSkills.size-MathUtils.random(1,Master.wordSkills.size-2);
+                            }
+                            wrongansr1 = b;
+                            int c = wrongansr1;
+                            if((c == Master.wordSkills.size-1)||(b == Master.wordSkills.size-1)){
+                                wrongansr = Master.wordSkills.size-MathUtils.random(1,Master.wordSkills.size-2);
+                            }else {
+                                wrongansr2 = MathUtils.random(c+1,Master.wordSkills.size-1);
+                            }
+                                TextButton wrongans = new TextButton(Master.wordSkills.get(wrongansr),style);
+                                TextButton wrongans1 = new TextButton(Master.wordSkills.get(wrongansr1),style);
+                                TextButton wrongans2 = new TextButton(Master.wordSkills.get(wrongansr2),style);
+                                TextButton rightans = new TextButton(Master.wordSkills.get(a),style);
+
+                                rightans.setSize(150,100);
+                                rightans.setPosition(100,200); //Gdx.graphics.getHeight()/2-rightans.getHeight()/2);
+                                rightans.addListener(new ClickListener(){
+                                    @Override
+                                    public void clicked(InputEvent event, float x, float y){
+                                        say =1;
+                                        rightans.remove();
+                                        wrongans.remove();
+                                        wrongans2.remove();
+                                        wrongans1.remove();
+                                        new Notification(200,200,stage,"You choose a right answer").addAction(Actions.sequence(
+                                            Actions.fadeOut(2f),
+                                            Actions.run( () ->{
+                                                game.setScreen(new Master(game));
+                                            }),
+                                            Actions.removeActor()
+                                        ));
+
+
+                                    }
+                                });
+
+
+                                wrongans.setSize(150,100);
+                                wrongans.setPosition(100, 100);//Gdx.graphics.getHeight()/2 - wrongans.getHeight()/2);
+                                wrongans.addListener(new ClickListener(){
+                                    @Override
+                                    public void clicked(InputEvent event, float x, float y){
+                                        say =2;
+                                        rightans.remove();
+                                        wrongans.remove();
+                                        wrongans2.remove();
+                                        wrongans1.remove();
+
+                                        new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
+                                            Actions.fadeOut(2f),
+                                            Actions.run( () ->{
+                                                game.setScreen(new Master(game));
+                                            }),
+                                            Actions.removeActor()
+                                        ));
+
+                                    }
+                                });
+
+                                wrongans1.setSize(150,100);
+                                wrongans1.setPosition(400,200);// Gdx.graphics.getHeight()/2 - 2* wrongans1.getHeight()/2);
+                                wrongans1.addListener(new ClickListener(){
+                                    @Override
+                                    public void clicked(InputEvent event, float x, float y){
+                                        say =2;
+                                        rightans.remove();
+                                        wrongans.remove();
+                                        wrongans2.remove();
+                                        wrongans1.remove();
+                                        new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
+                                            Actions.fadeOut(2f),
+                                            Actions.run( () ->{
+                                                game.setScreen(new Master(game));
+                                            }),
+                                            Actions.removeActor()
+                                        ));
+                                    }
+                                });
+
+                                wrongans2.setSize(150,100);
+
+                                wrongans2.setPosition(400, 100);//Gdx.graphics.getHeight()/2 -  wrongans2.getHeight()/2);
+                                wrongans2.addListener(new ClickListener(){
+                                    @Override
+                                    public void clicked(InputEvent event, float x, float y){
+                                        say =2;
+                                        rightans.remove();
+                                        wrongans.remove();
+                                        wrongans2.remove();
+                                        wrongans1.remove();
+                                        new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
+                                            Actions.fadeOut(2f),
+                                            Actions.run( () ->{
+                                                game.setScreen(new Master(game));
+                                            }),
+                                            Actions.removeActor()
+                                        ));
+
+                                    }
+                                });
+                                new Notification(20, 400, stage, "nghĩa tiếng ảnh của từ:" + Master.wordSkillsVN.get(a));
+                                if(s ==1){
+                                    stage.addActor(rightans);
+                                    stage.addActor(wrongans);
+                                    stage.addActor(wrongans1);
+                                    stage.addActor(wrongans2);
+                                }
+                        }
                     }
                 });
             }),
             Actions.removeActor()
 
         ));
-
 
 
     }
