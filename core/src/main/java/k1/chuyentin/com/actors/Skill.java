@@ -33,7 +33,7 @@ public class Skill extends Actor {
                             qa =2;
                             BattleScreen.quest = MathUtils.random(1,10);
                             if (BattleScreen.quest ==1){
-                                r = MathUtils.random(1,2);
+                                r = MathUtils.random(1,10);
                                 if (r==1){Utils.specialq.add("special");}
                                 if (r==2){Utils.specialq.add("ultimate");}
                                 if (r==3){Utils.specialq.add("you");}
@@ -45,10 +45,11 @@ public class Skill extends Actor {
                                 if (r==9){Utils.specialq.add("lion");}
                                 if (r==10){Utils.specialq.add("king");}
                             }
+                            else {
+                                System.out.println("u don't have this skill ");
+                            }
                         }
-                        else {
-                            System.out.println("u don't have this skill ");
-                        }
+
                     }
                 }
 
