@@ -282,8 +282,8 @@ public class BattleScreen implements Screen {
                     charge =1;
                     inmap = 2;
                     yourhp = 100;
-                    Utils.setWordList7();
                     myhp = 100;
+                    Utils.setWordList7();
                 }
                 if(inmap ==1){
                     enrandom = MathUtils.random(1, 5);
