@@ -72,6 +72,7 @@ public class BattleScreen implements Screen {
     public static int waitss;
     int kill=0;
     int enrandom =1;
+    int f =2;
 
 
     public BattleScreen(StartGame game) {
@@ -401,14 +402,7 @@ public class BattleScreen implements Screen {
                     game.font.draw(batch, "nghĩa tiếng anh của từ : vua", 150, 320);
                 }
             } else {
-                textField.setVisible(false);
-                stage.unfocusAll();
-                isTextFieldActive = false;
-                for (int i = 0; i < 10; i++) {
-                    new Fire(0, 0, stage, false);
-                }
-                myhp -=30;
-                quest = 2;
+                f =1;
             }
         }
 
@@ -503,7 +497,7 @@ public class BattleScreen implements Screen {
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
                 waitss = 2;
-            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive && (f ==2)) {
                 Skill.qa =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
@@ -569,6 +563,70 @@ public class BattleScreen implements Screen {
                     }
                 }
                 Utils.specialq.removeIndex(0);
+            }else if(f ==1){
+                String inputText = "out of time";
+                textField.setVisible(false);
+                stage.unfocusAll();
+                isTextFieldActive = false;
+                skill.click = 0;
+                waitss =0;
+                times =0;
+                quest =5;
+                boolean isHeated = false;
+                if(inputText.isEmpty()){
+                    for (int i = 0; i < 10; i++) {
+                        new Fire(0, 0, stage, false);
+                    }
+                    dodgechancemy = MathUtils.random(1,100);
+                    if(dodgechancemy > pet.avoid){
+                        trumhp = MathUtils.random(20f, 30f);
+                        pet.avoid += 5;
+
+                    }else {
+                        trumhp =0;
+                        pet.avoid -= 5;
+                        dodge =2;
+                    }
+                }else{
+                    for (String s : Utils.specialq) {
+                        if (s.equals(inputText)) {
+                            isHeated = true;
+                            break;
+                        }
+
+                    }
+                    if (!isHeated) {
+                        for (int i = 0; i < 10; i++) {
+                            new Fire(0, 0, stage, false);
+                        }
+                        dodgechancemy = MathUtils.random(1,100);
+                        if(dodgechancemy > pet.avoid){
+                            trumhp = MathUtils.random(20f, 30f);
+                            pet.avoid += 5;
+
+                        }else {
+                            trumhp =0;
+                            pet.avoid -= 5;
+                            dodge =2;
+                        }
+                    } else {
+                        for (int i = 0; i < 10; i++) {
+                            new Fire(0, 0, stage, true);
+                        }
+                        dodgechanceenemy = MathUtils.random(1,100);
+                        if(dodgechanceenemy <= pet.acc){
+                            truhp = inputText.length() * 2;
+                            pet.acc -= 2;
+
+                        }else {
+                            truhp =0;
+                            pet.acc += 5;
+                            dodge =1;
+                        }
+                    }
+                }
+                Utils.specialq.removeIndex(0);
+                f= 2;
             }
         }
     }
