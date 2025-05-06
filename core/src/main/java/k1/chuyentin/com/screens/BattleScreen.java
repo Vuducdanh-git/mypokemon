@@ -283,6 +283,7 @@ public class BattleScreen implements Screen {
                     inmap = 2;
                     yourhp = 100;
                     myhp = 100;
+                    Utils.setWordList7();
                 }
                 if(inmap ==1){
                     enrandom = MathUtils.random(1, 5);
@@ -315,7 +316,7 @@ public class BattleScreen implements Screen {
                     }
                 }
                 if(inmap ==2){
-                    
+
                     enrandom = MathUtils.random(1, 5);
                     if (enrandom ==1){
                         enepoke.remove();
@@ -404,9 +405,10 @@ public class BattleScreen implements Screen {
                 stage.unfocusAll();
                 isTextFieldActive = false;
                 for (int i = 0; i < 10; i++) {
-                    new Fire(0, 0, stage, true);
+                    new Fire(0, 0, stage, false);
                 }
-                trumhp -= 20;
+                myhp -=30;
+                quest = 2;
             }
         }
 

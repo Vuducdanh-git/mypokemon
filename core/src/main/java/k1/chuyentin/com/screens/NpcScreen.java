@@ -28,7 +28,7 @@ public class NpcScreen implements Screen {
     int say =0;
     No no;
 
-    int a = MathUtils.random(0,Master.wordSkills.size-1);
+    int a ;
     int wrongansr;
     int wrongansr1;
     int wrongansr2;
@@ -39,31 +39,28 @@ public class NpcScreen implements Screen {
         stage = new Stage();
 
         npc = new Npc(Gdx.graphics.getWidth()/2-50,Gdx.graphics.getHeight()/2-50,stage);
-        new Notification(Gdx.graphics.getWidth()/2-50,400,stage,"Yes or No").addAction(Actions.sequence(
-            Actions.fadeOut(3f),
-            Actions.removeActor()
-        ));
 
-        yes = new Yes(stage,100,50,150,100);
-        no = new No(stage,400,50,150,100);
-        no.addListener(new ClickListener() {
-            public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new Master(game));
-            }
-        });
+
+
 
         TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
         style.font = game.font;
         style.up = new TextureRegionDrawable(new Texture("but.png"));
-        style.fontColor = Color.YELLOW;
+        style.fontColor = Color.RED;
+
+        a= MathUtils.random(0,Master.wordSkills.size-1);
         if(a >3){
-            wrongansr = MathUtils.random(0,a-1);
-            wrongansr1 =MathUtils.random(0,a-1);
-            wrongansr2 = MathUtils.random(0,a-1);
+            wrongansr = MathUtils.random(0,a-2);
+            wrongansr1 =MathUtils.random(0,a-3);
+            wrongansr2 = MathUtils.random(0,a-4);
         }else {
             wrongansr = MathUtils.random(a,Master.wordSkills.size-1);
-            wrongansr1 =MathUtils.random(a,Master.wordSkills.size-1);
-            wrongansr2 = MathUtils.random(a,Master.wordSkills.size-1);
+            int b = wrongansr;
+          //  for (int i,i < Master.wordSkills.size -5,)
+
+            wrongansr1 =MathUtils.random(b,Master.wordSkills.size-1);
+            int c = wrongansr1;
+            wrongansr2 = MathUtils.random(c,Master.wordSkills.size-1);
         }
 
         TextButton wrongans = new TextButton(Master.wordSkills.get(wrongansr),style);
@@ -82,7 +79,7 @@ public class NpcScreen implements Screen {
                 wrongans2.remove();
                 wrongans1.remove();
                 new Notification(200,200,stage,"You choose a right answer").addAction(Actions.sequence(
-                    Actions.fadeOut(3f),
+                    Actions.fadeOut(2f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
                     }),
@@ -92,18 +89,7 @@ public class NpcScreen implements Screen {
 
             }
         });
-        yes.addListener(new ClickListener() {
-            public void clicked(InputEvent event, float x, float y) {
-                no.remove();
-                yes.remove();
-                new Notification(150,400,stage,"nghĩa tiếng ảnh của từ:"+Master.wordSkillsVN.get(a));
-                stage.addActor(rightans);
-                stage.addActor(wrongans);
-                stage.addActor(wrongans1);
-                stage.addActor(wrongans2);
-                npc.remove();
-            }
-        });
+
 
         wrongans.setSize(150,100);
         wrongans.setPosition(100, 100);//Gdx.graphics.getHeight()/2 - wrongans.getHeight()/2);
@@ -117,7 +103,7 @@ public class NpcScreen implements Screen {
                 wrongans1.remove();
 
                 new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
-                    Actions.fadeOut(3f),
+                    Actions.fadeOut(2f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
                     }),
@@ -138,7 +124,7 @@ public class NpcScreen implements Screen {
                 wrongans2.remove();
                 wrongans1.remove();
                 new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
-                    Actions.fadeOut(3f),
+                    Actions.fadeOut(2f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
                     }),
@@ -159,7 +145,7 @@ public class NpcScreen implements Screen {
                 wrongans2.remove();
                 wrongans1.remove();
                 new Notification(200,200,stage,"You choose a wrong answer").addAction(Actions.sequence(
-                    Actions.fadeOut(3f),
+                    Actions.fadeOut(2f),
                     Actions.run( () ->{
                         game.setScreen(new Master(game));
                     }),
@@ -168,6 +154,32 @@ public class NpcScreen implements Screen {
 
             }
         });
+        new Notification(Gdx.graphics.getWidth()/2-50,400,stage,"Yes or No").addAction(Actions.sequence(
+            Actions.fadeOut(2f),
+            Actions.run( () ->{
+                yes = new Yes(stage,100,50,150,100);
+                no = new No(stage,400,50,150,100);
+                no.addListener(new ClickListener() {
+                    public void clicked(InputEvent event, float x, float y) {
+                        game.setScreen(new Master(game));
+                    }
+                });
+                yes.addListener(new ClickListener() {
+                    public void clicked(InputEvent event, float x, float y) {
+                        no.remove();
+                        yes.remove();
+                        new Notification(150,400,stage,"nghĩa tiếng ảnh của từ:"+Master.wordSkillsVN.get(a));
+                        stage.addActor(rightans);
+                        stage.addActor(wrongans);
+                        stage.addActor(wrongans1);
+                        stage.addActor(wrongans2);
+                        npc.remove();
+                    }
+                });
+            }),
+            Actions.removeActor()
+
+        ));
 
 
 
