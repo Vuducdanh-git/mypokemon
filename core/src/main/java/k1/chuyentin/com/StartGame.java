@@ -11,6 +11,8 @@ import k1.chuyentin.com.actors.Diamond;
 import k1.chuyentin.com.actors.Ender;
 import k1.chuyentin.com.actors.SB;
 import k1.chuyentin.com.screens.AboutScreen;
+import k1.chuyentin.com.screens.BattleScreen;
+import k1.chuyentin.com.screens.Master;
 
 public class StartGame extends Game {
     public static BitmapFont font;
@@ -24,8 +26,10 @@ public class StartGame extends Game {
     public Music music;
     public Music nen;
     public static boolean amthanh=true;
-    @Override
 
+    public Master trainingScreen;
+    public BattleScreen battleScreen;
+    @Override
     public void create() {
         font = new BitmapFont();
         fonts = new BitmapFont();
@@ -66,10 +70,6 @@ public class StartGame extends Game {
         font = fontGenerators.generateFont(fontParameters);
 
         fontGenerators.dispose();
-
-
-
-
 
         FreeTypeFontGenerator fontGeneratorse = new FreeTypeFontGenerator(Gdx.files.internal("vietnam.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameterse = new FreeTypeFontGenerator.FreeTypeFontParameter();
@@ -125,6 +125,7 @@ public class StartGame extends Game {
 
         fontGeneratorseft.dispose();
 
+        battleScreen = new BattleScreen(this);
         setScreen(new AboutScreen(this));
 
     }

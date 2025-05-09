@@ -37,7 +37,7 @@ public class    Chargepoke implements Screen {
         returnButton.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y){
-                game.setScreen(new BattleScreen(game));
+                game.setScreen(game.battleScreen);
             }
         });
         batch = new SpriteBatch();

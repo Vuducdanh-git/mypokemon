@@ -80,7 +80,7 @@ public class Pet extends MyActor{
                     int i = Utils.pets.indexOf(Pet.this, true);
                     Utils.pets.swap(i, 0);
                     if(game != null){
-                        game.setScreen(new BattleScreen(game));
+                        game.setScreen(game.battleScreen);
                     }
                 }
                 else if(status.equals(PetStatus.STAT)){
