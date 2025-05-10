@@ -43,10 +43,10 @@ public class WordListScreen implements Screen {
         });
         if (!Master.wordSkills.isEmpty()) {
             String words = Master.wordSkills.get(repet);
-            new Wlsword(0, 0, stage, words);
+            new Wlsword(-10000, 0, stage, words);
 
             String wordsVN = Master.wordSkillsVN.get(repet);
-            new Wlsword(0, 0, stage, wordsVN);
+            new Wlsword(-1000, 0, stage, wordsVN);
         }
         len = new MLen(noMoveStage,Gdx.graphics.getWidth()-100 ,240,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
         xuong = new MXuong(noMoveStage,Gdx.graphics.getWidth()-100 ,150,Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/8);
@@ -56,8 +56,7 @@ public class WordListScreen implements Screen {
             @Override
 
             public void clicked(InputEvent event, float x, float y) {
-
-                stage.getViewport().getCamera().position.y += 20;
+                stage.getViewport().getCamera().position.y += 25;
             }
         });
 
@@ -65,7 +64,7 @@ public class WordListScreen implements Screen {
         xuong.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                stage.getViewport().getCamera().position.y -= 20;
+                stage.getViewport().getCamera().position.y -= 25;
             }
         });
 
