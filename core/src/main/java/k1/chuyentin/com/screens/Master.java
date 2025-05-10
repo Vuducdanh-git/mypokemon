@@ -103,7 +103,7 @@ public class Master implements Screen {
 
     public Master(StartGame game) {
         game.music.stop();
-        //sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
+        sound = Gdx.audio.newSound(Gdx.files.internal("tap.wav"));
         music = Gdx.audio.newMusic(Gdx.files.internal("chill.wav"));
         music.setLooping(true);
         music.setVolume(10);
@@ -122,7 +122,7 @@ public class Master implements Screen {
         balo = new Balo(stage,5,380);
         saveGame = new SaveGame(5,200,stage);
 
-        amthanh = new AmThanh(5,250,stage,game.music);
+        amthanh = new AmThanh(5,250,stage,music);
         npc = new Npc(5,50,stage);
         npc.addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {

@@ -72,6 +72,7 @@ public class BattleScreen implements Screen {
         this.game = game;
         stage = new Stage();
         game.nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
+
         btr = new Texture("arc.png");
         background = new Background(0, 0, stage);
         textr = new Texture("beedrill.png");
@@ -82,6 +83,8 @@ public class BattleScreen implements Screen {
     @Override
     public void show() {
         batch = new SpriteBatch();
+        game.nen.play();
+        game.nen.setLooping(true);
 
         pet = Utils.pets.get(0);
         pet.setAnimation();
@@ -111,8 +114,6 @@ public class BattleScreen implements Screen {
                 skill.click = 0;
                 waitss = 0;
                 skill.qa = 0;
-                System.out.println(skill.click);
-                System.out.println(isTextFieldActive);
                 game.setScreen(new Chargepoke(game));
             }
         });
@@ -124,10 +125,6 @@ public class BattleScreen implements Screen {
                 skill.click = 0;
                 waitss = 0;
                 skill.qa = 0;
-
-                System.out.println(kill);
-                System.out.println(skill.click);
-                System.out.println(isTextFieldActive);
                 game.setScreen(new Master(game));
             }
         });
