@@ -2,6 +2,7 @@ package k1.chuyentin.com.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -96,12 +97,19 @@ public class Master implements Screen {
     Item i8;
     Item i9;
     Item i10;
+    Music music;
 
 
 
     public Master(StartGame game) {
-        sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
+        game.music.stop();
+        //sound = Gdx.audio.newSound(Gdx.files.internal("ms.wav"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("chill.wav"));
+        music.setLooping(true);
+        music.setVolume(10);
+        music.play();
         this.game = game;
+
         FreeTypeFontGenerator fontGenerator = new FreeTypeFontGenerator(Gdx.files.internal("Lonely Cake.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         fontParameter.size = 20;
@@ -113,6 +121,7 @@ public class Master implements Screen {
         bg = new Background(0, 0, stage);
         balo = new Balo(stage,5,380);
         saveGame = new SaveGame(5,200,stage);
+
         amthanh = new AmThanh(5,250,stage,game.music);
         npc = new Npc(5,50,stage);
         npc.addListener(new ClickListener(){
@@ -325,7 +334,7 @@ public class Master implements Screen {
 
     @Override
     public void hide() {
-
+        music.stop();
     }
 
     @Override
