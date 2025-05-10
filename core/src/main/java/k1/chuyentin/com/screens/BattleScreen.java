@@ -66,10 +66,10 @@ public class BattleScreen implements Screen {
     boolean test=false;
     int random =0;
     public static int quest = 2;
-    int times;
-    int inmap=1;
+    int times = 0;
+    public static int inmap;
     public static int waitss;
-    public int kill =0;
+    public static int kill =0;
     int enrandom =1;
 
 
@@ -109,11 +109,6 @@ public class BattleScreen implements Screen {
                 skill.click = 0;
                 waitss =0;
                 skill.qa = 0;
-                if(kill >= 5){
-                    inmap =2;
-                }
-                System.out.println(skill.click);
-                System.out.println(isTextFieldActive);
                 game.setScreen(new Chargepoke(game));
 
             }
@@ -126,62 +121,12 @@ public class BattleScreen implements Screen {
                 skill.click = 0;
                 waitss =0;
                 skill.qa = 0;
-                if(kill >= 5){
-                    inmap =2;
-                }
-                System.out.println(kill);
-                System.out.println(skill.click);
-                System.out.println(isTextFieldActive);
                 game.setScreen(new Master(game));
 
             }
         });
-        if(inmap ==1){
-            textr = new Texture("beedrill.png");
-            enepoke = new Enepoke(textr, stage, 390, 280,12);
-        }
-        if(inmap ==2) {
-            enrandom = MathUtils.random(1, 5);
-            if (enrandom ==1){
-                enepoke.remove();
-                textr = new Texture("char.png");
-                enepoke = new Enepoke(textr, stage, 390, 280,29);
-
-
-
-            }
-            if(enrandom ==2){
-                enepoke.remove();
-                textr = new Texture("chan.png");
-                enepoke = new Enepoke(textr, stage, 390, 280,34);
-
-
-
-            }
-            if(enrandom ==3){
-                enepoke.remove();
-                textr = new Texture("grou.png");
-                enepoke = new Enepoke(textr, stage, 390, 280,20);
-
-
-
-            }
-            if(enrandom ==4){
-                enepoke.remove();
-                textr = new Texture("gar.png");
-
-
-                enepoke = new Enepoke(textr, stage, 390, 280,18);
-
-            }
-            if(enrandom ==5){
-                enepoke.remove();
-                textr = new Texture("un.png");
-                enepoke = new Enepoke(textr, stage, 390, 280,19);
-
-
-            }
-        }
+        textr = new Texture("beedrill.png");
+        enepoke = new Enepoke(textr, stage, 390, 280,12);
 
 
 
@@ -211,7 +156,12 @@ public class BattleScreen implements Screen {
         float alphase = 1.0f;
         float alpha = 1.0f;
         float alphas =1.0f;
-
+        if(inmap ==1){
+            background.textureRegion = new TextureRegion(new Texture("battle.jpg"));
+        }
+        if(inmap ==2){
+            background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
+        }
         if (myhp > 50) {
             hpbarm.setColor(Color.RED);
         }
@@ -246,6 +196,13 @@ public class BattleScreen implements Screen {
         stage.act();
         stage.draw();
         batch.begin();
+        if(kill <1){
+            inmap =1;
+            background.textureRegion = new TextureRegion(new Texture("battle.jpg"));
+        }else {
+            inmap =2;
+            background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
+        }
         if(inmap ==1){
             if (enrandom ==1){
                 game.name.setColor(Color.CHARTREUSE);
@@ -343,8 +300,8 @@ public class BattleScreen implements Screen {
                 Master.money += 10000;
                 lose = 0;
                 kill ++;
-                if((charge ==0)&&(kill == 5)){
-                    background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
+
+                if((charge ==0)&&(kill == 1)){
                     charge =1;
                     inmap = 2;
                     yourhp = 100;
@@ -429,7 +386,7 @@ public class BattleScreen implements Screen {
         if (quest == 1) {
             times++;
             if (times < 60 * 9) {
-                alphas = 1.0f - (float) times / (60 * 5);
+                alphas = 1.0f - (float) times / (60 * 9);
                 game.font.setColor(1, 1, 1, alphas);
                 if (Skill.r == 1) {
                     game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", 150, 320);
@@ -466,11 +423,18 @@ public class BattleScreen implements Screen {
                 if (Skill.r == 10) {
                     game.font.draw(batch, "nghĩa tiếng anh của từ : vua", 150, 320);
                 }
-                else {
-
-                    trumhp = 20;
-                    quest = 2139;
-                }
+            } else {
+                trumhp = 20;
+                quest = 2139;
+                Skill.qa =0;
+                //  lấy nội dung nhập
+                String inputText = textField.getText();
+                System.out.println(inputText);
+                textField.setVisible(false);
+                stage.unfocusAll();
+                isTextFieldActive = false;
+                skill.click = 0;
+                waitss =0;
             }
 
         }
@@ -520,6 +484,7 @@ public class BattleScreen implements Screen {
                 stage.unfocusAll();
                 isTextFieldActive = false;
                 skill.click = 0;
+                times =0;
                 waitss =0;
                 boolean isHeated = false;
                 for (String s : Master.wordSkills) {
@@ -568,6 +533,7 @@ public class BattleScreen implements Screen {
                 waitss = 2;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
                 Skill.qa =0;
+                times =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
                 System.out.println(inputText);
@@ -576,7 +542,7 @@ public class BattleScreen implements Screen {
                 isTextFieldActive = false;
                 skill.click = 0;
                 waitss =0;
-                times =0;
+
                 quest =5;
                 boolean isHeated = false;
                 if(inputText.isEmpty()){

@@ -13,7 +13,7 @@ import k1.chuyentin.com.actors.SB;
 import k1.chuyentin.com.screens.AboutScreen;
 
 public class StartGame extends Game {
-    public static BitmapFont font;
+    public BitmapFont font;
     public BitmapFont fonts;
     public BitmapFont fonts2;
     public BitmapFont name;
