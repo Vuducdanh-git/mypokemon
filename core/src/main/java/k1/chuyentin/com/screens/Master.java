@@ -104,7 +104,7 @@ public class Master implements Screen {
     public Master(StartGame game) {
         game.music.stop();
         sound = Gdx.audio.newSound(Gdx.files.internal("tap.wav"));
-        music = Gdx.audio.newMusic(Gdx.files.internal("chill.wav"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("lt.wav"));
         music.setLooping(true);
         music.setVolume(10);
         music.play();
