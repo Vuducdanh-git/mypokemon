@@ -74,6 +74,9 @@ public class BattleScreen implements Screen {
         game.nen = Gdx.audio.newMusic(Gdx.files.internal("sound.mp3"));
         btr = new Texture("arc.png");
         background = new Background(0, 0, stage);
+        textr = new Texture("beedrill.png");
+        enepoke = new Enepoke(textr, stage, 390, 280, 12);
+
     }
 
     @Override
@@ -85,6 +88,9 @@ public class BattleScreen implements Screen {
 
         if(background.getStage() == null){
             stage.addActor(background);
+        }
+        if(enepoke.getStage() == null){
+            stage.addActor(enepoke);
         }
 
         skillBar = new SkillBar(330, 0, stage);
@@ -105,9 +111,6 @@ public class BattleScreen implements Screen {
                 skill.click = 0;
                 waitss = 0;
                 skill.qa = 0;
-                if (kill >= 5) {
-                    inmap = 2;
-                }
                 System.out.println(skill.click);
                 System.out.println(isTextFieldActive);
                 game.setScreen(new Chargepoke(game));
@@ -121,54 +124,13 @@ public class BattleScreen implements Screen {
                 skill.click = 0;
                 waitss = 0;
                 skill.qa = 0;
-                if (kill >= 5) {
-                    inmap = 2;
-                }
+
                 System.out.println(kill);
                 System.out.println(skill.click);
                 System.out.println(isTextFieldActive);
                 game.setScreen(new Master(game));
             }
         });
-        if (inmap == 1) {
-            textr = new Texture("beedrill.png");
-            enepoke = new Enepoke(textr, stage, 390, 280, 12);
-        }
-        if (inmap == 2) {
-            enrandom = MathUtils.random(1, 5);
-            if (enrandom == 1) {
-                enepoke.remove();
-                textr = new Texture("char.png");
-                enepoke = new Enepoke(textr, stage, 390, 280, 29);
-            }
-            if (enrandom == 2) {
-                enepoke.remove();
-                textr = new Texture("chan.png");
-                enepoke = new Enepoke(textr, stage, 390, 280, 34);
-            }
-            if (enrandom == 3) {
-                enepoke.remove();
-                textr = new Texture("grou.png");
-                enepoke = new Enepoke(textr, stage, 390, 280, 20);
-
-
-            }
-            if (enrandom == 4) {
-                enepoke.remove();
-                textr = new Texture("gar.png");
-
-
-                enepoke = new Enepoke(textr, stage, 390, 280, 18);
-
-            }
-            if (enrandom == 5) {
-                enepoke.remove();
-                textr = new Texture("un.png");
-                enepoke = new Enepoke(textr, stage, 390, 280, 19);
-
-
-            }
-        }
 
         //stage.addActor(boss);
         amThanh = new AmThanh(5, 400, stage, game.nen);
@@ -333,46 +295,13 @@ public class BattleScreen implements Screen {
                 Master.money += 10000;
                 lose = 0;
                 kill++;
-                if ((charge == 0) && (kill == 5)) {
+                if ((charge == 0) && (kill == 1)) {
                     background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
                     charge = 1;
                     inmap = 2;
                     yourhp = 100;
                     myhp = 100;
                     Utils.setWordList7();
-                }
-                if (inmap == 1) {
-                    enrandom = MathUtils.random(1, 5);
-                    if (enrandom == 1) {
-                        enepoke.remove();
-                        textr = new Texture("beedrill.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 12);
-                    }
-                    if (enrandom == 2) {
-                        enepoke.remove();
-                        textr = new Texture("celebi.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 13);
-
-                    }
-                    if (enrandom == 3) {
-                        enepoke.remove();
-                        textr = new Texture("ditto.png");
-                        enepoke = new Enepoke(textr, stage, 390, 260, 16);
-                    }
-                    if (enrandom == 4) {
-                        enepoke.remove();
-                        textr = new Texture("galla.png");
-                        enepoke = new Enepoke(textr, stage, 390, 250, 27);
-                    }
-                    if (enrandom == 5) {
-                        enepoke.remove();
-                        textr = new Texture("un.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 19);
-
-                    }
-                }
-                if (inmap == 2) {
-
                     enrandom = MathUtils.random(1, 5);
                     if (enrandom == 1) {
                         enepoke.remove();
@@ -410,6 +339,39 @@ public class BattleScreen implements Screen {
 
 
                     }
+                }
+                if (inmap == 1) {
+                    enrandom = MathUtils.random(1, 5);
+                    if (enrandom == 1) {
+                        enepoke.remove();
+                        textr = new Texture("beedrill.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 12);
+                    }
+                    if (enrandom == 2) {
+                        enepoke.remove();
+                        textr = new Texture("celebi.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 13);
+
+                    }
+                    if (enrandom == 3) {
+                        enepoke.remove();
+                        textr = new Texture("ditto.png");
+                        enepoke = new Enepoke(textr, stage, 390, 260, 16);
+                    }
+                    if (enrandom == 4) {
+                        enepoke.remove();
+                        textr = new Texture("galla.png");
+                        enepoke = new Enepoke(textr, stage, 390, 250, 27);
+                    }
+                    if (enrandom == 5) {
+                        enepoke.remove();
+                        textr = new Texture("un.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 19);
+
+                    }
+                }
+                if (inmap == 2) {
+
                 }
             }
         }
