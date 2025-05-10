@@ -377,8 +377,9 @@ public class BattleScreen implements Screen {
         }
         if (quest == 1) {
             times++;
-            if (times < 60 * 9) {
-                alphas = 1.0f - (float) times / (60 * 5);
+
+            if (times < 60 * 4.5f) {
+                alphas = 1.0f - (float) times / (60 * 4.5f);
                 game.font.setColor(1, 1, 1, alphas);
                 if (Skill.r == 1) {
                     game.font.draw(batch, "nghĩa tiếng anh của từ:đặc biệt", 150, 320);
@@ -414,11 +415,21 @@ public class BattleScreen implements Screen {
                 }
                 if (Skill.r == 10) {
                     game.font.draw(batch, "nghĩa tiếng anh của từ : vua", 150, 320);
-                } else {
-
-                    trumhp = 20;
-                    quest = 2139;
                 }
+            } else {
+                trumhp = 20;
+                quest = 2139;
+                Skill.qa =0;
+                //  lấy nội dung nhập
+                String inputText = textField.getText();
+                System.out.println(inputText);
+                textField.setVisible(false);
+                stage.unfocusAll();
+                isTextFieldActive = false;
+                skill.click = 0;
+                waitss =0;
+
+
             }
 
         }
