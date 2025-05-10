@@ -153,7 +153,7 @@ public class Master implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 if (pet.solanclick >= 250) {
-                    game.setScreen(new BattleScreen(game));
+                    game.setScreen(game.battleScreen);
                 } else {
                     chuaDuDieuKien = new ChuaDuDieuKien(-200, 0, stage);
                     System.out.println("chua du dieu kien");
