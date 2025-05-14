@@ -41,7 +41,7 @@ public class Master implements Screen {
     Stage stage;
 
     public static Sound sound;
-    static public  float money = 0;
+    static public  float money = 2000000000;
     static public  float moneygia = 0;
     static int time = 0;
 
@@ -282,11 +282,11 @@ public class Master implements Screen {
             moneygia = money/1000;
             font.draw(batch, "$" + moneygia + "k", 0, Gdx.graphics.getHeight() - 32);
         }else
-        if (money>=999999&&money<=99999999) {
-            moneygia=money/10000000;
+        if (money>=1000000&&money<=99999999) {
+            moneygia=money/1000000;
             font.draw(batch, "$" + moneygia + "M", 0, Gdx.graphics.getHeight() - 32);
         }else
-        if (money>=99999999) {
+        if (money>=100000000) {
             moneygia=money/1000000000;
             font.draw(batch, "$" + moneygia + "B", 0, Gdx.graphics.getHeight() - 32);
         }

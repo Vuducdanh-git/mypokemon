@@ -187,7 +187,7 @@ public class NpcScreen implements Screen {
 
                                     }
                                 });
-                                new Notification(20, 400, stage, "nghĩa tiếng ảnh của từ:" + Master.wordSkillsVN.get(a));
+                                new Notification(20, 400, stage, "nghĩa tiếng anh của từ:" + Master.wordSkillsVN.get(a));
                                 if(s ==1){
                                     stage.addActor(rightans);
                                     stage.addActor(wrongans);
