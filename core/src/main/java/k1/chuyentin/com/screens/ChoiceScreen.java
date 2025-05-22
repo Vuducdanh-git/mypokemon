@@ -17,6 +17,7 @@ public class ChoiceScreen implements Screen {
     Stage stage;
     ButtonClass lop6;
     ButtonClass lop7;
+    ButtonClass lop8;
     SpriteBatch batch;
     ChoiceScreen(StartGame game){
         this.game = game;
@@ -35,6 +36,14 @@ public class ChoiceScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Utils.setWordList7();
+                game.setScreen(new Master(game));
+            }
+        });
+        lop8 = new ButtonClass(500, Gdx.graphics.getHeight()/2 - 32, stage,8);
+        lop8.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Utils.setWordList8();
                 game.setScreen(new Master(game));
             }
         });

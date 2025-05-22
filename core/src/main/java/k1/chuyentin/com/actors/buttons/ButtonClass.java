@@ -12,6 +12,8 @@ public class ButtonClass extends MyActor {
             textureRegion = new TextureRegion(new Texture("l6.png"));
         }else if (tybe==7){
             textureRegion = new TextureRegion(new Texture("l7.png"));
+        }else if (tybe==8){
+            textureRegion = new TextureRegion(new Texture("yes.png"));
         }
         setSize(64, 64);
 

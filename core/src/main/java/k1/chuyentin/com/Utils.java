@@ -403,6 +403,113 @@ public class Utils {
 //        wordList.add("tạm biệt");
 
     }
+    public static void setWordList8(){//thêm danh sách từ tiếng anh và tiếng việt cho từ vựng lớp 8
+
+
+        wordList.add("badminton");
+        wordListVN.add("môn cầu lông");
+
+        wordList.add("balance");
+        wordListVN.add("sự thăng bằng, sự cân bằng");
+
+        wordList.add("bracelet");
+        wordListVN.add("vòng đeo tay");
+
+        wordList.add("comic");
+        wordListVN.add("chạm, khắc");
+
+        wordList.add("carved ");
+        wordListVN.add("truyện tranh");
+
+        wordList.add("crazy");
+        wordListVN.add("rất thích, quá say mê");
+
+        wordList.add("cruel");
+        wordListVN.add("độc ác");
+
+        wordList.add("detest");
+        wordListVN.add("căm ghét, ghê tởm");
+
+        wordList.add("do-it-yourself");
+        wordListVN.add("hoạt động tự làm ra, sửa chữa hoặc trang trí đồ vật tại nhà, tự làm lấy");
+
+        wordList.add("dollhouse");
+        wordListVN.add("nhà búp bê");
+
+        wordList.add("fancy");
+        wordListVN.add("mến, thích");
+
+        wordList.add("fold");
+        wordListVN.add("gấp, gập");
+
+        wordList.add("fond");
+        wordListVN.add("mến, thích ");
+
+
+        wordList.add("home-made");
+        wordListVN.add("nhà làm");
+
+        wordList.add("keen");
+        wordListVN.add("say mê, ham thích");
+
+        wordList.add(" kit ");
+        wordListVN.add("bộ đồ nghề");
+
+        wordList.add("knitting");
+        wordListVN.add("sự đan len");
+
+        wordList.add("leisure");
+        wordListVN.add("thời gian rảnh rỗi");
+
+        wordList.add("message");
+        wordListVN.add("gửi tin nhắn");
+
+        wordList.add("muscle");
+        wordListVN.add("cơ bắp");
+
+        wordList.add("nevertheless");
+        wordListVN.add("mặc dù vậy, tuy thế nhưng");
+
+        wordList.add("origami");
+        wordListVN.add("nghệ thuật gấp giấy Nhật Bản");
+
+        wordList.add("outdoors");
+        wordListVN.add("ngoài trời");
+
+        wordList.add("paper flower");
+        wordListVN.add("hoa giấy");
+
+        wordList.add("prefer");
+        wordListVN.add("thích hơn");
+
+        wordList.add("puzzle");
+        wordListVN.add(" giải đố");
+
+        wordList.add("resort");
+        wordListVN.add("khu nghỉ dưỡng");
+
+        wordList.add("skiing");
+        wordListVN.add("môn trượt tuyết bằng ván");
+
+        wordList.add("snowboarding");
+        wordListVN.add("trượt tuyết bằng ván");
+
+        wordList.add("surfing the net");
+        wordListVN.add("lướt mạng");
+
+        wordList.add(" be into something");
+        wordListVN.add("say mê, yêu thích cái gì đó");
+
+        wordList.add("keep in touch");
+        wordListVN.add("giữ liên lạc");
+
+        wordList.add("stay in shape");
+        wordListVN.add("giữ dáng");
+
+
+
+
+    }
 
     public static Array<String> specialq = new Array<>();
     public static Array<Pet> pets = new Array<>();
