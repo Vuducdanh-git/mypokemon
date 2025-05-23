@@ -123,7 +123,7 @@ public class BattleScreen implements Screen {
             }
         });
 
-        bth = new Bth(stage, 340 + bar1.getWidth() / 2, 60 - 30, skillBar.getWidth() / 2 - 30, 30);
+        bth = new Bth(stage, 340 + bar1.getWidth() / 2, 10, 130, 50);
         bth.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 isTextFieldActive = false;
@@ -164,7 +164,7 @@ public class BattleScreen implements Screen {
         }else {
             skill.remove();
         }
-        Gdx.input.setInputProcessor(stage);
+
         yourhps = 100;
         cross.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
@@ -173,7 +173,8 @@ public class BattleScreen implements Screen {
                 summary.toBack();
                 enepoke.setPosition(390,280);
             }
-        });;
+        });
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
