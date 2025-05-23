@@ -54,7 +54,7 @@ public class BattleScreen implements Screen {
     float truhp = 0;
 
     Texture btr;
-    Skill skill;// = new Skill(stage,bar1.getX(),bar1.getY(),bar1.getWidth()/2);
+    Skill skill;
     float trumhp = 0;
     int lose = 0;
     int time = 0;
@@ -101,7 +101,7 @@ public class BattleScreen implements Screen {
         hpbare = new Hpbar(30, 320, stage);
         bar2 = new Bar2(30, 320, stage);
         bar1 = new Bar1(330, 140, stage);
-        skill = new Skill(stage, bar1.getX(), bar1.getY() / 2, bar1.getWidth() / 2);
+        skill = new Skill(stage, bar1.getX(), bar1.getY() / 2-20, skillBar.getWidth() / 2 - 30, 30);
         stage.addActor(skillBar);
         stage.addActor(pet);
         stage.addActor(bar2);
@@ -152,15 +152,20 @@ public class BattleScreen implements Screen {
         } else {
             game.nen.setVolume(0f);
         }
+        if(Master.wordSkills.size >0) {
+            stage.addActor(skill);
+        }else {
+            skill.remove();
+        }
         Gdx.input.setInputProcessor(stage);
     }
 
     @Override
     public void render(float v) {
+
         float alphase = 1.0f;
         float alpha = 1.0f;
         float alphas = 1.0f;
-
         if (myhp > 50) {
             hpbarm.setColor(Color.RED);
         }
@@ -485,8 +490,9 @@ public class BattleScreen implements Screen {
                     }
                 }
                 if (isHeated) {
+                    int a = MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
-                        new Fire(0, 0, stage, true);
+                        new Fire(0, 0, stage, true,a);
                     }
                     dodgechanceenemy = MathUtils.random(1, 100);
                     if (dodgechanceenemy <= pet.acc) {
@@ -499,8 +505,9 @@ public class BattleScreen implements Screen {
                         dodge = 1;
                     }
                 } else {
+                    int a =MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
-                        new Fire(0, 0, stage, false);
+                        new Fire(0, 0, stage, false,a);
                     }
                     dodgechancemy = MathUtils.random(1, 100);
                     if (dodgechancemy > pet.avoid) {
@@ -537,8 +544,9 @@ public class BattleScreen implements Screen {
                 quest = 5;
                 boolean isHeated = false;
                 if (inputText.isEmpty()) {
+                    int a = MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
-                        new Fire(0, 0, stage, false);
+                        new Fire(0, 0, stage, false,a);
                     }
                     dodgechancemy = MathUtils.random(1, 100);
                     if (dodgechancemy > pet.avoid) {
@@ -559,8 +567,9 @@ public class BattleScreen implements Screen {
 
                     }
                     if (!isHeated) {
+                        int a = MathUtils.random(1,3);
                         for (int i = 0; i < 10; i++) {
-                            new Fire(0, 0, stage, false);
+                            new Fire(0, 0, stage, false,a);
                         }
                         dodgechancemy = MathUtils.random(1, 100);
                         if (dodgechancemy > pet.avoid) {
@@ -573,8 +582,9 @@ public class BattleScreen implements Screen {
                             dodge = 2;
                         }
                     } else {
+                        int a = MathUtils.random(1,3);
                         for (int i = 0; i < 10; i++) {
-                            new Fire(0, 0, stage, true);
+                            new Fire(0, 0, stage, true,a);
                         }
                         dodgechanceenemy = MathUtils.random(1, 100);
                         if (dodgechanceenemy <= pet.acc) {

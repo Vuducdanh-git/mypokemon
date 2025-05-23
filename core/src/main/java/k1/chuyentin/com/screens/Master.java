@@ -41,7 +41,7 @@ public class Master implements Screen {
     Stage stage;
 
     public static Sound sound;
-    static public  float money = 2000000000;
+    static public  float money = 0;
     static public  float moneygia = 0;
     static int time = 0;
 
@@ -162,6 +162,7 @@ public class Master implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 if (pet.solanclick >= 250) {
+                    money =money/2;
                     game.setScreen(game.battleScreen);
                 } else {
                     chuaDuDieuKien = new ChuaDuDieuKien(-200, 0, stage);
@@ -180,6 +181,9 @@ public class Master implements Screen {
 
     @Override
     public void show() {
+        if(money <1){
+            money =0;
+        }
         stage.addListener(new InputListener() {
             private Actor lastActor = null;
 
