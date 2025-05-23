@@ -45,6 +45,9 @@ public class Master implements Screen {
     static public  float moneygia = 0;
     static int time = 0;
 
+
+    Rank rank;
+
     static public int sodiemtangkhiautoclick = 0;
     static public boolean autoclick = false;
 
@@ -120,6 +123,7 @@ public class Master implements Screen {
         stage = new Stage();
         bg = new Background(0, 0, stage);
         balo = new Balo(stage,5,380);
+        rank = new Rank(100,380,stage);
         saveGame = new SaveGame(5,200,stage);
 
         amthanh = new AmThanh(5,250,stage,music);
@@ -241,6 +245,9 @@ public class Master implements Screen {
                     pet.click();
                 }
             }
+
+
+
 //            if (money >= 1000&& money<1000000){
 //                money = money/1000;
 //                System.out.println("   k");
