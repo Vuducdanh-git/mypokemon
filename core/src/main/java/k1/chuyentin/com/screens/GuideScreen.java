@@ -22,7 +22,7 @@ public class GuideScreen implements Screen {
         stages = new Stage();
         exit = new NutMenu(500, 400 ,stages, ButtonType.EXIT);
 
-        huongDan = new HuongDan(0,22,stages);
+        huongDan = new HuongDan(0,22,stages,1);
         huongDan.setSize(640, 480-80);
         exit.addListener(new ClickListener(){
             @Override
@@ -43,6 +43,7 @@ public class GuideScreen implements Screen {
 
     @Override
     public void render(float v) {
+        StartGame.mytime +=v;
 
         ScreenUtils.clear(Color.BLACK);
 

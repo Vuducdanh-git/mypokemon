@@ -56,7 +56,7 @@ public class ChoiceScreen implements Screen {
     @Override
     public void render(float v) {
         ScreenUtils.clear(Color.BLACK);
-
+        StartGame.mytime +=v;
 
         stage.act();
         stage.draw();

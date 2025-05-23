@@ -83,6 +83,7 @@ public class MenuScreen implements Screen {
         batch.end();
         stage.act();
         stage.draw();
+        StartGame.mytime +=v;
     }
 
     @Override

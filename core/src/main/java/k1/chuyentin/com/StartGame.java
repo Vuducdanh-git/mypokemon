@@ -29,6 +29,8 @@ public class StartGame extends Game {
 
     public Master trainingScreen;
     public BattleScreen battleScreen;
+    public static float mytime = 0;
+
     @Override
     public void create() {
         font = new BitmapFont();

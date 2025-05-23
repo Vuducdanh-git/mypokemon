@@ -211,7 +211,7 @@ public class NpcScreen implements Screen {
         ScreenUtils.clear(Color.BLACK);
         stage.act();
         stage.draw();
-
+        StartGame.mytime +=delta;
 
 
     }

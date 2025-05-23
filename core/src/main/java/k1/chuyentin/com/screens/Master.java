@@ -102,6 +102,7 @@ public class Master implements Screen {
 
 
     public Master(StartGame game) {
+
         game.music.stop();
         sound = Gdx.audio.newSound(Gdx.files.internal("tap.wav"));
         music = Gdx.audio.newMusic(Gdx.files.internal("lt.wav"));
@@ -219,7 +220,7 @@ public class Master implements Screen {
     @Override
     public void render(float v) {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-
+        StartGame.mytime +=v;
         time++;
         if (pet.lv == 0){
             bar3.setColor(Color.GREEN);
@@ -275,6 +276,7 @@ public class Master implements Screen {
         stage.draw();
 
         batch.begin();
+        game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime+" seconds",0,Gdx.graphics.getHeight()-10);
         if (money<0) {
             System.out.println("loi roi loi roi");
             font.draw(batch, "$" + moneygia + "   ,hhooli.,uihlulusssdfguuuiuigxzcbgh   loi roi", 0, Gdx.graphics.getHeight() - 32);

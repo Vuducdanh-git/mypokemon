@@ -68,7 +68,7 @@ public class BaloScreen implements Screen {
     public void render(float v) {
         ScreenUtils.clear(Color.BLACK);
         stage.act();
-
+        StartGame.mytime +=v;
         stage.draw();
         batch.begin();
         game.font.setColor(1,1,1,1);

@@ -5,6 +5,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
+import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.Pet;
 import k1.chuyentin.com.actors.Skill;
@@ -18,9 +19,10 @@ public class GameState {
     public Array<String> wordSkillsVN = new Array<>();
     public int giatienautoclick = 0;
     public int sodiemtangkhiautoclick = 0;
+    public float time =0;
     public GameState(){}
 
-    public GameState(float money, Array<PetforSave> petforSaves, int plus, Array<String> wordSkills, Array<String> wordSkillsVN, int giatienautoclick, int sodiemautoclick) {
+    public GameState(float money, Array<PetforSave> petforSaves, int plus, Array<String> wordSkills, Array<String> wordSkillsVN, int giatienautoclick, int sodiemautoclick,float time) {
         this.money = money;
         this.petforSaves = petforSaves;
         this.plus = plus;
@@ -28,6 +30,7 @@ public class GameState {
         this.wordSkillsVN = wordSkillsVN;
         this.giatienautoclick = giatienautoclick;
         this.sodiemtangkhiautoclick = sodiemautoclick;
+        this.time = time;
     }
 
     public void save() {
@@ -48,14 +51,17 @@ public class GameState {
         }
     }
     private void loadData(GameState gameState){
-            Master.money = gameState.money;
+        Master.money = gameState.money;
         Master.plus = gameState.plus;
         Master.wordSkills = gameState.wordSkills;
         Master.wordSkillsVN = gameState.wordSkillsVN;
         Master.giatienautoclick = gameState.giatienautoclick;
         Master.sodiemtangkhiautoclick = gameState.sodiemtangkhiautoclick;
+        StartGame.mytime = gameState.time;
         for (PetforSave p: gameState.petforSaves) {
+
             Pet pet = new Pet(new Texture("egg.png"), 0, 0, null, p.name);
+
             pet.solanclick = p.solanclick;
             Utils.pets.add(pet);
         }

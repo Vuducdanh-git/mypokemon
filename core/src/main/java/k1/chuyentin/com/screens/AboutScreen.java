@@ -58,6 +58,7 @@ public class AboutScreen implements Screen {
 
     @Override
     public void render(float v) {
+        StartGame.mytime +=v;
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         time ++;
         if(time % 10 ==0){

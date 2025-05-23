@@ -21,6 +21,7 @@ import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.actors.buttons.AmThanh;
+import k1.chuyentin.com.actors.buttons.Cross;
 
 
 /**
@@ -43,6 +44,7 @@ public class BattleScreen implements Screen {
     public static float myhp = 100;
     public static float yourhp = 100;
     Bth bth;
+    Cross cross;
     Hpbar hpbarm;
     Hpbar hpbare;
     TextField textField;
@@ -58,14 +60,18 @@ public class BattleScreen implements Screen {
     float trumhp = 0;
     int lose = 0;
     int time = 0;
+    Summary summary;
     boolean test = false;
     int random = 0;
+
     public static int quest = 2;
     int times;
     int inmap = 1;
     public static int waitss;
     public int kill = 0;
     int enrandom = 1;
+    float yourhps;
+    int tu =0;
 
 
     public BattleScreen(StartGame game) {
@@ -95,7 +101,6 @@ public class BattleScreen implements Screen {
         if(enepoke.getStage() == null){
             stage.addActor(enepoke);
         }
-
         skillBar = new SkillBar(330, 0, stage);
         hpbarm = new Hpbar(350, 140, stage);
         hpbare = new Hpbar(30, 320, stage);
@@ -131,6 +136,8 @@ public class BattleScreen implements Screen {
 
         //stage.addActor(boss);
         amThanh = new AmThanh(5, 400, stage, game.nen);
+        summary = new Summary(80,150,stage);
+        cross = new Cross(stage,100 +420,300,50,50);
 
         TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
         textFieldStyle.font = game.font;
@@ -158,11 +165,20 @@ public class BattleScreen implements Screen {
             skill.remove();
         }
         Gdx.input.setInputProcessor(stage);
+        yourhps = 100;
+        cross.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                waitss =0;
+                cross.toBack();
+                summary.toBack();
+                enepoke.setPosition(390,280);
+            }
+        });;
     }
 
     @Override
     public void render(float v) {
-
+        StartGame.mytime +=v;
         float alphase = 1.0f;
         float alpha = 1.0f;
         float alphas = 1.0f;
@@ -175,7 +191,6 @@ public class BattleScreen implements Screen {
         if (BattleScreen.myhp < 25) {
             hpbarm.setColor(Color.RED);
         }
-
         if (yourhp > 50) {
             hpbare.setColor(Color.RED);
         }
@@ -188,18 +203,21 @@ public class BattleScreen implements Screen {
         }
         if (truhp > 0) {
             truhp -= 1;
-            skill.health(1);
+            skill.health(100);
         }
         if (trumhp > 0) {
             trumhp -= 1;
             skill.healths(1);
         }
         hpbarm.setSize(270f / 100f * myhp, 25);
-        hpbare.setSize(270f / 100f * yourhp, 25);
+        hpbare.setSize(270f / yourhps * yourhp, 25);
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         stage.act();
         stage.draw();
         batch.begin();
+        game.font.setColor(Color.BLACK);
+        game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime+" seconds",0,Gdx.graphics.getHeight()-10);
+        game.font.setColor(Color.WHITE);
         if (inmap == 1) {
             if (enrandom == 1) {
                 game.name.setColor(Color.CHARTREUSE);
@@ -270,7 +288,7 @@ public class BattleScreen implements Screen {
         }
         if (lose == 2) {
             if (!test) {
-                random = MathUtils.random(1, 3);
+                int random = MathUtils.random(1, 3);
                 test = true;
                 if (random == 1) {
                     game.diamonds.add(new Diamond(Gdx.graphics.getWidth() / 2 - 64 / 2, Gdx.graphics.getHeight() / 2 - 64 / 2, stage, true));
@@ -291,17 +309,28 @@ public class BattleScreen implements Screen {
                 game.fonts.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
                 waitss = 2;
             } else {
+                waitss =2;
+                enepoke.toBack();
+                stage.addActor(summary);
+                stage.addActor(cross);
+                summary.toFront();
+                cross.toFront();
+                enepoke.setPosition(232222222,22222222);
+                game.font.draw(batch,"" + tu,Gdx.graphics.getWidth()/2+20,Gdx.graphics.getHeight()/2);
                 time = 0;
                 waitss = 0;
                 test = false;
                 Master.money += 10000;
                 lose = 0;
                 kill++;
-                if ((charge == 0) && (kill == 1)) {
+                yourhp +=50;
+                yourhps = yourhp;
+
+                if ((charge == 0) && (kill == 5)) {
                     background.textureRegion = new TextureRegion(new Texture("biomemagma.jpg"));
                     charge = 1;
                     inmap = 2;
-                    yourhp = 100;
+
                     myhp = 100;
                     Utils.setWordList7();
                     enrandom = MathUtils.random(1, 5);
@@ -372,10 +401,9 @@ public class BattleScreen implements Screen {
 
                     }
                 }
-                if (inmap == 2) {
 
-                }
             }
+
         }
         if (quest == 1) {
             times++;
@@ -493,7 +521,9 @@ public class BattleScreen implements Screen {
                     int a = MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
                         new Fire(0, 0, stage, true,a);
+
                     }
+
                     dodgechanceenemy = MathUtils.random(1, 100);
                     if (dodgechanceenemy <= pet.acc) {
                         truhp = inputText.length() * 2;
@@ -521,6 +551,7 @@ public class BattleScreen implements Screen {
                     }
                 }
                 Skill.qa = 0;
+                tu +=1;
             }
         }
         if (quest == 1) {
@@ -586,6 +617,7 @@ public class BattleScreen implements Screen {
                         for (int i = 0; i < 10; i++) {
                             new Fire(0, 0, stage, true,a);
                         }
+                        tu +=1;
                         dodgechanceenemy = MathUtils.random(1, 100);
                         if (dodgechanceenemy <= pet.acc) {
                             truhp = inputText.length() * 2;
@@ -600,6 +632,7 @@ public class BattleScreen implements Screen {
                 }
                 Utils.specialq.removeIndex(0);
             }
+            tu +=1;
         }
     }
 
