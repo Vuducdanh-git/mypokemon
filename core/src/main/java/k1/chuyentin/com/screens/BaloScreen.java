@@ -24,6 +24,8 @@ public class BaloScreen implements Screen {
     Diamond dia;
     SB slimeball;
     Ender ender;
+    
+    public static int soDia = 0;
     SpriteBatch batch;
     public BaloScreen(StartGame game) {
         this.game = game;

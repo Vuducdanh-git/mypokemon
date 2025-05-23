@@ -20,7 +20,7 @@ public class StartGame extends Game {
     public BitmapFont fonts2;
     public BitmapFont name;
 
-    public Array<Diamond> diamonds;
+    public static Array<Diamond> diamonds;
     public Array<SB> sbs;
     public Array<Ender> enders;
     public Music music;
