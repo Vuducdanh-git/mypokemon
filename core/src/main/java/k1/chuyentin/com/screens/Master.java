@@ -41,7 +41,7 @@ public class Master implements Screen {
     Stage stage;
 
     public static Sound sound;
-    static public  float money = 0;
+    static public  float money = 100000000;
     static public  float moneygia = 0;
     static int time = 0;
 
