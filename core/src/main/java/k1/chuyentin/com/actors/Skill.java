@@ -16,11 +16,11 @@ public class Skill extends Actor {
     public int click =0;
     public static int r = MathUtils.random(1,10);
     public static int qa = 0;
-    public Skill(Stage stage , float x, float y,float width) {
+    public Skill(Stage stage , float x, float y,float width,float height) {
         texture = new Texture("cf.png");
-        setPosition(x, y);
-        setSize(width, 30);
-        stage.addActor(this);
+        setPosition(x+10, y+10);
+        setSize(width+40, height);
+
         addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
                 if (BattleScreen.waitss == 0){

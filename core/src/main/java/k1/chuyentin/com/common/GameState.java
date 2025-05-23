@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.Pet;
+import k1.chuyentin.com.actors.Skill;
 import k1.chuyentin.com.screens.Master;
 
 public class GameState {
