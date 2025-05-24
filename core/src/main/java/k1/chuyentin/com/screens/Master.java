@@ -151,15 +151,17 @@ public class Master implements Screen {
 
             }
         });
-        bt = new OnOffauto(50,100,stage);
+        bt = new OnOffauto(50,200,stage);
         bt.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 if (autoclick == false){
+                    bt.textureRegion= new TextureRegion(new Texture("auto off.png"));
                 System.out.println("12eddwidfjijt94");
                 autoclick = true;
                 }else if (autoclick == true){
+                    bt.textureRegion= new TextureRegion(new Texture("auto on.png"));
                     System.out.println("sfjiajirjgaiejgijeqragi9we9");
                     autoclick = false;
                 }
