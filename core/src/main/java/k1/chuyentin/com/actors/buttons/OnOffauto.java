@@ -21,8 +21,6 @@ public class OnOffauto extends MyActor {
         setSize(textureRegion.getRegionWidth()/16,textureRegion.getRegionHeight()/16);
         setPosition(x, y);
 
-        setPosition(Gdx.graphics.getWidth(), y);
-        addAction(Actions.moveTo(x, y, 0.5f));
 
     }
 

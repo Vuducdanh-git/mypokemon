@@ -78,7 +78,8 @@ public class Item2 extends MyActor{
 
 
                         Master.money-= giatienautoclick;
-                        Master.autoclick=true;
+                        Master.autoclickf=true;
+
                         if (Master.autoclick==true) {
                             giatienautoclick *= 50;
                             Master.sound.play();

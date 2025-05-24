@@ -51,6 +51,7 @@ public class Master implements Screen {
 
     static public int sodiemtangkhiautoclick = 0;
     static public boolean autoclick = false;
+    static public boolean autoclickf = false;
 
     static public int giatienautoclick = 250;
 
@@ -155,16 +156,18 @@ public class Master implements Screen {
         bt.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                if (autoclick == false){
-                    bt.textureRegion= new TextureRegion(new Texture("auto off.png"));
-                System.out.println("12eddwidfjijt94");
-                autoclick = true;
-                }else if (autoclick == true){
-                    bt.textureRegion= new TextureRegion(new Texture("auto on.png"));
-                    System.out.println("sfjiajirjgaiejgijeqragi9we9");
-                    autoclick = false;
+                if(autoclickf == true){
+
+                    super.clicked(event, x, y);
+                    if (autoclick == false){
+                        bt.textureRegion= new TextureRegion(new Texture("auto off.png"));
+                        autoclick = true;
+                    }else if (autoclick == true){
+                        bt.textureRegion= new TextureRegion(new Texture("auto on.png"));
+                        autoclick = false;
+                    }
                 }
+
             }
 
 
