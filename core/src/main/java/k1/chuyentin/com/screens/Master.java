@@ -25,6 +25,7 @@ import k1.chuyentin.com.actors.*;
 import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.buttons.AmThanh;
 import k1.chuyentin.com.actors.buttons.NutMenu;
+import k1.chuyentin.com.actors.buttons.OnOffauto;
 import k1.chuyentin.com.actors.buttons.SaveGame;
 import k1.chuyentin.com.enums.ButtonType;
 import k1.chuyentin.com.enums.PetStatus;
@@ -54,6 +55,7 @@ public class Master implements Screen {
     static public int giatienautoclick = 250;
 
     public static int plus = 0;
+    public static boolean battatatc = false;
 
     public Pet pet;
     Egg egg;
@@ -72,7 +74,7 @@ public class Master implements Screen {
     static Item click;
     Npc npc;
     static Item2 click2;
-
+    OnOffauto bt;
     Bar3 bar3;
 
 
@@ -147,6 +149,22 @@ public class Master implements Screen {
                 game.setScreen(new WordListScreen(game));
 
             }
+        });
+        bt = new OnOffauto(50,100,stage);
+        bt.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                if (autoclick == false){
+                System.out.println("12eddwidfjijt94");
+                autoclick = true;
+                }else if (autoclick == true){
+                    System.out.println("sfjiajirjgaiejgijeqragi9we9");
+                    autoclick = false;
+                }
+            }
+
+
         });
 
         if(!Utils.pets.isEmpty()){
