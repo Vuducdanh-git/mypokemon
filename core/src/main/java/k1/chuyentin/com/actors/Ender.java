@@ -13,7 +13,9 @@ public class Ender extends Actor {
         texture = new Texture("pear.png");
         setPosition(x, y);
         setSize(64, 64);
-        stage.addActor(this);
+        if(stage!=null){
+            stage.addActor(this);
+        }
         if (isbt==true) {
             addAction(Actions.sequence(
                 Actions.delay(2),
