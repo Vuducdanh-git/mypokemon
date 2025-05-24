@@ -79,7 +79,7 @@ public class BattleScreen implements Screen {
     public static int i =0;
     public static int is=0;
     int timer;
-    int tpq=0;
+    float tpq=0;
     public static int tpqt = 2100000002;
     int check=0;
     int timet=0;
@@ -129,7 +129,7 @@ public class BattleScreen implements Screen {
         cyp.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 if(i ==1){
-
+                    waitss =0;
                 }else {
                     isTextFieldActive = false;
                     skill.click = 0;
@@ -146,13 +146,14 @@ public class BattleScreen implements Screen {
         bth.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 if(i ==1){
-
+                    waitss =0;
                 }else {
                     isTextFieldActive = false;
                     skill.click = 0;
                     waitss = 0;
                     skill.qa = 0;
                     game.setScreen(new Master(game));
+
                 }
 
 
@@ -161,7 +162,7 @@ public class BattleScreen implements Screen {
 
         //stage.addActor(boss);
         amThanh = new AmThanh(5, 400, stage, game.nen);
-        summary = new Summary(80,150,stage);
+        summary = new Summary(170,100,stage);
         cross = new Cross(stage,10000000,300,50,50);
 
         TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
@@ -198,7 +199,44 @@ public class BattleScreen implements Screen {
                 summary.toBack();
                 i =0;
                 tu =0;
-                is =0;
+
+                if(inmap==2){
+                    enrandom = MathUtils.random(1, 5);
+                    if (enrandom == 1) {
+                        enepoke.remove();
+                        textr = new Texture("char.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 29);
+
+
+                    }
+                    if (enrandom == 2) {
+                        enepoke.remove();
+                        textr = new Texture("chan.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 34);
+
+
+                    }
+                    if (enrandom == 3) {
+                        enepoke.remove();
+                        textr = new Texture("grou.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 20);
+
+
+                    }
+                    if (enrandom == 4) {
+                        enepoke.remove();
+                        textr = new Texture("gar.png");
+
+
+                        enepoke = new Enepoke(textr, stage, 390, 280, 18);
+
+                    }
+                    if (enrandom == 5) {
+                        enepoke.remove();
+                        textr = new Texture("un.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 19);
+                    }
+                }
                 if (inmap == 1) {
                     enrandom = MathUtils.random(1, 5);
                     if (enrandom == 1) {
@@ -236,7 +274,6 @@ public class BattleScreen implements Screen {
 
     @Override
     public void render(float v) {
-        System.out.println(StartGame.diamonds.size);
         StartGame.mytime +=v;
         float alphase = 1.0f;
         float alpha = 1.0f;
@@ -292,7 +329,7 @@ public class BattleScreen implements Screen {
         stage.draw();
         batch.begin();
         game.font.setColor(Color.BLACK);
-        game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime+" seconds",0,Gdx.graphics.getHeight()-10);
+        game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime/60+" minutes",0,Gdx.graphics.getHeight()-10);
         game.font.setColor(Color.WHITE);
         if (inmap == 1) {
             if (enrandom == 1) {
@@ -363,12 +400,17 @@ public class BattleScreen implements Screen {
             }
         }
         if(i ==1){
-            game.font.draw(batch,"" + tu,Gdx.graphics.getWidth()/2+60,Gdx.graphics.getHeight()/2+50);
+            game.font.setColor(Color.BLACK);
+            game.font.draw(batch,"" + Master.sotuminhlaydc.size+ " words" ,Gdx.graphics.getWidth()/2+80,Gdx.graphics.getHeight()/2+5);
+            game.font.setColor(Color.WHITE);
         }
-        if(is ==2){
-            game.font.draw(batch,"typing",Gdx.graphics.getWidth()/2+60,Gdx.graphics.getHeight()/2);
+        if(i ==1){
+            game.font.setColor(Color.BLACK);
+            game.font.draw(batch,"" + tpq,Gdx.graphics.getWidth()/2+30,Gdx.graphics.getHeight()/2-60);
+            game.font.setColor(Color.WHITE);
         }
         if (lose == 2) {
+            waitss =2;
             if (!test) {
                 int random = MathUtils.random(1, 3);
                 test = true;
@@ -383,7 +425,7 @@ public class BattleScreen implements Screen {
                     game.sbs.add(new SB(Gdx.graphics.getWidth() / 2 - 64 / 2, Gdx.graphics.getHeight() / 2 - 64 / 2, stage, true));
                 }
             }
-            System.out.println(tpqt);
+
             yourhp = 100;
             time++;
             if (time < 60 * 2) {
@@ -391,12 +433,8 @@ public class BattleScreen implements Screen {
                 game.fonts.setColor(1, 1, 1, alpha);
                 game.fonts.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
             } else {
-                if(tpq < tpqt){
-                    tpqt = tpq;
-                    is =2;
-                }
-                tpq =0;
-                waitss =2;
+                tpq = tpq/tu;
+
                 stage.addActor(summary);
                 stage.addActor(cross);
                 summary.toFront();
@@ -404,7 +442,6 @@ public class BattleScreen implements Screen {
                 cross.setPosition(520,300);
                 i =1;
                 time = 0;
-                waitss = 0;
                 test = false;
                 Master.money += 10000;
                 lose = 0;
@@ -419,43 +456,8 @@ public class BattleScreen implements Screen {
 
                     myhp = 100;
                     Utils.setWordList7();
-                    enrandom = MathUtils.random(1, 5);
-                    if (enrandom == 1) {
-                        enepoke.remove();
-                        textr = new Texture("char.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 29);
 
 
-                    }
-                    if (enrandom == 2) {
-                        enepoke.remove();
-                        textr = new Texture("chan.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 34);
-
-
-                    }
-                    if (enrandom == 3) {
-                        enepoke.remove();
-                        textr = new Texture("grou.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 20);
-
-
-                    }
-                    if (enrandom == 4) {
-                        enepoke.remove();
-                        textr = new Texture("gar.png");
-
-
-                        enepoke = new Enepoke(textr, stage, 390, 280, 18);
-
-                    }
-                    if (enrandom == 5) {
-                        enepoke.remove();
-                        textr = new Texture("un.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 19);
-
-
-                    }
                 }
 
 
@@ -507,9 +509,6 @@ public class BattleScreen implements Screen {
                 trumhp = 20;
                 quest = 2139;
                 Skill.qa =0;
-                //  lấy nội dung nhập
-                String inputText = textField.getText();
-                System.out.println(inputText);
                 textField.setVisible(false);
                 stage.unfocusAll();
                 isTextFieldActive = false;
@@ -551,7 +550,7 @@ public class BattleScreen implements Screen {
         batch.end();
         if(check ==1){
             timet +=1;
-            if(timet % 60 ==1){
+            if(timet % 60 ==0){
                 timer ++;
             }
         }else {
@@ -566,6 +565,8 @@ public class BattleScreen implements Screen {
                 isTextFieldActive = true;
                 check =1;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive ) {
+                waitss =2;
+
                 Skill.qa = 0;
                 check =0;
                 tpq += timer;
@@ -577,7 +578,7 @@ public class BattleScreen implements Screen {
                 stage.unfocusAll();
                 isTextFieldActive = false;
                 skill.click = 0;
-                waitss = 0;
+
                 boolean isHeated = false;
                 for (String s : Master.wordSkills) {
                     if (s.equals(inputText)) {
@@ -604,6 +605,21 @@ public class BattleScreen implements Screen {
                         dodge = 1;
                     }
 
+                    for (String s : Master.sotuminhlaydc) {
+                        if (s.equals(inputText)) {
+                            Master.sotuminhlaydc.add(inputText);
+                            i =2;
+                            break;
+                        }
+                    }
+                    if(i==2){
+                        Master.sotuminhlaydc.removeIndex(Master.sotuminhlaydc.size-1);
+                    }else {
+                        Master.sotuminhlaydc.add(inputText);
+                    }
+
+
+
                 } else {
                     int a =MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
@@ -619,7 +635,9 @@ public class BattleScreen implements Screen {
                         pet.avoid -= 5;
                         dodge = 2;
                     }
+
                 }
+                waitss =0;
                 Skill.qa = 0;
 
             }
@@ -635,10 +653,12 @@ public class BattleScreen implements Screen {
                 Skill.qa = 0;
                 check =0;
                 tpq += timer;
+                waitss =2;
+
                 timer =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
-                System.out.println(inputText);
+
                 textField.setVisible(false);
                 stage.unfocusAll();
                 isTextFieldActive = false;
@@ -662,13 +682,13 @@ public class BattleScreen implements Screen {
                         pet.avoid -= 5;
                         dodge = 2;
                     }
+
                 } else {
                     for (String s : Utils.specialq) {
                         if (s.equals(inputText)) {
                             isHeated = true;
                             break;
                         }
-
                     }
                     if (!isHeated) {
                         int a = MathUtils.random(1,3);
@@ -704,8 +724,25 @@ public class BattleScreen implements Screen {
                             pet.acc += 5;
                             dodge = 1;
                         }
+
+                        for (String s : Master.sotuminhlaydc) {
+                            if (s.equals(inputText)) {
+                                Master.sotuminhlaydc.add(inputText);
+                                i =2;
+                                break;
+                            }
+                        }
+                        if(i==2){
+                            Master.sotuminhlaydc.removeIndex(Master.sotuminhlaydc.size-1);
+                        }else {
+                            Master.sotuminhlaydc.add(inputText);
+                        }
+
+
                     }
+
                 }
+                waitss =0;
                 Utils.specialq.removeIndex(0);
             }
 

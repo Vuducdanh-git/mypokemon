@@ -12,7 +12,7 @@ public class Summary extends Actor {
     public Summary(int x, int y, Stage stage) {
         texture = new Texture("summary.png");
         setPosition(x, y);
-        setSize(500,200);
+        setSize(400,250);
         toFront();
 
 
