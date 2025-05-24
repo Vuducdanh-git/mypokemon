@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -21,6 +22,7 @@ public class NameScreen implements Screen {
     Stage stage;
     boolean ika =true;
     public static String inputText;
+    SpriteBatch batch;
     NameScreen(StartGame game) {
         this.game = game;
         stage = new Stage();
@@ -37,6 +39,7 @@ public class NameScreen implements Screen {
         textField.setVisible(false);
 
         stage.addActor(textField);
+        batch = new SpriteBatch();
 
 
     }
@@ -51,13 +54,16 @@ public class NameScreen implements Screen {
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         stage.act();
         stage.draw();
+        batch.begin();
+        game.fontf.draw(batch,"What is your name?",100,Gdx.graphics.getHeight()/2+80);
+
         if(ika==true){
             textField.setVisible(true);
             textField.setText(""); // Xóa nội dung cũ
             stage.setKeyboardFocus(textField);
             ika = false;
         }
-        else if ((Gdx.input.isKeyJustPressed(Input.Keys.ENTER))&&(textField.getText().length()<11)) {
+        else if ((Gdx.input.isKeyJustPressed(Input.Keys.ENTER))&&(textField.getText().length()<21)) {
             inputText = textField.getText();
             System.out.println(inputText);
             textField.setVisible(false);
@@ -65,12 +71,14 @@ public class NameScreen implements Screen {
             System.out.println(inputText);
             ika = true;
             game.setScreen(new Master(game));
-        }else if((Gdx.input.isKeyPressed(Input.Keys.ENTER))&&(textField.getText().length()>10)){
+        }else if((Gdx.input.isKeyPressed(Input.Keys.ENTER))&&(textField.getText().length()>20)){
             textField.setVisible(true);
             textField.setText(""); // Xóa nội dung cũ
             stage.setKeyboardFocus(textField);
             ika = false;
         }
+        System.out.println(inputText);
+        batch.end();
 
     }
 

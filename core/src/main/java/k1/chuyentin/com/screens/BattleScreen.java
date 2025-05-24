@@ -72,6 +72,7 @@ public class BattleScreen implements Screen {
     int enrandom = 1;
     float yourhps;
     int tu =0;
+    public static int i =0;
 
 
     public BattleScreen(StartGame game) {
@@ -115,29 +116,41 @@ public class BattleScreen implements Screen {
         cyp = new Cyp(stage, 340 + bar1.getWidth() / 2, 60, skillBar.getWidth() / 2);
         cyp.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                isTextFieldActive = false;
-                skill.click = 0;
-                waitss = 0;
-                skill.qa = 0;
-                game.setScreen(new Chargepoke(game));
+                if(i ==1){
+
+                }else {
+                    isTextFieldActive = false;
+                    skill.click = 0;
+                    waitss = 0;
+                    skill.qa = 0;
+                    game.setScreen(new Chargepoke(game));
+                }
+
+
             }
         });
 
         bth = new Bth(stage, 340 + bar1.getWidth() / 2, 10, 130, 50);
         bth.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                isTextFieldActive = false;
-                skill.click = 0;
-                waitss = 0;
-                skill.qa = 0;
-                game.setScreen(new Master(game));
+                if(i ==1){
+
+                }else {
+                    isTextFieldActive = false;
+                    skill.click = 0;
+                    waitss = 0;
+                    skill.qa = 0;
+                    game.setScreen(new Master(game));
+                }
+
+
             }
         });
 
         //stage.addActor(boss);
         amThanh = new AmThanh(5, 400, stage, game.nen);
         summary = new Summary(80,150,stage);
-        cross = new Cross(stage,100 +420,300,50,50);
+        cross = new Cross(stage,10000000,300,50,50);
 
         TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
         textFieldStyle.font = game.font;
@@ -171,7 +184,38 @@ public class BattleScreen implements Screen {
                 waitss =0;
                 cross.toBack();
                 summary.toBack();
-                enepoke.setPosition(390,280);
+                i =0;
+                tu =0;
+                if (inmap == 1) {
+                    enrandom = MathUtils.random(1, 5);
+                    if (enrandom == 1) {
+                        enepoke.remove();
+                        textr = new Texture("beedrill.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 12);
+                    }
+                    if (enrandom == 2) {
+                        enepoke.remove();
+                        textr = new Texture("celebi.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 13);
+
+                    }
+                    if (enrandom == 3) {
+                        enepoke.remove();
+                        textr = new Texture("ditto.png");
+                        enepoke = new Enepoke(textr, stage, 390, 260, 16);
+                    }
+                    if (enrandom == 4) {
+                        enepoke.remove();
+                        textr = new Texture("galla.png");
+                        enepoke = new Enepoke(textr, stage, 390, 250, 27);
+                    }
+                    if (enrandom == 5) {
+                        enepoke.remove();
+                        textr = new Texture("un.png");
+                        enepoke = new Enepoke(textr, stage, 390, 280, 19);
+
+                    }
+                }
             }
         });
         Gdx.input.setInputProcessor(stage);
@@ -287,6 +331,9 @@ public class BattleScreen implements Screen {
 
             }
         }
+        if(i ==1){
+            game.font.draw(batch,"" + tu,Gdx.graphics.getWidth()/2+60,Gdx.graphics.getHeight()/2+50);
+        }
         if (lose == 2) {
             if (!test) {
                 int random = MathUtils.random(1, 3);
@@ -308,16 +355,14 @@ public class BattleScreen implements Screen {
                 alpha = 1.0f - (float) time / (60 * 2);
                 game.fonts.setColor(1, 1, 1, alpha);
                 game.fonts.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
-                waitss = 2;
             } else {
                 waitss =2;
-                enepoke.toBack();
                 stage.addActor(summary);
                 stage.addActor(cross);
                 summary.toFront();
                 cross.toFront();
-                enepoke.setPosition(232222222,22222222);
-                game.font.draw(batch,"" + tu,Gdx.graphics.getWidth()/2+20,Gdx.graphics.getHeight()/2);
+                cross.setPosition(520,300);
+                i =1;
                 time = 0;
                 waitss = 0;
                 test = false;
@@ -372,36 +417,7 @@ public class BattleScreen implements Screen {
 
                     }
                 }
-                if (inmap == 1) {
-                    enrandom = MathUtils.random(1, 5);
-                    if (enrandom == 1) {
-                        enepoke.remove();
-                        textr = new Texture("beedrill.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 12);
-                    }
-                    if (enrandom == 2) {
-                        enepoke.remove();
-                        textr = new Texture("celebi.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 13);
 
-                    }
-                    if (enrandom == 3) {
-                        enepoke.remove();
-                        textr = new Texture("ditto.png");
-                        enepoke = new Enepoke(textr, stage, 390, 260, 16);
-                    }
-                    if (enrandom == 4) {
-                        enepoke.remove();
-                        textr = new Texture("galla.png");
-                        enepoke = new Enepoke(textr, stage, 390, 250, 27);
-                    }
-                    if (enrandom == 5) {
-                        enepoke.remove();
-                        textr = new Texture("un.png");
-                        enepoke = new Enepoke(textr, stage, 390, 280, 19);
-
-                    }
-                }
 
             }
 
@@ -493,15 +509,13 @@ public class BattleScreen implements Screen {
             }
         }
         batch.end();
-        if (quest > 1) {
+        if ((quest > 1)&&(waitss == 0)) {
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
-                waitss = 2;
-
-            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive ) {
                 Skill.qa = 0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
@@ -519,6 +533,7 @@ public class BattleScreen implements Screen {
                     }
                 }
                 if (isHeated) {
+                    tu +=1;
                     int a = MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
                         new Fire(0, 0, stage, true,a);
@@ -535,6 +550,7 @@ public class BattleScreen implements Screen {
                         pet.acc += 5;
                         dodge = 1;
                     }
+
                 } else {
                     int a =MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
@@ -552,16 +568,15 @@ public class BattleScreen implements Screen {
                     }
                 }
                 Skill.qa = 0;
-                tu +=1;
+
             }
         }
-        if (quest == 1) {
+        if ((quest == 1)&&(waitss == 0)) {
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
-                waitss = 2;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
                 Skill.qa = 0;
                 //  lấy nội dung nhập
@@ -571,7 +586,7 @@ public class BattleScreen implements Screen {
                 stage.unfocusAll();
                 isTextFieldActive = false;
                 skill.click = 0;
-                waitss = 0;
+
                 times = 0;
                 quest = 5;
                 boolean isHeated = false;
@@ -613,12 +628,15 @@ public class BattleScreen implements Screen {
                             pet.avoid -= 5;
                             dodge = 2;
                         }
+
                     } else {
+                        tu +=1;
+
                         int a = MathUtils.random(1,3);
                         for (int i = 0; i < 10; i++) {
                             new Fire(0, 0, stage, true,a);
                         }
-                        tu +=1;
+
                         dodgechanceenemy = MathUtils.random(1, 100);
                         if (dodgechanceenemy <= pet.acc) {
                             truhp = inputText.length() * 2;
@@ -633,7 +651,7 @@ public class BattleScreen implements Screen {
                 }
                 Utils.specialq.removeIndex(0);
             }
-            tu +=1;
+
         }
     }
 

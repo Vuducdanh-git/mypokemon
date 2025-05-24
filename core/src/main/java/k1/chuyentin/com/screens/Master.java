@@ -276,7 +276,7 @@ public class Master implements Screen {
         stage.draw();
 
         batch.begin();
-        game.font.setColor(Color.PURPLE);
+        game.font.setColor(Color.RED);
         game.font.draw(batch,"Player: "+NameScreen.inputText,Gdx.graphics.getWidth()/2-NameScreen.inputText.length()*10,Gdx.graphics.getHeight()-50);
         game.font.setColor(Color.BLACK);
         game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime+" seconds",0,Gdx.graphics.getHeight()-10);

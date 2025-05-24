@@ -10,6 +10,7 @@ import k1.chuyentin.com.Utils;
 import k1.chuyentin.com.actors.Pet;
 import k1.chuyentin.com.actors.Skill;
 import k1.chuyentin.com.screens.Master;
+import k1.chuyentin.com.screens.NameScreen;
 
 public class GameState {
     public float money = 0;
@@ -20,9 +21,10 @@ public class GameState {
     public int giatienautoclick = 0;
     public int sodiemtangkhiautoclick = 0;
     public float time =0;
+    public String ten = "";
     public GameState(){}
 
-    public GameState(float money, Array<PetforSave> petforSaves, int plus, Array<String> wordSkills, Array<String> wordSkillsVN, int giatienautoclick, int sodiemautoclick,float time) {
+    public GameState(float money, Array<PetforSave> petforSaves, int plus, Array<String> wordSkills, Array<String> wordSkillsVN, int giatienautoclick, int sodiemautoclick,float time,String ten) {
         this.money = money;
         this.petforSaves = petforSaves;
         this.plus = plus;
@@ -31,6 +33,7 @@ public class GameState {
         this.giatienautoclick = giatienautoclick;
         this.sodiemtangkhiautoclick = sodiemautoclick;
         this.time = time;
+        this.ten = ten;
     }
 
     public void save() {
@@ -58,6 +61,7 @@ public class GameState {
         Master.giatienautoclick = gameState.giatienautoclick;
         Master.sodiemtangkhiautoclick = gameState.sodiemtangkhiautoclick;
         StartGame.mytime = gameState.time;
+        NameScreen.inputText = gameState.ten;
         for (PetforSave p: gameState.petforSaves) {
 
             Pet pet = new Pet(new Texture("egg.png"), 0, 0, null, p.name);

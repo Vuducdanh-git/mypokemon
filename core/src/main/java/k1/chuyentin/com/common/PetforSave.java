@@ -9,13 +9,14 @@ public class PetforSave {
     public int acc =0;
     public int avoid =0;
     public float time =0;
+    public String ten="";
     public PetforSave() {}
 
-    public PetforSave(PetName name, int solanclick,int acc,int avoid,float time) {
-        this.name = name;
+    public PetforSave(PetName name, int solanclick,int acc,int avoid,float time,String ten) {
         this.solanclick = solanclick;
         this.acc = acc;
         this.avoid = avoid;
         this.time = time;
+        this.ten = ten;
     }
 }

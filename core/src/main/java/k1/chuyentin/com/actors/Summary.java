@@ -13,6 +13,7 @@ public class Summary extends Actor {
         texture = new Texture("summary.png");
         setPosition(x, y);
         setSize(500,200);
+        toFront();
 
 
     }
