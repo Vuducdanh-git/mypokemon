@@ -22,8 +22,8 @@ public class StartGame extends Game {
     public BitmapFont name;
 
     public static Array<Diamond> diamonds;
-    public Array<SB> sbs;
-    public Array<Ender> enders;
+    public static Array<SB> sbs;
+    public static Array<Ender> enders;
     public Music music;
     public Music nen;
     public static boolean amthanh=true;

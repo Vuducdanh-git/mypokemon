@@ -77,7 +77,12 @@ public class BattleScreen implements Screen {
     float yourhps;
     int tu =0;
     public static int i =0;
-
+    public static int is=0;
+    int timer;
+    int tpq=0;
+    public static int tpqt = 2100000002;
+    int check=0;
+    int timet=0;
 
     public BattleScreen(StartGame game) {
         this.game = game;
@@ -193,6 +198,7 @@ public class BattleScreen implements Screen {
                 summary.toBack();
                 i =0;
                 tu =0;
+                is =0;
                 if (inmap == 1) {
                     enrandom = MathUtils.random(1, 5);
                     if (enrandom == 1) {
@@ -230,6 +236,7 @@ public class BattleScreen implements Screen {
 
     @Override
     public void render(float v) {
+        System.out.println(StartGame.diamonds.size);
         StartGame.mytime +=v;
         float alphase = 1.0f;
         float alpha = 1.0f;
@@ -238,7 +245,7 @@ public class BattleScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 if (game.enders.size>5){
                     game.enders.size-=5;
-                    System.out.println("123468fughserghheuircgb");
+
                     pet.avoid += 15;
                 }
             }
@@ -247,7 +254,6 @@ public class BattleScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 if (game.sbs.size>10){
                     game.sbs.size-=10;
-                    System.out.println("123468fughserghheuircgb");
                     pet.acc += 15;
                 }
             }
@@ -273,7 +279,7 @@ public class BattleScreen implements Screen {
         }
         if (truhp > 0) {
             truhp -= 1;
-            skill.health(100);
+            skill.health(1);
         }
         if (trumhp > 0) {
             trumhp -= 1;
@@ -359,6 +365,9 @@ public class BattleScreen implements Screen {
         if(i ==1){
             game.font.draw(batch,"" + tu,Gdx.graphics.getWidth()/2+60,Gdx.graphics.getHeight()/2+50);
         }
+        if(is ==2){
+            game.font.draw(batch,"typing",Gdx.graphics.getWidth()/2+60,Gdx.graphics.getHeight()/2);
+        }
         if (lose == 2) {
             if (!test) {
                 int random = MathUtils.random(1, 3);
@@ -374,6 +383,7 @@ public class BattleScreen implements Screen {
                     game.sbs.add(new SB(Gdx.graphics.getWidth() / 2 - 64 / 2, Gdx.graphics.getHeight() / 2 - 64 / 2, stage, true));
                 }
             }
+            System.out.println(tpqt);
             yourhp = 100;
             time++;
             if (time < 60 * 2) {
@@ -381,6 +391,11 @@ public class BattleScreen implements Screen {
                 game.fonts.setColor(1, 1, 1, alpha);
                 game.fonts.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
             } else {
+                if(tpq < tpqt){
+                    tpqt = tpq;
+                    is =2;
+                }
+                tpq =0;
                 waitss =2;
                 stage.addActor(summary);
                 stage.addActor(cross);
@@ -534,14 +549,27 @@ public class BattleScreen implements Screen {
             }
         }
         batch.end();
+        if(check ==1){
+            timet +=1;
+            if(timet % 60 ==1){
+                timer ++;
+            }
+        }else {
+            timet =0;
+        }
+
         if ((quest > 1)&&(waitss == 0)) {
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
+                check =1;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive ) {
                 Skill.qa = 0;
+                check =0;
+                tpq += timer;
+                timer =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
                 System.out.println(inputText);
@@ -602,8 +630,12 @@ public class BattleScreen implements Screen {
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
+                check =1;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
                 Skill.qa = 0;
+                check =0;
+                tpq += timer;
+                timer =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
                 System.out.println(inputText);

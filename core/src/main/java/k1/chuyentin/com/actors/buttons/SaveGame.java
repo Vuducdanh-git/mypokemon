@@ -16,6 +16,7 @@ import k1.chuyentin.com.actors.MyActor;
 import k1.chuyentin.com.actors.Pet;
 import k1.chuyentin.com.common.GameState;
 import k1.chuyentin.com.common.PetforSave;
+import k1.chuyentin.com.screens.BattleScreen;
 import k1.chuyentin.com.screens.Master;
 import k1.chuyentin.com.screens.NameScreen;
 
@@ -32,9 +33,9 @@ public class SaveGame extends MyActor {
             public void clicked(InputEvent event, float x, float y) {
                 Array<PetforSave> petforSaves = new Array<>();
                 for(Pet p: Utils.pets){
-                    petforSaves.add(new PetforSave(p.name, p.solanclick,p.acc,p.avoid,StartGame.mytime, NameScreen.inputText));
+                    petforSaves.add(new PetforSave(p.name, p.solanclick,p.acc,p.avoid,StartGame.mytime, NameScreen.inputText,BattleScreen.tpqt,StartGame.diamonds.size));
                 }
-                GameState gameState = new GameState(Master.money, petforSaves, Master.plus, Master.wordSkills, Master.wordSkillsVN, Master.giatienautoclick, Master.sodiemtangkhiautoclick,StartGame.mytime,NameScreen.inputText);
+                GameState gameState = new GameState(Master.money, petforSaves, Master.plus, Master.wordSkills, Master.wordSkillsVN, Master.giatienautoclick, Master.sodiemtangkhiautoclick,StartGame.mytime,NameScreen.inputText, BattleScreen.tpqt,Master.autoclick,StartGame.diamonds.size,StartGame.sbs.size,StartGame.enders.size);
                 gameState.save();
                 System.out.println("save success!!");
                 Gdx.app.exit();

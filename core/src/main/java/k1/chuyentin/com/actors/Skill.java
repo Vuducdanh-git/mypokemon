@@ -46,9 +46,6 @@ public class Skill extends Actor {
                                     if (r==9){Utils.specialq.add("lion");}
                                     if (r==10){Utils.specialq.add("king");}
                                 }
-                                else {
-                                    System.out.println("u don't have this skill ");
-                                }
                             }
 
                         }
