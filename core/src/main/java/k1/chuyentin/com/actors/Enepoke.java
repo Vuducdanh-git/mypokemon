@@ -33,6 +33,7 @@ public class Enepoke extends Actor {
 
 
         apps.addActor(this);
+        //toBack();
 
     }
 

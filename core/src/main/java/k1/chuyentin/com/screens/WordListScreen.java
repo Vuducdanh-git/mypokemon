@@ -77,6 +77,8 @@ public class WordListScreen implements Screen {
 
     @Override
     public void render(float v) {
+
+        StartGame.mytime +=v;
         ScreenUtils.clear(Color.BLACK);
         stage.act();
         stage.draw();

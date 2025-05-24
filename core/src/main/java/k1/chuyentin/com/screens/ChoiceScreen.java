@@ -28,7 +28,7 @@ public class ChoiceScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Utils.setWordList6();
-                game.setScreen(new Master(game));
+                game.setScreen(new NameScreen(game));
             }
         });
         lop7 = new ButtonClass(300, Gdx.graphics.getHeight()/2 - 32, stage,7);
@@ -36,7 +36,7 @@ public class ChoiceScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Utils.setWordList7();
-                game.setScreen(new Master(game));
+                game.setScreen(new NameScreen(game));
             }
         });
         lop8 = new ButtonClass(400, Gdx.graphics.getHeight()/2 - 32, stage,8);
@@ -44,7 +44,7 @@ public class ChoiceScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Utils.setWordList8();
-                game.setScreen(new Master(game));
+                game.setScreen(new NameScreen(game));
             }
         });
     }
@@ -56,7 +56,7 @@ public class ChoiceScreen implements Screen {
     @Override
     public void render(float v) {
         ScreenUtils.clear(Color.BLACK);
-
+        StartGame.mytime +=v;
 
         stage.act();
         stage.draw();

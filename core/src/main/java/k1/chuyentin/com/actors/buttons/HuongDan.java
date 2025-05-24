@@ -11,8 +11,13 @@ import k1.chuyentin.com.actors.MyActor;
 
 public class HuongDan extends Actor {
     TextureRegion textureRegion;
-    public HuongDan(float x, float y, Stage s) {
-        textureRegion = new TextureRegion(new Texture("hd.png"));
+    public HuongDan(float x, float y, Stage s,int loai) {
+        if(loai ==1){
+            textureRegion = new TextureRegion(new Texture("hd.png"));
+        }
+        if(loai ==2){
+            textureRegion = new TextureRegion(new Texture("summary.png"));
+        }
         setPosition(x, y);
     }
     public void draw(Batch batch, float parentAlpha) {
