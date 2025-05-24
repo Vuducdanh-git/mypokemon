@@ -71,7 +71,7 @@ public class BattleScreen implements Screen {
     public static int quest = 2;
     int times;
     int inmap = 1;
-    public static int waitss;
+    public static int waitss = 0;
     public int kill = 0;
     int enrandom = 1;
     float yourhps;
@@ -618,8 +618,6 @@ public class BattleScreen implements Screen {
                         Master.sotuminhlaydc.add(inputText);
                     }
 
-
-
                 } else {
                     int a =MathUtils.random(1,3);
                     for (int i = 0; i < 10; i++) {
@@ -637,9 +635,9 @@ public class BattleScreen implements Screen {
                     }
 
                 }
-                waitss =0;
-                Skill.qa = 0;
 
+                Skill.qa = 0;
+                waitss =0;
             }
         }
         if ((quest == 1)&&(waitss == 0)) {
