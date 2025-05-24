@@ -20,7 +20,6 @@ public class Item2 extends MyActor{
         textureRegion = new TextureRegion(new Texture("v3.png"));
         setPosition(Gdx.graphics.getWidth(), y);
         setSize(64, 64);
-        addAction(Actions.moveTo(x, y, 0.5f));
         addListener(new ClickListener(){
 
             @Override
@@ -89,7 +88,7 @@ public class Item2 extends MyActor{
             }}}
         });
         setPosition(Gdx.graphics.getWidth(), y);
-//        addAction(Actions.moveTo(x, y, 0.5f));
+        addAction(Actions.moveTo(x, y, 0.5f));
     }
 
 }
