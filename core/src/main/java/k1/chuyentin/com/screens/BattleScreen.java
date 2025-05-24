@@ -52,6 +52,10 @@ public class BattleScreen implements Screen {
     Cyp cyp;
     int charge = 0;
     float truhp = 0;
+    Ender ender;
+    SB slimeball;
+
+
 
     Texture btr;
     Skill skill;
@@ -101,11 +105,14 @@ public class BattleScreen implements Screen {
         hpbare = new Hpbar(30, 320, stage);
         bar2 = new Bar2(30, 320, stage);
         bar1 = new Bar1(330, 140, stage);
+        ender = new Ender(280,120,stage,false);
+        slimeball = new SB(350,120,stage,false);
         skill = new Skill(stage, bar1.getX(), bar1.getY() / 2-20, skillBar.getWidth() / 2 - 30, 30);
         stage.addActor(skillBar);
         stage.addActor(pet);
         stage.addActor(bar2);
         stage.addActor(bar1);
+
 
         cyp = new Cyp(stage, 340 + bar1.getWidth() / 2, 60, skillBar.getWidth() / 2);
         cyp.addListener(new ClickListener() {
@@ -166,6 +173,24 @@ public class BattleScreen implements Screen {
         float alphase = 1.0f;
         float alpha = 1.0f;
         float alphas = 1.0f;
+        ender.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                if (game.enders.size>5){
+                    game.enders.size-=5;
+                    System.out.println("123468fughserghheuircgb");
+                    pet.avoid += 15;
+                }
+            }
+        });
+        slimeball.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                if (game.sbs.size>10){
+                    game.sbs.size-=10;
+                    System.out.println("123468fughserghheuircgb");
+                    pet.acc += 15;
+                }
+            }
+        });
         if (myhp > 50) {
             hpbarm.setColor(Color.RED);
         }
