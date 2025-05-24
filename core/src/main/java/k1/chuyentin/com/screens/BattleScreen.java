@@ -116,8 +116,8 @@ public class BattleScreen implements Screen {
         hpbare = new Hpbar(30, 320, stage);
         bar2 = new Bar2(30, 320, stage);
         bar1 = new Bar1(330, 140, stage);
-        ender = new Ender(280,120,stage,false);
-        slimeball = new SB(350,120,stage,false);
+        ender = new Ender(520,180,stage,false);
+        slimeball = new SB(570,180,stage,false);
         skill = new Skill(stage, bar1.getX(), bar1.getY() / 2-20, skillBar.getWidth() / 2 - 30, 30);
         stage.addActor(skillBar);
         stage.addActor(pet);
