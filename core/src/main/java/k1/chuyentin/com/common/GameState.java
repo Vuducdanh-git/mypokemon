@@ -3,12 +3,13 @@ package k1.chuyentin.com.common;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import k1.chuyentin.com.StartGame;
 import k1.chuyentin.com.Utils;
-import k1.chuyentin.com.actors.Pet;
-import k1.chuyentin.com.actors.Skill;
+import k1.chuyentin.com.actors.*;
+import k1.chuyentin.com.screens.BattleScreen;
 import k1.chuyentin.com.screens.Master;
 import k1.chuyentin.com.screens.NameScreen;
 
@@ -20,11 +21,16 @@ public class GameState {
     public Array<String> wordSkillsVN = new Array<>();
     public int giatienautoclick = 0;
     public int sodiemtangkhiautoclick = 0;
+    public boolean autoclick = false;
     public float time =0;
+    public int sp =0;
+    public int diamond;
+    public int sbs;
+    public int ender;
     public String ten = "";
     public GameState(){}
 
-    public GameState(float money, Array<PetforSave> petforSaves, int plus, Array<String> wordSkills, Array<String> wordSkillsVN, int giatienautoclick, int sodiemautoclick,float time,String ten) {
+    public GameState(float money, Array<PetforSave> petforSaves, int plus, Array<String> wordSkills, Array<String> wordSkillsVN, int giatienautoclick, int sodiemautoclick,float time,String ten,int sp,boolean autoclick,int diamon,int sbs,int ender) {
         this.money = money;
         this.petforSaves = petforSaves;
         this.plus = plus;
@@ -34,6 +40,11 @@ public class GameState {
         this.sodiemtangkhiautoclick = sodiemautoclick;
         this.time = time;
         this.ten = ten;
+        this.sp = sp;
+        this.autoclick = autoclick;
+        this.diamond = diamon;
+        this.sbs = sbs;
+        this.ender = ender;
     }
 
     public void save() {
@@ -62,6 +73,17 @@ public class GameState {
         Master.sodiemtangkhiautoclick = gameState.sodiemtangkhiautoclick;
         StartGame.mytime = gameState.time;
         NameScreen.inputText = gameState.ten;
+        BattleScreen.tpqt = gameState.sp;
+        Master.autoclick = gameState.autoclick;
+        for (int i = 0; i < gameState.diamond; i++) {
+            StartGame.diamonds.add(new Diamond(-100,-100,null,false));
+        }
+        for (int i = 0; i < gameState.sbs; i++) {
+            StartGame.sbs.add(new SB(-100,-100,null,false));
+        }
+        for (int i = 0; i < gameState.ender; i++) {
+            StartGame.enders.add(new Ender(-100,-100,null,false));
+        }
         for (PetforSave p: gameState.petforSaves) {
 
             Pet pet = new Pet(new Texture("egg.png"), 0, 0, null, p.name);

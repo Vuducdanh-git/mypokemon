@@ -65,10 +65,10 @@ public class NameScreen implements Screen {
         }
         else if ((Gdx.input.isKeyJustPressed(Input.Keys.ENTER))&&(textField.getText().length()<21)) {
             inputText = textField.getText();
-            System.out.println(inputText);
+
             textField.setVisible(false);
             stage.unfocusAll();
-            System.out.println(inputText);
+
             ika = true;
             game.setScreen(new Master(game));
         }else if((Gdx.input.isKeyPressed(Input.Keys.ENTER))&&(textField.getText().length()>20)){
@@ -77,7 +77,7 @@ public class NameScreen implements Screen {
             stage.setKeyboardFocus(textField);
             ika = false;
         }
-        System.out.println(inputText);
+
         batch.end();
 
     }
