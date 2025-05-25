@@ -74,9 +74,10 @@ public class BattleScreen implements Screen {
     public static int waitss = 0;
     public int kill = 0;
     int enrandom = 1;
-    float yourhps;
+    public static float yourhps = yourhp;
     int tu =0;
     public static int i =0;
+    int ife =0;
     public static int is=0;
     int timer;
     float tpq=0;
@@ -152,11 +153,9 @@ public class BattleScreen implements Screen {
                     skill.click = 0;
                     waitss = 0;
                     skill.qa = 0;
+                    Master.money = Master.money/2f;
                     game.setScreen(new Master(game));
-
                 }
-
-
             }
         });
 
@@ -191,7 +190,7 @@ public class BattleScreen implements Screen {
             skill.remove();
         }
 
-        yourhps = 100;
+
         cross.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 waitss =0;
@@ -456,8 +455,6 @@ public class BattleScreen implements Screen {
 
                     myhp = 100;
                     Utils.setWordList7();
-
-
                 }
 
 
@@ -557,27 +554,28 @@ public class BattleScreen implements Screen {
             timet =0;
         }
 
-        if ((quest > 1)&&(waitss == 0)) {
-            if (skill.click == 1 && !isTextFieldActive) {
+        if (quest > 1) {
+            if ((skill.click == 1) && !isTextFieldActive&&(waitss == 0)&&(i ==0)) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
                 isTextFieldActive = true;
                 check =1;
-            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive ) {
-                waitss =2;
 
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+
+                tpq += timer;
+                timer =0;
+                waitss =0;
                 Skill.qa = 0;
                 check =0;
                 tpq += timer;
-                timer =0;
-                //  lấy nội dung nhập
+                skill.click =0;
                 String inputText = textField.getText();
-                System.out.println(inputText);
+
                 textField.setVisible(false);
                 stage.unfocusAll();
                 isTextFieldActive = false;
-                skill.click = 0;
 
                 boolean isHeated = false;
                 for (String s : Master.wordSkills) {
@@ -608,11 +606,11 @@ public class BattleScreen implements Screen {
                     for (String s : Master.sotuminhlaydc) {
                         if (s.equals(inputText)) {
                             Master.sotuminhlaydc.add(inputText);
-                            i =2;
+                            ife =2;
                             break;
                         }
                     }
-                    if(i==2){
+                    if(ife==2){
                         Master.sotuminhlaydc.removeIndex(Master.sotuminhlaydc.size-1);
                     }else {
                         Master.sotuminhlaydc.add(inputText);
@@ -637,11 +635,11 @@ public class BattleScreen implements Screen {
                 }
 
                 Skill.qa = 0;
-                waitss =0;
+
             }
         }
-        if ((quest == 1)&&(waitss == 0)) {
-            if (skill.click == 1 && !isTextFieldActive) {
+        if (quest == 1) {
+            if ((skill.click == 1) && (!isTextFieldActive)&&(waitss == 0)&&(i ==0)) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
                 stage.setKeyboardFocus(textField);
@@ -651,7 +649,8 @@ public class BattleScreen implements Screen {
                 Skill.qa = 0;
                 check =0;
                 tpq += timer;
-                waitss =2;
+                waitss =0;
+                skill.click =0;
 
                 timer =0;
                 //  lấy nội dung nhập
@@ -660,7 +659,6 @@ public class BattleScreen implements Screen {
                 textField.setVisible(false);
                 stage.unfocusAll();
                 isTextFieldActive = false;
-                skill.click = 0;
 
                 times = 0;
                 quest = 5;
@@ -726,11 +724,11 @@ public class BattleScreen implements Screen {
                         for (String s : Master.sotuminhlaydc) {
                             if (s.equals(inputText)) {
                                 Master.sotuminhlaydc.add(inputText);
-                                i =2;
+                                ife =2;
                                 break;
                             }
                         }
-                        if(i==2){
+                        if(ife==2){
                             Master.sotuminhlaydc.removeIndex(Master.sotuminhlaydc.size-1);
                         }else {
                             Master.sotuminhlaydc.add(inputText);
@@ -740,10 +738,9 @@ public class BattleScreen implements Screen {
                     }
 
                 }
-                waitss =0;
+
                 Utils.specialq.removeIndex(0);
             }
-
         }
     }
 

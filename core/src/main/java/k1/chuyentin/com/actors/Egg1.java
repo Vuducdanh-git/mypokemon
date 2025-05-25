@@ -42,6 +42,8 @@ public class Egg1 extends MyActor{
 
                     Master.sound.play();
                     master.pet.solanclick =0;
+                    Pet.levelUp = false;
+                    Pet.lv =0;
                     master.pet.avoid = 10;
                     master.pet.acc = 50;
 
