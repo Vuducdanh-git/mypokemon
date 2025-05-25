@@ -23,12 +23,14 @@ public class Skill extends Actor {
 
         addListener(new ClickListener(){
             public void clicked(InputEvent event, float x, float y) {
+                click =1;
                 if(BattleScreen.i ==0){
                     if (BattleScreen.waitss == 0){
                         if((qa ==0)&&(click ==0)){
                             qa = 1;
                         }
                         if (qa ==1){
+
                             if (!Master.wordSkills.isEmpty()) {
                                 click =1;
                                 qa =2;
@@ -45,6 +47,8 @@ public class Skill extends Actor {
                                     if (r==8){Utils.specialq.add("phoneix");}
                                     if (r==9){Utils.specialq.add("lion");}
                                     if (r==10){Utils.specialq.add("king");}
+                                }else {
+                                    click =1;
                                 }
                             }
 

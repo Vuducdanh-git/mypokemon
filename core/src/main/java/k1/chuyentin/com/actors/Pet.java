@@ -25,7 +25,7 @@ import k1.chuyentin.com.screens.Wlsword;
 public class Pet extends MyActor{
     float w=getWidth();
     float h=getHeight();
-    public int lv = 0;
+    public static int lv = 0;
 
     Animation<TextureRegion> animation;
     float time;
@@ -38,7 +38,7 @@ public class Pet extends MyActor{
     TextureRegion textureRegionNoAnimation;
 
     public int solanclick = 0;
-    boolean levelUp = false;
+    public static boolean levelUp = false;
     static Music levelUpSound = Gdx.audio.newMusic(Gdx.files.internal("levelup.wav"));
 
     public StartGame game;
