@@ -129,7 +129,7 @@ public class Master implements Screen {
         bg = new Background(0, 0, stage);
         balo = new Balo(stage,5,380);
         rank = new Rank(Gdx.graphics.getWidth()/2,380,stage);
-        saveGame = new SaveGame(60,200,stage);
+        saveGame = new SaveGame(5,150,stage);
 
         amthanh = new AmThanh(5,250,stage,music);
         npc = new Npc(5,50,stage);
@@ -153,7 +153,7 @@ public class Master implements Screen {
 
             }
         });
-        bt = new OnOffauto(5,150,stage);
+        bt = new OnOffauto(0,180,stage);
         bt.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

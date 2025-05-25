@@ -77,6 +77,8 @@ public class BaloScreen implements Screen {
         game.font.draw(batch, "" + game.diamonds.size, 100, Gdx.graphics.getHeight() - 64);
         game.font.draw(batch, "" + game.sbs.size, 200, Gdx.graphics.getHeight() - 64);
         game.font.draw(batch, "" + game.enders.size, 300, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.sbs.size, 200, Gdx.graphics.getHeight() - 64);
+        game.font.draw(batch, "" + game.enders.size, 300, Gdx.graphics.getHeight() - 64);
         batch.end();
     }
 
