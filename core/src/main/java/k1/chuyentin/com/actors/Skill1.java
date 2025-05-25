@@ -34,8 +34,6 @@ public class Skill1 extends MyActor{
                         Utils.wordListVN.removeIndex(ngaunhien);
 
                         Master.sound.play();
-                     //   Skill.iclick = 1;
-
                 } else {
                     Master.skill1.remove();
                 }

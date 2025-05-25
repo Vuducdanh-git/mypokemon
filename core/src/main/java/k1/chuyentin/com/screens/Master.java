@@ -86,6 +86,7 @@ public class Master implements Screen {
 
     public static Array<String> wordSkills = new Array<>();
     public static Array<String> wordSkillsVN = new Array<>();
+    public static Array<String> sotuminhlaydc = new Array<>();
     ShapeRenderer shapeRenderer;
 
     BitmapFont font;
@@ -194,7 +195,6 @@ public class Master implements Screen {
                     game.setScreen(game.battleScreen);
                 } else {
                     chuaDuDieuKien = new ChuaDuDieuKien(-200, 0, stage);
-                    System.out.println("chua du dieu kien");
                 }
             }
         });
@@ -309,7 +309,7 @@ public class Master implements Screen {
         game.font.setColor(Color.RED);
         game.font.draw(batch,"Player: "+NameScreen.inputText,Gdx.graphics.getWidth()/2-NameScreen.inputText.length()*10,Gdx.graphics.getHeight()-50);
         game.font.setColor(Color.BLACK);
-        game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime+" seconds",0,Gdx.graphics.getHeight()-10);
+        game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime/60 +" minutes",0,Gdx.graphics.getHeight()-10);
         if (money<0) {
             System.out.println("loi roi loi roi");
             font.draw(batch, "$" + moneygia + "   ,hhooli.,uihlulusssdfguuuiuigxzcbgh   loi roi", 0, Gdx.graphics.getHeight() - 32);
@@ -330,10 +330,6 @@ public class Master implements Screen {
             font.draw(batch, "$" + moneygia + "B", 0, Gdx.graphics.getHeight() - 32);
         }
 
-
-        if (money>2139999999){
-            System.out.println("gffhtfkkkkkkkkkkkkkkkkkk");
-        }
 
         if(isShopShow && shopShowTime > 1f){
             font.draw(batch, "" + giatienautoclick + "$  \nFor faster", 490, 230);
