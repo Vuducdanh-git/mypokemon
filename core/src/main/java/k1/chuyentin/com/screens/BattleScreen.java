@@ -64,6 +64,7 @@ public class BattleScreen implements Screen {
     float trumhp = 0;
     int lose = 0;
     int time = 0;
+    int timef =0;
     Summary summary;
     boolean test = false;
     int random = 0;
@@ -129,14 +130,14 @@ public class BattleScreen implements Screen {
         cyp.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 if(i ==1){
-                    waitss =0;
                 }else {
                     isTextFieldActive = false;
                     skill.click = 0;
-                    waitss = 0;
                     skill.qa = 0;
                     game.setScreen(new Chargepoke(game));
                 }
+                waitss = 0;
+
 
 
             }
@@ -146,15 +147,14 @@ public class BattleScreen implements Screen {
         bth.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 if(i ==1){
-                    waitss =0;
                 }else {
                     isTextFieldActive = false;
                     skill.click = 0;
-                    waitss = 0;
                     skill.qa = 0;
                     game.setScreen(new Master(game));
 
                 }
+                waitss = 0;
 
 
             }
@@ -323,7 +323,7 @@ public class BattleScreen implements Screen {
             skill.healths(1);
         }
         hpbarm.setSize(270f / 100f * myhp, 25);
-        hpbare.setSize(270f / yourhps * yourhp, 25);
+        hpbare.setSize(270f / 100f * yourhp, 25);
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
         stage.act();
         stage.draw();
@@ -384,13 +384,13 @@ public class BattleScreen implements Screen {
             lose = 2;
         }
         if (lose == 1) {
-            waitss = 5;
             time++;
             myhp = 100;
             if (time < 60 * 2) {
                 alpha = 1.0f - (float) time / (60 * 2);
                 game.fonts.setColor(1, 1, 1, alpha);
                 game.fonts.draw(batch, "OH NO!You lose 10000 money", Gdx.graphics.getWidth() / 2 - 150, Gdx.graphics.getHeight() / 2);
+                waitss = 5;
             } else {
                 waitss = 0;
                 time = 0;
@@ -410,7 +410,7 @@ public class BattleScreen implements Screen {
             game.font.setColor(Color.WHITE);
         }
         if (lose == 2) {
-            waitss =2;
+
             if (!test) {
                 int random = MathUtils.random(1, 3);
                 test = true;
@@ -429,19 +429,20 @@ public class BattleScreen implements Screen {
             yourhp = 100;
             time++;
             if (time < 60 * 2) {
+                waitss =2;
                 alpha = 1.0f - (float) time / (60 * 2);
                 game.fonts.setColor(1, 1, 1, alpha);
                 game.fonts.draw(batch, "congratulation!You get 10000 money and you get 1 special item", Gdx.graphics.getWidth() / 2 - 300, Gdx.graphics.getHeight() - 30);
             } else {
                 tpq = tpq/tu;
-
+                waitss =0;
                 stage.addActor(summary);
                 stage.addActor(cross);
                 summary.toFront();
                 cross.toFront();
                 cross.setPosition(520,300);
                 i =1;
-                time = 0;
+                timet = 0;
                 test = false;
                 Master.money += 10000;
                 lose = 0;
@@ -522,15 +523,14 @@ public class BattleScreen implements Screen {
 
 
         if (dodge == 1) {
-            time++;
-            if (time < 60 * 2) {
-                alphase = 1.0f - (float) time / (60 * 2);
+            timef++;
+            if (timef < 60 * 1) {
+                alphase = 1.0f - (float) timef / (60 * 1);
                 game.fonts2.setColor(1, 1, 1, alphase);
                 game.fonts2.draw(batch, "Miss!", enepoke.getX(), enepoke.getY() - 25);
-                waitss = 2;
             } else {
-                time = 0;
-                waitss = 0;
+                timef = 0;
+                waitss =0;
                 dodge = 0;
             }
         }
@@ -540,10 +540,10 @@ public class BattleScreen implements Screen {
                 alphase = 1.0f - (float) time / (60 * 2);
                 game.fonts2.setColor(1, 1, 1, alphase);
                 game.fonts2.draw(batch, "you dodged the attack!", 0, 300);
-                waitss = 2;
+
             } else {
                 time = 0;
-                waitss = 0;
+                waitss=0;
                 dodge = 0;
             }
         }
@@ -557,7 +557,7 @@ public class BattleScreen implements Screen {
             timet =0;
         }
 
-        if ((quest > 1)&&(waitss == 0)) {
+        if (quest > 1) {
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
@@ -565,12 +565,12 @@ public class BattleScreen implements Screen {
                 isTextFieldActive = true;
                 check =1;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive ) {
-                waitss =2;
 
                 Skill.qa = 0;
                 check =0;
                 tpq += timer;
                 timer =0;
+                time =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
                 System.out.println(inputText);
@@ -635,12 +635,11 @@ public class BattleScreen implements Screen {
                     }
 
                 }
-
-                Skill.qa = 0;
                 waitss =0;
+                Skill.qa = 0;
             }
         }
-        if ((quest == 1)&&(waitss == 0)) {
+        if (quest == 1) {
             if (skill.click == 1 && !isTextFieldActive) {
                 textField.setVisible(true);
                 textField.setText(""); // Xóa nội dung cũ
@@ -648,19 +647,20 @@ public class BattleScreen implements Screen {
                 isTextFieldActive = true;
                 check =1;
             } else if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) && isTextFieldActive) {
+                waitss =0;
                 Skill.qa = 0;
                 check =0;
                 tpq += timer;
-                waitss =2;
-
                 timer =0;
+                time =0;
                 //  lấy nội dung nhập
                 String inputText = textField.getText();
-
+                System.out.println(inputText);
                 textField.setVisible(false);
                 stage.unfocusAll();
                 isTextFieldActive = false;
                 skill.click = 0;
+
 
                 times = 0;
                 quest = 5;
@@ -740,7 +740,7 @@ public class BattleScreen implements Screen {
                     }
 
                 }
-                waitss =0;
+
                 Utils.specialq.removeIndex(0);
             }
 
