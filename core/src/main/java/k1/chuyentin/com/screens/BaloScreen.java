@@ -22,6 +22,7 @@ public class BaloScreen implements Screen {
     StartGame game;
     Bth bth;
     Diamond dia;
+    public static int peachfire =0;
     SB slimeball;
     Ender ender;
 
@@ -44,6 +45,7 @@ public class BaloScreen implements Screen {
         float y = 300;
 
         for (int i = 0; i < Utils.pets.size; i++) {
+
             Pet pet = Utils.pets.get(i);
             pet.setPosition(x, y);
             pet.status = PetStatus.STAT;
@@ -72,6 +74,8 @@ public class BaloScreen implements Screen {
         stage.act();
         StartGame.mytime +=v;
         stage.draw();
+        BaloScreen.peachfire =0;
+        System.out.println(peachfire);
         batch.begin();
         game.font.setColor(1,1,1,1);
         game.font.draw(batch, "" + game.diamonds.size, 100, Gdx.graphics.getHeight() - 64);

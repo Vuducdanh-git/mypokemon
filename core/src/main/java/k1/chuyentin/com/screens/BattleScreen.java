@@ -605,14 +605,12 @@ public class BattleScreen implements Screen {
 
                     for (String s : Master.sotuminhlaydc) {
                         if (s.equals(inputText)) {
-                            Master.sotuminhlaydc.add(inputText);
+
                             ife =2;
                             break;
                         }
                     }
-                    if(ife==2){
-                        Master.sotuminhlaydc.removeIndex(Master.sotuminhlaydc.size-1);
-                    }else {
+                    if(ife != 2){
                         Master.sotuminhlaydc.add(inputText);
                     }
 
@@ -723,14 +721,12 @@ public class BattleScreen implements Screen {
 
                         for (String s : Master.sotuminhlaydc) {
                             if (s.equals(inputText)) {
-                                Master.sotuminhlaydc.add(inputText);
+
                                 ife =2;
                                 break;
                             }
                         }
-                        if(ife==2){
-                            Master.sotuminhlaydc.removeIndex(Master.sotuminhlaydc.size-1);
-                        }else {
+                        if(ife != 2){
                             Master.sotuminhlaydc.add(inputText);
                         }
 

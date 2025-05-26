@@ -85,11 +85,15 @@ public class GameState {
             StartGame.enders.add(new Ender(-100,-100,null,false));
         }
         for (PetforSave p: gameState.petforSaves) {
+            if(gameState.petforSaves.size >0){
+                Pet pet = new Pet(new Texture("egg.png"), 0, 0, null, p.name);
+                pet.solanclick = p.solanclick;
+                pet.levelUp = false;
+                pet.lv = p.lv;
+                pet.setTextureRegion(p.lv, p.name);
+                Utils.pets.add(pet);
+            }
 
-            Pet pet = new Pet(new Texture("egg.png"), 0, 0, null, p.name);
-
-            pet.solanclick = p.solanclick;
-            Utils.pets.add(pet);
         }
     }
 

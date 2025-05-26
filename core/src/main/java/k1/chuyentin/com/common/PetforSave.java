@@ -12,7 +12,7 @@ public class PetforSave {
     public String ten="";
     public int a;
     public int lv =0;
-    public boolean lvup =false;
+    public boolean lvup =true;
     public int diam;
     public PetforSave() {}
 
@@ -24,7 +24,8 @@ public class PetforSave {
         this.time = time;
         this.ten = ten;
         this.a = a;
-        this.diam = diam;this.lv =lv;
+        this.diam = diam;
+        this.lv =lv;
         this.lvup = lvup;
     }
 }
