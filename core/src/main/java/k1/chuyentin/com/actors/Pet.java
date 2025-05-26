@@ -25,7 +25,7 @@ import k1.chuyentin.com.screens.Wlsword;
 public class Pet extends MyActor{
     float w=getWidth();
     float h=getHeight();
-    public static int lv = 0;
+    public int lv = 0;
 
     Animation<TextureRegion> animation;
     float time;
@@ -38,23 +38,24 @@ public class Pet extends MyActor{
     TextureRegion textureRegionNoAnimation;
 
     public int solanclick = 0;
-    public static boolean levelUp = false;
+    public boolean levelUp = false;
     static Music levelUpSound = Gdx.audio.newMusic(Gdx.files.internal("levelup.wav"));
 
     public StartGame game;
 
-    public Pet(Texture texture, float x, float y, Stage stage, PetName name) {
+    public Pet(Texture texture, float x, float y, Stage stage, PetName nome) {
         super(x, y, stage);
         setSize(32, 32);
         setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-        this.name = name;
+        this.name = nome;
         if(this.name == null) {
             // Chọn tên ngẫu nhiên từ danh sách 20 tên có săn
             this.name = PetName.values()[MathUtils.random(0, PetName.values().length - 1)];
         }
-
         textureRegionNoAnimation = new TextureRegion(texture);
+
         textureRegion = textureRegionNoAnimation;
+
 
         addListener(new ClickListener(){
             @Override
@@ -117,68 +118,12 @@ public class Pet extends MyActor{
     @Override
     public void act(float delta) {
         super.act(delta);
-
         if (solanclick >= 50 && lv == 0 && !levelUp) {
             lv = 1;
             levelUpSound.play();
             levelUp = true;
             textureRegion = new TextureRegion(new Texture("rong.png"));
-            switch (name){
-                case LUXBACK -> {
-                    textureRegion = new TextureRegion(new Texture("lux1.png"));
-                }
-                case ZOROBACK -> {
-                    textureRegion = new TextureRegion(new Texture("zo1.png"));
-                }
-                case SCEPBACK -> {
-                    textureRegion = new TextureRegion(new Texture("scep1.png"));
-                }
-                case CHANBACK -> {
-                    textureRegion = new TextureRegion(new Texture("chan1.png"));
-                }
-                case VEBACK -> {
-                    textureRegion = new TextureRegion(new Texture("fushigidane.png"));
-                }
-                case BLASBACK -> {
-                    textureRegion = new TextureRegion(new Texture("rua.png"));
-                }
-                case CHARBACK -> {
-                    textureRegion = new TextureRegion(new Texture("rong.png"));
-                }
-                case GARBACK -> {
-                    textureRegion = new TextureRegion(new Texture("gar1.png"));
-                }
-                case GALLABACK -> {
-                    textureRegion = new TextureRegion(new Texture("galla1.png"));
-                }
-                case DIBACK -> {
-                    textureRegion = new TextureRegion(new Texture("dial.png"));
-                }
-                case MBACK -> {
-                    textureRegion = new TextureRegion(new Texture("me.png"));
-                }case CEBACK -> {
-                    textureRegion = new TextureRegion(new Texture("celi.png"));
-                }case JIBACK -> {
-                    textureRegion = new TextureRegion(new Texture("jirc.png"));
-                }case UNBACK -> {
-                    textureRegion = new TextureRegion(new Texture("unk.png"));
-                }
-                case GENBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ges.png"));
-                }case GROUBACK -> {
-                    textureRegion = new TextureRegion(new Texture("grod.png"));
-                }case LUGBACK -> {
-                    textureRegion = new TextureRegion(new Texture("lugs.png"));
-                }case KYOBACK -> {
-                    textureRegion = new TextureRegion(new Texture("kyg.png"));
-                }
-                case RAYBACK -> {
-                    textureRegion = new TextureRegion(new Texture("rayq.png"));
-                }case DITTOBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ditt.png"));
-                }
-            }
-            textureRegionNoAnimation = textureRegion;
+            setTextureRegion(lv, name);
             if(!status.equals(PetStatus.CHARGE)){
                 setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
             }
@@ -190,62 +135,7 @@ public class Pet extends MyActor{
             levelUp = true;
             lv = 2;
             textureRegion = new TextureRegion(new Texture("rongcon.png"));
-            switch (name) {
-                case DIBACK -> {
-                    textureRegion = new TextureRegion(new Texture("dial.png"));
-                }
-                case LUXBACK -> {
-                    textureRegion = new TextureRegion(new Texture("lux2.png"));
-                }
-                case SCEPBACK -> {
-                    textureRegion = new TextureRegion(new Texture("scep2.png"));
-                }
-                case ZOROBACK -> {
-                    textureRegion = new TextureRegion(new Texture("zo1.png"));
-                }
-                case CHANBACK -> {
-                    textureRegion = new TextureRegion(new Texture("chan2.png"));
-                }
-                case VEBACK -> {
-                    textureRegion = new TextureRegion(new Texture("fushigisou.png"));
-                }
-                case BLASBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ruacon.png"));
-                }
-                case CHARBACK -> {
-                    textureRegion = new TextureRegion(new Texture("rongcon.png"));
-                }
-                case GARBACK -> {
-                    textureRegion = new TextureRegion(new Texture("gar2.png"));
-                }
-                case GALLABACK -> {
-                    textureRegion = new TextureRegion(new Texture("galla2.png"));
-                }
-                case MBACK -> {
-                    textureRegion = new TextureRegion(new Texture("me.png"));
-                }case CEBACK -> {
-                    textureRegion = new TextureRegion(new Texture("celi.png"));
-                }case JIBACK -> {
-                    textureRegion = new TextureRegion(new Texture("jirc.png"));
-                }case UNBACK -> {
-                    textureRegion = new TextureRegion(new Texture("unk.png"));
-                }
-                case GENBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ges.png"));
-                }case GROUBACK -> {
-                    textureRegion = new TextureRegion(new Texture("grod.png"));
-                }case LUGBACK -> {
-                    textureRegion = new TextureRegion(new Texture("lugs.png"));
-                }case KYOBACK -> {
-                    textureRegion = new TextureRegion(new Texture("kyg.png"));
-                }
-                case RAYBACK -> {
-                    textureRegion = new TextureRegion(new Texture("rayq.png"));
-                }case DITTOBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ditt.png"));
-                }
-            }
-            textureRegionNoAnimation = textureRegion;
+            setTextureRegion(lv, name);
             if(!status.equals(PetStatus.CHARGE)){
                 setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
             }
@@ -258,62 +148,7 @@ public class Pet extends MyActor{
             levelUp = true;
             lv = 3;
             textureRegion = new TextureRegion(new Texture("ronglon.png"));
-            switch (name) {
-                case DIBACK -> {
-                    textureRegion = new TextureRegion(new Texture("dial.png"));
-                }
-                case LUXBACK -> {
-                    textureRegion = new TextureRegion(new Texture("lux3.png"));
-                }
-                case SCEPBACK -> {
-                    textureRegion = new TextureRegion(new Texture("scep3.png"));
-                }
-                case ZOROBACK -> {
-                    textureRegion = new TextureRegion(new Texture("zo2.png"));
-                }
-                case CHANBACK -> {
-                    textureRegion = new TextureRegion(new Texture("chan3.png"));
-                }
-                case VEBACK -> {
-                    textureRegion = new TextureRegion(new Texture("fushigibana.png"));
-                }
-                case BLASBACK -> {
-                    textureRegion = new TextureRegion(new Texture("rualon.png"));
-                }
-                case CHARBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ronglon.png"));
-                }
-                case GARBACK -> {
-                    textureRegion = new TextureRegion(new Texture("gar3.png"));
-                }
-                case GALLABACK -> {
-                    textureRegion = new TextureRegion(new Texture("galla3.png"));
-                }
-                case MBACK -> {
-                    textureRegion = new TextureRegion(new Texture("me.png"));
-                }case CEBACK -> {
-                    textureRegion = new TextureRegion(new Texture("celi.png"));
-                }case JIBACK -> {
-                    textureRegion = new TextureRegion(new Texture("jirc.png"));
-                }case UNBACK -> {
-                    textureRegion = new TextureRegion(new Texture("unk.png"));
-                }
-                case GENBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ges.png"));
-                }case GROUBACK -> {
-                    textureRegion = new TextureRegion(new Texture("grod.png"));
-                }case LUGBACK -> {
-                    textureRegion = new TextureRegion(new Texture("lugs.png"));
-                }case KYOBACK -> {
-                    textureRegion = new TextureRegion(new Texture("kyg.png"));
-                }
-                case RAYBACK -> {
-                    textureRegion = new TextureRegion(new Texture("rayq.png"));
-                }case DITTOBACK -> {
-                    textureRegion = new TextureRegion(new Texture("ditt.png"));
-                }
-            }
-            textureRegionNoAnimation = textureRegion;
+            setTextureRegion(lv, name);
             if(!status.equals(PetStatus.CHARGE)){
                 setPosition(Gdx.graphics.getWidth() / 2 - getWidth() / 2, Gdx.graphics.getHeight() / 2 - getHeight() / 2);
             }
@@ -462,5 +297,183 @@ public class Pet extends MyActor{
         animation = new com.badlogic.gdx.graphics.g2d.Animation<TextureRegion>(speed, frames);
         animation.setPlayMode(Animation.PlayMode.LOOP);
         time = 0;
+    }
+
+    public void setTextureRegion(int lv, PetName name){
+        switch (lv){
+            case 1 -> {
+                textureRegion = new TextureRegion(new Texture("rong.png"));
+                switch (name){
+                    case LUXBACK -> {
+                        textureRegion = new TextureRegion(new Texture("lux1.png"));
+                    }
+                    case ZOROBACK -> {
+                        textureRegion = new TextureRegion(new Texture("zo1.png"));
+                    }
+                    case SCEPBACK -> {
+                        textureRegion = new TextureRegion(new Texture("scep1.png"));
+                    }
+                    case CHANBACK -> {
+                        textureRegion = new TextureRegion(new Texture("chan1.png"));
+                    }
+                    case VEBACK -> {
+                        textureRegion = new TextureRegion(new Texture("fushigidane.png"));
+                    }
+                    case BLASBACK -> {
+                        textureRegion = new TextureRegion(new Texture("rua.png"));
+                    }
+                    case CHARBACK -> {
+                        textureRegion = new TextureRegion(new Texture("rong.png"));
+                    }
+                    case GARBACK -> {
+                        textureRegion = new TextureRegion(new Texture("gar1.png"));
+                    }
+                    case GALLABACK -> {
+                        textureRegion = new TextureRegion(new Texture("galla1.png"));
+                    }
+                    case DIBACK -> {
+                        textureRegion = new TextureRegion(new Texture("dial.png"));
+                    }
+                    case MBACK -> {
+                        textureRegion = new TextureRegion(new Texture("me.png"));
+                    }case CEBACK -> {
+                        textureRegion = new TextureRegion(new Texture("celi.png"));
+                    }case JIBACK -> {
+                        textureRegion = new TextureRegion(new Texture("jirc.png"));
+                    }case UNBACK -> {
+                        textureRegion = new TextureRegion(new Texture("unk.png"));
+                    }
+                    case GENBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ges.png"));
+                    }case GROUBACK -> {
+                        textureRegion = new TextureRegion(new Texture("grod.png"));
+                    }case LUGBACK -> {
+                        textureRegion = new TextureRegion(new Texture("lugs.png"));
+                    }case KYOBACK -> {
+                        textureRegion = new TextureRegion(new Texture("kyg.png"));
+                    }
+                    case RAYBACK -> {
+                        textureRegion = new TextureRegion(new Texture("rayq.png"));
+                    }case DITTOBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ditt.png"));
+                    }
+                }
+            }
+            case 2 -> {
+                switch (name) {
+                    case DIBACK -> {
+                        textureRegion = new TextureRegion(new Texture("dial.png"));
+                    }
+                    case LUXBACK -> {
+                        textureRegion = new TextureRegion(new Texture("lux2.png"));
+                    }
+                    case SCEPBACK -> {
+                        textureRegion = new TextureRegion(new Texture("scep2.png"));
+                    }
+                    case ZOROBACK -> {
+                        textureRegion = new TextureRegion(new Texture("zo1.png"));
+                    }
+                    case CHANBACK -> {
+                        textureRegion = new TextureRegion(new Texture("chan2.png"));
+                    }
+                    case VEBACK -> {
+                        textureRegion = new TextureRegion(new Texture("fushigisou.png"));
+                    }
+                    case BLASBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ruacon.png"));
+                    }
+                    case CHARBACK -> {
+                        textureRegion = new TextureRegion(new Texture("rongcon.png"));
+                    }
+                    case GARBACK -> {
+                        textureRegion = new TextureRegion(new Texture("gar2.png"));
+                    }
+                    case GALLABACK -> {
+                        textureRegion = new TextureRegion(new Texture("galla2.png"));
+                    }
+                    case MBACK -> {
+                        textureRegion = new TextureRegion(new Texture("me.png"));
+                    }case CEBACK -> {
+                        textureRegion = new TextureRegion(new Texture("celi.png"));
+                    }case JIBACK -> {
+                        textureRegion = new TextureRegion(new Texture("jirc.png"));
+                    }case UNBACK -> {
+                        textureRegion = new TextureRegion(new Texture("unk.png"));
+                    }
+                    case GENBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ges.png"));
+                    }case GROUBACK -> {
+                        textureRegion = new TextureRegion(new Texture("grod.png"));
+                    }case LUGBACK -> {
+                        textureRegion = new TextureRegion(new Texture("lugs.png"));
+                    }case KYOBACK -> {
+                        textureRegion = new TextureRegion(new Texture("kyg.png"));
+                    }
+                    case RAYBACK -> {
+                        textureRegion = new TextureRegion(new Texture("rayq.png"));
+                    }case DITTOBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ditt.png"));
+                    }
+                }
+            }
+            case 3 -> {
+                switch (name) {
+                    case DIBACK -> {
+                        textureRegion = new TextureRegion(new Texture("dial.png"));
+                    }
+                    case LUXBACK -> {
+                        textureRegion = new TextureRegion(new Texture("lux3.png"));
+                    }
+                    case SCEPBACK -> {
+                        textureRegion = new TextureRegion(new Texture("scep3.png"));
+                    }
+                    case ZOROBACK -> {
+                        textureRegion = new TextureRegion(new Texture("zo2.png"));
+                    }
+                    case CHANBACK -> {
+                        textureRegion = new TextureRegion(new Texture("chan3.png"));
+                    }
+                    case VEBACK -> {
+                        textureRegion = new TextureRegion(new Texture("fushigibana.png"));
+                    }
+                    case BLASBACK -> {
+                        textureRegion = new TextureRegion(new Texture("rualon.png"));
+                    }
+                    case CHARBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ronglon.png"));
+                    }
+                    case GARBACK -> {
+                        textureRegion = new TextureRegion(new Texture("gar3.png"));
+                    }
+                    case GALLABACK -> {
+                        textureRegion = new TextureRegion(new Texture("galla3.png"));
+                    }
+                    case MBACK -> {
+                        textureRegion = new TextureRegion(new Texture("me.png"));
+                    }case CEBACK -> {
+                        textureRegion = new TextureRegion(new Texture("celi.png"));
+                    }case JIBACK -> {
+                        textureRegion = new TextureRegion(new Texture("jirc.png"));
+                    }case UNBACK -> {
+                        textureRegion = new TextureRegion(new Texture("unk.png"));
+                    }
+                    case GENBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ges.png"));
+                    }case GROUBACK -> {
+                        textureRegion = new TextureRegion(new Texture("grod.png"));
+                    }case LUGBACK -> {
+                        textureRegion = new TextureRegion(new Texture("lugs.png"));
+                    }case KYOBACK -> {
+                        textureRegion = new TextureRegion(new Texture("kyg.png"));
+                    }
+                    case RAYBACK -> {
+                        textureRegion = new TextureRegion(new Texture("rayq.png"));
+                    }case DITTOBACK -> {
+                        textureRegion = new TextureRegion(new Texture("ditt.png"));
+                    }
+                }
+            }
+        }
+        textureRegionNoAnimation = textureRegion;
     }
 }

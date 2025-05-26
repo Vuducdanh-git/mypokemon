@@ -42,7 +42,7 @@ public class Master implements Screen {
     Stage stage;
 
     public static Sound sound;
-    static public  float money = 100000000;
+    static public  float money = 0;
     static public  float moneygia = 0;
     static int time = 0;
 
@@ -307,7 +307,7 @@ public class Master implements Screen {
 
         batch.begin();
         game.font.setColor(Color.RED);
-        game.font.draw(batch,"Player: "+NameScreen.inputText,Gdx.graphics.getWidth()/2-NameScreen.inputText.length()*10,Gdx.graphics.getHeight()-50);
+        game.font.draw(batch,"Player: "+NameScreen.inputText,Gdx.graphics.getWidth()/2-NameScreen.inputText.length()*10,Gdx.graphics.getHeight()-140);
         game.font.setColor(Color.BLACK);
         game.font.draw(batch,"You have studied for a total of "+(int)StartGame.mytime/60 +" minutes",0,Gdx.graphics.getHeight()-10);
         if (money<0) {

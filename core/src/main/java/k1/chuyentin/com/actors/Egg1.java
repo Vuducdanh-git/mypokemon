@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import k1.chuyentin.com.screens.BaloScreen;
 import k1.chuyentin.com.screens.Master;
 import k1.chuyentin.com.Utils;
 
@@ -28,6 +29,7 @@ public class Egg1 extends MyActor{
                 if (Master.money >= 25000 && mone == 1) {
                     Master.money -= 25000;
                     mone = 0;
+                    BaloScreen.peachfire =0;
 //
 //                    int ngaunhien = MathUtils.random(0, Utils.wordList.size-1);
 //                    Master.wordSkills.add(Utils.wordList.get(ngaunhien));
@@ -42,8 +44,8 @@ public class Egg1 extends MyActor{
 
                     Master.sound.play();
                     master.pet.solanclick =0;
-                    Pet.levelUp = false;
-                    Pet.lv =0;
+                    master.pet.levelUp = false;
+                    master.pet.lv =0;
                     master.pet.avoid = 10;
                     master.pet.acc = 50;
 

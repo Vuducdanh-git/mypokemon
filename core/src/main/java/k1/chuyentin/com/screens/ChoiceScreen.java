@@ -62,7 +62,7 @@ public class ChoiceScreen implements Screen {
         stage.draw();
         batch.begin();
         game.font.draw(batch, "Do you want to raise Pokémon and battle with ", 100, 400);
-        game.font.draw(batch, "             grade 6 or 7 vocabulary?        ", 100, 370);
+        game.font.draw(batch, "             grade 6 or 7 or 8 vocabulary?        ", 100, 370);
         batch.end();
     }
 
